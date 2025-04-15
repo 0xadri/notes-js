@@ -1,15 +1,25 @@
 
+//-------------------------------------------------------//
 
+— Docs —
 
-JSX lets you put markup into JavaScript. 
-
-Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.
-
+https://react.dev/learn/writing-markup-with-jsx
 
 //-------------------------------------------------------//
 
+— What is JSX —
+
+JSX was invented by a team at Facebook/Meta, the same team that created React. 
+
+JSX stands for JavaScript XML.
+JSX is a syntax extension to JavaScript.
+JSX lets you put markup into JavaScript. 
+
+//-------------------------------------------------------//
 
 — Curly braces for JSX —
+
+Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.
 
 return (
   <h1>
@@ -24,8 +34,11 @@ return (
   />
 );
 
+//-------------------------------------------------------//
 
-Double curly braces: not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
+— Double Curly braces for JSX —
+
+Not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
 
 return (
   <img
@@ -38,10 +51,8 @@ return (
   />
 );
 
-
 //-------------------------------------------------------//
 
-  
 — Conditions in JSX —
 
 "if" does not work in JSX.
@@ -60,11 +71,9 @@ return (
   {isLoggedIn && <AdminPanel />}
 </div>
 
-
 //-------------------------------------------------------//
 
-
-— Lists in JSX —
+— Lists in JavaScript —
 
 const products = [{ title: 'Cabbage', id: 1 },  { title: 'Garlic', id: 2 },  { title: 'Apple', id: 3 }];
 

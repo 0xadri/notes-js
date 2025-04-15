@@ -1,4 +1,6 @@
 
+//-------------------------------------------------------//
+
 — Docs —
 
 https://vercel.com/
@@ -7,8 +9,23 @@ https://nextjs.org/docs/
 
 https://mongoosejs.com/docs/index.html
 
-https://www.udemy.com/course/nextjs-from-scratch/ —AND— https://github.com/bradtraversy/property-pulse-nextjs
-stopped at chapt 20
+https://next-auth.js.org/
+
+Course
+https://www.udemy.com/course/nextjs-from-scratch/
+https://github.com/bradtraversy/property-pulse-nextjs
+Stopped coding at chapt 61
+
+//-------------------------------------------------------//
+
+— Commands —
+
+npm run dev // Start Server
+
+pkill -9 ^next-server // Kill Server
+
+Why Restart Server
+https://medium.com/@Sky_Hustle/mastering-next-js-development-when-and-why-to-restart-your-server-522a02c29730
 
 //-------------------------------------------------------//
 
@@ -47,23 +64,6 @@ By defaut in NextJS, components are server components.
 
 Syntax to add at the beginning of the file:
 'use client';
-
-//-------------------------------------------------------//
-
-— Backticks —
-
-ES6 feature, called template literals.
-
-Use Cases: 
- - interpolate values into strings dynamically
- - JSX syntax to inject values dynamically into the render method of the component
- - allowed to split across multiple lines
-
-Notice the extra $ Sign:
-
-<div className={`${backgroundColor} p-6 rounded-lg shadow-md`}></div>
-
-<img src={`/images/properties/${property.images[0]}`} />
 
 //-------------------------------------------------------//
 

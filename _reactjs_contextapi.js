@@ -14,9 +14,9 @@ Components subscribing to a Context will receive the value for the Provider clos
 Providers may be given an object containing the React state and its corresponding state updater function. Subscribing child components may then use the state updater function to update the state for the Context.
 
 Three parts:
- - useContext Hook
  - Context providers
  - Context wrappers
+ - useContext Hook
  
  Rules
  - useContext must be imported when used // import React , {useContext} from "react";

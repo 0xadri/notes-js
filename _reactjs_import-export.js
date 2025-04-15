@@ -22,12 +22,12 @@ https://stackoverflow.com/a/42252008/759452
 export function getNewExpirationTime() {
   return Date.now() + 15 * 1000;
 }
-export function getArbitratyId() {
+export function generateId() {
   return 13423;
 }
 
 // in other file
-import { generateId, getNewExpirationTime } from './utilities';
+import { getNewExpirationTime, generateId } from './utilities';
 
 export default function App() {
 	const expTime = getNewExpirationTime();
@@ -91,7 +91,23 @@ import titlescreen from './styles/TitleScreen.module.css'
 
 <button className={titlescreen.btn}>Play</button>
 
+//-------------------------------------------------------//
 
+—— default vs named exports ——
+
+You can export a function component from a file using either default or named exports.
+
+Import must then be done using the relevant technique — different whether default or named exports.
+
+// default export
+export default function Gallery() {}
+// must use import syntax:
+import Gallery from './Gallery';
+
+// named export
+export function Profile() {}
+// must use import syntax:
+import { Profile } from './Gallery';
 
 
 

@@ -1,10 +1,109 @@
 
 
+
+
+
 //-------------------------------------------------------//
 
 — Imports —
 
 import React, { useState, useEffect } from 'react';
+
+//-------------------------------------------------------//
+
+— Props vs State —
+
+There are two types of “model” data in React: 
+ 1. Props
+ 2. State
+
+TL;DR
+ 1. Props: are like arguments you pass to a function, they let a parent component pass data to a child component.
+ 2. State: is like a component’s memory, it lets a component keep track of some information and change it in response to interactions.
+
+Use Cases
+ 1. Props: customize a child component appearance i.e. a Form can pass a color prop to a Button.
+ 2. State: i.e. a button to keep track of isHovered state.
+
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+— What is "Rendering" —
+
+Rendering is the process of React calling your component to figure out what they display on screen.
+Rendering runs the entire code of a component.
+
+https://react.dev/learn/render-and-commit
+
+//-------------------------------------------------------//
+
+— Rendering vs Re-Rendering —
+
+ 1. Rendering: initial render, React calls the root component.
+ 2. Re-Rendering: subsequent renders, React calls component whose state update triggered the render.
+
+ 1. Rendering runs the entire code of a component.
+ 2. Re-Rendering re-runs the entire code of a component.
+
+https://react.dev/learn/render-and-commit
+
+//-------------------------------------------------------//
+
+— Rendering, Re-Rendering And Recursivity —
+
+Rendering is recursive: if the rendered component returns some other component, React will render that component next, and so on.
+
+ 1. Rendering: React initial render calls the root component, and its child components recursively.
+ 2. Re-Rendering: React calls component whose state update triggered the render, and its child components recursively.
+
+https://react.dev/learn/render-and-commit
+
+//-------------------------------------------------------//
+
+— Re-Rendering Conditions —
+
+By default, when a component re-renders:
+ 1. React recreates all code defined inside a component, including functions.
+ 2. React will recursively re-render all child components inside itself
+ 
+A component re-renders when:
+ 1. one of its parents gets re-rendered
+ 2. one of its props gets updated (sent from parent)
+ 3. one of its states gets updated
+ 
+TL;DR: Re-Rendering is tightly related to the Data Flow, Props, and States.
+
+https://react.dev/learn/render-and-commit
+
+//-------------------------------------------------------//
+
+— Components Forget Everything —
+
+Components have amnesia.
+
+When components re-render, all the previous values are lost because it re-runs from scratch.
+
+For states that persist across re-renders (component re-runs), we must define them with useState().
+
+REACT STATES PERSIST ACROSS RE-RENDERS
+
+//-------------------------------------------------------//
+
+— State or not State —
+
+Figuring out if data in my app is a state or not.
+
+- Does it remain unchanged over time? If so, it isn’t state.
+- Is it passed in from a parent via props? If so, it isn’t state.
+- Can you compute it based on existing state or props in your component? If so, it definitely isn’t state!
+
+//-------------------------------------------------------//
+
+— Re-Rendering Component From Within Itself —
+
+useState() is a React Hook that lets you add a state variable to your component.
+
+Once the component has been initially rendered, you can trigger further renders by updating its state.
 
 //-------------------------------------------------------//
 
@@ -18,55 +117,11 @@ React uses one-way data flow, passing data down the component hierarchy from par
 
 Two-way data binding???
 
-Props and state flowing down the hierarchy = one-way flow
+Props and state flowing down the hierarchy = one-way flow.
 
 Data flowing the other way: from children components deep in the hierarchy up to a top component.
 
 This reverse flow is required to update the component holding the state.
-
-//-------------------------------------------------------//
-
-— Props vs State —
-
-There are two types of “model” data in React: props and state
-
-Props are like arguments you pass to a function. They let a parent component pass data to a child component.
-State is like a component’s memory. It lets a component keep track of some information and change it in response to interactions.
-
-Use Cases
-—> Props: Customize a child component appearance. For example, a Form can pass a color prop to a Button.
-—> State: For example, a Button might keep track of isHovered state.
-
-//-------------------------------------------------------//
-
-— Re-Rendering Conditions —
-
-Re-Rendering is tightly related to the Data Flow, Props, and States.
-
-By default, when a component re-renders:
- 1. React re-renders all of its children recursively.
- 2. React recreates all code defined inside a component when it is re-rendered, including functions.
-
-What can trigger a component re-render:
- 1. one of its parents gets re-rendered
- 2. one of its states gets updated
- 3. one of its props gets updated??
- 
-useState() is a React Hook that lets you add a state variable to your component.
-
-Once the component has been initially rendered, you can trigger further renders by updating its state.
-
-Updating your component’s state automatically queues a render.
-
-//-------------------------------------------------------//
-
-— State or not State —
-
-Figuring out if data in my app is a state or not.
-
-- Does it remain unchanged over time? If so, it isn’t state.
-- Is it passed in from a parent via props? If so, it isn’t state.
-- Can you compute it based on existing state or props in your component? If so, it definitely isn’t state!
 
 //-------------------------------------------------------//
 
@@ -147,8 +202,7 @@ const handleClick = () => {
 
 //-------------------------------------------------------//
 
-
-——event syntax equivalents——
+—— Event Syntax Equivalents ——
 
 const handleChange = (event) => setEmail(event.target.value);
 

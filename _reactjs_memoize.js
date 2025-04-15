@@ -14,13 +14,13 @@ What is "Rendering"?
  2. This description is based on the current combination of props and state.
 
 By default, when a component re-renders:
- 1. React will recursively render all child components inside of it
+ 1. React will recursively re-render all child components inside of it
  2. React recreates all code defined inside a component when it is re-rendered, including functions.
 
 This behavior may create a performance issue when:
- 1. Rendering takes time, and "wasted renders" where the UI output didn't change can add up.
+ 1. rendering takes time, and "wasted renders" can add up - where UI output did not change
  2. a component has en expensive function
- 2. a child component renders something expensive
+ 3. a child component renders something expensive
 
 This behavior becomes especially problematic when a component re-render when it actually does NOT have 
 
@@ -32,13 +32,14 @@ We want to
  1. Override that default behavior for any given component.
  2. Skip unnecessary renders for any given component whether triggered by a/ props change or b/ state change
 
-In practice, re-render when its parent re-render if and only if 
- a. props changed (sent from parent)
- b. a state changed
+A component re-renders when:
+ 1. one of its parents gets re-rendered
+ 2. one of its props gets updated (sent from parent)
+ 3. one of its states gets updated
 
-In practice, do NOT re-render (skip it) when its parent re-render if
- a. props are unchanged
- b. a state did not actually change in value - i.e. a recalculation resulting in the same result - we want to cache it somehow
+In practice, we do NOT want to re-render (skip it) if:
+ 1. parent re-renders but props are unchanged
+ 2. a state did not actually change in value — i.e. a recalculation resulting in the same result - we want to cache it somehow
 
 //-------------------------------------------------------//
 
