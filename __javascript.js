@@ -229,4 +229,112 @@ sessionStorage persists data in the browser storage as long as the current brows
 
 localStorage does not clear data when the browser closes. 
 
+//-------------------------------------------------------//
 
+—— Event Syntax Equivalents ——
+
+const handleChange = (event) => setEmail(event.target.value);
+
+const handleChange = ({target}) => setEmail(target.value);
+
+const handleChange = (event) => {
+  const newEmail = event.target.value;
+  setEmail(newEmail);
+}
+
+
+//-------------------------------------------------------//
+
+——functions——
+
+// Anonymous function — coz does not have a name i.e. function coolFun(){}
+const greet = function () {
+    console.log("Welcome to GeeksforGeeks!");
+};
+// ES6 introduced a new and shorter way of declaring an anonymous function, which is known as Arrow Functions
+const greet = () => {
+    console.log("Welcome to GeeksforGeeks!");
+}
+// with arg
+const greet = (greeting) => {
+    console.log(greeting);
+}
+
+//-------------------------------------------------------//
+
+—— functions: one-liner arrow functions  ——
+
+/// Rule: expression is actually "returned" - great for callbacks
+let func = (arg1, arg2, ..., argN) => expression;
+// equivalent to
+let func = function(arg1, arg2, ..., argN) {
+  return expression;
+};
+/// Example: with several args
+let sum = (a, b) => a + b;
+// equiv
+let sum = function(a, b) {
+  return a + b;
+};
+alert( sum(1, 2) ); // 3
+/// Example: with one arg — parenthesis can be removed
+let multiTwo = n => n * 2;
+// equiv
+let multiTwo = function(n) {
+  return n * 2;
+};
+alert( multiTwo(3) ); // 6
+// Example: with no arg — parentheses must be present
+let sayHi = () => alert("Hello!");
+// equiv
+let sayHi = function() {
+  return alert("Hello!");
+};
+sayHi(); // alerts "Hello"
+
+//-------------------------------------------------------//
+
+—— functions: embedded one-liner arrow functions ——
+
+let students = ["John", "Pete", "Alice"];
+// regular function
+students.forEach(function(student) {
+	alert(student);
+});
+// equiv
+students.forEach(
+	student => alert(student)
+);
+
+//-------------------------------------------------------//
+
+—— functions: arrow functions multi-liners ——
+/// Rule: just like regular functions, add curly braces and optionally add return
+
+—— functions: return ——
+// If we want the returned expression to wrap across multiple lines, we should start it at the same line as return. 
+// Or at least put the opening parentheses
+const calculate = () => {
+	const arbVal = 8;
+    return (
+    	1 + 2 +
+    	arbVal
+    );
+}
+
+//-------------------------------------------------------//
+
+——Self-Executing Anonymous Functions——
+(function () {
+    console.log("Welcome to GeeksforGeeks!");
+})();
+
+//-------------------------------------------------------//
+
+——Objects———
+// create a thought object
+const thought = {
+  id: generateId(),
+  text: text,
+  expiresAt: getNewExpirationTime(),
+};

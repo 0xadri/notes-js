@@ -38,6 +38,19 @@ Exam - https://www.aws.training/
 
 //-------------------------------------------------------//
 
+— HowTos —
+
+How to Install and Configure AWS Command Line Interface (CLI)
+https://www.youtube.com/watch?v=BzzCIsjrE7U
+
+Deploying a React App on AWS S3 
+https://www.youtube.com/watch?v=SHN48wTEQ5I
+
+Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series 
+https://www.youtube.com/watch?v=y3ZfoCZ_yzg
+
+//-------------------------------------------------------//
+
 — Udemy —
 
 Test Blank 0

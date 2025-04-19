@@ -36,8 +36,6 @@ https://react.dev/learn
  - const vs let
  - spread syntax
 
-TODO:
- - build an API
 
 Things I find difficult
  - function usage - i.e. arrow functions, self executing functions, implicit args, nested arrow functions, number of braces in functions

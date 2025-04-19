@@ -1,8 +1,4 @@
 
-
-
-
-
 //-------------------------------------------------------//
 
 — Imports —
@@ -125,24 +121,28 @@ This reverse flow is required to update the component holding the state.
 
 //-------------------------------------------------------//
 
-— Props —
+— Props: Basic Example —
 
-Change in props triggers a potential change in the rendered JSX (similar behavior to state)
-
-— props: basic example —
-// App.js
 const element = <Welcome name="Sara" />;
-// Welcome.js
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
 
-Forwarding props with the JSX spread syntax 
-—> https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
+function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
+// Equivalent...
+function Welcome({name}) { return <h1>Hello, {name}</h1>; }
 
 //-------------------------------------------------------//
 
-— destructure: objects, arrays —
+— Props Forwarding With Spread Syntax —
+
+export default function Input({richText, ...props}) {
+  if(richText) return <textarea {...props} />
+  else return <input {...props} />
+}
+
+https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
+
+//-------------------------------------------------------//
+
+— Destructure: Objects, Arrays —
 
 // basics
 const {name, value} = target;
@@ -154,7 +154,7 @@ const handleChange = ({target}) => {
 
 //-------------------------------------------------------//
 
-— Hooks: state hooks and effect hooks —
+— Hooks: State Hooks, Effect Hooks —
 
 Hooks allow us to perform essential logic with our function components
 
@@ -166,7 +166,10 @@ Two main rules to keep in mind when using Hooks:
 —> Only call Hooks from React functions.
 —> Only call Hooks at the top level - never within other functions, conditionals, or loop blocks
 
-——State Hook——
+//-------------------------------------------------------//
+
+— State Hook —
+
 // State lets a component “remember” information like user input. For
 // Updating a state re-renders your component
 
@@ -182,9 +185,11 @@ const [categories, setCategories] = useState(null); // for object
 <input name="lastname" onChange={handleLastnameChange} />
 <form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
 
+//-------------------------------------------------------//
 
-——state: prev object——
-// Setter function's implicit object
+— State Hook: prev object —
+
+Setter function has an implicit object.
 
 // prevCount's type is whatever is defined in the useState() argument
 setClickCount((prevCount) =>  prevCount + 1);
@@ -202,27 +207,19 @@ const handleClick = () => {
 
 //-------------------------------------------------------//
 
-—— Event Syntax Equivalents ——
+— Effect Hook —
 
-const handleChange = (event) => setEmail(event.target.value);
+Use Case
+ - Effects let a component connect to and synchronize with external systems.
+ - i.e. dealing with network, browser DOM, animations and other non-React code.
 
-const handleChange = ({target}) => setEmail(target.value);
-
-const handleChange = (event) => {
-  const newEmail = event.target.value;
-  setEmail(newEmail);
-}
+Rule:
+ - Effects are an “escape hatch” from the React paradigm. Don’t use Effects to orchestrate the data flow of your application
+ - If you’re not interacting with an external system, you might not need an Effect
 
 //-------------------------------------------------------//
 
-
-——effects: effect hook——
-// Effects let a component connect to and synchronize with external systems.
-// This includes dealing with network, browser DOM, animations and other non-React code.
-
-// Rule:
-// Effects are an “escape hatch” from the React paradigm. Don’t use Effects to orchestrate the data flow of your application
-// If you’re not interacting with an external system, you might not need an Effect
+— Effect Hook: How To —
 
 // useEffect() function calls its 1st argument (the effect) after each time a component renders - not just once
 useEffect(() => {
@@ -258,89 +255,10 @@ useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count, input]); 
 
-
 //-------------------------------------------------------//
 
+— Functions: Multi line return with JSX —
 
-——functions——
-// Anonymous function — coz does not have a name i.e. function coolFun(){}
-const greet = function () {
-    console.log("Welcome to GeeksforGeeks!");
-};
-// ES6 introduced a new and shorter way of declaring an anonymous function, which is known as Arrow Functions
-const greet = () => {
-    console.log("Welcome to GeeksforGeeks!");
-}
-// with arg
-const greet = (greeting) => {
-    console.log(greeting);
-}
-
-
-//-------------------------------------------------------//
-
-
-—— functions: one-liner arrow functions  ——
-/// Rule: expression is actually "returned" - great for callbacks
-let func = (arg1, arg2, ..., argN) => expression;
-// equivalent to
-let func = function(arg1, arg2, ..., argN) {
-  return expression;
-};
-/// Example: with several args
-let sum = (a, b) => a + b;
-// equiv
-let sum = function(a, b) {
-  return a + b;
-};
-alert( sum(1, 2) ); // 3
-/// Example: with one arg — parenthesis can be removed
-let multiTwo = n => n * 2;
-// equiv
-let multiTwo = function(n) {
-  return n * 2;
-};
-alert( multiTwo(3) ); // 6
-// Example: with no arg — parentheses must be present
-let sayHi = () => alert("Hello!");
-// equiv
-let sayHi = function() {
-  return alert("Hello!");
-};
-sayHi(); // alerts "Hello"
-
-
-—— functions: embedded one-liner arrow functions ——
-let students = ["John", "Pete", "Alice"];
-// regular function
-students.forEach(function(student) {
-	alert(student);
-});
-// equiv
-students.forEach(
-	student => alert(student)
-);
-
-
-
-
-
-—— functions: arrow functions multi-liners ——
-/// Rule: just like regular functions, add curly braces and optionally add return
-
-
-
-—— functions: return ——
-// If we want the returned expression to wrap across multiple lines, we should start it at the same line as return. 
-// Or at least put the opening parentheses
-const calculate = () => {
-	const arbVal = 8;
-    return (
-    	1 + 2 +
-    	arbVal
-    );
-}
-// Multi line return with JSX
 const HeaderComponent = () => {
 	const classVal = "blue";
     return (
@@ -350,36 +268,42 @@ const HeaderComponent = () => {
     );
 }
 
-——Self-Executing Anonymous Functions——
-(function () {
-    console.log("Welcome to GeeksforGeeks!");
-})();
+//-------------------------------------------------------//
 
-
-
-——Objects———
-// create a thought object
-const thought = {
-  id: generateId(),
-  text: text,
-  expiresAt: getNewExpirationTime(),
-};
-
-
-
-—— Controlled Components - aka controlled form fields ——
+— Controlled Components - aka controlled form fields —
 
 Maintains any mutable state values within the state property of our components.
+
 How: uses useState() and value+onChange attributes on input or other element.
 Best: use controlled components whenever possible. 
 Why: allow for change-by-change tracking of input form values, they better align with React’s pattern of storing mutable data in a component’s state.
 
+//-------------------------------------------------------//
 
-—— Uncontrolled Component - uncontrolled form fields ——
+— Uncontrolled Component - uncontrolled form fields —
 
 A form element that maintains its own state in the DOM.
 How: uses useRef() and ref attribute on input and onchange attribute on form.
 Best: if you only need access to the value of the form on submission
 Always: w files, for <input> form elements with the type="file" attribute.
+
+//-------------------------------------------------------//
+
+— States vs Refs —
+
+States: 
+- cause component re-evaluation (re-renders) when changed
+- should be used for values directly reflected in the UI
+- should NOT be used for "behind the scenes" values wo direct UI impact 
+
+Refs
+- Do NOT cause component re-evaluation when changed
+- Can be used for direct DOM element access (remember jQuery selector??)
+- 
+
+Like States, Refs do not loose value when the component re-render (re-execute).
+But unlike States, setting Refs to new values does not trigger re-render.
+
+https://react.dev/reference/react/useRef
 
 

@@ -39,6 +39,8 @@ Redux just does that.
 
 —— Pitch ——
 
+Redux an alternative to Context API.
+
 Redux is a library for managing and updating application state based on the Flux architecture.
 
 Redux is not limited to React. It can be used within the context of any UI framework whether React, Angular, jQuery or else.
