@@ -2,11 +2,11 @@
 
 Dump of notes I take while learning.
 
-## Tech
+## Tech Covered
 
-Vanilla JavaScript · Typescript · NodeJS · MongoDB · Mongoose · Vercel · Vite ·
+`JavaScript` · `Typescript` · `React` · `React Native` · `NextJS` · `NodeJS` · `MongoDB` · `Mongoose` · `Vercel` · `Vite`
 
-ReactJS · React Native · NextJS · RESTful API · NextAuth (GoogleAuth) · Testing (Jest, RTL) · Redux (RTK, ImmerJS) ·
+`ReactJS` · `React Native` · `NextJS` · `RESTful API` · `NextAuth (GoogleAuth)` · `Testing (Jest, RTL)` · `Redux (RTK, ImmerJS)`
 
-AWS
+`AWS`
 

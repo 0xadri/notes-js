@@ -6,7 +6,7 @@
 https://www.typescriptlang.org/docs/handbook/variable-declarations.html
 https://www.typescriptlang.org/docs/handbook/compiler-options.html
 
-//-------------------------------------------------------//
+//-------------------------------------------------------//	
 
 — Terminal —
 // Command to transpile

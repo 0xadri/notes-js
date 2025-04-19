@@ -22,12 +22,13 @@ Use Cases
  2. State: i.e. a button to keep track of isHovered state.
 
 //-------------------------------------------------------//
-//-------------------------------------------------------//
 
 — What is "Rendering" —
 
 Rendering is the process of React calling your component to figure out what they display on screen.
 Rendering runs the entire code of a component.
+
+Rendering aka Mounting
 
 https://react.dev/learn/render-and-commit
 
