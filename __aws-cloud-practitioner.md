@@ -19,11 +19,11 @@
 
 # Docs 
 
-blog - https://aws.amazon.com/blogs/
+blog - https://aws.amazon.com/blogs/ <br />
 blog - https://aws.amazon.com/blogs/aws/
 
-forum - https://repost.aws/
-forum - https://community.aws/
+forum - https://repost.aws/ <br />
+forum - https://community.aws/ <br />
 forum - https://stackoverflow.com/collectives/aws
 
 https://aws.amazon.com/whitepapers/
@@ -40,22 +40,14 @@ Exam - https://www.aws.training/
 
 # HowTos
 
-How to Install and Configure AWS Command Line Interface (CLI)
+How to Install and Configure AWS Command Line Interface (CLI) <br />
 https://www.youtube.com/watch?v=BzzCIsjrE7U
 
-Deploying a React App on AWS S3 
+Deploying a React App on AWS S3  <br />
 https://www.youtube.com/watch?v=SHN48wTEQ5I
 
-Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series 
+Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series  <br />
 https://www.youtube.com/watch?v=y3ZfoCZ_yzg
-
-//-------------------------------------------------------//
-
-# Udemy
-
-Test Blank 0
-https://www.udemy.com/course/aws-certified-cloud-practitioner-new/learn/quiz/4912078/test#questions
-
 
 //-------------------------------------------------------//
 
@@ -69,66 +61,65 @@ VPC vs AZ ? Which one superseed the other?
 
 VPC vs Region ? Which one superseed the other?
 
-EFS vs AZ ? Which one superseed the other?
-EC2s can access files on an EFS file system across many AZ, Regions and VPCs.
+EFS vs AZ ? Which one superseed the other? <br />
+EC2s can access files on an EFS file system across many AZ, Regions and VPCs. <br />
 EFS is a regional service storing data within and across multiple AZs for high availability and durability.
 
 EFS vs Region ? Which one superseed the other?
-
 
 //-------------------------------------------------------//
 
 # Jargon
 
-provision resources = plan and acquire resources
-Nodes = Instances
-Regions = For Applications and Infra
-AZ = Availability Zones, made of multiple data centers
-IaaS = Infrastructure As A Service
-EC2 = Elastic Compute Cloud
-IAM = Identity and Access Management
-RI = Reserved Instances (EC2 Reserved Instances)
-AMI = Amazon Machine Image (OS)
-EBS = Elastic Block Storage
-EFS = Elastic File System
-NFS = Network File System
-EFS IA = EFS Infrequent Access
-HPC = High Performance Computing
-ELB = Elastic Load Balancer
-APL = Application Load Balancer
-NLB = Network Load Balancer
-GWLB = Gateway Load Balancer
-ASG = Auto Scaling Group
-ACL = Access Control List
-EMR = Elastic MapReduce
-Serverless = no infra to manage
-OLTP = Online transactional processing
-OLTP workload = balance of read and write
-OLAP = On-Line Analytical Processing
-OLAP workload = read-intensive
-CDK = Cloud Development Kit
-PaaS = Platform as a Service
-Provisioning = process of creating and setting up IT infrastructure, and includes the steps required to manage user and system access to various resources
-SSM = AWS System Manager
-DR = Disaster Recovery
-CDN = Content Delivery Network
-OAC = CloudFront Origin Access Control
-SNS = Simple Notification Service (Amazon SNS)
-SQS = Simple Queue Service (Amazon SQS)
-VPC = Virtual Private Cloud
-ASR = Automatic Speach Recognition
-AWS STS = Security Token Services
-FIS = Fault Injection Simulator
-CAF = Cloud Adoption Framework
-AMS = AWS Managed Services
-DNS = Domain Name System
-CMK = Customer Managed Key
-NACL = Network Access Control List (Network ACL)
-ECR = Elastic Container Registery
-DRT = DDoS response team
-RTO = recovery time objective
-RPO = recovery point objective
-PCI = Payment Card Industry
+✴ provision resources = plan and acquire resources <br />
+✴ Nodes = Instances <br />
+✴ Regions = For Applications and Infra <br />
+✴ AZ = Availability Zones, made of multiple data centers <br />
+✴ IaaS = Infrastructure As A Service <br />
+✴ EC2 = Elastic Compute Cloud <br />
+✴ IAM = Identity and Access Management <br />
+✴ RI = Reserved Instances (EC2 Reserved Instances) <br />
+✴ AMI = Amazon Machine Image (OS) <br />
+✴ EBS = Elastic Block Storage <br />
+✴ EFS = Elastic File System <br />
+✴ NFS = Network File System <br />
+✴ EFS IA = EFS Infrequent Access <br />
+✴ HPC = High Performance Computing <br />
+✴ ELB = Elastic Load Balancer <br />
+✴ APL = Application Load Balancer <br />
+✴ NLB = Network Load Balancer <br />
+✴ GWLB = Gateway Load Balancer <br />
+✴ ASG = Auto Scaling Group <br />
+✴ ACL = Access Control List <br />
+✴ EMR = Elastic MapReduce <br />
+✴ Serverless = no infra to manage <br />
+✴ OLTP = Online transactional processing <br />
+✴ OLTP workload = balance of read and write <br />
+✴ OLAP = On-Line Analytical Processing <br />
+✴ OLAP workload = read-intensive <br />
+✴ CDK = Cloud Development Kit <br />
+✴ PaaS = Platform as a Service <br />
+✴ Provisioning = process of creating and setting up IT infrastructure, and includes the steps required to manage user and system access to various resources <br />
+✴ SSM = AWS System Manager <br />
+✴ DR = Disaster Recovery <br />
+✴ CDN = Content Delivery Network <br />
+✴ OAC = CloudFront Origin Access Control <br />
+✴ SNS = Simple Notification Service (Amazon SNS) <br />
+✴ SQS = Simple Queue Service (Amazon SQS) <br />
+✴ VPC = Virtual Private Cloud <br />
+✴ ASR = Automatic Speach Recognition <br />
+✴ AWS STS = Security Token Services <br />
+✴ FIS = Fault Injection Simulator <br />
+✴ CAF = Cloud Adoption Framework <br />
+✴ AMS = AWS Managed Services <br />
+✴ DNS = Domain Name System <br />
+✴ CMK = Customer Managed Key <br />
+✴ NACL = Network Access Control List (Network ACL) <br />
+✴ ECR = Elastic Container Registery <br />
+✴ DRT = DDoS response team <br />
+✴ RTO = recovery time objective <br />
+✴ RPO = recovery point objective <br />
+✴ PCI = Payment Card Industry <br />
 
 
 //-------------------------------------------------------//
@@ -230,21 +221,21 @@ User data is the data that you specified in the form of a BOOTSTRAP SCRIPT or co
 
 # EC2 Instance Types
 
-General Purpose
- —> for diversity of workload, i.e. web servers and code repos
+General Purpose <br />
+ —> for diversity of workload, i.e. web servers and code repos <br />
  —> i.e. t2.micro
 
-Compute Optimized
- —> compute-intensive tasks that require high performance processors
+Compute Optimized <br />
+ —> compute-intensive tasks that require high performance processors <br />
  —> i.e. batch processing workload, media transcoding, high perf web servers, high perf computing
 
-Memory Optimized
- —> workloads that process large data sets in memory
+Memory Optimized <br />
+ —> workloads that process large data sets in memory <br />
  —> i.e. high perf databases, distributed web cache store, in-memory dbs for BI, real-time processing of big unstructured data
 
-Storage Optimized
- —> storage-intensive tasks that require high, sequential read and write access to large data sets on local storage
- —> i.e. High frequency online transaction processing (OLTP) systems, Relational & NoSQL databases, 
+Storage Optimized <br />
+ —> storage-intensive tasks that require high, sequential read and write access to large data sets on local storage <br />
+ —> i.e. High frequency online transaction processing (OLTP) systems, Relational & NoSQL databases,  <br />
 Cache for in-memory databases (for example, Redis), Data warehousing applications, Distributed file systems
 
 https://instances.vantage.sh/
@@ -256,10 +247,10 @@ https://instances.vantage.sh/
 Firewalls around instances
 
 They regulate:
-• Access to Ports
-• Authorised IP ranges - IPv4 and IPv6
-• Control of inbound network (from other to the instance)
-• Control of outbound network (from the instance to other)
+- Access to Ports
+- Authorised IP ranges - IPv4 and IPv6
+- Control of inbound network (from other to the instance)
+- Control of outbound network (from the instance to other)
 
 A Security Group can have allow rules only — it CANNOT have deny rules
 
@@ -267,12 +258,12 @@ A Security Group can have allow rules only — it CANNOT have deny rules
 
 # Classic Ports to know
 
-• 22 = SSH (Secure Shell) - log into a Linux instance
-• 21 = FTP (File Transfer Protocol) - upload files into a file share
-• 22 = SFTP (Secure File Transfer Protocol) - upload files using SSH
-• 80 = HTTP - access unsecured websites
-• 443 = HTTPS - access secured websites
-• 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
+- 22 = SSH (Secure Shell) - log into a Linux instance
+- 21 = FTP (File Transfer Protocol) - upload files into a file share
+- 22 = SFTP (Secure File Transfer Protocol) - upload files using SSH
+- 80 = HTTP - access unsecured websites
+- 443 = HTTPS - access secured websites
+- 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
 
 //-------------------------------------------------------//
 
@@ -280,8 +271,8 @@ A Security Group can have allow rules only — it CANNOT have deny rules
 
 On-Demand Instances - short workload, predictable pricing, pay by second
 
-Reserved (1 & 3 years)
-—> Reserved Instances - long workloads
+Reserved (1 & 3 years) <br />
+—> Reserved Instances - long workloads <br />
 —> Convertible Reserved Instances - long workloads with flexible instances
 
 Savings Plans (1 & 3 years) - commitment to an amount of usage, long workload
@@ -298,13 +289,14 @@ Capacity Reservations — reserve capacity in a specific AZ for any duration
 
 # EC2 On Demand
 
-Pay for what you use:
- - Linux or Windows - billing per second, after the first minute
+Pay for what you use: <br />
+ - Linux or Windows - billing per second, after the first minute <br />
  - All other operating systems - billing per hour
 
 Highest cost but no upfront payment
 
 No long-term commitment
+
 Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
 
 //-------------------------------------------------------//
@@ -321,7 +313,9 @@ Book for fixed/specific instance attributes (Instance Type, Region, Tenancy, OS)
 Recommended for steady-state usage applications (think database)
 You can buy and sell in the Reserved Instance Marketplace
 
-— EC2 Convertible Reserved Instance —
+//-------------------------------------------------------//
+
+# EC2 Convertible Reserved Instances
 
 Lower But Still Huge Discount: Up to 66% discount
 
@@ -344,15 +338,16 @@ FLEXIBLE instance Size (e.g., m5.xlarge, m5.2xlarge), OS, Tenancy (Host, Dedicat
 # EC2 Spot Instances
 
 USECASE: workloads that are resilient to failure
+
 Batch jobs, Data analysis, Image processing, Any distributed workloads, Workloads with a flexible start and end time
 
-
 HUGE DISCOUNT compared to On-demand: Up to 90% discount
+
 BEST PRICE for AWS instances
 
 FIX your max price.
-LOSE the instanace if current spot price goes above your max price.
 
+LOSE the instanace if current spot price goes above your max price.
 
 NOT SUITABLE for critical jobs or databases
 
@@ -362,7 +357,7 @@ NOT SUITABLE for critical jobs or databases
 
 PRICE: the most expensive option
 
-PHYSICAL SERVER with EC2 instance capacity fully dedicated to YOU
+PHYSICAL SERVER with EC2 instance capacity fully dedicated to YOU <br />
  —> you get access the hardware itself
 
 USECASES: 
@@ -394,13 +389,11 @@ Reserve On-Demand instances capacity in a specific AZ for any duration
 
 You always have access to EC2 capacity when you need it
 
-No time commitment (create/cancel anytime), no billing discounts
-Combine with Regional Reserved Instances and Savings Plans to benefit
-from billing discounts
+No time commitment (create/cancel anytime), no billing discounts <br />
+Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
 
-You're charged at On-Demand rate whether you run instances or not
-Suitable for short-term, uninterrupted workloads that needs to be in a
-specific AZ
+You're charged at On-Demand rate whether you run instances or not <br />
+Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
 
 //-------------------------------------------------------//
 
@@ -434,14 +427,14 @@ YOU
 
 # EBS Elastic Block Storage
 
-Attached to one single instance
-Mapped/Tied to one single AZ
+Attached to one single instance <br />
+Mapped/Tied to one single AZ <br />
 Can use EBS Snapshot for backup or transferring EBS volumes across AZ
 
 EBS aka EBS Volume
 
-Various volume types optimized for different workloads
-i.e. SSD — for transactional workloads
+Various volume types optimized for different workloads <br />
+i.e. SSD — for transactional workloads <br />
 i.e. HDD — for throughput-intensive workloads
 
 NOT encrypted by default
@@ -462,7 +455,8 @@ Customization of an EC2 instance
 
 Create ready-to-use EC2 instances with our customization
 
-You must use an Amazon Machine Image (AMI) from the same region as that of the Amazon EC2 instance. 
+You must use an Amazon Machine Image (AMI) from the same region as that of the Amazon EC2 instance.
+
 The region of the Amazon Machine Image (AMI) has no bearing on the performance of the Amazon EC2 instance.
 
 //-------------------------------------------------------//
@@ -532,7 +526,7 @@ DISCOUNT of 92% compared to EFS Standard
 
 OPTIMIZED for files rarely accessed
 
-LIFECYCLE POLICY is used to enable EFS IA
+LIFECYCLE POLICY is used to enable EFS IA <br />
 i.e. move files to EFS IA if files not accessed for 60 days
 
 BILLING: pay a fee each time you read from or write data stored
@@ -592,7 +586,7 @@ Horizontal Scalability = Elasticity = increase in instance number = SCALE IN / O
 
 Goes hand-in-hand with Horizontal Scalability (Elasticity)
 
-Applications run at least in two AZs to survive a data center loss.
+Applications run at least in two AZs to survive a data center loss. <br />
 Multi-AZ deployment is an example of High Availability.
 
 Supporting High Availability by default:
@@ -619,24 +613,24 @@ Types of Load Balancer:
 
 # APL = Application Load Balancer
 
-a. HTTP/HTTPS/gRPC protocols (Layer 7)
-b. Feature: HTTP Routing
+a. HTTP/HTTPS/gRPC protocols (Layer 7) <br />
+b. Feature: HTTP Routing <br />
 c. Use Case: Static DNS (URL)
 
 //-------------------------------------------------------//
 
 # NLB = Network Load Balancer
 
-a. TCP/UDP Protocols (Layer 4)
-b. Feature: High Performance: millions of requests per second
+a. TCP/UDP Protocols (Layer 4) <br />
+b. Feature: High Performance: millions of requests per second <br />
 c. Use Case: Static IP through Elastic IP
 
 //-------------------------------------------------------//
 
 # GWLB = Gateway Load Balancer
 
-a. GENEVE Protocol (Layer 3)
-b. Feature: Route Traffic to Firewalls that you manage on EC2 Instances
+a. GENEVE Protocol (Layer 3) <br />
+b. Feature: Route Traffic to Firewalls that you manage on EC2 Instances <br />
 c. Use Case: Intrusion detection
 
 //-------------------------------------------------------//
@@ -684,9 +678,7 @@ If uploading more than 5 GB, must use multi-part upload
 Encrypted by default
 
 Cost-Optimization
-
  - Offers Lifecycle configuration for cost-optimal storage
-
  - Does NOT support reservation to optimize costs.
 
 https://aws.amazon.com/s3/
@@ -714,7 +706,9 @@ However, users can modify bucket policies, access point policies, or object perm
 
 S3 Block Public Access settings override these policies and permissions so that you can limit public access to these resources.
 
-— static website on Amazon S3 —
+//-------------------------------------------------------//
+
+# static website on Amazon S3
 
 Configure an Amazon S3 bucket for website hosting and then upload your website content to the bucket. 
 
@@ -743,7 +737,7 @@ Makes it easy to set up, operate, and scale a relational database in the cloud.
 
 For OLTP workloads
 
-OLTP = Online transactional processing
+OLTP = Online transactional processing <br/>
 OLTP workload = balance of read and write
 
 AVAILABILITY: RDS Multi-AZ deployments’ main purpose (better failovers / disaster recovery) is high availability.
@@ -843,6 +837,7 @@ Active-Active Replication = read/write on table replicated across 2 regions
 POSTGRESQL for OLAP: analytics and data warehousing
 
 OLAP = On-Line Analytical Processing
+
 OLAP workload = read-intensive
 
 NOT FOR OLTP
@@ -1005,8 +1000,11 @@ YOU must provision and maintain the infra (launch EC2 instances)
 INTEGRATED with ALB (Application Load Balancer)
 
 highly scalable, fast, container management service
+
 easy to run, stop, and manage Docker containers on a cluster
+
 NOT a fully managed service
+
 You can manage the underlying servers yourself.
 
 //-------------------------------------------------------//
@@ -1245,8 +1243,8 @@ COMPILES, RUNS TESTS, CREATES PACKAGES
 
 # AWS CodePipeline
 
-ORCHESTRATE the steps to push code to prod
- —> Code, Build, Test, Provision, Deploy
+ORCHESTRATE the steps to push code to prod <br/>
+ —> Code, Build, Test, Provision, Deploy <br/>
  —> Basis for CICD
 
 MANAGED
@@ -1288,11 +1286,8 @@ HYBRID helps manage EC2 and on-premise systems at scale
 INSTALLED by default on Linux AMI - SSM Agent is...
 
 Features
-
  - Run commands on FLEETS of servers.
-
  - Patching Automation for enhanced compliance.
-
  - Store Parameter Config - with SSM Param Store.
 
 //-------------------------------------------------------//
@@ -1382,8 +1377,8 @@ OAC = CloudFront Origin Access Control
 
 # CloudWatch Logs
 
-Aggregates logs from different AWS services: 
-- EC2s, AWS CloudTrail, Route 53, and other sources such as on-premises servers
+Aggregates logs from different AWS services:  <br/>
+- EC2s, AWS CloudTrail, Route 53, and other sources such as on-premises servers <br/>
 - both cloud and on-premises servers
 
 Can trigger alarms
@@ -1474,7 +1469,7 @@ PRIVATE SUBNET LEVEL
 
 Subnet level
 
-Stateless — rules for inbound and outbound
+Stateless — rules for inbound and outbound <br/>
 Contains a numbered list of rules and evaluates these rules in the increasing order while deciding whether to allow the traffic
 
 Acts as a firewall
@@ -1496,12 +1491,19 @@ Stateful : automatically allows the return traffic
 [...]
 
 — AWS Direct Connect —
+
 cloud service solution 
+
 Makes it easy to establish a dedicated private network connection from your PREMISES to AWS.
+
 private virtual interface
+
 on-premise network directly to your Amazon VPC, providing you with a private, 
+
 high bandwidth network connection between your network and your VPC. 
+
 Private connection: does not go over the public internet. 
+
 It takes at least a month to establish this physical connection.
 
 
@@ -1531,6 +1533,7 @@ PII = Personally Identifiable Information
 AWS WAF is a web application firewall that helps protect your web applications or APIs against common web exploits that may affect availability, compromise security, or consume excessive resources.
 
 Penetration Testing, security assessments, is allowed without prior approval on 8 services. 
+
 DDoS, port flooding and protocol flooding are examples of prohibited activities.
 
 — AWS Artifact —
@@ -1576,14 +1579,21 @@ You have full control over these KMS keys.
 i.e. establishing and maintaining their key policies, IAM policies, and grants, enabling and disabling them, rotating their cryptographic material, adding tags, creating aliases that refer to the KMS keys, and scheduling the KMS keys for deletion.
 
 — Amazon Inspector —
+
 Automated security assessment service.
+
 Helps improve the security and compliance of applications deployed on AWS. 
+
 Helps test the network accessibility of your EC2s and the security state of your apps running on the instances.
 
 — Shield Standard —
+
 Used to safeguard running applications from DDoS attacks.
+
 FREE
+
 Automatically activated for all AWS customers with no options for any customizations.
+
 Therefore in AWS Shared Responsibility Model, it falls under the purview of AWS.
 
 — Shield Advanced —
@@ -1597,6 +1607,7 @@ Exclusive access to advanced, real-time metrics and reports for extensive visibi
 DRT (DDoS response team).
 
 Intelligent DDoS attack detection and mitigation for attacks on network layer (layer 3), transport layer (layer 4), and application layer (layer 7).
+
 Expanded DDoS attack protection for web apps running on: 
  - Amazon Elastic Compute Cloud
  - Elastic Load Balancing (ELB)
@@ -1604,10 +1615,10 @@ Expanded DDoS attack protection for web apps running on:
  - Amazon Route 53
  - AWS Global Accelerator
 
-
 — GuardDuty —
 
 Threat detection service.
+
 Continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads.
 
 //-------------------------------------------------------//
@@ -1627,7 +1638,9 @@ Amazon Comprehend is a natural language processing (NLP) service that uses machi
 Amazon SageMaker is a fully managed service that provides every developer and data scientist with the ability to build, train, and deploy machine learning (ML) models quickly. SageMaker removes the heavy lifting from each step of the machine learning process to make it easier to develop high quality models.
 
 Amazon Kendra is a highly accurate and easy to use enterprise search service that’s powered by machine learning.
+
 document search service powered by machine learning
+
 fully managed
 
 Amazon Transcribe is an AWS service that makes it easy for customers to convert speech-to-text. Amazon Polly is a service that turns text into lifelike speech.
@@ -1649,6 +1662,7 @@ Amazon Forecast is a fully managed service that uses machine learning to deliver
 OU = Organizational Unit
 
 You can remove an account from your organization only if the account has the information that is required for it to operate as a standalone account.
+
 For each account that you want to make standalone, you must :
   - accept the AWS Customer Agreement
   - choose a support plan
@@ -1684,9 +1698,13 @@ CloudFormation : deploy stacks across accounts and regions
 Trusted Advisor : insights, Support Plans adapted to ur needs
 
 AWS Trusted Advisor : 
+
 Real time guidance.
+
 Helps provision resources including performance, security, and fault tolerance.
+
 Helps too for cost optimization and service limits.
+
 Follows AWS best practices, recommendations in 5 categories: 
  - Cost Optimization
  - Performance
@@ -1701,12 +1719,15 @@ CloudWatch billing metric data : stored in which AWS Region "US East (N. Virgini
 — Compute Optimizer —
 
 Recommends resources configs to reduce cost, uses ML.
+
 Recommends optimal AWS resources for your workloads to reduce costs and improve performance by using machine learning to analyze historical utilization metrics.
+
 For
  - Elastic Block Store (Amazon EBS)
  - AWS Lambda functions
  - EC2 instances
  - EC2 Auto Scaling groups
+
 NOT for
  - S3
  - EFS
@@ -1735,26 +1756,24 @@ Each tag consists of a key and a value — key must be unique, and 1 key has onl
 
 You must activate both AWS generated tags and user-defined tags separately before they can appear in Cost Explorer or on a cost allocation report.
 
-
-
 — Plans —
 
 1. Free Tier
 
 2. Developer Support
-   - testing or doing early development on AWS
-   - does NOT offer 24x7 phone, email, and chat support
-   - email-based technical support during business hours, general architectural guidance
+ - testing or doing early development on AWS
+ - does NOT offer 24x7 phone, email, and chat support
+ - email-based technical support during business hours, general architectural guidance
 
 3. Business Support
-   - production workloads
-   - 24x7 phone, email and chat support + technical support + architectural guidance + full access to AWS Trusted Advisor Best Practice Checks
-   - access to guidance, configuration, and troubleshooting of AWS interoperability with third-party software
+ - production workloads
+ - 24x7 phone, email and chat support + technical support + architectural guidance + full access to AWS Trusted Advisor Best Practice Checks
+ - access to guidance, configuration, and troubleshooting of AWS interoperability with third-party software
    
 4. Enterprise Support
-   - business-critical system
-   - inc. everything from "Business Support" tier
-   - response under 15 minutes and offers access to a Technical Account Manager, as well as a Concierge Support Team
+ - business-critical system
+ - inc. everything from "Business Support" tier
+ - response under 15 minutes and offers access to a Technical Account Manager, as well as a Concierge Support Team
 
 
 
@@ -1810,6 +1829,7 @@ Identity Providers
 IAM
  - For users your trust and belong to your company
  - Identity and Access Mgmt
+
 Orgs
  - Make multiple accounts
 
@@ -1938,6 +1958,7 @@ Enable compliance with corporate policies that require controlled access to inst
 AWS Marketplace facilitates:
  1. buy/sell software that has been bundled into customized Amazon Machine Image (AMIs)
  2. buy/sell Software as a Service (SaaS) solutions
+
 Software listings from independent software vendors that make it easy to find, test, buy, and deploy software that runs on AWS
 
 — Acceptable Use Policy —
@@ -1947,11 +1968,13 @@ Describes prohibited uses of the web services offered by Amazon Web Services, In
 — U2F security key —
 
 Universal 2nd Factor (U2F) Security Key is a device that you can plug into a USB port on your computer. 
+
 U2F is an open authentication standard hosted by the FIDO Alliance.
 
 — AWS Health - Service Health Dashboard —
 
 Single place to learn about the availability and operations of AWS services.
+
 Overall status of AWS services.
 
 Login for personalized info re your account or organization.
@@ -2157,9 +2180,11 @@ Billed monthly
 — VPC Endpoint — 
 
 Privately connect your VPC to supported AWS services and services powered by AWS PrivateLink.
+
 This without requiring connection via internet gateway, NAT device, VPN connection, or AWS Direct Connect. 
 
 Instances in your VPC do not require public IP addresses to communicate with resources in the service. 
+
 Traffic between your VPC and the other service does not leave the Amazon network.
 
 Two types of VPC endpoints:
