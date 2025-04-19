@@ -1,7 +1,7 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://testing-library.com/docs/
 
@@ -14,7 +14,7 @@ expect.not ,
 
 //-------------------------------------------------------//
 
-— Common Imports —
+# Common Imports —
 
 import { render, screen, cleanup , waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -22,7 +22,7 @@ import '@testing-library/jest-dom';
 
 //-------------------------------------------------------//
 
-—— Problem Statement ——
+# Problem Statement ——
 
 We want a reliable way to test our UI as if we were a user, from a user perspective.
 
@@ -32,13 +32,13 @@ UI-layer testing framework that helps us ensure that our React components are re
 
 //-------------------------------------------------------//
 
-—— Best Practice Reminder ——
+# Best Practice Reminder ——
 
 AAA: Arrange, Act, Assert
 
 //-------------------------------------------------------//
 
-—— RTL : Install ——
+# RTL : Install ——
 
 npm install --save-dev @testing-library/react
 // p.s. create-react-app by default includes RTL 
@@ -51,7 +51,7 @@ npm install --save-dev @testing-library/user-event
 
 //-------------------------------------------------------//
 
-—— RTL : Watch Mode ——
+# RTL : Watch Mode ——
 
 npm test
 
@@ -60,7 +60,7 @@ Type q in the terminal to quit out of the watch mode.
 
 //-------------------------------------------------------//
 
-—— RTL : Watch Mode ——
+# RTL : Watch Mode ——
 
 Customize terminal output by RTL
 
@@ -72,7 +72,7 @@ npm test -- --help  // --help : Displays help
 
 //-------------------------------------------------------//
 
-—— RTL : render() and screen ——
+# RTL : render() and screen ——
 
 render() : function that we can use to virtually render components and make them available in our unit tests
 
@@ -86,7 +86,7 @@ After importing the render and screen values from '@testing-library/react', you 
 
 //-------------------------------------------------------//
 
-—— RTL : Example ——
+# RTL : Example ——
 
 import { render, screen } from '@testing-library/react'
 
@@ -101,7 +101,7 @@ it('prints out the contents of the DOM', () => {
 
 //-------------------------------------------------------//
 
-—— RTL : Example ——
+# RTL : Example ——
 
 // GroceryList.js
 const GroceryList = () => {
@@ -145,7 +145,7 @@ it('should mark the first checkbox as checked', () => {
 
 //-------------------------------------------------------//
 
-—— RTL : it() Example Skeleton ——
+# RTL : it() Example Skeleton ——
 
 const header = screen.getByText("Passing Thoughts");
 expect(header).toHaveTextContent("Passing Thoughts");
@@ -155,7 +155,7 @@ expect(button).toBeEnabled();
 
 //-------------------------------------------------------//
 
-—— RTL : getByRole() Example Skeleton ——
+# RTL : getByRole() Example Skeleton ——
 
 const myCheckbox = screen.getByRole('checkbox')
 const myInput = screen.getByRole("input");
@@ -171,7 +171,7 @@ TLDR on Accessible Name : https://www.tpgi.com/what-is-an-accessible-name/
 
 //-------------------------------------------------------//
 
-—— RTL : getByText() w Regex ——
+# RTL : getByText() w Regex ——
 
 // Matching a string:
 getByText(container, 'Hello World') // full string match
@@ -183,7 +183,7 @@ https://testing-library.com/docs/dom-testing-library/cheatsheet/#text-match-opti
 
 //-------------------------------------------------------//
 
-—— RTL : getByX vs queryByX methods ——
+# RTL : getByX vs queryByX methods ——
 
 .getByX methods: throw an error and immediately cause the test to fail.
 
@@ -192,14 +192,14 @@ https://testing-library.com/docs/dom-testing-library/cheatsheet/#text-match-opti
 
 //-------------------------------------------------------//
 
-—— RTL : queryByX methods ——
+# RTL : queryByX methods ——
 
 const emptyThought = screen.queryByText("Oreos are delicious")
 expect(emptyThought).toBeNull();
   
 //-------------------------------------------------------//
 
-—— RTL : queryByX methods ——
+# RTL : queryByX methods ——
 
 // something.test.js
 import App from './components/App';
@@ -213,7 +213,7 @@ it('Header should not show Goodbye yet', () => {
 
 //-------------------------------------------------------//
 
-—— RTL : getByX VS findByX methods ——
+# RTL : getByX VS findByX methods ——
 
 .getByX methods: throw an error and immediately cause the test to fail.
 
@@ -223,7 +223,7 @@ it('Header should not show Goodbye yet', () => {
 
 //-------------------------------------------------------//
 
-—— RTL : getByX VS findByX vs queryByX ——
+# RTL : getByX VS findByX vs queryByX ——
 
 .getByX methods: throw an error and immediately cause the test to fail.
 —> assert regular elements - synchronous ones
@@ -237,7 +237,7 @@ it('Header should not show Goodbye yet', () => {
 
 //-------------------------------------------------------//
 
-—— RTL : findByX methods ——
+# RTL : findByX methods ——
 
 // Thought.test.js
 it("Should show new thought to be present", async () => {
@@ -255,7 +255,7 @@ it("Should show new thought to be present", async () => {
 
 //-------------------------------------------------------//
 
-—— RTL : findByX + Await ——
+# RTL : findByX + Await ——
 
 it("Should display copied text after removing tape", async () => {
   render(<CopyCatContainer />); 
@@ -275,7 +275,7 @@ it("Should display copied text after removing tape", async () => {
 
 //-------------------------------------------------------//
 
-—— RTL : Mimick User Interactions ——
+# RTL : Mimick User Interactions ——
 
 Problem Statement
 As a JS Dev testing my app, I want to mimic user interactions such as clicking a checkbox and typing text.
@@ -285,7 +285,7 @@ The library @testing-library/user-event in the @testing-library suite is there j
 
 //-------------------------------------------------------//
 
-—— RTL : userEvent library/object ——
+# RTL : userEvent library/object ——
 
 import userEvent from '@testing-library/user-event';
 
@@ -303,7 +303,7 @@ https://testing-library.com/docs/user-event/utility
 
 //-------------------------------------------------------//
 
-—— RTL : userEvent.interaction() VS user.interaction() ——
+# RTL : userEvent.interaction() VS user.interaction() ——
 
 // You can do
 userEvent.click();
@@ -318,7 +318,7 @@ c.f. https://github.com/testing-library/user-event/discussions/1036
 
 //-------------------------------------------------------//
 
-—— RTL : waitFor() method ——
+# RTL : waitFor() method ——
 
 Problem Statement
 I have components that disappear asynchronously. How can I test they disappear as planned?
@@ -331,7 +331,7 @@ await waitFor(() => {
 
 //-------------------------------------------------------//
 
-—— RTL : waitFor() Example ——
+# RTL : waitFor() Example ——
 
 // App.js
 import { waitFor, render, screen } from '@testing-library/react';
@@ -357,7 +357,7 @@ it('should remove header display', async () => {
 
 //-------------------------------------------------------//
 
-—— RTL : waitFor() deets ——
+# RTL : waitFor() deets ——
 
 waitFor() callback function : confirms this by querying for this element and then waiting for the expect() assertion to pass.
 
@@ -365,7 +365,7 @@ waitFor() optional 2nd arg: options object, can be used to control how long to w
 
 //-------------------------------------------------------//
 
-—— RTL : Testing for Accessibility ——
+# RTL : Testing for Accessibility ——
 
 Writing tests that adhere to this principle forces you to make your applications more accessible. If a test can find and interact with your elements by their text, it’s more likely that a user who uses assistive technology can as well.
 
@@ -376,7 +376,7 @@ https://testing-playground.com/
 
 //-------------------------------------------------------//
 
-—— RTL : Testing for Accessibility ——
+# RTL : Testing for Accessibility ——
 
 // CheckoutForm.js
 import React, { useState } from "react";

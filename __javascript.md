@@ -2,7 +2,7 @@
 
 //-------------------------------------------------------//
 
-— Javascript multiline string —
+# Javascript multiline string —
 
 `x is a long
 sentence in
@@ -12,13 +12,13 @@ TL;DR: backticks are awesome.
 
 //-------------------------------------------------------//
 
-— Javascript OR —
+# Javascript OR —
 
 || 
 
 //-------------------------------------------------------//
 
-— Javascript: let vs const —
+# Javascript: let vs const —
 
 let allows the variable to be reassigned multiple times.
 
@@ -26,7 +26,7 @@ const creates a variable that cannot be reassigned after it has been assigned a 
 
 //-------------------------------------------------------//
 
-— Javascript: arrays —
+# Javascript: arrays —
         
 // forEach
 danceMoves.forEach( move => performDanceMove(<something>))
@@ -58,7 +58,7 @@ The spread syntax (...) and array methods such as .map(), .slice(), and .filter(
 
 //-------------------------------------------------------//
 
-— Javascript: Promise vs Callback —
+# Javascript: Promise vs Callback —
 
 A promise is when the wife asks you to do the dishes and you say "sure honey I'll do that"
 
@@ -68,7 +68,7 @@ An await is when she asks you to do the dishes and she's standing there in the k
 
 //-------------------------------------------------------//
 
-— Javascript: Iterate Over Object —
+# Javascript: Iterate Over Object —
 
 for (let itemName in cart) {
   // do something with itemName
@@ -78,7 +78,7 @@ https://stackoverflow.com/a/43392879/759452
 
 //-------------------------------------------------------//
 
-— Javascript:  —
+# Javascript:  —
 
 const remindMeLater = (task) => {
   return () => {
@@ -91,7 +91,7 @@ console.log( reminder() );
 
 //-------------------------------------------------------//
 
-— Javascript: Switch Case —
+# Javascript: Switch Case —
 
 function getMaxPrice(price: PriceBracket) {
   switch (price) {
@@ -108,7 +108,7 @@ function getMaxPrice(price: PriceBracket) {
 
 //-------------------------------------------------------//
 
-— JS: Optional Chaining —
+# JS: Optional Chaining —
 
 The optional chaining (?.) operator accesses an object's property or calls a function. 
 If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
@@ -127,7 +127,7 @@ const nestedProp = obj.first?.second; // With optional chaining
 
 //-------------------------------------------------------//
 
-— JS: Optional Chaining For Method Calls —
+# JS: Optional Chaining For Method Calls —
 
 Optional Chaining for method calls can be much nicer for deeply-nested methods:
 
@@ -148,7 +148,7 @@ foo?.bar?.baz?.qux?.doSomething?.();
 
 //-------------------------------------------------------//
 
-— JS: Destructuring: Nested object and array —
+# JS: Destructuring: Nested object and array —
 
 — Example 1 —
 const obj = { prop1: x, prop2: y, prop3: z };
@@ -182,7 +182,7 @@ console.log(localeTitle); // "JavaScript-Umgebung"
 
 //-------------------------------------------------------//
 
-— Backticks —
+# Backticks —
 
 ES6 feature, called template literals.
 
@@ -199,7 +199,7 @@ Notice the extra $ Sign:
 
 //-------------------------------------------------------//
 
-— localStorage and web storage —
+# localStorage and web storage —
 
 localStorage is one of the 2 mechanisms of a browser’s web storage.
 
@@ -223,7 +223,7 @@ localStorage+react https://blog.logrocket.com/using-localstorage-react-hooks/
 
 //-------------------------------------------------------//
 
-— localStorage vs sessionStorage —
+# localStorage vs sessionStorage —
 
 sessionStorage persists data in the browser storage as long as the current browser tab is running.
 
@@ -231,7 +231,7 @@ localStorage does not clear data when the browser closes.
 
 //-------------------------------------------------------//
 
-—— Event Syntax Equivalents ——
+# Event Syntax Equivalents ——
 
 const handleChange = (event) => setEmail(event.target.value);
 
@@ -245,7 +245,7 @@ const handleChange = (event) => {
 
 //-------------------------------------------------------//
 
-——functions——
+# functions——
 
 // Anonymous function — coz does not have a name i.e. function coolFun(){}
 const greet = function () {
@@ -262,7 +262,7 @@ const greet = (greeting) => {
 
 //-------------------------------------------------------//
 
-—— functions: one-liner arrow functions  ——
+# functions: one-liner arrow functions  ——
 
 /// Rule: expression is actually "returned" - great for callbacks
 let func = (arg1, arg2, ..., argN) => expression;
@@ -294,7 +294,7 @@ sayHi(); // alerts "Hello"
 
 //-------------------------------------------------------//
 
-—— functions: embedded one-liner arrow functions ——
+# functions: embedded one-liner arrow functions ——
 
 let students = ["John", "Pete", "Alice"];
 // regular function
@@ -308,7 +308,7 @@ students.forEach(
 
 //-------------------------------------------------------//
 
-—— functions: arrow functions multi-liners ——
+# functions: arrow functions multi-liners ——
 /// Rule: just like regular functions, add curly braces and optionally add return
 
 —— functions: return ——
@@ -324,14 +324,14 @@ const calculate = () => {
 
 //-------------------------------------------------------//
 
-——Self-Executing Anonymous Functions——
+# Self-Executing Anonymous Functions——
 (function () {
     console.log("Welcome to GeeksforGeeks!");
 })();
 
 //-------------------------------------------------------//
 
-——Objects———
+# Objects———
 // create a thought object
 const thought = {
   id: generateId(),

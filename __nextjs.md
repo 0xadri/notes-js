@@ -1,7 +1,7 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://vercel.com/
 
@@ -18,7 +18,7 @@ Stopped coding at chapt 61
 
 //-------------------------------------------------------//
 
-— Commands —
+# Commands —
 
 npm run dev // Start Server
 
@@ -34,7 +34,7 @@ NextJS CONs:
 
 //-------------------------------------------------------//
 
-— Components: Client vs Server —
+# Components: Client vs Server —
 
 Server Components PROs:
  - Reduce Complexity i.e. do backend calls
@@ -52,7 +52,7 @@ Server Components CONs:
 
 //-------------------------------------------------------//
 
-— Network Boundary —
+# Network Boundary —
 
 Boundary between Client and Server components.
 
@@ -60,14 +60,14 @@ By defaut in NextJS, components are server components.
 
 //-------------------------------------------------------//
 
-— Client Components —
+# Client Components —
 
 Syntax to add at the beginning of the file:
 'use client';
 
 //-------------------------------------------------------//
 
-— Links —
+# Links —
 
 import Link from 'next/link'
 
@@ -76,7 +76,7 @@ import Link from 'next/link'
 
 //-------------------------------------------------------//
 
-— Server Actions —
+# Server Actions —
 
 TODO
 

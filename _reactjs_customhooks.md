@@ -1,9 +1,14 @@
 
-—Docs—
+//-------------------------------------------------------//
+
+# Docs
+
 https://react.dev/learn/reusing-logic-with-custom-hooks
 
+//-------------------------------------------------------//
 
-——Custom Hook: Example One——
+# Custom Hook: Example One
+
 // DEFINE
 import { useState, useEffect } from "react";
 
@@ -52,7 +57,7 @@ export default App;
 //-------------------------------------------------------//
 
 
-——Custom Hook: Example Two——
+# Custom Hook: Example Two
 
 // useFormInput.js
 import { useState } from 'react';

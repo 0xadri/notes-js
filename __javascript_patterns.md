@@ -2,7 +2,7 @@
 
 //-------------------------------------------------------//
 
-— Design Pattern : Module Pattern —
+# Design Pattern : Module Pattern —
 
 Problem Statement:
 We want to implement the Module Pattern to better organize our source code into components.
@@ -19,7 +19,7 @@ It manages the creation and organization of other elements, and groups them as t
 
 //-------------------------------------------------------//
 
-— Design Pattern : Module Pattern Implementations —
+# Design Pattern : Module Pattern Implementations —
 
 JavaScript did not have built-in support for modules.
 The JS community has created impressive work-arounds. The two most popular standards are:
@@ -40,7 +40,7 @@ http://jargon.js.org/_glossary/COMMONJS.md
 
 //-------------------------------------------------------//
 
-— Design Pattern : Module Pattern In Practice —
+# Design Pattern : Module Pattern In Practice —
 
 When you have a file called axios.js, we say call it the axios module.
 

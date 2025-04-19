@@ -1,12 +1,11 @@
 # Personal Notes
 
-Dump of notes I take while learning.
+Dump of notes I take.
 
 ## Tech Covered
 
 `JavaScript` · `Typescript` · `React` · `React Native` · `NextJS` · `NodeJS` · `MongoDB` · `Mongoose` · `Vercel` · `Vite`
 
-`ReactJS` · `React Native` · `NextJS` · `RESTful API` · `NextAuth (GoogleAuth)` · `Testing (Jest, RTL)` · `Redux (RTK, ImmerJS)`
+`RESTful APIs` · `NextAuth (GoogleAuth)` · `Testing (Jest, RTL)` · `Redux (RTK, ImmerJS)`
 
 `AWS`
-

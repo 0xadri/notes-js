@@ -1,9 +1,11 @@
+
+
 Feedback
 The global expo-cli package has been deprecated.
 
 //-------------------------------------------------------//
 
-— Influencers —
+# Influencers —
 
 https://www.youtube.com/c/wcandillon/videos
 
@@ -11,7 +13,7 @@ https://www.youtube.com/c/CatalinMironDev/videos
 
 //-------------------------------------------------------//
 
-— Alternatives —
+# Alternatives —
 
 React Native - the most work. Would need to fetch everything from an API. Would need to rewrite most components to work with it. Updates to the website would mean building and releasing a new app to the App Store.
 
@@ -21,7 +23,7 @@ Capacitor - It’s just a wrapper around the website. When you open the app, it 
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://reactnative.dev/
 
@@ -35,7 +37,7 @@ https://reactnavigation.org/
 
 //-------------------------------------------------------//
 
-— Imports —
+# Imports —
 
 import { StyleSheet, Pressable, Text, Button, View, ScrollView } from 'react-native';
 
@@ -47,7 +49,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //-------------------------------------------------------//
 
-— React Native —
+# React Native —
 
 React Native: library built with the same API as React.
 
@@ -55,7 +57,7 @@ Tools to make development with React Native even easier.
 
 //-------------------------------------------------------//
 
-— Local Expo CLI —
+# Local Expo CLI —
 
 npx expo start    // instead of: expo start. No longer need to run npm install -g expo-cli
 
@@ -63,7 +65,7 @@ npx create-expo-app@latest StickerSmash
 
 //-------------------------------------------------------//
 
-— Styling —
+# Styling —
 
 Expo and React Native don’t use CSS. This method of styling is not available on native platforms.
 
@@ -84,7 +86,7 @@ All components are a flexbox by default
 
 //-------------------------------------------------------//
 
-— View Component —
+# View Component —
 
 <View style={{ flex: 1, justifyContent: 'center' }}>
 </View>
@@ -97,11 +99,11 @@ export const Box = (props) => (
 
 //-------------------------------------------------------//
 
-— Text Component —
+# Text Component —
 
 //-------------------------------------------------------//
 
-— Image Component —
+# Image Component —
 
 Similar to the <img> HTML element, but the Image component has more features.
 
@@ -118,7 +120,7 @@ const image = require('./react-native.jpg');
 
 //-------------------------------------------------------//
 
-— ScrollView Component —
+# ScrollView Component —
 
 View components aren’t scrollable in Expo and React Native.
 
@@ -135,7 +137,7 @@ It allows us to fully manage and customize how the content should be scrolled.
 
 //-------------------------------------------------------//
 
-— Button Component —
+# Button Component —
 
 The Button component is very limited in styling customization because it is heavily tied to the native platform
 
@@ -149,7 +151,7 @@ But it’s perfect for learning or prototyping purposes.
 
 //-------------------------------------------------------//
 
-— TextInput Component —
+# TextInput Component —
 
 
 <TextInput placeholder="type here" value="val" onChangeText={(text) => null} />
@@ -164,7 +166,7 @@ But it’s perfect for learning or prototyping purposes.
 
 //-------------------------------------------------------//
 
-— View, Text & TextInput Components —
+# View, Text & TextInput Components —
 
 // Example App — Try it on https://snack.expo.dev/@charliecruzan/1_6?platform=web
 
@@ -211,7 +213,7 @@ export default App;
 
 //-------------------------------------------------------//
 
-— Styling —
+# Styling —
 
 // Before
 const AwesomeBox = () => (
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
 
 //-------------------------------------------------------//
 
-— Styling: Combining Styles —
+# Styling: Combining Styles —
 
 
 // Example 1
@@ -277,13 +279,13 @@ const styles = StyleSheet.create({
 
 //-------------------------------------------------------//
 
-— Density-independent Pixels — 
+# Density-independent Pixels — 
 
 Default unit for React Native when setting styling properties, such as height, width, and fontSize
 
 //-------------------------------------------------------//
 
-— All Elements Are Flexboxes — 
+# All Elements Are Flexboxes — 
 
 In ReactNative all elements are flexboxes. You don’t have to specify display: flex.
 
@@ -315,7 +317,7 @@ export const styles = StyleSheet.create({
 
 //-------------------------------------------------------//
 
-— Flexbox: Child Elements Position — 
+# Flexbox: Child Elements Position — 
 
 Property: justifyContent
 
@@ -329,7 +331,7 @@ Property that renders child elements
 
 //-------------------------------------------------------//
 
-— React Navigation — 
+# React Navigation — 
 
 Stack navigation: users click from one screen to another. With each step, screens are kept track in a stack data structure.
 

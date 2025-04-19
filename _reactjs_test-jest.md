@@ -6,7 +6,7 @@ https://github.com/testing-library/jest-dom
 
 //-------------------------------------------------------//
 
-—— Problem Statement ——
+# Problem Statement ——
 
 We want a reliable way to test our code, not just once, but continuously as our project grows.
 
@@ -18,7 +18,7 @@ Test runner: command line tool for executing test files and displaying the resul
 
 //-------------------------------------------------------//
 
-—— Jest : File Setup ——
+# Jest : File Setup ——
 
 make sure that our test files are located, or match the following name conventions under the /src top-level directory:
 
@@ -28,7 +28,7 @@ make sure that our test files are located, or match the following name conventio
  
 //-------------------------------------------------------//
 
-—— Jest : Watch Mode ——
+# Jest : Watch Mode ——
 
 npm test
 
@@ -37,7 +37,7 @@ Type q in the terminal to quit out of the watch mode.
 
 //-------------------------------------------------------//
 
-—— Jest : Watch Mode ——
+# Jest : Watch Mode ——
 
 Customize terminal output by Jest
 
@@ -49,7 +49,7 @@ npm test -- --help  // --help : Displays help
 
 //-------------------------------------------------------//
 
-—— Jest : Report ——
+# Jest : Report ——
 
 Statement coverage : % of the program’s statements that have been executed.
 Branch coverage : % of the program’s edge cases that have been executed.
@@ -58,7 +58,7 @@ Line coverage : % of the program’s executable lines in the source file that ha
 
 //-------------------------------------------------------//
 
-—— Jest : it() and test() ——
+# Jest : it() and test() ——
 
 it() and test() functions: create separate containers for our testing logic
 
@@ -71,7 +71,7 @@ Each it() function call creates a separate entry in our testing output when we r
 
 //-------------------------------------------------------//
 
-—— Jest : it() Example Skeleton ——
+# Jest : it() Example Skeleton ——
 
 //file: __tests__/recipes.test.js
 
@@ -88,7 +88,7 @@ it("gets only the ingredients list for pesto", () => {
 
 //-------------------------------------------------------//
 
-—— Jest : assertion methods (matchers) ——
+# Jest : assertion methods (matchers) ——
 
 toBeDefined() // verify that a variable is not undefined. This is often the first thing checked.
 toEqual() // perform deep equality checks between objects.
@@ -101,7 +101,7 @@ i.e. expect(actualIngredients).not.toContain("Ice Cream"); // verifies "Ice Crea
 
 //-------------------------------------------------------//
 
-—— Jest : it() Example ——
+# Jest : it() Example ——
 
 AAA: Arrange, Act, Assert: best practice testing pattern in the callback
 
@@ -134,7 +134,7 @@ it("converts array of country data objects to array of countries", ()=>{
 
 //-------------------------------------------------------//
 
-—— Jest : Test Async Code ——
+# Jest : Test Async Code ——
 
 When testing async code, what the diff between done() vs async/await ?
 
@@ -167,7 +167,7 @@ it("Gets the full recipe for pesto", (done) => {
 
 //-------------------------------------------------------//
 
-—— Jest : Why Mocking ——
+# Jest : Why Mocking ——
 
 Problem Statement:
 Often we do not want to test with real functions, i.e. that connects with potentially buggy external systems (i.e. third-party API).
@@ -181,7 +181,7 @@ We can use the mock function to test our code in isolation without worrying abou
 
 //-------------------------------------------------------//
 
-—— Jest :  Mock How To ——
+# Jest :  Mock How To ——
 
 When mocking entire modules, mock implementations of the module should be created in a __mocks__/ folder adjacent to the file being mocked.
 
@@ -191,7 +191,7 @@ The file to be mocked must be imported before it can be mocked with jest.mock().
 
 //-------------------------------------------------------//
 
-—— Jest : Mocking Functions ——
+# Jest : Mocking Functions ——
 
 jest.fn() : create functions that we want to mock
 
@@ -208,7 +208,7 @@ export default apiRequest;
 
 //-------------------------------------------------------//
 
-—— Jest :  Mocking ——
+# Jest :  Mocking ——
 
 Goal: replace the actual function with a mocked one we created
 

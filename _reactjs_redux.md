@@ -2,7 +2,7 @@ Course improvement: need side-by-side code comparison, wo Redux vs w Redux w w R
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://redux.js.org/
 
@@ -14,7 +14,7 @@ https://redux-toolkit.js.org/api/createAsyncThunk
 
 //-------------------------------------------------------//
 
-— Common Imports —
+# Common Imports —
 
 import { createStore, combineReducers } from 'redux';
 
@@ -28,7 +28,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 //-------------------------------------------------------//
 
-—— Problem Statement ——
+# Problem Statement ——
 
 With plain React, the three parts state-view-actions overlap quite a bit. 
 We would like a more elegant solution that separate those concerns.
@@ -37,7 +37,7 @@ Redux just does that.
 
 //-------------------------------------------------------//
 
-—— Pitch ——
+# Pitch ——
 
 Redux an alternative to Context API.
 
@@ -51,7 +51,7 @@ Redux, as a valuable tool, enhances JavaScript frameworks and libraries by offer
 
 //-------------------------------------------------------//
 
-—— Redux : Install ——
+# Redux : Install ——
 
 npm install --save-dev @testing-library/react
 // p.s. create-react-app by default includes RTL 
@@ -66,7 +66,7 @@ npm install @reduxjs/toolkit
 
 //-------------------------------------------------------//
 
-—— Redux : Watch Mode ——
+# Redux : Watch Mode ——
 
 npm test
 
@@ -75,7 +75,7 @@ Type q in the terminal to quit out of the watch mode.
 
 //-------------------------------------------------------//
 
-—— Redux : Watch Mode ——
+# Redux : Watch Mode ——
 
 Customize terminal output by RTL
 
@@ -87,7 +87,7 @@ npm test -- --help  // --help : Displays help
 
 //-------------------------------------------------------//
 
-—— Redux: Best Practices ——
+# Redux: Best Practices ——
 
 1. State – the current data used in the app
 2. View – the user interface displayed to users
@@ -99,7 +99,7 @@ Store → View → Actions → Store
 
 //-------------------------------------------------------//
 
-—— Redux: Core Principles ——
+# Redux: Core Principles ——
 
 1. Pure Functions — always have the same outputs given the same inputs
 2. Immutable Updates
@@ -108,7 +108,7 @@ A reducer must be a pure function, and it must update the state immutably.
 
 //-------------------------------------------------------//
 
-—— Reducer: Principles ——
+# Reducer: Principles ——
 
 A reducer is a function that determines the application’s next state given a current state and a specific action. 
 If no state is provided, it returns a default initial state.
@@ -120,7 +120,7 @@ If the action is not recognized, it returns the current state.
 
 //-------------------------------------------------------//
 
-—— Redux: Principles ——
+# Redux: Principles ——
 
 A container that holds and manages your application’s global state.
 
@@ -129,7 +129,7 @@ Typically there is only one store in a Redux application.
 
 //-------------------------------------------------------//
 
-—— Redux : Immutable Updates ——
+# Redux : Immutable Updates ——
 
 Plain strings, numbers, and booleans are immutable in JavaScript, so we can just return them without making a copy
 
@@ -149,7 +149,7 @@ You usually to that with the spread annotation ({...obj}) followed by the necess
   
 //-------------------------------------------------------//
 
-—— Redux :  ——
+# Redux :  ——
 
 In Redux, actions are represented as plain JS objects. Example:
 
@@ -168,7 +168,7 @@ Actions in Redux represent specific events that occur.
 
 //-------------------------------------------------------//
 
-—— Redux : Store ——
+# Redux : Store ——
 
 Redux is a state-management library centered around a single, powerful object called the store.
 
@@ -178,7 +178,7 @@ listener functions when such changes occur.
 
 //-------------------------------------------------------//
 
-—— Redux : Reducer ——
+# Redux : Reducer ——
 
 Reducer composition is a design pattern for managing a Redux store with multiple slices. 
 
@@ -187,7 +187,7 @@ The root reducer then reassembles the slices into a new state object.
 
 //-------------------------------------------------------//
 
-—— Redux : Slice ——
+# Redux : Slice ——
 
 const state = {
   songs: ['Claire De Lune', 'Garota de Ipanema', 'We Will Rock You'],
@@ -200,7 +200,7 @@ Property is the general term to describe the values of an object, and Slice is R
 
 //-------------------------------------------------------//
 
-—— Redux : Slice Advanced ——
+# Redux : Slice Advanced ——
 
 A “slice” of state is a segment of the global state that focuses on a particular feature. 
 It encompasses the related data, along with its associated reducers, actions, and selectors. 
@@ -212,14 +212,14 @@ This modular approach simplifies complex applications and makes debugging a bree
 
 //-------------------------------------------------------//
 
-—— Redux : RTK ——
+# Redux : RTK ——
 
 Redux Toolkit (RTK) contains packages and functions that build in suggested best practices, 
 simplify most Redux tasks, prevent common mistakes, and make it easier to write Redux applications.
 
 //-------------------------------------------------------//
 
-—— Redux : Reducer ——
+# Redux : Reducer ——
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -240,7 +240,7 @@ const reducer = (state = initialState, action) => {
 
 //-------------------------------------------------------//
 
-—— Redux : API ——
+# Redux : API ——
 
 import { createStore } from 'redux'
 
@@ -255,7 +255,7 @@ subscribe() returns an unsubscribe function  // to stop the listener from respon
 
 //-------------------------------------------------------//
 
-—— Redux API : Example ——
+# Redux API : Example ——
 
 // Create Store
 import { createStore } from 'redux'
@@ -272,7 +272,7 @@ const store = createStore(lightSwitchReducer);
 
 //-------------------------------------------------------//
 
-—— Redux API: Example II ——
+# Redux API: Example II ——
 
 import { createStore } from 'redux';
 const countReducer = (state = 0, action) => {
@@ -307,7 +307,7 @@ document.getElementById('plusButton').addEventListener('click', () => {
 
 //-------------------------------------------------------//
 
-—— Redux API : Subscribe and Unsubscribe ——
+# Redux API : Subscribe and Unsubscribe ——
 
 // lightSwitchReducer(), toggle(), and store omitted...
 const reactToChange = () => {
@@ -333,7 +333,7 @@ console.log(store.getState()); // Prints 'off'
 
 //-------------------------------------------------------//
 
-—— Redux API : Subscribe and Unsubscribe ——
+# Redux API : Subscribe and Unsubscribe ——
 
 /* App.js */
 import React from "react";
@@ -393,7 +393,7 @@ export const store = createStore(countReducer);
 
 //-------------------------------------------------------//
 
-—— Redux :  ——
+# Redux :  ——
 
 // fun stuff with updating state slices
 case 'cart/changeItemQuantity': {
@@ -413,7 +413,7 @@ case 'cart/changeItemQuantity': {
 
 //-------------------------------------------------------//
 
-—— Redux :  ——
+# Redux :  ——
 
 Middleware is the code that runs in the middle—usually between a framework receiving a request and producing a response. 
 Middleware is a powerful tool for extending, modifying, or customizing a framework or library’s default behavior to meet an application’s specific needs.
@@ -424,7 +424,7 @@ This nested structure is also called a higher-order function.
 
 //-------------------------------------------------------//
 
-—— callback function VS higher-order function  ——
+# callback function VS higher-order function  ——
 
 A higher-order function is a function that takes another function(s) as an argument(s) and/or returns a function to its callers. 
 
@@ -434,7 +434,7 @@ So a callback is not necessarily itself a higher-order function, but a function 
 
 //-------------------------------------------------------//
 
-—— thunk VS higher-order function  ——
+# thunk VS higher-order function  ——
 
 Thunk is a function that returns another function.
 
@@ -442,14 +442,14 @@ Thunks may accept functions as arguments, but that’s not a requirement.
 
 //-------------------------------------------------------//
 
-—— Redux Toolkit and thunk middleware  ——
+# Redux Toolkit and thunk middleware  ——
 
 
 Redux Toolkit provides configureStore, which returns a store that applies a thunk middleware by default.
 
 //-------------------------------------------------------//
 
-—— Redux : Middleware createAsyncThunk() ——
+# Redux : Middleware createAsyncThunk() ——
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { fetchUser } from './api'
@@ -463,7 +463,7 @@ const fetchUserById = createAsyncThunk(
 
 //-------------------------------------------------------//
 
-—— Redux :  ——
+# Redux :  ——
 
 
 

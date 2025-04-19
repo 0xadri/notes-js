@@ -4,7 +4,7 @@
 
 //-------------------------------------------------------//
 
-—— Router : Problem Statement ——
+# Router : Problem Statement ——
 
 We wanna build single page apps with ReactJS. What to do?
 
@@ -14,7 +14,7 @@ We wanna build single page apps with ReactJS. What to do?
  
 //-------------------------------------------------------//
 
-—— Router : Basics ——
+# Router : Basics ——
 
 import { Route, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const appRouter = createBrowserRouter(createRoutesFromElements(
 
 //-------------------------------------------------------//
 
-—— Router : Links ——
+# Router : Links ——
 
 // Replace <a> tags with <Link> and <NavLink> components so the web browser does NOT reload the page
 
@@ -38,7 +38,7 @@ Adds styling attributes to the rendered element when it matches the current URL.
 
 //-------------------------------------------------------//
 
-—— Router : Route w Param ——
+# Router : Route w Param ——
 
 // Example 1 Param, i.e. /Articles/todayinbarcelona
 
@@ -64,7 +64,7 @@ const { title , subtitle} = useParams()
 
 //-------------------------------------------------------//
 
-—— Nested Routes ——
+# Nested Routes ——
 
 They render both the component AND the subcomponent
 
@@ -85,7 +85,7 @@ They render both the component AND the subcomponent
 
 //-------------------------------------------------------//
 
-—— Index Routes ——
+# Index Routes ——
 
 An index route is a special type of nested route that renders on its parent's path using the `index` attribute. 
 
@@ -93,7 +93,7 @@ An index route is a special type of nested route that renders on its parent's pa
 
 //-------------------------------------------------------//
 
-—— Conditional Nav ——
+# Conditional Nav ——
 
 if (!loggedIn) {
   return (
@@ -103,7 +103,7 @@ if (!loggedIn) {
 
 //-------------------------------------------------------//
 
-—— useNavigate() hook ——
+# useNavigate() hook ——
 
 useNavigate() hook: imperatively updates the browser location
 
@@ -145,7 +145,7 @@ export const BackButton = () => {
 
 //-------------------------------------------------------//
 
-—— Query Parameters: useSearchParams() hook ——
+# Query Parameters: useSearchParams() hook ——
 
 useSearchParams() hook: grabbing query parameter values
 —> returns a URLSearchParams object and a function we can use to update it
@@ -176,7 +176,7 @@ export const List = (numberList) => {
 
 //-------------------------------------------------------//
 
-—— Query Parameters: createSearchParams() ——
+# Query Parameters: createSearchParams() ——
 
 createSearchParams(): navigate to a path and include query parameters too
 

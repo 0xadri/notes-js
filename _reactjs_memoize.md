@@ -1,13 +1,13 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 A (Mostly) Complete Guide to React Rendering Behavior https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/
 
 //-------------------------------------------------------//
 
-— Problem Statement —
+# Problem Statement —
 
 What is "Rendering"?
  1. Rendering is the process of React asking your components to describe what they want their section of the UI to look like. 
@@ -26,7 +26,7 @@ This behavior becomes especially problematic when a component re-render when it 
 
 //-------------------------------------------------------//
 
-— Solution Statement —
+# Solution Statement —
 
 We want to
  1. Override that default behavior for any given component.
@@ -43,7 +43,7 @@ In practice, we do NOT want to re-render (skip it) if:
 
 //-------------------------------------------------------//
 
-— Solution in Code —
+# Solution in Code —
 
 Memoize:
  1. React.memo() —> for COMPONENT —> skip re-render if props unchanged
@@ -60,7 +60,7 @@ React.memo() is completely useless if the props passed to your component are alw
 
 //-------------------------------------------------------//
 
-— useMemo() Summary —
+# useMemo() Summary —
 
 useMemo() hook memoizes VALUES returned by expensive functions
 
@@ -73,11 +73,9 @@ const isPrime = useMemo( () => {
   checkIfPrime(number);
 },[number]);
 
- 
 //-------------------------------------------------------//
 
-
-— React.memo() usage — 
+# React.memo() usage — 
 
 Higher-order component: component that takes another component as an argument so that it can add functionality to it.
 
@@ -102,10 +100,9 @@ export const GraphPoint = React.memo(() => {
   return <div className={`e3-graph-point ${on ? 'e3-graph-point-on' : ''}`} />;
 });
 
-
 //-------------------------------------------------------//
 
-— React.useCallback() usage —
+# React.useCallback() usage —
 
 useCallback() allows us to memoize a FUNCTION, preventing React from recreating that function when the component re-renders.
 
@@ -127,9 +124,8 @@ const CounterContainer = () => {
 }
 
 //-------------------------------------------------------//
-//-------------------------------------------------------//
-
-— Code Splitting —
+=
+# Code Splitting —
 
 — Docs —
 
@@ -152,10 +148,9 @@ FYI: bundle.js contains the packaged javascript
 
 Warning: right-click "empty cache & reload" when refreshing page to measure file size of bundle.js 
 
-
 //-------------------------------------------------------//
 
-— Using await import() —
+# Using await import() —
 
 The import() syntax is based on JavaScript Promises, so we use await to wait for the Promise to resolve and mark the function as async. 
 Also, we have to add .default to the imported code after importing it
@@ -186,7 +181,7 @@ const load = async () => {
 }
 //-------------------------------------------------------//
 
-— Promises —
+# Promises —
 
 — Problem Statement —
 
@@ -245,10 +240,9 @@ async function fetchProducts() {
   }
 }
 
-
 //-------------------------------------------------------//
 
-— Using React.lazy() with <Suspense> —
+# Using React.lazy() with <Suspense> —
 
 React.lazy() lets you defer loading component’s code until it is rendered for the first time.
 

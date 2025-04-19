@@ -1,10 +1,12 @@
 
-—Docs—
+//-------------------------------------------------------//
 
+—Docs—
 
 lingo
  - "Components subscribing to state" ?
 
+//-------------------------------------------------------//
 
 Contexts come with a .Provider component that can also take in a value to be made available to child components – without having to prop drill the value.
 
@@ -21,11 +23,10 @@ Three parts:
  Rules
  - useContext must be imported when used // import React , {useContext} from "react";
  
- 
 //-------------------------------------------------------//
 
+# Context: Example 1: Without Context API
 
-——Context: Example 1: Without Context API——
 // App.js
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -66,11 +67,10 @@ export const ContactItem = ({ name , theme }) => {
   );
 };
 
-
 //-------------------------------------------------------//
 
+# Context: Example 1: With Context API
 
-——Context: Example 1: With Context API——
 // ThemeContext.js
 import React from 'react';
 
@@ -123,11 +123,10 @@ export const ContactItem = ({ name }) => {
   );
 };
 
-
 //-------------------------------------------------------//
 
+# Context: Example 1: With Context API + Wrapper
 
-——Context: Example 1: With Context API + Wrapper——
 // ThemeContext.js
 import React , {useState} from 'react';
 
@@ -195,8 +194,7 @@ export const ContactItem = ({ name }) => {
 
 //-------------------------------------------------------//
 
-
-——Context: Example 1: With Context API + Wrapper + 2 buttons——
+# Context: Example 1: With Context API + Wrapper + 2 buttons
 
 // ThemeContext.js
 import React , {useState} from 'react';
@@ -271,7 +269,8 @@ export const ContactItem = ({ name }) => {
 
 //-------------------------------------------------------//
 
-——Context: Example Three——
+# Context: Example Three
+
 // USE — App.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';

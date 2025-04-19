@@ -1,13 +1,13 @@
 
 //-------------------------------------------------------//
 
-— Imports —
+# Imports —
 
 import React, { useState, useEffect } from 'react';
 
 //-------------------------------------------------------//
 
-— Props vs State —
+# Props vs State —
 
 There are two types of “model” data in React: 
  1. Props
@@ -23,7 +23,7 @@ Use Cases
 
 //-------------------------------------------------------//
 
-— What is "Rendering" —
+# What is "Rendering" —
 
 Rendering is the process of React calling your component to figure out what they display on screen.
 Rendering runs the entire code of a component.
@@ -34,7 +34,7 @@ https://react.dev/learn/render-and-commit
 
 //-------------------------------------------------------//
 
-— Rendering vs Re-Rendering —
+# Rendering vs Re-Rendering —
 
  1. Rendering: initial render, React calls the root component.
  2. Re-Rendering: subsequent renders, React calls component whose state update triggered the render.
@@ -46,7 +46,7 @@ https://react.dev/learn/render-and-commit
 
 //-------------------------------------------------------//
 
-— Rendering, Re-Rendering And Recursivity —
+# Rendering, Re-Rendering And Recursivity —
 
 Rendering is recursive: if the rendered component returns some other component, React will render that component next, and so on.
 
@@ -57,7 +57,7 @@ https://react.dev/learn/render-and-commit
 
 //-------------------------------------------------------//
 
-— Re-Rendering Conditions —
+# Re-Rendering Conditions —
 
 By default, when a component re-renders:
  1. React recreates all code defined inside a component, including functions.
@@ -74,7 +74,7 @@ https://react.dev/learn/render-and-commit
 
 //-------------------------------------------------------//
 
-— Components Forget Everything —
+# Components Forget Everything —
 
 Components have amnesia.
 
@@ -86,7 +86,7 @@ REACT STATES PERSIST ACROSS RE-RENDERS
 
 //-------------------------------------------------------//
 
-— State or not State —
+# State or not State —
 
 Figuring out if data in my app is a state or not.
 
@@ -96,7 +96,7 @@ Figuring out if data in my app is a state or not.
 
 //-------------------------------------------------------//
 
-— Re-Rendering Component From Within Itself —
+# Re-Rendering Component From Within Itself —
 
 useState() is a React Hook that lets you add a state variable to your component.
 
@@ -104,13 +104,13 @@ Once the component has been initially rendered, you can trigger further renders 
 
 //-------------------------------------------------------//
 
-— React Data Flow —
+# React Data Flow —
 
 React uses one-way data flow, passing data down the component hierarchy from parent to child component.
 
 //-------------------------------------------------------//
 
-— Data Flow, Props & States —
+# Data Flow, Props & States —
 
 Two-way data binding???
 
@@ -122,7 +122,7 @@ This reverse flow is required to update the component holding the state.
 
 //-------------------------------------------------------//
 
-— Props: Basic Example —
+# Props: Basic Example —
 
 const element = <Welcome name="Sara" />;
 
@@ -132,7 +132,7 @@ function Welcome({name}) { return <h1>Hello, {name}</h1>; }
 
 //-------------------------------------------------------//
 
-— Props Forwarding With Spread Syntax —
+# Props Forwarding With Spread Syntax —
 
 export default function Input({richText, ...props}) {
   if(richText) return <textarea {...props} />
@@ -143,7 +143,7 @@ https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-j
 
 //-------------------------------------------------------//
 
-— Destructure: Objects, Arrays —
+# Destructure: Objects, Arrays —
 
 // basics
 const {name, value} = target;
@@ -155,7 +155,7 @@ const handleChange = ({target}) => {
 
 //-------------------------------------------------------//
 
-— Hooks: State Hooks, Effect Hooks —
+# Hooks: State Hooks, Effect Hooks —
 
 Hooks allow us to perform essential logic with our function components
 
@@ -169,7 +169,7 @@ Two main rules to keep in mind when using Hooks:
 
 //-------------------------------------------------------//
 
-— State Hook —
+# State Hook —
 
 // State lets a component “remember” information like user input. For
 // Updating a state re-renders your component
@@ -188,7 +188,7 @@ const [categories, setCategories] = useState(null); // for object
 
 //-------------------------------------------------------//
 
-— State Hook: prev object —
+# State Hook: prev object —
 
 Setter function has an implicit object.
 
@@ -208,7 +208,7 @@ const handleClick = () => {
 
 //-------------------------------------------------------//
 
-— Effect Hook —
+# Effect Hook —
 
 Use Case
  - Effects let a component connect to and synchronize with external systems.
@@ -220,7 +220,7 @@ Rule:
 
 //-------------------------------------------------------//
 
-— Effect Hook: How To —
+# Effect Hook: How To —
 
 // useEffect() function calls its 1st argument (the effect) after each time a component renders - not just once
 useEffect(() => {
@@ -258,7 +258,7 @@ useEffect(() => {
 
 //-------------------------------------------------------//
 
-— Functions: Multi line return with JSX —
+# Functions: Multi line return with JSX —
 
 const HeaderComponent = () => {
 	const classVal = "blue";
@@ -271,7 +271,7 @@ const HeaderComponent = () => {
 
 //-------------------------------------------------------//
 
-— Controlled Components - aka controlled form fields —
+# Controlled Components - aka controlled form fields —
 
 Maintains any mutable state values within the state property of our components.
 
@@ -281,7 +281,7 @@ Why: allow for change-by-change tracking of input form values, they better align
 
 //-------------------------------------------------------//
 
-— Uncontrolled Component - uncontrolled form fields —
+# Uncontrolled Component - uncontrolled form fields —
 
 A form element that maintains its own state in the DOM.
 How: uses useRef() and ref attribute on input and onchange attribute on form.
@@ -290,7 +290,7 @@ Always: w files, for <input> form elements with the type="file" attribute.
 
 //-------------------------------------------------------//
 
-— States vs Refs —
+# States vs Refs —
 
 States: 
 - cause component re-evaluation (re-renders) when changed

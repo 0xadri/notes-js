@@ -1,14 +1,14 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://javascript.info/
 https://react.dev/learn
 
 //-------------------------------------------------------//
 
-— Topics I Learned —
+# Topics I Learned —
 
  - JavaScript ES6+
  - TypeScript
@@ -43,7 +43,7 @@ Things I find difficult
 
 //-------------------------------------------------------//
 
-— React Project Setup: Build Tools —
+# React Project Setup: Build Tools —
 
  - Create React App(CRA)
  - Webpack
@@ -60,7 +60,7 @@ Create React App(CRA): default option for developing React applications
 
 //-------------------------------------------------------//
 
-—— COMPONENTS THE WORLD ——
+#— COMPONENTS THE WORLD ——
 
 React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. 
 
@@ -68,7 +68,7 @@ A component can be as small as a button, or as large as an entire page.
 
 //-------------------------------------------------------//
 
-—— index.js ——
+#— index.js ——
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
@@ -77,7 +77,7 @@ createRoot(document.getElementById('app')).render(<App/>);
 
 //-------------------------------------------------------//
 
-—— React Component ——
+#— React Component ——
 
 import React from 'react';
 // import React, {useState} from 'react';

@@ -1,7 +1,7 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://www.typescriptlang.org/docs/handbook/variable-declarations.html
 https://www.typescriptlang.org/docs/handbook/compiler-options.html
@@ -16,7 +16,7 @@ node index.js
 
 //-------------------------------------------------------//
 
-— Variables —
+# Variables —
 
 Type inference: TypeScript expects the data type of the variable to match the type of the value initially assigned to it at its declaration.
 Inference = Deduction
@@ -37,7 +37,7 @@ onOrOff = false;
 
 //-------------------------------------------------------//
 
-— Type In Functions Params —
+# Type In Functions Params —
 
 function triple(value : number) {
   return value * 3;
@@ -53,7 +53,7 @@ function smush(...manyStrings : string[]){
 
 //-------------------------------------------------------//
 
-— Tuples and Spread Syntax —
+# Tuples and Spread Syntax —
 
 function gpsNavigate(startLatitudeDegrees:number, startLatitudeMinutes:number, startNorthOrSouth:string, startLongitudeDegrees: number, startLongitudeMinutes: number, startEastOrWest:string, endLatitudeDegrees:number, endLatitudeMinutes:number , endNorthOrSouth:string, endLongitudeDegrees: number, endLongitudeMinutes: number,  endEastOrWest:string) {
   /* calculates a route from one GPS Coordinates to another */
@@ -82,7 +82,7 @@ let arr: string[][] = [['str1', 'str2'], ['more', 'strings']];
 
 //-------------------------------------------------------//
 
-— Tuples —
+# Tuples —
 
 In TypeScript, when an array is typed with elements of specific types, it’s called a tuple
 
@@ -168,7 +168,7 @@ https://stackoverflow.com/questions/42273853/in-typescript-what-is-the-exclamati
 
 //-------------------------------------------------------//
 
-— tsconfig.json file —
+# tsconfig.json file —
 
 Always placed in the root of your project and you can customize what rules you want the TypeScript compiler to enforce.
 
@@ -187,7 +187,7 @@ Always placed in the root of your project and you can customize what rules you w
 
 //-------------------------------------------------------//
 
-— Enums —
+# Enums —
 
 TypeScript automatically assigns: ExampleEnum.FirstValue = 0, ExampleEnum.SecondValue = 1, and ExampleEnum.ThirdValue = 2.
 
@@ -207,7 +207,7 @@ whichWayToArcticOcean = West; // Wrong syntax
 
 //-------------------------------------------------------//
 
-— Enums and Tuples —
+# Enums and Tuples —
 
 enum Pet {
   Hamster,
@@ -225,7 +225,7 @@ let ordersArrayTS : [Pet,number][] = [
 
 //-------------------------------------------------------//
 
-— String Enums —
+# String Enums —
 
 We recommend to always use string enums because numeric enums allow for some behaviors that can let bugs sneak into our code.
 With string enums, variables cannot be assigned to strings at all!
@@ -235,7 +235,7 @@ enum DirectionString { North = 'NORTH', South = 'SOUTH', East = 'EAST', West = '
 
 //-------------------------------------------------------//
 
-— String Enums continued —
+# String Enums continued —
 
 let birthdayBabies : { name : string , age : number , giftWish : string , success : boolean }[] = [
   {name: 'Liam', age: 0, giftWish: 'karate skills', success: false}, 
@@ -245,7 +245,7 @@ let birthdayBabies : { name : string , age : number , giftWish : string , succes
 
 //-------------------------------------------------------//
 
-— Enums —
+# Enums —
 
 function getMaxPrice(price: PriceBracket) {
   switch (price) {
@@ -262,7 +262,7 @@ function getMaxPrice(price: PriceBracket) {
 
 //-------------------------------------------------------//
 
-— Type Aliases —
+# Type Aliases —
 
 type MyString = string;
 let myVar: MyString = 'Hi'; // Valid code.
@@ -294,7 +294,7 @@ let bermudaTCoordinates: Coord = [25, 0 , 'N' , 71, 0, 'W'];
 
 //-------------------------------------------------------//
 
-— Type Aliases —
+# Type Aliases —
 
 const orders = [
  [{
@@ -317,7 +317,7 @@ type Order = typeof orders[0][0];
 
 //-------------------------------------------------------//
 
-— Function Types —
+# Function Types —
 
 type StringsToNumberFunction = (arg0: string, arg1: string) => number;
 
@@ -329,7 +329,7 @@ type StringToNumberFunction = arg: string=>number; // NO NO NO NO
 
 //-------------------------------------------------------//
 
-— Generic Types —
+# Generic Types —
 
 Allows us to use T within the type annotation as a type placeholder. 
 Later, when the generic type is used, T is replaced with the provided type.
@@ -347,7 +347,7 @@ function getFilledArray<T>(value: T, n: number): T[] {
 
 //-------------------------------------------------------//
 
-— Generic Functions —
+# Generic Functions —
 
 function getFilledArray<T>(value: T, n: number): T[] {
   return Array(n).fill(value);
@@ -366,7 +366,7 @@ coordinateArray = getFilledArray<[number, number]>([3,4],6);
 
 //-------------------------------------------------------//
 
-— Union Types —
+# Union Types —
 
 // Example 1
 let ID: string | number;
@@ -381,7 +381,7 @@ function getMarginLeft(margin: string | number) {
 
 //-------------------------------------------------------//
 
-— Type Narrowing —
+# Type Narrowing —
 
 type guard: using typeof
 
@@ -399,7 +399,7 @@ formatValue(42);
 
 //-------------------------------------------------------//
 
-— Type Unions and Arrays —
+# Type Unions and Arrays —
 
 Annotation: (type | type)[]
 
@@ -410,7 +410,7 @@ const timesList: (string | number)[] = [dateNumber, dateString];
 
 //-------------------------------------------------------//
 
-— Unions with Literal Types —
+# Unions with Literal Types —
 
 // Ensures that wherever changeLight() is called, that it gets passed only allowed stoplight colors
 type Color = 'green' | 'yellow' | 'red';
@@ -422,7 +422,7 @@ changeLight('purple');  // does not work
 
 //-------------------------------------------------------//
 
-— "in" and Type Guards —
+# "in" and Type Guards —
 
 // Example
 type Tennis = {
@@ -463,7 +463,7 @@ function play(sport: Tennis | Soccer) {
 
 //-------------------------------------------------------//
 
-— Interfaces and Types —
+# Interfaces and Types —
 
 // This
 type Mail = {
@@ -481,7 +481,7 @@ const catalog: Mail = ...
 
 //-------------------------------------------------------//
 
-— Interfaces vs Types: Principles —
+# Interfaces vs Types: Principles —
 
 interface may only type objects.
 
@@ -494,7 +494,7 @@ interface
 
 //-------------------------------------------------------//
 
-— Interfaces vs Types: How To —
+# Interfaces vs Types: How To —
 
 // Example 1
 interface Robot {
@@ -522,7 +522,7 @@ interface Directory {
 
 //-------------------------------------------------------//
 
-— Composed Types —
+# Composed Types —
 
 // This
 interface About {
@@ -550,7 +550,7 @@ interface Version {
 
 //-------------------------------------------------------//
 
-— Extend Interfaces —
+# Extend Interfaces —
 
 // Example
 interface Shape {
@@ -564,7 +564,7 @@ const mySquare: Square = { sideLength: 10, color: 'blue' };
 
 //-------------------------------------------------------//
 
-— Index Signatures: Problem Statement —
+# Index Signatures: Problem Statement —
 
 When typing objects in TypeScript, sometimes it’s not possible to know the property names for an object.
 i.e. when we get back information from an outside data source/API
@@ -573,7 +573,7 @@ We still want to be able to type our objects. Dynamically?
 
 //-------------------------------------------------------//
 
-— Index Signatures —
+# Index Signatures —
 
 // Imagine we query a map API. The data might look like:
 {
@@ -592,7 +592,7 @@ As a human-readable name that will show up in potential error messages later.
 
 //-------------------------------------------------------//
 
-— Optional Type Members: Problem Statement —
+# Optional Type Members: Problem Statement —
 
 We wanna make some type members optional.
 

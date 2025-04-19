@@ -1,13 +1,13 @@
 
 //-------------------------------------------------------//
 
-— Docs —
+# Docs —
 
 https://react.dev/learn/writing-markup-with-jsx
 
 //-------------------------------------------------------//
 
-— What is JSX —
+# What is JSX —
 
 JSX was invented by a team at Facebook/Meta, the same team that created React. 
 
@@ -17,7 +17,7 @@ JSX lets you put markup into JavaScript.
 
 //-------------------------------------------------------//
 
-— Curly braces for JSX —
+# Curly braces for JSX —
 
 Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.
 
@@ -36,7 +36,7 @@ return (
 
 //-------------------------------------------------------//
 
-— Double Curly braces for JSX —
+# Double Curly braces for JSX —
 
 Not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
 
@@ -53,7 +53,7 @@ return (
 
 //-------------------------------------------------------//
 
-— Conditions in JSX —
+# Conditions in JSX —
 
 "if" does not work in JSX.
 
@@ -73,7 +73,7 @@ return (
 
 //-------------------------------------------------------//
 
-— Lists in JavaScript —
+# Lists in JavaScript —
 
 const products = [{ title: 'Cabbage', id: 1 },  { title: 'Garlic', id: 2 },  { title: 'Apple', id: 3 }];
 
