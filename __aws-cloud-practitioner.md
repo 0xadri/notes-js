@@ -1,4 +1,11 @@
 
+
+# Courses, Mock Tests & Certification
+
+- [AWS Cloud Practitioner CLF-C02 · Certification](https://aws.amazon.com/certification/certified-cloud-practitioner/) ✅📜 Certification Passed on Apr 2nd 2025
+- [AWS Cloud Practitioner · 6x Mock Tests · Udemy](https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)  ✅ Completed in Mar 2025
+- [AWS Cloud Practitioner · Course · Udemy](https://www.udemy.com/course/aws-certified-cloud-practitioner-new/) ✅ Completed in Mar 2025
+
 //-------------------------------------------------------//
 
 # Mock Tests

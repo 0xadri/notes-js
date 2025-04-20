@@ -3,8 +3,10 @@
 
 # PROG
 
+React The Complete Guide, by Maximilian Schwarzmueller
 https://www.udemy.com/course/react-the-complete-guide-incl-redux/
 https://github.com/academind/react-complete-guide-course-resources/tree/main
+https://www.youtube.com/@academind
 
 //-------------------------------------------------------//
 
