@@ -179,30 +179,30 @@ For all type of media, these formats are valid:
 /* Is equivalent to */
 
 > <style type="text/css" media="all">
+>
 >   ...some css here...
+>
 > </style>
 
 > @media all{
+>
 >   ...some css here...
+>
 > }
 
 For a specific media type (print for instance), these 2 formats are valid:
 
-`<style type="text/css" media="print">`
+> <style type="text/css" media="print">
+> 
+>   ...some print specific style css here...
+> 
+> </style>
 
-`  ...some print specific style css here...`
-
-`</style>`
-
-`@media print{`
-
-`   ...some print specific style css here...`
-
-`}`
-
-`@media print{
-   ...some print specific style css here...`
-}`
+> @media print{
+> 
+>    ...some print specific style css here...
+> 
+> }
 
 2. HTML Include CSS file (External Style Sheet)
 
