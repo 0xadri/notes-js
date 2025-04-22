@@ -1108,11 +1108,7 @@ Make a div fill up the remaining width
 > 
 >      * This solution handles fluid layout !
 > 
->      *
-> 
->      * Created by: Adrien Berthou
-> 
->      *
+>      * Created by: Adrien Be
 > 
 >      * [1] & [3] "floats" makes the 2 divs align themselves respectively right & left
 > 
@@ -1214,9 +1210,9 @@ stackoverflow.com/a/13959836/759452
 
 Link - Redirect to top of the page
 
-> <a href="#">Click me!</a>
+`<a href="#">Click me!</a>`
 
-Links - <a> element
+Links - `<a>` element
 
 Ideally, you want your links to be right clickable (to be able to: open in a new window, copy link, & so on), hence you will you the <a> element. This will also help an easier crawling (SEO) of your website.
 
@@ -1224,41 +1220,41 @@ For links which are not in the text (ie. a link in a menu), you ideally want you
 
 The following code snipet can be taken as a base (note: nice border effect). see http://jsfiddle.net/eWGY3/1/
 
-> <a class="nice-link" href="#">Flights 1</a>
-> 
-> <a class="nice-link" href="#">Flights 2</a>
-> 
-> <a class="nice-link" href="#">Flights 3</a>
-> 
-> <a class="nice-link" href="#">Flights 4</a>
+>     <a class="nice-link" href="#">Flights 1</a>
+>     
+>     <a class="nice-link" href="#">Flights 2</a>
+>     
+>     <a class="nice-link" href="#">Flights 3</a>
+>     
+>     <a class="nice-link" href="#">Flights 4</a>
 > 
 > .nice-link {
 > 
->     display: block;
+>  display: block;
 > 
->     font-weight: bold;
+>  font-weight: bold;
 > 
->     text-decoration: none;
+>  text-decoration: none;
 > 
->     border-style: solid;
+>  border-style: solid;
 > 
->     border-width: 1px 0;
+>  border-width: 1px 0;
 > 
->     border-color: #16c98d;
+>  border-color: #16c98d;
 > 
->     padding: 12px;
+>  padding: 12px;
 > 
->     color: #fff;
+>  color: #fff;
 > 
->     background-color: #16c98d;
+>  background-color: #16c98d;
 > 
 > }
 > 
 > .nice-link:hover {
 > 
->     background-color: #10b47d;
+>  background-color: #10b47d;
 > 
->     border-color: #0ea270 #000 #45d4a4 #000;
+>  border-color: #0ea270 #000 #45d4a4 #000;
 > 
 > }
 
