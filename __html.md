@@ -298,8 +298,6 @@ The reset stylesheet is very important. It is used to override browsers default 
 
 www.cssreset.com - reset stylesheet
 
-> <style type="text/css">
-> 
 >   /* 
 > 
 >      from http://meyerweb.com/eric/tools/css/reset/ 
@@ -399,8 +397,6 @@ www.cssreset.com - reset stylesheet
 >         outline: none;
 > 
 >   }
-> 
-> </style>
 
 HTML/CSS IDs and Classes
 
