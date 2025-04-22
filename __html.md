@@ -1057,13 +1057,13 @@ Read more:
 
 HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
 
-> <div class="outer">
-> 
->   <div class="inner">
-> 
->   </div>
-> 
-> </div>
+>    <div class="outer">
+>    
+>      <div class="inner">
+>    
+>      </div>
+>    
+>    </div>
 > 
 > .outer {
 > 
@@ -1083,7 +1083,7 @@ HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
 > 
 > }
 
-inline elements can be centered with text-align ;)
+`inline` elements can be centered with `text-align` ;)
 
 read more about "centering the unknown"
  - css-tricks.com/centering-css-complete-guide
@@ -1102,7 +1102,7 @@ read more:
  - http://stackoverflow.com/questions/22253122/make-variable-number-of-divs-positioned-side-by-side-of-equal-height-with-html-c
  - css-tricks.com/equal-height-blocks-in-rows (js solution)
 
-Make a div fill up the remaining width
+Make a `div` fill up the remaining width
 
 >     /*
 > 
@@ -1200,9 +1200,7 @@ or maybe even better http://stackoverflow.com/a/22719552/759452 and http://stack
 
 > $('iframe').load( function() {
 > 
->     $('iframe').contents().find("head")
-> 
->       .append($("<style type='text/css'>  .my-class{display:none;}  </style>"));
+>  $('iframe').contents().find("head").append($("<style type='text/css'> .my-class{display:none;} </style>"));
 > 
 > });
 
