@@ -1,5 +1,7 @@
 source https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
+Notes I took in the years prior to 2018
+
 //-------------------------------------------------------//
 
 # Developer Tool
@@ -19,9 +21,9 @@ https://developers.google.com/chrome-developer-tools/
 When you change your HTML/CSS code your browser may not display the changes after refreshing the page. This is because it gets the page (or some of the page info) from its cache.
 
 In this case you want to force the browser to refresh its cache using:
- - ctrl + reload button
- - ctrl + F5 : windows IE & windows chrome
- - ctrl + shift + r : Firefox
+ - `ctrl` + `reload button`
+ - `ctrl` + `F5` : `windows IE` & `windows chrome`
+ - `ctrl` + `shift` + `r` : `Firefox`
 
 //-------------------------------------------------------//
 
@@ -72,9 +74,9 @@ In IE8 you can see your "Browser Mode" and "Document Mode" in the top bar of the
 
 Code to instruct IE8 to ignore Compatibility View and Compatibility View List
 
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
+`<meta http-equiv="X-UA-Compatible" content="IE=8" />`
 
-You want to put this in the <head> section of your HTML page (before the CSS and JavaScript includes?? as the first thing in the <head> element?? "non expected" code above the header tag could also jeopardise this instruction).
+You want to put this in the `<head>` section of your HTML page (before the CSS and JavaScript includes?? as the first thing in the `<head>` element?? "non expected" code above the header tag could also jeopardise this instruction).
 
 # IE9 Compatibility View & Quirks mode
 
@@ -86,21 +88,21 @@ Code to instruct IE9 to ignore Compatibility View & Quirks mode
 
 To force to be in the latest version standard mode available
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+`<meta http-equiv="X-UA-Compatible" content="IE=edge" >`
 
 To force to be in IE9 standard mode whatever the directive (not sure what this implies..!)
 
-<meta http-equiv="X-UA-Compatible" content="IE=9" >
+`<meta http-equiv="X-UA-Compatible" content="IE=9" >`
 
 To force to be in IE8 standard mode (if avaibable??)
 
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >
+`<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >`
 
 To force to be in IE8 standard mode whatever the directive (not sure what this implies..!)
 
-<meta http-equiv="X-UA-Compatible" content="IE=8" >
+`<meta http-equiv="X-UA-Compatible" content="IE=8" >`
 
-You want to put this in the <head> section of your HTML page (before the CSS and JavaScript includes?? as the first thing in the <head> element?? "non expected" code above the header tag could also jeopardise this instruction).
+You want to put this in the `<head>` section of your HTML page (before the CSS and JavaScript includes?? as the first thing in the `<head>` element?? "non expected" code above the header tag could also jeopardise this instruction).
 
 Read more: 
  - http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge
@@ -118,16 +120,15 @@ Some rendering engines:
  - KHTML - Konqueror web browser
  - Presto - used by Opera until version 14 (June 2013)
 
-viewport: 
-
-This is the display area of a web browser window.
+Viewport: This is the display area of a web browser window.
 
 HTML comments
 
-<!-- ...some HTML code... -->
+`<!-- ...some HTML code... -->`
 
 CSS comments
-/* ...some CSS code... */
+
+`/* ...some CSS code... */`
 
 HTML special characters
 
@@ -155,9 +156,9 @@ HTML most common tags
 
 HTML IE conditional statement:
 
-> <!--[if IE ]>
->   <link href="ie_stylesheet.css" rel="stylesheet" type="text/css">
-> <![endif]-->
+`<!--[if IE ]>`
+`  <link href="ie_stylesheet.css" rel="stylesheet" type="text/css">`
+`<![endif]-->`
 
 In this case we use it to import a stylesheet for specific browser.
 
@@ -167,7 +168,7 @@ Styling "insertion" techniques
 
 1. HTML Include CSS directly in the HTML page (Internal Style Sheet)
 
-Add the following in the <head> element of your HTML page
+Add the following in the `<head>` element of your HTML page
 
 For all type of media, these formats are valid:
 
@@ -187,26 +188,26 @@ For all type of media, these formats are valid:
 
 For a specific media type (print for instance), these 2 formats are valid:
 
-> <style type="text/css" media="print">
->   ...some print specific style css here...
-> </style>
-> @media print{
->    ...some print specific style css here...
-> }
+`<style type="text/css" media="print">`
+`  ...some print specific style css here...`
+`</style>`
+`@media print{`
+`   ...some print specific style css here...`
+`}`
 
 2. HTML Include CSS file (External Style Sheet)
 
 Add the following in the <head> element of your HTML page
 
-> <link rel="stylesheet" type="text/css" href="classic.css" />
-> @import url("myStyleSheet.css");
-> @import "myStyleSheet.css";
-> @import "./css/myPrintMediaStyleSheet.css" print;
+`<link rel="stylesheet" type="text/css" href="classic.css" />`
+`@import url("myStyleSheet.css");`
+`@import "myStyleSheet.css";`
+`@import "./css/myPrintMediaStyleSheet.css" print;`
 
 3. CSS Include CSS file
 
-> @import url("header.css");
-> @import url("mainContainer.css");
+`@import url("header.css");`
+`@import url("mainContainer.css");`
 
 Thanks to this method you can group all your (non conditional) css import in one css file
 
@@ -216,7 +217,7 @@ Read more on including Internal and External style sheets:
 
 4. Include the style directly in the HTML (Inline styling)
 
-> <span style="color:red; font:bold;">my text in bold red</span>
+`<span style="color:red; font:bold;">my text in bold red</span>`
 
 This allows you to style directly a specific element. It is recommended to avoid this technique.
 
@@ -232,9 +233,9 @@ In the case of any conflicts from inherited properties, the nearest ancestor win
 
 You can force an element to inherit a property from his parent element by using inherit keyword
 
-> em {
->   border: inherit;
-> }
+`em {`
+`  border: inherit;`
+`}`
 
 Read more on
  - www.w3.org - inheritance
@@ -243,26 +244,43 @@ Read more on
 CSS - Styles priorities
 
 CSS properties from the style attribute (called inline styling) always have priority on properties from any style sheet.
+
 If two styles from a same style sheet apply to a same element (ie. the first specifies "font:10px" and the second "font:20px"), the one appearing the last in the style sheet wins ("font:20px" in our example).
+
 If two styles from two different style sheets apply to a same element, the style that appears last will be applied. Which means, the style that is in the style sheet included last will have the priority.
+
 For this reason, you should/must add your external style sheet first and insert your internal styles after.
+
 Properties from a style specifically applied to a tag beat out any inherited properties.
+
 If more than one style applies to a particular element, then a web browser combines the properties of all those styles, as long as they don't conflict.
+
 CSS - Specifity
+
 This is the way the "strength" or priority of a style is calculated.
+
 An approximation to calculate it is to count:
 + 1 point for a tag selector
 + 10 points for a class selector
 + 100 points for an ID selector
 + add those points if a selector is a descendant selector (ie. ".my-class-name ul a" equals to 12 points)
+
 Read more on coding.smashingmagazine.com - specificity
+
 CSS - !important
+
 Including !important after a property value means that specific property always wins (wherever your stylesheet is).
+
 When two styles both have !important applied to the same property, the more specific style's !important rule wins.
+
 It generally best to avoid this technique as you may want to override this property someday.
+
 CSS - Reset Stylesheet
+
 The reset stylesheet is very important. It is used to override browsers default styles of some elements to your own custom values. The aim is to reduce browsers inconsistencies.
+
 www.cssreset.com - reset stylesheet
+
 <style type="text/css">
   /* 
      from http://meyerweb.com/eric/tools/css/reset/ 
