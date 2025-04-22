@@ -358,19 +358,19 @@ www.cssreset.com - reset stylesheet
 > 
 >   body {
 > 
->     line-height: 1;
+>   line-height: 1;
 > 
 >   }
 > 
 >   ol, ul {
 > 
->     list-style: none;
+>   list-style: none;
 > 
 >   }
 > 
 >   blockquote, q {
 > 
->     quotes: none;
+>   quotes: none;
 > 
 >   }
 > 
@@ -378,23 +378,23 @@ www.cssreset.com - reset stylesheet
 > 
 >   q:before, q:after {
 > 
->     content: '';
+>   content: '';
 > 
->     content: none;
+>   content: none;
 > 
 >   }
 > 
 >   table {
 > 
->     border-collapse: collapse;
+>   border-collapse: collapse;
 > 
->     border-spacing: 0;
+>   border-spacing: 0;
 > 
 >   }
 > 
 >   *:focus {
 > 
->         outline: none;
+>   outline: none;
 > 
 >   }
 
@@ -410,7 +410,6 @@ Best practice is to never use IDs, but if you do, an ID must be applied to:
 HTML element with an ID applied to it
 
 > <div id="unique-page-results">
->
 > </div>
 
 CSS for the element of id "results"
