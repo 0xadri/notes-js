@@ -189,10 +189,15 @@ For all type of media, these formats are valid:
 For a specific media type (print for instance), these 2 formats are valid:
 
 `<style type="text/css" media="print">`
+
 `  ...some print specific style css here...`
+
 `</style>`
+
 `@media print{`
+
 `   ...some print specific style css here...`
+
 `}`
 
 2. HTML Include CSS file (External Style Sheet)
@@ -200,8 +205,11 @@ For a specific media type (print for instance), these 2 formats are valid:
 Add the following in the <head> element of your HTML page
 
 `<link rel="stylesheet" type="text/css" href="classic.css" />`
+
 `@import url("myStyleSheet.css");`
+
 `@import "myStyleSheet.css";`
+
 `@import "./css/myPrintMediaStyleSheet.css" print;`
 
 3. CSS Include CSS file
