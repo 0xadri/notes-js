@@ -1,4 +1,4 @@
-
+ 
 //-------------------------------------------------------//
 
 # Imports
@@ -135,23 +135,11 @@ function Welcome({name}) { return <h1>Hello, {name}</h1>; }
 # Props Forwarding With Spread Syntax
 
 export default function Input({richText, ...props}) {
-  if(richText) return <textarea {...props} />
+  if (richText) return <textarea {...props} />
   else return <input {...props} />
 }
 
 https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
-
-//-------------------------------------------------------//
-
-# Destructure: Objects, Arrays
-
-// basics
-const {name, value} = target;
-const [a, b] = target;
-// destructure in event handler
-const handleChange = ({target}) => {
-    setName(target.value);
-}
 
 //-------------------------------------------------------//
 
@@ -188,34 +176,136 @@ const [categories, setCategories] = useState(null); // for object
 
 //-------------------------------------------------------//
 
-# State Hook: prev object
+# State Hook: Updating And Prev Object [Best Practice]
 
-Setter function has an implicit object.
+Always pass a function to your state updating function.
+ -> Otherwise the update is scheduled for "later"
 
-// prevCount's type is whatever is defined in the useState() argument
-setClickCount((prevCount) =>  prevCount + 1);
+Using the functional form ensures that you are working with the latest state snapshot
+ —> Especially in scenarios where state updates are asynchronous.
 
-// prev's type is whatever is defined in the useState() argument
-setProfile((prev) => ({
-  ...prev,
-  [name]: value
-}));
-
-// prev with a handling function
-const handleClick = () => {
-	setCount((prevCount) =>  prevCount + 1);
-};
-
+When using a functional update to the state, the parameter is defaulted to the previous state. 
+ —> The updating function has an implicit object w the previous value of thesaid object.
 
 //-------------------------------------------------------//
 
-# State Hook: Always Update A Deep Clone [Best Practice]
+# State Hook: Updating, State/Prev Is Number
 
-When using the setXYZ method, always do it immutably.
+const [count, setCount] = useState(0);
 
-Do a deep copy/clone.
+const handleClick = () => {
+	setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
+};
+
+//-------------------------------------------------------//
+
+# State Hook: Updating: Always Use A Deep Clone [Best Practice]
+
+When using the setXYZ method, always do it IMMUTABLY. Especially when arrays or objects. 
+ —> Do a deep copy/clone
 
 https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/39659798
+
+//-------------------------------------------------------//
+
+# State Hook: Updating When State Is Array
+
+const [students, setStudents] = useState(["Max","Lauren","Marc"]);
+
+const handleClickAdd = (e) => {
+  const name = e.target.value;
+  setStudents((students) => { // Add Item When State Is Array
+    const newStudents = [...students]; // Clone array for immutability
+    newStudents.push(name); // Modify array
+    return newStudents;
+  });
+};
+
+const handleClickRemove = (e) => {
+  const name = e.target.value;
+  setStudents((students) => { // Remove Item When State Is Array
+    const newStudents = [...students]; // Clone array for immutability
+    const index = newStudents.indexOf(name);
+    if (index > -1) newStudents.splice(index, 1); // Modify array
+    return newStudents;
+  });
+};
+
+<button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
+<button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
+
+//-------------------------------------------------------//
+
+# State Hook: Updating When State Is Two Dimensional Array
+
+const gameBoard = [
+  ["max",null,null],
+  [null,"adri",null],
+  [null,"james",null],
+]
+
+const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array for immutability
+
+//-------------------------------------------------------//
+
+# State Hook: Updating When State Is Shallow Object
+
+const [profile, setProfile] = useState({
+  name: "James",
+  city: "London",
+});
+
+const handleClick = (keyName, value) => {
+  setProfile((prev) => ({
+    ...prev, // Clone object for immutability (Shallow Clone)
+    [keyName]: value, // Add/Update Property
+  }));
+};
+
+<button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
+<button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
+
+//-------------------------------------------------------//
+
+# State Hook: Updating, State/Prev Is Object With Nested Objects
+
+Assume state is an object with a property 'data'.
+
+const [person, setPerson] = useState({
+  name: "James",
+  data: {
+    dob-year: 1988
+  }
+});
+
+setPerson(person => {
+  return {
+    ...person,
+    data: {
+      ...person.data,
+      someProperty: newValue
+    }
+  };
+});
+
+//-------------------------------------------------------//
+
+# State Hook: Avoid Intersecting States [Best Practice]
+
+Always to only have a piece of data managed only by one state.
+
+Prefer computed values
+
+//-------------------------------------------------------//
+
+# State Hook: Misc [Best Practice]
+
+ - Update Sates Based On Old State
+ - Derive States From Props
+ - Remove Unnecessary States
+ - Lift States
+ - Lift Computed Values
+ - Derive Computed Values
 
 //-------------------------------------------------------//
 

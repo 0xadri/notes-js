@@ -363,6 +363,18 @@ https://www.youtube.com/watch?v=9ooYYRLdg_g
 
 //-------------------------------------------------------//
 
+# Destructure: Objects, Arrays
+
+// basics
+const {name, value} = target;
+const [a, b] = target;
+// destructure in event handler
+const handleChange = ({target}) => {
+    setName(target.value);
+}
+
+//-------------------------------------------------------//
+
 
 
 

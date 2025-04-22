@@ -38,4 +38,3 @@ Structured learning with lessons and tutorials, similar to how you'd learn in a 
 However, it does not have the part where you'd be task with a mid-size project. 
 Codecademy is good to warm up to some topics, then you take that and try apply it elsewhere, 
 for instance do a mid-size project on another educational platform, i.e. takes 4-5 days to complete
-
