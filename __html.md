@@ -300,9 +300,9 @@ www.cssreset.com - reset stylesheet
 
 >   /* 
 > 
->      from http://meyerweb.com/eric/tools/css/reset/ 
+>   from http://meyerweb.com/eric/tools/css/reset/ 
 > 
->      2011/01/26 - License: none (public domain)
+>   2011/01/26 - License: none (public domain)
 > 
 >   */
 > 
@@ -332,17 +332,17 @@ www.cssreset.com - reset stylesheet
 > 
 >   time, mark, audio, video {
 > 
->     margin: 0;
+>   margin: 0;
 > 
->     padding: 0;
+>   padding: 0;
 > 
->     border: 0;
+>   border: 0;
 > 
->     font-size: 100%;
+>   font-size: 100%;
 > 
->     font: inherit;
+>   font: inherit;
 > 
->     vertical-align: baseline;
+>   vertical-align: baseline;
 > 
 >   }
 > 
@@ -352,7 +352,7 @@ www.cssreset.com - reset stylesheet
 > 
 >   footer, header, hgroup, menu, nav, section {
 > 
->     display: block;
+>   display: block;
 > 
 >   }
 > 
