@@ -532,32 +532,43 @@ CSS selectors, pseudo classes & pseudo elements
 Pseudo classes (or pseudo elements) are used to select an element dynamically: in a specific state/position for instance.
 
 > .my-class-name:hover{
+>
 >    background-color: green;
+>
 >    color: white;
+>
 > }
 
 `:hover` let's you style an element differently when the user hovers his mouse on an element
 
 > .basket-items > li:first-child{
+>
 >    border: solid grey 1px;
+>
 > }
 
 `:first-child` is a CSS2 selector (supported by IE8)
 
 > .basket-items :first-child{
+>
 >    border: solid grey 1px;
+>
 > }
 
 In this case the first child can be of any type
 
 > .players-ranking li:last-child{
+>
 >    background-color: red;
+>
 > }
 
 `:last-child` was added in the CSS3 specification (not supported by IE<9)
 
 > .bonus:before{
+>
 >    content: "Bonus:";
+>
 > }
 
 `:before` let you add content preceding a given element
@@ -565,20 +576,27 @@ In this case the first child can be of any type
 Examples of attribute selectors
 
 > .wicked-form input[type="text"]{
+>
 >    width: 100px;
+>
 >    min-width: 100px;
+>
 > }
 
 `[type="text"]` selects text boxes in form with class="wickedForm".
 
 > a[href^="http://"], a[href^="https://"] {
+>
 >    background-color: red;
+>
 > }
 
-`a[href^="http://"]` and `a[href^="https://"]` selects all the links starting by "http://" or "https://", in other word: all the absolute links. "^=" means "starts with".
+`a[href^="http://"]` and `a[href^="https://"]` selects all the links starting by `"http://"` or `"https://"`, in other word: all the absolute links. `"^="` means "starts with".
 
 > a[href$=".pdf"]{
+>
 >    background: url(../img/pdf_icon.png) no-repeat 0 -10px;
+>
 > }
 
 `a[href$=".pdf"]` selects all links finishing by ".pdf". "$=" means "finish by".
@@ -618,6 +636,7 @@ CSS Font & Text Properties
 Font shorthand property. 
 
 > font: italic small-caps normal 0.75em/1.50em Arial, Helvetica, sans-serif;
+>
 > font: font-style font-variant    font-weight font-size/line-height font-family/ies
 
 This shortcut declaration must separate each value by a space except for the font-size/line-height properties. 
@@ -629,22 +648,39 @@ pxToEm.com - calculate the font size to apply in px/em to a text in order to get
 Some more Font/Text related properties
 
 > color: black;
+>
 > font-family: Arial;
+>
 > font-size: 1.8em;
+>
 > font-weight: 500;
+>
 > font-weight: bold;
+>
 > font-style: italic;
+>
 > font-variant: small-caps;  /* slightly downsized capital letters */
+>
 > text-transform: uppercase;
+>
 > text-decoration: none;
+>
 > text-align: justify;
+>
 > vertical-align: top;
+>
 > letter-spacing: 2px;    /* space between letters */
+>
 > word-spacing: 2px;    /* space between words */
+>
 > line-height: 140%;    /* adjusts space between lines of text (the leading), use % or em as it changes with the text's font-size property, default line-height is usually 120% */
+>
 > text-indent: 20px;    /* adds a first-line indent. Best to use px */
+>
 > white-space:nowrap;
+>
 > :first-line{}    /* selector used to format the first line of a paragraph */
+>
 > :first-letter{}   /* selector used to format the first letter of a paragraph */
 
 Serif fonts have tiny "feet", these are mostly used for long passages of text.
