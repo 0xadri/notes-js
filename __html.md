@@ -1,6 +1,11 @@
-source https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
-Notes I took in the years prior to 2018
+Notes taken prior to 2018.
+
+TODO:
+ - style titles
+ - fix broken links
+
+Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
 //-------------------------------------------------------//
 
@@ -658,22 +663,22 @@ Examples of attribute selectors
 >
 > }
 
-`a[href$=".pdf"]` selects all links finishing by ".pdf". "$=" means "finish by".
+`a[href$=".pdf"]` selects all links finishing by `".pdf"`. `"$="` means `"finish by"`.
 
 More about attribute selectors on
  - www.w3.org/TR/CSS2/selector.html#attribute-selectors
  - http://css-tricks.com/5591-attribute-selectors/
  - http://stackoverflow.com/questions/3338680/css-selector-by-class-prefix/
 
-There are more pseudo classes such as: :first-line, :first-letter, :focus
+There are more pseudo classes such as: `:first-line`, `:first-letter`, `:focus`
 
-Pseudo classes and pseudo elements are distinguished in CSS3 specification. Pseudo elements are selected using 2 semi-columns such as ::first-child
+Pseudo classes and pseudo elements are distinguished in CSS3 specification. Pseudo elements are selected using 2 semi-columns such as `::first-child`
 
 CSS Colors - Text, Background, Borders...
 
 When adding/editing colors, you have the choice between 3 formats:
  - Hexadecimal  - supported by old IE browsers
- - RGBa            - supported by IE9+, see http://css-tricks.com/rgba-browser-support/
+ - RGBa         - supported by IE9+, see http://css-tricks.com/rgba-browser-support/
  - HSL & HSLa  - supported by IE9+, see caniuse.com/#search=hsl and browsersupport.net/CSS/hsl() and also css-tricks.com/yay-for-hsla
 
 HSLa color pickers: 
@@ -801,8 +806,9 @@ Value should be inherited from the parent element
 
 CSS Lists
 
-list-style: disc url(/css/img/myCoolBullet.png) inside;  /* shorthand declaration */
-    list-style:   list-style-type     list-style-image     list-style-position ;
+> list-style: disc url(/css/img/myCoolBullet.png) inside;  /* shorthand declaration */
+> 
+> list-style:   list-style-type     list-style-image     list-style-position ;
 
 The list-style-type specified will only be displayed if the the list-style-image specified can't be found.
 
@@ -1098,8 +1104,6 @@ read more:
 
 Make a div fill up the remaining width
 
-> <style>
-> 
 >     /*
 > 
 >      * This solution handles fluid layout !
@@ -1158,9 +1162,9 @@ Make a div fill up the remaining width
 > 
 >     }
 > 
-> </style>
-> 
-> <div class="content">
+
+
+>     <div class="content">
 > 
 >     <div class="content__left">
 > 
@@ -1184,7 +1188,7 @@ Make a div fill up the remaining width
 > 
 >     </div>
 > 
-> </div>
+>     </div>
 
 my 2 cents: http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-width/22719552#22719552
 
