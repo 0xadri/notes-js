@@ -200,6 +200,10 @@ For a specific media type (print for instance), these 2 formats are valid:
 
 `}`
 
+`@media print{
+   ...some print specific style css here...`
+}`
+
 2. HTML Include CSS file (External Style Sheet)
 
 Add the following in the <head> element of your HTML page
