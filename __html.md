@@ -173,7 +173,9 @@ Add the following in the `<head>` element of your HTML page
 For all type of media, these formats are valid:
 
 > <style type="text/css">
+> 
 >   ...some css here...
+> 
 > </style>
 
 /* Is equivalent to */
@@ -219,6 +221,7 @@ Add the following in the <head> element of your HTML page
 3. CSS Include CSS file
 
 > @import url("header.css");
+> 
 > @import url("mainContainer.css");
 
 Thanks to this method you can group all your (non conditional) css import in one css file
@@ -246,7 +249,9 @@ In the case of any conflicts from inherited properties, the nearest ancestor win
 You can force an element to inherit a property from his parent element by using inherit keyword
 
 > em {
+> 
 >   border: inherit;
+> 
 > }
 
 Read more on
@@ -294,56 +299,107 @@ The reset stylesheet is very important. It is used to override browsers default 
 www.cssreset.com - reset stylesheet
 
 > <style type="text/css">
+> 
 >   /* 
+> 
 >      from http://meyerweb.com/eric/tools/css/reset/ 
+> 
 >      2011/01/26 - License: none (public domain)
+> 
 >   */
+> 
 >   html, body, div, span, applet, object, iframe,
+> 
 >   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+> 
 >   a, abbr, acronym, address, big, cite, code,
+> 
 >   del, dfn, em, img, ins, kbd, q, s, samp,
+> 
 >   small, strike, strong, sub, sup, tt, var,
+> 
 >   b, u, i, center,
+> 
 >   dl, dt, dd, ol, ul, li,
+> 
 >   fieldset, form, label, legend,
+> 
 >   table, caption, tbody, tfoot, thead, tr, th, td,
+> 
 >   article, aside, canvas, details, embed, 
+> 
 >   figure, figcaption, footer, header, hgroup, 
+> 
 >   menu, nav, output, ruby, section, summary,
+> 
 >   time, mark, audio, video {
+> 
 >     margin: 0;
+> 
 >     padding: 0;
+> 
 >     border: 0;
+> 
 >     font-size: 100%;
+> 
 >     font: inherit;
+> 
 >     vertical-align: baseline;
+> 
 >   }
+> 
 >   /* HTML5 display-role reset for older browsers */
+> 
 >   article, aside, details, figcaption, figure, 
+> 
 >   footer, header, hgroup, menu, nav, section {
+> 
 >     display: block;
+> 
 >   }
+> 
 >   body {
+> 
 >     line-height: 1;
+> 
 >   }
+> 
 >   ol, ul {
+> 
 >     list-style: none;
+> 
 >   }
+> 
 >   blockquote, q {
+> 
 >     quotes: none;
+> 
 >   }
+> 
 >   blockquote:before, blockquote:after,
+> 
 >   q:before, q:after {
+> 
 >     content: '';
+> 
 >     content: none;
+> 
 >   }
+> 
 >   table {
+> 
 >     border-collapse: collapse;
+> 
 >     border-spacing: 0;
+> 
 >   }
+> 
 >   *:focus {
+> 
 >         outline: none;
+> 
 >   }
+> 
 > </style>
 
 HTML/CSS IDs and Classes
@@ -358,12 +414,15 @@ Best practice is to never use IDs, but if you do, an ID must be applied to:
 HTML element with an ID applied to it
 
 > <div id="unique-page-results">
+>
 > </div>
 
 CSS for the element of id "results"
 
 > #unique-page-results{
+>
 >   border: 1px solid red;
+>
 > }
 
 Class can be applied to:
@@ -373,12 +432,15 @@ Class can be applied to:
 HTML element with a class applied to it
 
 > <div class="massive-font">
+>
 > </div>
 
 CSS for the element of id "results"
 
 > .massive-font{
+>
 >    font:35px;
+>
 > }
 
 Multiple classes assigned to an element
@@ -392,10 +454,15 @@ HTML div element
 css style for each class
 
 > .black-border {
+>
 >    border: 1px solid black;
+>
 > }
+>
 > .grey-background {
+>
 >    background-color: grey;
+>
 > }
 
 CSS selectors, pseudo classes & pseudo elements
@@ -602,9 +669,9 @@ Examples of attribute selectors
 `a[href$=".pdf"]` selects all links finishing by ".pdf". "$=" means "finish by".
 
 More about attribute selectors on
-     www.w3.org/TR/CSS2/selector.html#attribute-selectors
-     http://css-tricks.com/5591-attribute-selectors/
-     http://stackoverflow.com/questions/3338680/css-selector-by-class-prefix/
+ - www.w3.org/TR/CSS2/selector.html#attribute-selectors
+ - http://css-tricks.com/5591-attribute-selectors/
+ - http://stackoverflow.com/questions/3338680/css-selector-by-class-prefix/
 
 There are more pseudo classes such as: :first-line, :first-letter, :focus
 
@@ -706,8 +773,11 @@ Read more on mozilla.org - text-shadow
 CSS Fonts imported
 
 > @font-face{
+> 
 >   font-family: ca_bndboldweb;
+> 
 >   src: local(ca_bndboldweb), url('../css/fonts/ca_bndboldweb.otf');
+> 
 > }
 
 @font-face allows you to host your font on the server side, the client's browser will download it when visiting your website if it does not already has it on the computer.
@@ -724,8 +794,11 @@ Read more about @font-face on
 CSS Align text horizontally
 
 > text-align:center;
+> 
 > text-align:left;
+> 
 > text-align:right;
+> 
 > text-align:justify;
 
 Stretches the lines so that each line has equal width (like in newspapers)
@@ -744,7 +817,9 @@ The list-style-type specified will only be displayed if the the list-style-image
 The above shorthand declaration is the same as:
 
 > list-style-type: disc;
+> 
 > list-style-position: inside;
+> 
 > list-style-image: url(/css/img/myCoolBullet.png);
 
 Read more:
@@ -757,6 +832,7 @@ CSS Margins and Paddings
 The padding sets the space between the content, border & edge of the background.
 
 > padding: 2px 4px 2px 4px;
+> 
 > padding: padding-top padding-right padding-bottom padding-left ;
 
 This declaration shortcut defines the padding on each side of our element "clockwise".
@@ -764,6 +840,7 @@ This declaration shortcut defines the padding on each side of our element "clock
 The margin sets the space between an element's border and another.
 
 > margin: 10px 4px 0px 4px;
+> 
 > padding: margin-top margin-right margin-bottom margin-left ;
 
 Like the padding declaration shortcut, we define the margin on each side of our element "clockwise".
@@ -822,10 +899,15 @@ This technic removes the element completely from the page
 CSS Width and Heights
 
 > width: 200px;
+> 
 > min-width: 150px;
+> 
 > max-width: 300px;
+> 
 > height: 40px;
+> 
 > min-height: 30px;
+> 
 > max-height:60px
 
 You might want to use the min/max properties to make sure an element does not "collapse" or become too big.
@@ -835,7 +917,9 @@ A box (the total space taken by an element) "actual" or "total" width and height
 However, you can use Box-sizing to force the "element width + padding width" to be equal to the width you defined for your element.
 
 > -moz-box-sizing: border-box;
+> 
 > -webkit-box-sizing: border-box;
+> 
 > box-sizing: border-box;
 
 see www.paulirish.com/2012/box-sizing-border-box-ftw and css-tricks.com/box-sizing
@@ -889,6 +973,7 @@ CSS `z-index` property
 `z-index` only effects elements that have a position value other than static (the default)
 
 > z-index: 10;
+> 
 > position: relative; /* anything but static */
 
 The z-index property in CSS controls the vertical stacking order of elements that overlap.
@@ -904,7 +989,9 @@ The float property can be applied to all types of positioning (static, absolute,
 Possible float values:
 
 > float:left;
+> 
 > float:right;
+> 
 > float:none;
 
 Floating any element makes it a block-level element (because it needs a set width).
@@ -956,8 +1043,11 @@ Adds scroll bars only if needed.
 Hides any content that extends outside the box.
 
 > overflow: hidden;
+> 
 > white-space: nowrap;
+> 
 > text-overflow: ellipsis;     /** IE6+, Firefox 7+, Opera 11+, Chrome, Safari **/
+> 
 > -o-text-overflow: ellipsis;  /** Opera 9 & 10 **/
 
 Hides any content that extends outside the box on the X axis. When this content is text, it adds 3 dots "..."
@@ -970,17 +1060,29 @@ Read more:
 HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
 
 > <div class="outer">
+> 
 >   <div class="inner">
+> 
 >   </div>
+> 
 > </div>
+> 
 > .outer {
+> 
 >   text-align: center;
+> 
 >   width:100%
+> 
 >   background-color: red;
+> 
 > }
+> 
 > .inner {
+> 
 >   display: inline-block;
+> 
 >   background-color: blue;
+> 
 > }
 
 inline elements can be centered with text-align ;)
@@ -1005,48 +1107,91 @@ read more:
 Make a div fill up the remaining width
 
 > <style>
+> 
 >     /*
+> 
 >      * This solution handles fluid layout !
+> 
 >      *
+> 
 >      * Created by: Adrien Berthou
+> 
 >      *
+> 
 >      * [1] & [3] "floats" makes the 2 divs align themselves respectively right & left
+> 
 >      * [2] "overflow: auto;" makes this div take the remaining width
+> 
 >      */
+> 
 >     .content { 
+> 
 >         width: 100%; 
+> 
 >     }
+> 
 >     .content__left { 
+> 
 >         width: 20%; 
+> 
 >         max-width: 170px;  
+> 
 >         min-width: 40px;  
+> 
 >         float: left; /* [1] */
+> 
 >         background-color: #fcc; 
+> 
 >      }
+> 
 >     .content__middle { 
+> 
 >         background-color: #cfc; 
+> 
 >         overflow: auto; /* [2] */
+> 
 >     }
+> 
 >     .content__right { 
+> 
 >         width: 20%; 
+> 
 >         max-width: 250px; 
+> 
 >         min-width: 80px; 
+> 
 >         float: right; /* [3] */
+> 
 >         background-color: #ccf; 
+> 
 >     }
+> 
 > </style>
+> 
 > <div class="content">
+> 
 >     <div class="content__left">
+> 
 >         max-width of 170px & min-width of 40px<br/>
+> 
 >         left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>
+> 
 >     </div>
+> 
 >     <div class="content__right">
+> 
 >         max-width of 250px & min-width of 80px<br/>
+> 
 >         right div<br/>right div<br/>right div<br/>right div<br/>
+> 
 >     </div>
+> 
 >     <div class="content__middle">
+> 
 >         middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br />bit taller
+> 
 >     </div>
+> 
 > </div>
 
 my 2 cents: http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-width/22719552#22719552
@@ -1062,8 +1207,11 @@ or maybe even better http://stackoverflow.com/a/22719552/759452 and http://stack
 `iframe` - styling
 
 > $('iframe').load( function() {
+> 
 >     $('iframe').contents().find("head")
+> 
 >       .append($("<style type='text/css'>  .my-class{display:none;}  </style>"));
+> 
 > });
 
 stackoverflow.com/a/13959836/759452
@@ -1081,23 +1229,41 @@ For links which are not in the text (ie. a link in a menu), you ideally want you
 The following code snipet can be taken as a base (note: nice border effect). see http://jsfiddle.net/eWGY3/1/
 
 > <a class="nice-link" href="#">Flights 1</a>
+> 
 > <a class="nice-link" href="#">Flights 2</a>
+> 
 > <a class="nice-link" href="#">Flights 3</a>
+> 
 > <a class="nice-link" href="#">Flights 4</a>
+> 
 > .nice-link {
+> 
 >     display: block;
+> 
 >     font-weight: bold;
+> 
 >     text-decoration: none;
+> 
 >     border-style: solid;
+> 
 >     border-width: 1px 0;
+> 
 >     border-color: #16c98d;
+> 
 >     padding: 12px;
+> 
 >     color: #fff;
+> 
 >     background-color: #16c98d;
+> 
 > }
+> 
 > .nice-link:hover {
+> 
 >     background-color: #10b47d;
+> 
 >     border-color: #0ea270 #000 #45d4a4 #000;
+> 
 > }
 
 Links have pseudo-class selectors (matching states):
@@ -1125,8 +1291,11 @@ when using the keyboard to tab on link
 You must specify the different link-state styles in specific order (otherwise some will override others)
 
 > a:link { color: red }
+> 
 > a:visited { color: yellow }
+> 
 > a:hover { color: pink }
+> 
 > a:active { color: black }
 
 You might want to apply a different type of cursor when user hovers your link (notice you don't need the ":hover")
@@ -1136,10 +1305,15 @@ You might want to apply a different type of cursor when user hovers your link (n
 Shading effect on links when over or focussed
 
 > a:focus, a:focus, a:hover {
+> 
 >   outline: 1px solid rgba(68, 112, 158, .25);
+> 
 >   -webkit-box-shadow: 0 0 4px #447099;
+> 
 >   -moz-box-shadow: 0 0 4px #447099;
+> 
 >   box-shadow: 0 0 4px #447099;
+> 
 > }
 
 You generally want to use CSS sprite when adding background images to links
@@ -1147,8 +1321,11 @@ You generally want to use CSS sprite when adding background images to links
 CSS Cursors
 
 > .my-class-name {
+> 
 >    cursor:pointer;
+> 
 >    cursor:hand;
+> 
 > }
 
 Read more on 
@@ -1163,9 +1340,13 @@ CSS Element Opacity
 Opacity: can be used as some kind of filter
 
 > -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";    /* IE 8 */
+> 
 > filter: alpha(opacity=50);  /* IE 5-7 */
+> 
 > -moz-opacity: 0.5;          /* Netscape */
+> 
 > -khtml-opacity: 0.5;        /* Safari 1.x */
+> 
 > opacity: 0.5;               /* Good browsers */
 
 see http://css-tricks.com/snippets/css/cross-browser-opacity/
@@ -1180,81 +1361,132 @@ When applied on images, different effect can be achieved depending on the:
 Opacity on colored image (transparent or not) without background for surrounding element: this render the image more or less transparent. see http://jsfiddle.net/KDtAX/2249/
 
 > <div>
+> 
 > <img class="transparent-on-hover" src="myImage.jpg"/>
+> 
 > </div>
+> 
 > .transparent-on-hover:hover {
+> 
 >     cursor: pointer;
+> 
 >     cursor: hand;    
+> 
 >     opacity : .5;    /* all other browsers */
+> 
 >     -ms-filter : "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";   /* IE8 */
+> 
 >     filter: alpha(opacity=50);   /* IE5-7 */
+> 
 > }
 
 Opacity on greyscale (B&W) image (transparent or not) without background for surrounding element: this render the image in grey if your image is black & simply in lighter grey if your image is already grey. see http://jsfiddle.net/KDtAX/2250/
 
 > <img class="grayscale-on-hover" src="http://www-archive.mozilla.org/foundation/identity-guidelines/mozilla-foundation-bw.png"/>
+> 
 > img.grayscale-on-hover:hover {
+> 
 >     cursor: pointer;
+> 
 >     cursor: hand;    
+> 
 >     opacity : .3;    /* all other browsers */
+> 
 >     -ms-filter : "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";   /* IE8 */
+> 
 >     filter: alpha(opacity=30);   /* IE5-7 */
+> 
 > }
 
 Opacity on non-transparent (jpg) colored image with red background for surrounding element: this renders the image with some kind of colored filter. see http://jsfiddle.net/KDtAX/2248/
 
 > <div class="transparent-on-hover-filter">
+> 
 >     <img class="transparent-on-hover-img" src="myImage.jpg"/>
+> 
 > </div>
 > 
 > .transparent-on-hover-filter {
+> 
 >     background-color: red;
+> 
 >     display: inline-block;
+> 
 > }
 > 
 > .transparent-on-hover-img:hover {
+> 
 >     cursor: pointer;
+> 
 >     cursor: hand;    
+> 
 >     opacity : .5;    /* all other browsers */
+> 
 >     -ms-filter : "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";   /* IE8 */
+> 
 >     filter: alpha(opacity=50);   /* IE5-7 */
+> 
 > }
 > 
 > <a href="#">
+> 
 >    <img src="../your/image/path/yourImage.png">
+> 
 > </a>
 > 
 > a {
+> 
 >     display: inline-block;
+> 
 >     background-color: black;
+> 
 >     line-height: 0;
+> 
 > }
 > 
 > a:hover,
+> 
 > img,
+> 
 > a:hover img {
+> 
 >     border: none;
+> 
 > }
+> 
 > a:hover img,
+> 
 > a:hover img {
+> 
 >     opacity: .8;  /* all other browsers */
+> 
 >     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";  /* IE8 */
+> 
 >     filter: alpha(opacity=80);  /* IE5-7 */
+> 
 > }
 
 Colour opacity when hovering on image contained in link.
 
 You can use this jQuery code to solve this inheritance discrepancy issues (in IE8 for instance)
 
-$('.my-class-name').css({
-  '-ms-filter' : '"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"',
-  'opacity': '.5'
-});
-//added for IE8 - you may consider using find() instead
-$('.my-class-name').children().css({
-  '-ms-filter' : '"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"',
-  'opacity': '.5'
-});
+> $('.my-class-name').css({
+> 
+>   '-ms-filter' : '"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"',
+> 
+>   'opacity': '.5'
+> 
+> });
+> 
+> //added for IE8 - you may consider using find() instead
+> 
+> $('.my-class-name').children().css({
+> 
+>   '-ms-filter' : '"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"',
+> 
+>   'opacity': '.5'
+> 
+> });
 
 more on quirksmode.org - opacity
 
@@ -1268,10 +1500,13 @@ The .75 defines the opacity of the background color. Compatible with IE9+, Firef
 
 css3pie, a JS library, provides this feature for IE older browsers. You will then write your CSS such as:
 
-background:rgb(0,0,0);           /* fallback */
-background:rgba(0,0,0,0.5);      /* regular CSS3 */
--pie-background:rgba(0,0,0,0.5); /* css3pie for IE8 - but be careful http://css3pie.com/forum/viewtopic.php?f=3&t=406 */
-behavior: url(/path/to/pie/PIE.htc);
+> background:rgb(0,0,0);           /* fallback */
+> 
+> background:rgba(0,0,0,0.5);      /* regular CSS3 */
+> 
+> -pie-background:rgba(0,0,0,0.5); /* css3pie for IE8 - but be careful http://css3pie.com/forum/viewtopic.php?f=3&t=406 */
+> 
+> behavior: url(/path/to/pie/PIE.htc);
 
  - http://css-tricks.com/rgba-browser-support/
  - http://stackoverflow.com/questions/806000/transparent-background-but-not-the-content-text-images-inside-it-in-css-on
@@ -1297,7 +1532,9 @@ Any element's background appears on top of its parent elements' background.
 An element's background image cannot be placed relatively (according) to its right or bottom edges. A solution can be to create the background image with the empty space needed (at the bottom or right) and then place the image on the right or/and bottom edge of the element.
 
 > background shorthand property:
+> 
 > background: url(../img/sprite_arrow.gif) scroll   no-repeat 0 -116px;
+> 
 > background: imageLocation  regularBehavior  repeatOrNot  HPos VPos
 
 Mind the issue with GIF background image in Chrome.
@@ -1305,12 +1542,19 @@ Mind the issue with GIF background image in Chrome.
 You usually also define the background color:
 
 > background: url(../img/_sideBanners.png) scroll no-repeat left top;
+> 
 > background-color: red;
-> Background related properties
+
+Background related properties
+
 > background-image: url(../img/_sideBanners-01.png);
+> 
 > background-color: red;
+> 
 > background-position: 0px 0px;
+> 
 > background-repeat: no-repeat ;
+> 
 > background-attachment: fixed ;
 
 Background properties: https://developer.mozilla.org/en-US/docs/Web/CSS/background
@@ -1320,14 +1564,23 @@ Perfect full page background image: http://css-tricks.com/perfect-full-page-back
 Full width background image + below plain background color:
 
 > /* add a div with "class="bg-img"" just below the opening body tag */
+> 
 > /* Then add this in the CSS */
+> 
 > .bg-img {
+> 
 >    position: fixed;
+> 
 >    z-index: -1;
+> 
 >    width: 100%;
+> 
 >    height: 100%;
+> 
 >    background: url("../img/my-background.jpg") no-repeat scroll center top;
+> 
 >    background-color: blue;
+> 
 > }
 
 Multiple backgrounds: http://stackoverflow.com/questions/423172/can-i-have-multiple-background-images-using-css
@@ -1341,7 +1594,9 @@ css3.info - multiple backgrounds images with CSS3
 Multiple background images are specified using a comma-separated list of values for the background-image property, with each value generating a separate ‘background layer’. The the first value in the list represents the top layer (closest to the user), with subsequent layers rendered behind successively.
 
 > background-image: url(img/_sideBanners-01.png), url(img/bg_footer.png);
+> 
 > background-position: 0px 0px, bottom left;
+> 
 > background: url(sheep.png) center bottom no-repeat, url(sky.png) left top no-repeat;
 
 Firefox has supported multiple backgrounds since version 3.6 (Gecko 1.9.2), Safari since version 1.3, Chrome since version 10, Opera since version 10.50 (Presto 2.5) and Internet Explorer since version 9.0.
@@ -1357,22 +1612,33 @@ Basic Border
 The above can also be written:
 
 > border-width: 1px;
+> 
 > border-style: solid;
+> 
 > border-color: black;
 > 
 > .pic-border {
+> 
 >    padding: 3px;
+> 
 >    border: 1px solid #999;   /* #999 is light grey */
+> 
 > }
 
 Simple nice border for picture or other
 
 > .picborder {
+> 
 >    padding: 3px;
+> 
 >    border: 1px solid #999; /* #999 is light grey */
+> 
 >    -moz-box-shadow: 1px 1px 10px #999;
+> 
 >    -webkit-box-shadow: 1px 1px 10px #999;
+> 
 >    box-shadow: 1px 1px 10px #999;
+> 
 > }
 
 Creates a border with a nice outer shadow on each side (IE8 cannot display the shadow though).
@@ -1380,8 +1646,11 @@ Creates a border with a nice outer shadow on each side (IE8 cannot display the s
 You can usually add `"-top"`, `"-bottom"`, `"-left"`, `"-right"` in the border related properties, see:
 
 > border-top: 4px solid orange;
+> 
 > border-left-color: red;
+> 
 > border-right-style: dashed;
+> 
 > border-bottom-width: 0.5px;
 
 You can turn off the display of a single border using the none keyword
@@ -1393,26 +1662,41 @@ CSS Rounded Border cross-browser work around
 Supported in IE8 and a lot of other poor browsers as well as all the modern ones.
 
 > .my-wicked-class {
+> 
 >   padding: 0 5px 0 0;
+> 
 >   background: #F7D358 url(../img/roundedCorner_right.png) top right no-repeat scroll;
+> 
 >   -moz-border-radius: 10px;
+> 
 >   -webkit-border-radius: 10px;
+> 
 >   border-radius: 10px;
+> 
 >   font: normal 11px Verdana, Helvetica, sans-serif;
+> 
 >   color: #A4A4A4;
+> 
 > }
 > 
 > .my-wicked-class > .my-cool-item:first-child {
+> 
 >   padding-left: 6px;
+> 
 >   background: #F7D358 url(../img/roundedCorner_left.png) 0px 0px no-repeat scroll;
+> 
 > }
 > 
 > .my-wicked-class > .my-cool-item {
+> 
 >   padding-right: 5px;
+> 
 > }
 > 
 > <div class="my-wicked-class">
+> 
 >   <span class="my-cool-item">Some text</span> <span class="my-cool-item">Some text</span> <span class="my-cool-item"> Some text</span> <span class="my-cool-item">Some text</span>
+> 
 > </div>
 
 You need to create both `roundedCorner_right.png` and `roundedCorner_left.png`
@@ -1424,26 +1708,39 @@ Supported in IE9+, Firefox 4+, Chrome, Safari 5+, and Opera
 `border-radius` shorthand property:
 
 > border: 1px solid black;
+> 
 > -moz-border-radius: 4px;
+> 
 > -webkit-border-radius: 4px;
+> 
 > border-radius: 4px;
 
 If you want to give different "roundings" to each corner
 
 > border-top-left-radius: 7px;
+> 
 > -moz-border-radius-topleft: 7px;
+> 
 > -webkit-border-top-left-radius: 7px;
 > 
+> 
 > border-bottom-left-radius: 5px;
+> 
 > -moz-border-radius-bottomleft: 5px;
+> 
 > -webkit-border-bottom-left-radius: 5px; 
 > 
 > border-top-right-radius: 5px;
+> 
 > -moz-border-radius-topright: 5px;
+> 
 > -webkit-border-top-right-radius: 5px;
 > 
+> 
 > border-bottom-right-radius: 7px;
+> 
 > -moz-border-radius-bottomright: 7px;
+> 
 > -webkit-border-bottom-right-radius: 7px;
 
 see http://stackoverflow.com/questions/1083755/webkit-border-radius-sometimes-take-effect
@@ -1457,10 +1754,15 @@ CSS3 Shadow boxing
 Support IE9+, Firefox 4, Chrome, and Opera. CSS3PIE adds support for IE8.
 
 > /* x-browser box-shadow css3pie.com/documentation/supported-css3-features/#box-shadow */
+> 
 > -moz-box-shadow: 1px 1px 4px #999;
+> 
 > -webkit-box-shadow: 1px 1px 4px #999;
+> 
 > box-shadow: 1px 1px 4px #999;
+> 
 > -pie-box-shadow: 1px 1px 4px #999;  /* support for IE8 */
+> 
 > behavior: url(/estore/_ui/desktop/common/js/PIE/PIE.htc);
 
 Box-shadow with IE8 & below support (css3pie)
@@ -1504,8 +1806,11 @@ Read more on
 HTML/CSS Tables
 
 > text-align: left;
+> 
 > text-align: right;
+> 
 > text-align: center;
+> 
 > text-align: justify;
 
 text-align can be applied to table, th and td elements
@@ -1515,8 +1820,11 @@ text-align is an inherited property
 tip: since text-align is inherited, if you apply a style to table, it'll be applied to all cells of the table
 
 > vertical-align: top;
+> 
 > vertical-align: middle;
+> 
 > vertical-align: baseline;
+> 
 > vertical-align: bottom;
 
 `vertical-align` can be applied to th and td elements
@@ -1528,10 +1836,15 @@ tip: since text-align is inherited, if you apply a style to table, it'll be appl
 vertical align (center vertically) a single line of text
 
 > <style type="text/css">
+> 
 >     .my-cool-class { line-height: 34px; }
+> 
 > </style>
+> 
 > <p class="my-cool-class">
+> 
 >     This single line of text is vertically centered
+> 
 > </p>
 
 Read more on how to align vertically:
@@ -1557,12 +1870,15 @@ Another issue arise: borders applied to cells double up, use table element's bor
 HTML of solution
 
 > <table cellspacing="0">
+> 
 > </table>
 
 CSS of solution
 
 > table {
+> 
 >   border-collapse: collapse;
+> 
 > }
 
 see also (cf. CSS reset):  `table{ border-spacing: 0; }`
@@ -1578,63 +1894,118 @@ http://coding.smashingmagazine.com/2008/08/13/top-10-css-table-designs/
 Example of nice table design:
 
 > .nice-table,
+> 
 > .nice-table th,
+> 
 > .nice-table td {
+> 
 >     border: none;
+> 
 > }
+> 
 > .nice-table {
+> 
 >     table-layout: fixed;
+> 
 >     border-collapse: collapse;
+> 
 >     border-spacing: 0;
+> 
 >     width: 100%;
+> 
 > }
+> 
 > .nice-table thead tr th {
+> 
 >     width: auto;
+> 
 >     padding: 10px 0;
+> 
 > }
+> 
 > .nice-table tbody tr td {
+> 
 >     width: auto;
+> 
 >     padding: 10px;
+> 
 >     border-top: 1px dashed #fff;
+> 
 > }
+> 
 > .nice-table thead tr th.colOne {
+> 
 >     width: 35%;
+> 
 > }
+> 
 > .nice-table thead tr th.colTwo {
+> 
 >     width: 15%;
+> 
 > }
+> 
 > .nice-table tbody {
+> 
 >     background-color: #EFF1F0;
+> 
 > }
+> 
 > .nice-table tbody tr:hover td {
+> 
 >      background: #d0dafd;
+> 
 > }
+> 
 > <table class="nice-table">
+> 
 >     <thead>
+> 
 >         <tr>
+> 
 >             <th class="colOne">Col One</th>
+> 
 >             <th class="colTwo">Col Two</th>
+> 
 >             <th class="colThree">Col Three</th>
+> 
 >             <th class="colFour">Col Four</th>
+> 
 >         </tr>
+> 
 >     </thead>
+> 
 >     <tbody>
+> 
 >         <tr>
+> 
 >             <td></td>
+> 
 > <td></td>
+> 
 >             <td></td>
+> 
 >             <td></td>
+> 
 >         </tr>
+> 
 >         <tr>
+> 
 >             <td></td>
+> 
 > <td></td>
+> 
 >             <td></td>
+> 
 >             <td></td>
+> 
 >         </tr>
+> 
 > </tbody>
+> 
 > </table>
 
-Setting all th and td's to "width: auto", then only specify the width for the columns you want (using th only). You can then let the browser calculate the width for the rest of the columns.
+Setting all `th` and `td`'s to `"width: auto"`, then only specify the width for the columns you want (using th only). You can then let the browser calculate the width for the rest of the columns.
 
 TODO: To be improved (check it is x-browser)
 
@@ -1681,15 +2052,25 @@ select label `for=”email“` in CSS:
 Given size when not focused - then bigger size when focussed.
 
 > .search-input {
+> 
 >   width: 80px;
+> 
 > }
+> 
 > .search-input:focus {
+> 
 >   width: 130px;
+> 
 >   -webkit-transition: width .2s ease-in;
+> 
 >   -moz-transition: width .2s ease-in;
+> 
 >   -o-transition: width .2s ease-in;
+> 
 >   -ms-transition: width .2s ease-in;
+> 
 >   transition: width .2s ease-in;
+> 
 > }
 
 jsfiddle.net/sDTfS/
@@ -1738,8 +2119,11 @@ placeholder (IE10+): stackoverflow.com/q/4004087 and stackoverflow.com/q/2610497
   - use "border-radius" property: "supported in IE9+, Firefox, Chrome, Safari, and Opera".
 
 > border: 1px solid black;
+> 
 > -moz-border-radius: 4px;
+> 
 > -webkit-border-radius: 4px;
+> 
 > border-radius: 4px;
 
  - `input` element rounded corners compatible with IE8+. see http://stackoverflow.com/questions/2654745/rounded-corners-of-input-elements-in-ie  and  https://code.google.com/p/curvycorners/
@@ -1764,35 +2148,55 @@ Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
 1. First you add the fields in the form
 
 > <tr>
+> 
 > <th class="first-name" >
+> 
 > <label for="firstName" ><span class="hidden">first Name </span>first Name *:</label>
+> 
 > </th>
+> 
 > <th class="first-name" >
+> 
 > <input name="firstName" value="" tabindex="-1"  >
+> 
 > </th>
+> 
 > </tr>
 
 2. Then hide the fields using CSS
 
 > <style type="text/css">
+> 
 >   .first-name {
+> 
 >     display: none;    
+> 
 >   }
+> 
 > </style>
 
 3. Finally check if one the fields got filled when validating form (via javascript or JSP for instance)
 
 > if(document.getElementsByName(formname)[0].firstName.value != "" || document.getElementsByName(formname )[0].familyName.value != ""){
+> 
 >   alert("Bot issue.")
+> 
 > }
 > 
+> 
+> 
 > if(myForm.firstName.value != "" || myForm.familyName.value != ""){
+> 
 >   alert("Bot issue.")
+> 
 > }
 > 
 > <%-- JSP validation: fooling robots --%>
+> 
 > <c:if test="${param.familyName != '' || param.firstName != ''}">
+> 
 > <c:set var="error" value="true"/>
+> 
 > </c:if>
 
 Anti spam bot protection technique for HTML forms: ustrem.org/en/articles/html-form-anti-spam-en/
@@ -1824,7 +2228,9 @@ Page margin can be set using @page , this may not be cross browser though. see h
 Tech links
 
 > page-break-before
+> 
 > page-break-after
+> 
 > page-break-inside
 
 Print styling - how to
@@ -1842,23 +2248,37 @@ CSS3 Disable selection on elements
 CSS only (works in Chrome 13.0.782.218 and Firefox 3.6.6, this does not work on IE8 and below)
 
 > -webkit-user-select: none;
+> 
 > -khtml-user-select: none;
+> 
 > -moz-user-select: none;
+> 
 > -o-user-select: none;
+> 
 > user-select: none;
 
 This is the cross browser solution (so that it works on IE8 for instance)
 
 > $.fn.disableSelection = function () {
+> 
 >   return this.each(function () {
+> 
 >     if (typeof this.onselectstart != 'undefined') {
+> 
 >         this.onselectstart = function() { return false; };
+> 
 >     } else if (typeof this.style.MozUserSelect != 'undefined') {
+> 
 > this.style.MozUserSelect = 'none';
+> 
 >     } else {
+> 
 > this.onmousedown = function() { return false; };
+> 
 >     }
+> 
 >   });
+> 
 > }
 
 Read more on
@@ -1872,9 +2292,13 @@ Does not work on IE (even IE9).
 Works on Firefox 4, Chrome, Opera, and Safari
 
 > -moz-transition: all 0.5s ease-out; 
+> 
 > -o-transition: all 0.5s ease-out; 
+> 
 > -webkit-transition: all 0.5s ease-out; 
+> 
 > -ms-transition: all 0.5s ease-out; 
+> 
 > transition: all 0.5s ease-out;
 
 Read more on
