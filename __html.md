@@ -409,8 +409,7 @@ Best practice is to never use IDs, but if you do, an ID must be applied to:
 
 HTML element with an ID applied to it
 
-> <div id="unique-page-results">
-> </div>
+`<div id="unique-page-results"></div>`
 
 CSS for the element of id "results"
 
@@ -426,9 +425,7 @@ Class can be applied to:
 
 HTML element with a class applied to it
 
-> <div class="massive-font">
->
-> </div>
+`<div class="massive-font"></div>`
 
 CSS for the element of id "results"
 
@@ -443,8 +440,8 @@ Multiple classes assigned to an element
 An element can have multiple class name to apply several styles "at the same time".
 
 HTML div element
-> <div class="black-border grey-background">
-> </div>
+
+`<div class="black-border grey-background"></div>`
 
 css style for each class
 
