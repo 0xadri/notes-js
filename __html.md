@@ -1057,7 +1057,11 @@ Read more:
 
 HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
 
->    <div class="outer"><div class="inner"></div></div>
+>      <div class="outer">
+>      <div class="inner">
+>    
+>      </div>
+>      </div>
 > 
 > .outer {
 > 
