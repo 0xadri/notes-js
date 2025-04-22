@@ -1102,60 +1102,59 @@ read more:
 
 Make a `div` fill up the remaining width
 
->     /*
+>  /*
 > 
->      * This solution handles fluid layout !
+>   * This solution handles fluid layout !
 > 
->      * Created by: Adrien Be
+>   * Created by: Adrien Be
 > 
->      * [1] & [3] "floats" makes the 2 divs align themselves respectively right & left
+>   * [1] & [3] "floats" makes the 2 divs align themselves respectively right & left
 > 
->      * [2] "overflow: auto;" makes this div take the remaining width
+>   * [2] "overflow: auto;" makes this div take the remaining width
 > 
->      */
+>   */
 > 
->     .content { 
+>  .content { 
 > 
->         width: 100%; 
+>   width: 100%; 
 > 
->     }
+>  }
 > 
->     .content__left { 
+>  .content__left { 
 > 
->         width: 20%; 
+>   width: 20%; 
+>  
+>   max-width: 170px;  
+>  
+>   min-width: 40px;  
+>  
+>   float: left; /* [1] */
+>  
+>   background-color: #fcc; 
 > 
->         max-width: 170px;  
+>  }
 > 
->         min-width: 40px;  
+>  .content__middle { 
 > 
->         float: left; /* [1] */
+>   background-color: #cfc; 
 > 
->         background-color: #fcc; 
+>   overflow: auto; /* [2] */
 > 
->      }
+>  }
 > 
->     .content__middle { 
+>  .content__right { 
 > 
->         background-color: #cfc; 
+>   width: 20%; 
 > 
->         overflow: auto; /* [2] */
+>   max-width: 250px; 
 > 
->     }
+>   min-width: 80px; 
 > 
->     .content__right { 
+>   float: right; /* [3] */
 > 
->         width: 20%; 
+>   background-color: #ccf; 
 > 
->         max-width: 250px; 
-> 
->         min-width: 80px; 
-> 
->         float: right; /* [3] */
-> 
->         background-color: #ccf; 
-> 
->     }
-> 
+>  }
 
 
 >     <div class="content">
