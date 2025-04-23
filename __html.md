@@ -3,16 +3,13 @@ Notes taken prior to 2018.
 
 TODO:
  - fix broken links, restart at "# CSS Overflow property"
+ - add h2, h3
 
 Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
 -------------------------------------------------------
 
-# Developer Tool
-
-Web Developer is a Firefox that adds various web developer tools to a browser.
-
-This tool makes front end development much easier (debugging features, live HTML code modification, etc).
+# Developer Tools
 
 http://chrispederick.com/work/web-developer/
 
@@ -1110,8 +1107,8 @@ Hides any content that extends outside the box.
 Hides any content that extends outside the box on the X axis. When this content is text, it adds 3 dots "..."
 
 Read more:
- - css-tricks.com/the-css-overflow-property
- - stackoverflow.com/questions/802175/truncating-long-strings-with-css-feasible-yet (text-overflow x-browser support)
+ - https://css-tricks.com/the-css-overflow-property
+ - https://stackoverflow.com/questions/802175/truncating-long-strings-with-css-feasible-yet (text-overflow x-browser support)
  - http://css-tricks.com/line-clampin/ - ellipsis on several lines
 
 -------------------------------------------------------
@@ -1143,14 +1140,15 @@ Read more:
 
 `inline` elements can be centered with `text-align` ;)
 
-read more about "centering the unknown"
- - css-tricks.com/centering-css-complete-guide
+read more about "centering the unknown": https://css-tricks.com/centering-in-the-unknown/
 
 -------------------------------------------------------
 
 # Centering horizontally & vertically
- - coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css
- - css-tricks.com/centering-css-complete-guide
+
+ - https://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css
+
+ - https://css-tricks.com/centering-css-complete-guide
 
 -------------------------------------------------------
 
@@ -1162,7 +1160,7 @@ read more:
  - http://stackoverflow.com/questions/1056212/how-do-i-achieve-equal-height-divs-positioned-side-by-side-with-html-css
  - http://stackoverflow.com/questions/2715360/html-css-set-div-to-height-of-sibling
  - http://stackoverflow.com/questions/22253122/make-variable-number-of-divs-positioned-side-by-side-of-equal-height-with-html-c
- - css-tricks.com/equal-height-blocks-in-rows (js solution)
+ - https://css-tricks.com/equal-height-blocks-in-rows (js solution)
 
 -------------------------------------------------------
 
@@ -1261,7 +1259,7 @@ or maybe even better http://stackoverflow.com/a/22719552/759452 and http://stack
 > 
 > });
 
-stackoverflow.com/a/13959836/759452
+https://stackoverflow.com/a/13959836/759452
 
 -------------------------------------------------------
 
@@ -1379,11 +1377,10 @@ You generally want to use CSS sprite when adding background images to links
 > }
 
 Read more on 
- - stackoverflow.com/questions/2076468/cross-browser-cursorpointer
- - quirksmode.org - cursor
- - htmlgoodies.com - Cursors
- - caniuse.com/#search=cursor
- - online custom cursor editor www.cursor.cc
+ - https://stackoverflow.com/questions/2076468/cross-browser-cursorpointer
+ - https://quirksmode.org/css/user-interface/cursor.html
+ - https://caniuse.com/?search=cursor
+ - https://www.cursor.cc/ online custom cursor editor
 
 -------------------------------------------------------
 
@@ -1406,7 +1403,7 @@ see http://css-tricks.com/snippets/css/cross-browser-opacity/
 The opacity is not inherited the same way on different browsers and different browser versions.
 
 When applied on images, different effect can be achieved depending on the:
-  - image being transparent (png, gif) or not (jpg)
+  - image being transparent (png, gif) or not (jpg) https://stackoverflow.com/questions/9147883/only-png-supports-transparency-is-that-true
   - image being colored or greyscaled (black & white)
   - background color of the element "around" the image (it must match the size of the image)
 
@@ -1534,7 +1531,7 @@ You can use this jQuery code to solve this inheritance discrepancy issues (in IE
 > 
 > });
 
-more on quirksmode.org - opacity
+more on https://www.quirksmode.org/css/opacity.html
 
 -------------------------------------------------------
 
@@ -1571,9 +1568,7 @@ Have an additional absolutely positioned child element (in a relatively or absol
 
 Background images are not used to be only in the background. This is because there are things you can only do with background images that you can't do with the usual <img> element.
 
-You want to use CSS sprites technique if you use many background images on your website.
-
-SpriteMe.org - generates sprite images for you
+You can use CSS sprites technique if you use many background images on your website.
 
 A background image never extends outside its element.
 
@@ -1581,13 +1576,13 @@ Any element's background appears on top of its parent elements' background.
 
 An element's background image cannot be placed relatively (according) to its right or bottom edges. A solution can be to create the background image with the empty space needed (at the bottom or right) and then place the image on the right or/and bottom edge of the element.
 
-> background shorthand property:
-> 
+`background` shorthand property:
+ 
 > background: url(../img/sprite_arrow.gif) scroll   no-repeat 0 -116px;
 > 
 > background: imageLocation  regularBehavior  repeatOrNot  HPos VPos
 
-Mind the issue with GIF background image in Chrome.
+Mind the issue with GIF background image in Chrome https://stackoverflow.com/questions/7921092/chrome-does-not-render-gif-background-image
 
 You usually also define the background color:
 
@@ -1635,11 +1630,11 @@ Full width background image + below plain background color:
 
 Multiple backgrounds: http://stackoverflow.com/questions/423172/can-i-have-multiple-background-images-using-css
 
-CSS2 Multiple background images: dense13.com - multiple background images with CSS2 
+CSS2 Multiple background images: https://dense13.com/blog/2008/08/31/multiple-background-images-with-css2/
 
 CSS3 Multiple background images
 
-css3.info - multiple backgrounds images with CSS3
+https://www.css3.info/preview/multiple-backgrounds/
 
 Multiple background images are specified using a comma-separated list of values for the background-image property, with each value generating a separate ‘background layer’. The the first value in the list represents the top layer (closest to the user), with subsequent layers rendered behind successively.
 
@@ -1711,7 +1706,7 @@ You can turn off the display of a single border using the none keyword
 
 CSS Rounded Border cross-browser work around
 
-Supported in IE8 and a lot of other poor browsers as well as all the modern ones.
+Supported in `IE8` and a lot of other poor browsers as well as all the modern ones.
 
 > .my-wicked-class {
 > 
@@ -1755,7 +1750,7 @@ You need to create both `roundedCorner_right.png` and `roundedCorner_left.png`
 
 CSS3 Rounded Border
 
-Supported in IE9+, Firefox 4+, Chrome, Safari 5+, and Opera
+Supported in `IE9+`, `Firefox 4+`, `Chrome`, `Safari 5+`, and `Opera`
 
 `border-radius` shorthand property:
 
@@ -1798,8 +1793,8 @@ If you want to give different "roundings" to each corner
 see http://stackoverflow.com/questions/1083755/webkit-border-radius-sometimes-take-effect
 
 Read more on
- - css3.info - CSS3 border radius
- - mozilla - border radius
+ - https://www.css3.info/preview/rounded-border/
+ - https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
 
 CSS3 Shadow boxing
 
@@ -1817,7 +1812,7 @@ Support IE9+, Firefox 4, Chrome, and Opera. CSS3PIE adds support for IE8.
 > 
 > behavior: url(/estore/_ui/desktop/common/js/PIE/PIE.htc);
 
-Box-shadow with IE8 & below support (css3pie)
+Box-shadow with `IE8` & below support (css3pie)
 
 > box-shadow: 1px 1px 10px #888;
 
@@ -1829,7 +1824,7 @@ Inner shadow on all sides
 
 > box-shadow: inset 0 20px 20px -20px #000000;
 
-Top inner shadow - see stackoverflow.com/q/4756316
+Top inner shadow - see https://stackoverflow.com/q/4756316
 
 > box-shadow: inset 0 -15px 15px -15px #000000;
 
@@ -1843,17 +1838,17 @@ Left inner shadow
 
 Right inner shadow
 
-Lateral rounded shadows example: jsfiddle.net/hz8WD/
+Lateral rounded shadows example: https://jsfiddle.net/hz8WD/
 
-Horizontal rounded shadows example: jsfiddle.net/hz8WD/1/
+Horizontal rounded shadows example: https://jsfiddle.net/hz8WD/1/
 
 Read more on
- - hacks.mozilla.org - moz-box-shadow
- - developer.mozilla.org - box-shadow
- - css3.info/preview/box-shadow
- - css-tricks.com/snippets/css/css-box-shadow
- - stackoverflow.com/questions/6671375/css-box-shadow-top-and-bottom-only
- - stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only
+ - https://hacks.mozilla.org/2009/06/moz-box-shadow/ - moz-box-shadow
+ - https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow - box-shadow
+ - https://www.css3.info/preview/box-shadow/
+ - https://css-tricks.com/snippets/css/css-box-shadow
+ - https://stackoverflow.com/questions/6671375/css-box-shadow-top-and-bottom-only
+ - https://stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only
 
 -------------------------------------------------------
 
@@ -1898,12 +1893,12 @@ vertical align (center vertically) a single line of text
 >     </p>
 
 Read more on how to align vertically:
- - phrogz.net/CSS/vertical-align/index.html 
- - css-tricks.com/vertically-center-multi-lined-text
- - css-tricks.com/centering-css-complete-guide
+ - https://phrogz.net/CSS/vertical-align/index.html 
+ - https://css-tricks.com/vertically-center-multi-lined-text
+ - https://css-tricks.com/centering-css-complete-guide
 
 `rowspan` & `colspan`:
- - htmldog.com/guides/html/intermediate/tables
+ - https://htmldog.com/guides/html/intermediate/tables
 
 borders:
 
@@ -1934,11 +1929,9 @@ see also (cf. CSS reset):  `table{ border-spacing: 0; }`
 
 and also (so layout does not break):  `table{ table-layout: fixed; }`
 
-Images, Tables, and Mysterious Gaps
+ - Cross browser table row styling https://creativepro.com/view-source-javascript-designers/ 
 
-Cross browser table row styling
-
-http://coding.smashingmagazine.com/2008/08/13/top-10-css-table-designs/
+ - http://coding.smashingmagazine.com/2008/08/13/top-10-css-table-designs/
 
 Example of nice table design:
 
@@ -2056,9 +2049,9 @@ select label `for=”email“` in CSS:
 
 > label [for=email] { .. }
 
- - htmldog.com/guides/htmladvanced/forms/
- - alexking.org/blog/2005/07/18/css-checkbox-label-positioning     (label positioning)
- - bytes.com/topic/html-css/answers/99329-nicely-wrapped-checkboxes-labels   (wrap label on multiple lines)
+ - https://htmldog.com/guides/htmladvanced/forms/
+ - https://alexking.org/blog/2005/07/18/css-checkbox-label-positioning     (label positioning)
+ - https://bytes.com/topic/html-css/answers/99329-nicely-wrapped-checkboxes-labels   (wrap label on multiple lines)
 
 `button` vs `input type="submit"` vs `input type="button"`
 
@@ -2071,9 +2064,9 @@ select label `for=”email“` in CSS:
 `button`: default to `type="submit"` so submits the form when clicked on
 
 `button type="button"`: allows you to prevent the default form submit behavior
- - developer.mozilla.org/en-US/docs/Web/HTML/Element/button
- - developer.mozilla.org/en-US/docs/Web/HTML/Element/input
- - stackoverflow.com/questions/469059/button-vs-input-type-button-which-to-use
+ - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+ - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+ - https://stackoverflow.com/questions/469059/button-vs-input-type-button-which-to-use
 
 `<input type="text">`  expanding on focus
 
@@ -2101,15 +2094,15 @@ Given size when not focused - then bigger size when focussed.
 > 
 > }
 
-jsfiddle.net/sDTfS/
+https://jsfiddle.net/sDTfS/
 
-`<input>` tag is used to select user information. An input field can be a text field, a checkbox, a password field, a radio button, a button, and more.
+`<input>` tag is used to select user information. An `input` field can be a text field, a checkbox, a `password` field, a `radio` button, a `button`, and more.
 
-input tag's optional attributes
+`input` tag's optional attributes
 
 `type` specifies the type of input element
 
-`type="checkbox"`  let a user select several choices. The value setting defines what will be submitted if checked. Read more on how to align checkboxes and their label consistently across browsers
+`type="checkbox"`  let a user select several choices. The value setting defines what will be submitted if checked. Read more on how to align checkboxes and their label consistently across browsers https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers
 
 `type="radio button"`  let a user select only one of a limited number of choices. The value setting defines what will be submitted if checked.
 etc...
@@ -2123,12 +2116,12 @@ Warning: radiobuttons & checkboxes do NOT support the "readonly" attribute!
 `disabled` elements are NOT editable, are NOT sent on submit, & CANNOT be focused
 
 Read more:
- - `readonly` & `disabled` http://www.w3.org/TR/html4/interact/forms.html#h-17.12
- - `readonly` vs `disabled` on http://stackoverflow.com/questions/7730695/whats-the-difference-between-disabled-disabled-and-readonly-readonly-for-te
- - Radio button : `read-only` http://stackoverflow.com/questions/1953017/why-cant-radio-buttons-be-readonly
+ - `readonly` & `disabled` https://www.w3.org/TR/html4/interact/forms.html#h-17.12
+ - `readonly` vs `disabled` on https://stackoverflow.com/questions/7730695/whats-the-difference-between-disabled-disabled-and-readonly-readonly-for-te
+ - Radio button : `read-only` https://stackoverflow.com/questions/1953017/why-cant-radio-buttons-be-readonly
  - Radio buttons & checkboxes : read-only https://bugzilla.mozilla.org/show_bug.cgi?id=88512
- - Checkboxes : read-only http://stackoverflow.com/questions/155291/can-html-checkboxes-be-set-to-readonly 
- - Radio button : read-only http://www.sitepoint.com/forums/showthread.php?963049-Read-only-Radio-Buttons
+ - Checkboxes : read-only https://stackoverflow.com/questions/155291/can-html-checkboxes-be-set-to-readonly 
+ - Radio button : read-only https://www.sitepoint.com/forums/showthread.php?963049-Read-only-Radio-Buttons
 
 > <textarea>
 
@@ -2136,15 +2129,15 @@ You might want to set the `max-width` & `max-height` (line height?) for this ele
 
 > <textarea class="long-comment" name="longComment" rows="3" cols="40" placeholder="Write your message here"></textarea>
 
- - developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
- - reference.sitepoint.com/html/textarea
- - w3.org/TR/REC-html40/interact/forms.html#h-17.7
+ - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+ - https://reference.sitepoint.com/html/textarea
+ - https://w3.org/TR/REC-html40/interact/forms.html#h-17.7
 
-placeholder (IE10+): stackoverflow.com/q/4004087 and stackoverflow.com/q/2610497 and css-tricks.com/snippets/css/style-placeholder-text 
+placeholder (IE10+): https://stackoverflow.com/q/4004087 and https://stackoverflow.com/q/2610497 and https://css-tricks.com/snippets/css/style-placeholder-text 
 
 `<input>` element rounded border styling:
 
-  - use "border-radius" property: "supported in IE9+, Firefox, Chrome, Safari, and Opera".
+  - use "border-radius" property: "supported in IE9+, Firefox, Chrome, Safari, and Opera" https://www.w3schools.com/cssref/css3_pr_border-radius.php
 
 > border: 1px solid black;
 > 
@@ -2161,11 +2154,11 @@ placeholder (IE10+): stackoverflow.com/q/4004087 and stackoverflow.com/q/2610497
 
 see http://stackoverflow.com/questions/7189608/how-do-i-make-an-input-element-occupy-all-remaining-horizontal-space/7190310#7190310 and http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-width
 
-`<input type="checkbox">` element styling: http://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox/16353624#16353624 and http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css . note that "prettyCheckable.js" is not "compatible" with this technique "how to align checkboxes and their label consistently across browsers" use the "data-label" option instead.
+`<input type="checkbox">` element styling: http://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox/16353624#16353624 and http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css . note that "prettyCheckable.js" is not "compatible" with this technique ["how to align checkboxes and their label consistently across browsers"](https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers) use the "data-label" option instead. 
 
 `<select>` element styling: http://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-css-only-without-javascript and my solution http://stackoverflow.com/a/21623118/759452
 
-`<select>` element styling using js plugin: github.com/harvesthq/chosen and harvesthq.github.io/chosen - better select box (drop down)
+`<select>` element styling using js plugin: http://github.com/harvesthq/chosen and http://harvesthq.github.io/chosen - better select box (drop down)
 
 hack for chrome autofill bg issue http://stackoverflow.com/a/14205994/759452
 
@@ -2214,7 +2207,7 @@ Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
 > 
 > </c:if>
 
-Anti spam bot protection technique for HTML forms: ustrem.org/en/articles/html-form-anti-spam-en/
+Anti spam bot protection technique for HTML forms: http://ustrem.org/en/articles/html-form-anti-spam-en/
 
 -------------------------------------------------------
 
@@ -2244,11 +2237,9 @@ Page margin can be set using @page , this may not be cross browser though. see h
 
 Tech links
 
-> page-break-before
-> 
-> page-break-after
-> 
-> page-break-inside
+ - page-break-before https://www.w3schools.com/cssref/pr_print_pagebb.php
+ - page-break-after https://www.w3schools.com/cssref/pr_print_pageba.php
+ - page-break-inside https://www.w3schools.com/cssref/pr_print_pagebi.php
 
 Print styling - how to
 
@@ -2305,8 +2296,8 @@ This is the cross browser solution (so that it works on IE8 for instance)
 > }
 
 Read more on
- - stackoverflow.com - how to make html element unselectable
- - developer.mozilla.org -moz-user-select
+ - https://stackoverflow.com - how to make html element unselectable
+ - https://developer.mozilla.org `-moz-user-select`
 
 -------------------------------------------------------
 
@@ -2327,5 +2318,5 @@ Works on Firefox 4, Chrome, Opera, and Safari
 > transition: all 0.5s ease-out;
 
 Read more on
- - net.tutsplus.com - CSS3 Transitions
+ - https://net.tutsplus.com - CSS3 Transitions
 
