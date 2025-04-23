@@ -2,7 +2,6 @@
 Notes taken prior to 2018.
 
 TODO:
- - fix broken links, restart at "# CSS Overflow property"
  - add h2, h3
 
 Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
@@ -800,7 +799,7 @@ Read more:
 
 `text-shadow` is a property from CSS3 that adds shadows to your text
 
-Read more on mozilla.org - text-shadow
+Read more https://hacks.mozilla.org/2009/06/text-shadow/
 
 CSS Fonts imported
 
@@ -1704,7 +1703,7 @@ You can turn off the display of a single border using the none keyword
 
 > border-left: none;
 
-CSS Rounded Border cross-browser work around
+## CSS Rounded Border cross-browser work around
 
 Supported in `IE8` and a lot of other poor browsers as well as all the modern ones.
 
@@ -1748,7 +1747,7 @@ Supported in `IE8` and a lot of other poor browsers as well as all the modern on
 
 You need to create both `roundedCorner_right.png` and `roundedCorner_left.png`
 
-CSS3 Rounded Border
+## CSS3 Rounded Border
 
 Supported in `IE9+`, `Firefox 4+`, `Chrome`, `Safari 5+`, and `Opera`
 
@@ -1796,7 +1795,7 @@ Read more on
  - https://www.css3.info/preview/rounded-border/
  - https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
 
-CSS3 Shadow boxing
+## CSS3 Shadow boxing
 
 Support IE9+, Firefox 4, Chrome, and Opera. CSS3PIE adds support for IE8.
 
@@ -1897,10 +1896,11 @@ Read more on how to align vertically:
  - https://css-tricks.com/vertically-center-multi-lined-text
  - https://css-tricks.com/centering-css-complete-guide
 
-`rowspan` & `colspan`:
+## `rowspan` & `colspan`
+
  - https://htmldog.com/guides/html/intermediate/tables
 
-borders:
+## borders
 
 Applying borders to a table element outlines just the table, not the cells themselves.
 
@@ -2037,13 +2037,15 @@ see also:
 
 # HTML/CSS Forms
 
-Form's `action` attribute
+## Form's `action` attribute
 
 `action` is the only required attibute for the `<form>` tag. It specifies where to send the form-data when a form is submitted.
 
-Form tags
+## Form tags
 
-`<label>` tag defines a label for an input element. If the user clicks on the text within the label element, it toggles the control. The for attribute of the <label> tag should be equal to the id attribute of the related element to bind them together.
+### `<label>` tag defines a label for an input element. 
+
+If the user clicks on the text within the label element, it toggles the control. The for attribute of the <label> tag should be equal to the id attribute of the related element to bind them together.
 
 select label `for=”email“` in CSS: 
 
@@ -2053,7 +2055,7 @@ select label `for=”email“` in CSS:
  - https://alexking.org/blog/2005/07/18/css-checkbox-label-positioning     (label positioning)
  - https://bytes.com/topic/html-css/answers/99329-nicely-wrapped-checkboxes-labels   (wrap label on multiple lines)
 
-`button` vs `input type="submit"` vs `input type="button"`
+### `button` vs `input type="submit"` vs `input type="button"`
 
 `button`: has open & close tag, hence can have other tags inside
 
@@ -2068,7 +2070,7 @@ select label `for=”email“` in CSS:
  - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
  - https://stackoverflow.com/questions/469059/button-vs-input-type-button-which-to-use
 
-`<input type="text">`  expanding on focus
+### `<input type="text">`  expanding on focus
 
 Given size when not focused - then bigger size when focussed.
 
@@ -2096,24 +2098,20 @@ Given size when not focused - then bigger size when focussed.
 
 https://jsfiddle.net/sDTfS/
 
-`<input>` tag is used to select user information. An `input` field can be a text field, a checkbox, a `password` field, a `radio` button, a `button`, and more.
+### `<input>` tag is used to select user information
 
-`input` tag's optional attributes
+An `input` field can be a text field, a checkbox, a `password` field, a `radio` button, a `button`, and more.
 
-`type` specifies the type of input element
-
-`type="checkbox"`  let a user select several choices. The value setting defines what will be submitted if checked. Read more on how to align checkboxes and their label consistently across browsers https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers
-
-`type="radio button"`  let a user select only one of a limited number of choices. The value setting defines what will be submitted if checked.
+`input` tag's optional attributes:
+ - `type` specifies the type of input element
+ - `type="checkbox"`  let a user select several choices. The value setting defines what will be submitted if checked. Read more on how to align checkboxes and their label consistently across browsers https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers
+ - `type="radio button"`  let a user select only one of a limited number of choices. The value setting defines what will be submitted if checked.
 etc...
-
-`maxlength` specifies the maximum length (in characters) of an input field (for `type="text"` or `type="password"`)
-
-`readonly` elements are not editable, but DO get sent on submit, & can be focused (ie. when "tabbing" through a form).
+ - `maxlength` specifies the maximum length (in characters) of an input field (for `type="text"` or `type="password"`)
+ - `readonly` elements are not editable, but DO get sent on submit, & can be focused (ie. when "tabbing" through a form).
+ - `disabled` elements are NOT editable, are NOT sent on submit, & CANNOT be focused
 
 Warning: radiobuttons & checkboxes do NOT support the "readonly" attribute!
-
-`disabled` elements are NOT editable, are NOT sent on submit, & CANNOT be focused
 
 Read more:
  - `readonly` & `disabled` https://www.w3.org/TR/html4/interact/forms.html#h-17.12
@@ -2123,7 +2121,7 @@ Read more:
  - Checkboxes : read-only https://stackoverflow.com/questions/155291/can-html-checkboxes-be-set-to-readonly 
  - Radio button : read-only https://www.sitepoint.com/forums/showthread.php?963049-Read-only-Radio-Buttons
 
-> <textarea>
+### <textarea>
 
 You might want to set the `max-width` & `max-height` (line height?) for this element. Otherwise the user might be able to expend it infinitely & mess up your design.
 
@@ -2133,11 +2131,11 @@ You might want to set the `max-width` & `max-height` (line height?) for this ele
  - https://reference.sitepoint.com/html/textarea
  - https://w3.org/TR/REC-html40/interact/forms.html#h-17.7
 
-placeholder (IE10+): https://stackoverflow.com/q/4004087 and https://stackoverflow.com/q/2610497 and https://css-tricks.com/snippets/css/style-placeholder-text 
+`placeholder` (IE10+): https://stackoverflow.com/q/4004087 and https://stackoverflow.com/q/2610497 and https://css-tricks.com/snippets/css/style-placeholder-text 
 
-`<input>` element rounded border styling:
+### `<input>` element rounded border styling:
 
-  - use "border-radius" property: "supported in IE9+, Firefox, Chrome, Safari, and Opera" https://www.w3schools.com/cssref/css3_pr_border-radius.php
+  - use `border-radius` property: "supported in IE9+, Firefox, Chrome, Safari, and Opera" https://www.w3schools.com/cssref/css3_pr_border-radius.php
 
 > border: 1px solid black;
 > 
@@ -2154,15 +2152,23 @@ placeholder (IE10+): https://stackoverflow.com/q/4004087 and https://stackoverfl
 
 see http://stackoverflow.com/questions/7189608/how-do-i-make-an-input-element-occupy-all-remaining-horizontal-space/7190310#7190310 and http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-width
 
-`<input type="checkbox">` element styling: http://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox/16353624#16353624 and http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css . note that "prettyCheckable.js" is not "compatible" with this technique ["how to align checkboxes and their label consistently across browsers"](https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers) use the "data-label" option instead. 
+### `<input type="checkbox">` element styling:
 
-`<select>` element styling: http://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-css-only-without-javascript and my solution http://stackoverflow.com/a/21623118/759452
+http://stackoverflow.com/questions/16352864/how-to-display-image-in-place-of-checkbox/16353624#16353624 and http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css . note that "prettyCheckable.js" is not "compatible" with this technique ["how to align checkboxes and their label consistently across browsers"](https://stackoverflow.com/questions/306252/how-to-align-checkboxes-and-their-labels-consistently-cross-browsers) use the "data-label" option instead. 
 
-`<select>` element styling using js plugin: http://github.com/harvesthq/chosen and http://harvesthq.github.io/chosen - better select box (drop down)
+### `<select>` element styling
+
+http://stackoverflow.com/questions/1895476/how-to-style-a-select-dropdown-with-css-only-without-javascript and my solution http://stackoverflow.com/a/21623118/759452
+
+### `<select>` element styling using js plugin
+
+http://github.com/harvesthq/chosen and http://harvesthq.github.io/chosen - better select box (drop down)
 
 hack for chrome autofill bg issue http://stackoverflow.com/a/14205994/759452
 
-Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
+### Read more about forms
+
+www.htmldog.com/guides/htmlbeginner/forms
 
 ## "Honeypot" Anti spam bot protection technique
 
@@ -2213,7 +2219,7 @@ Anti spam bot protection technique for HTML forms: http://ustrem.org/en/articles
 
 # CSS - Printing a page
 
-Guidelines
+## Guidelines
 
 Use percentages on main elements's width so that the page can be printed in different formats (portrait, horizontal, A3, and so on).
 
@@ -2235,13 +2241,13 @@ Use different unit of measurement than px:
 
 Page margin can be set using @page , this may not be cross browser though. see http://stackoverflow.com/questions/1542320/margin-while-printing-html-page
 
-Tech links
+## Tech links
 
  - page-break-before https://www.w3schools.com/cssref/pr_print_pagebb.php
  - page-break-after https://www.w3schools.com/cssref/pr_print_pageba.php
  - page-break-inside https://www.w3schools.com/cssref/pr_print_pagebi.php
 
-Print styling - how to
+## Print styling - how to
 
 Find the stylesheets applied when in print view (ie. in Chrome)
 
@@ -2295,7 +2301,7 @@ This is the cross browser solution (so that it works on IE8 for instance)
 > 
 > }
 
-Read more on
+Read more
  - https://stackoverflow.com - how to make html element unselectable
  - https://developer.mozilla.org `-moz-user-select`
 
