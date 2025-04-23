@@ -2,9 +2,7 @@
 Notes taken prior to 2018.
 
 TODO:
- - style titles
- - add https to links
- - fix broken links 
+ - fix broken links, restart at "# CSS Overflow property"
 
 Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
@@ -46,7 +44,8 @@ Firefox extension - HTML validator (and also corrector): http://users.skynet.be/
 # CSS validator
 
 You also need to validate your CSS to make sure there is no incorrect/invalid CSS.
-Official CSS validator: W3C CSS Validation Service
+
+W3C CSS Validation Service: https://jigsaw.w3.org/css-validator/
 
 -------------------------------------------------------
 
@@ -62,11 +61,11 @@ If the doctype is mistyped or incorrect, the web browsers reading your page will
 
 Quirks mode is when a browser puts itself in a mode where it'll interpret the HTML as if it was written years ago (circa 2005 for instance).
 
-Read more about Quirks Mode and Strict mode on www.quirksmode.org - quirks mode and strict mode
+Read more about Quirks Mode and Strict mode on https://www.quirksmode.org/css/quirksmode.html
 
 Official DTD lists:
 
-www.w3.org - Valid DTD list
+https://www.w3.org - Valid DTD list
 
 -------------------------------------------------------
 
@@ -77,8 +76,8 @@ Quirks mode: In IE9 & earlier versions, quirks mode restricted the webpage to th
 Compatibility view: For different reasons IE8 can put itself in a Compatibility View which will make IE pretend to be in IE7.
 
 This can happen if:
- - the user browsing your site with IE8 clicks on "compatibility view" button (Tools >> Compatibility View)
- - Microsoft puts your website on their Compatibility View List
+ - the user browsing your site with IE8 clicks on "compatibility view" button (Tools >> Compatibility View) https://www.sevenforums.com/tutorials/1196-internet-explorer-compatibility-view-turn-off.html
+ - Microsoft puts your website on their Compatibility View List https://learn.microsoft.com/en-us/previous-versions//dd567845(v=vs.85)?redirectedfrom=MSDN
 
 In IE8 you can see your "Browser Mode" and "Document Mode" in the top bar of the Developer Tools (F12 or "Tools" >> "Developer Tools")
 
@@ -127,12 +126,12 @@ Read more:
 Displays the HTML and/or Flash and process the JavaScript.
 
 Some rendering engines:
- - WebKit - Safari & used by Chrome was until version 27 (June 2013)
- - Blink - since July 2013: Google Chrome (version 28+), & Opera (15+). (Blink is forked from WebKit)
- - Gecko - Mozilla Firefox
- - Trident - Internet Explorer
- - KHTML - Konqueror web browser
- - Presto - used by Opera until version 14 (June 2013)
+ - WebKit - Safari & used by Chrome was until version 27 (June 2013) https://en.wikipedia.org/wiki/WebKit
+ - Blink - since July 2013: Google Chrome (version 28+), & Opera (15+). (Blink is forked from WebKit) https://en.wikipedia.org/wiki/Blink_(browser_engine)
+ - Gecko - Mozilla Firefox https://en.wikipedia.org/wiki/Gecko_(software)
+ - Trident - Internet Explorer https://en.wikipedia.org/wiki/Trident_(software)
+ - KHTML - Konqueror web browser https://en.wikipedia.org/wiki/KHTML
+ - Presto - used by Opera until version 14 (June 2013) https://en.wikipedia.org/wiki/Presto_(browser_engine)
 
 -------------------------------------------------------
 
@@ -158,7 +157,7 @@ This is the display area of a web browser window.
 
 These are the characters that need to be coded for HTML, such as "<", "&" and "©".
 
-Read the official reference on www.w3.org - entities
+Read the official reference: https://www.w3.org/TR/html4/sgml/entities.html
 
 Read more about HTML special characters on www.tedmontgomery.com
 
@@ -190,7 +189,7 @@ Read more about HTML special characters on www.tedmontgomery.com
 
 In this case we use it to import a stylesheet for specific browser.
 
-more on msdn.microsoft.com
+more on https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537512(v=vs.85)?redirectedfrom=MSDN
 
 -------------------------------------------------------
 
@@ -251,8 +250,8 @@ Add the following in the <head> element of your HTML page
 Thanks to this method you can group all your (non conditional) css import in one css file
 
 Read more on including Internal and External style sheets:
- - htmldog.com - atrules
- - w3.org - atrules
+ - https://www.htmldog.com/guides/css/advanced/atrules/ - atrules
+ - https://www.w3.org/TR/CSS2/syndata.html#at-rules - atrules
 
 ## 4. Include the style directly in the HTML (Inline styling)
 
@@ -280,9 +279,9 @@ You can force an element to inherit a property from his parent element by using 
 > 
 > }
 
-Read more on
- - www.w3.org - inheritance
- - www.dnncreative.com - CSS and inheritance
+Read more
+ - https://www.w3.org/TR/CSS2/cascade.html#inheritance
+ - https://www.dnncreative.com/IntroductiontoCSSandinheritanceinDotNetNuke/tabid/265/Default.aspx
 
 -------------------------------------------------------
 
@@ -312,15 +311,15 @@ An approximation to calculate it is to count:
  - 100 points for an ID selector
  - add those points if a selector is a descendant selector (ie. ".my-class-name ul a" equals to 12 points)
 
-Read more on coding.smashingmagazine.com - specificity
+Read more on https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/
 
 -------------------------------------------------------
 
-# CSS - !important
+# CSS - `!important`
 
-Including !important after a property value means that specific property always wins (wherever your stylesheet is).
+Including `!important` after a property value means that specific property always wins (wherever your stylesheet is).
 
-When two styles both have !important applied to the same property, the more specific style's !important rule wins.
+When two styles both have `!important` applied to the same property, the more specific style's `!important` rule wins.
 
 It generally best to avoid this technique as you may want to override this property someday.
 
@@ -441,7 +440,7 @@ Allowed characters: must begin with a letter & cannot contain symbols like &, *,
 Best practice is to never use IDs, but if you do, an ID must be applied to:
 - an element appearing only once per page.
 - link to a specific part of a page
-- use JavaScript's getElementById() function
+- use JavaScript's `getElementById()` function
 
 HTML element with an ID applied to it
 
@@ -714,13 +713,13 @@ Pseudo classes and pseudo elements are distinguished in CSS3 specification. Pseu
 When adding/editing colors, you have the choice between 3 formats:
  - Hexadecimal  - supported by old IE browsers
  - RGBa         - supported by IE9+, see http://css-tricks.com/rgba-browser-support/
- - HSL & HSLa  - supported by IE9+, see caniuse.com/#search=hsl and browsersupport.net/CSS/hsl() and also css-tricks.com/yay-for-hsla
+ - HSL & HSLa  - supported by IE9+, see http://caniuse.com/#search=hsl and http://browsersupport.net/CSS/hsl() and also http://css-tricks.com/yay-for-hsla
 
 HSLa color pickers: 
- - css-tricks.com/examples/HSLaExplorer 
- - hslpicker.com 
- - mattgroeber.com/utilities/random-color-generator
- - mothereffinghsl.com
+ - http://css-tricks.com/examples/HSLaExplorer 
+ - http://hslpicker.com 
+ - http://mattgroeber.com/utilities/random-color-generator
+ - http://mothereffinghsl.com
 
 HSLa: As stated by CSS Tricks "The real appeal of HSLa is that it makes more intuitive sense what changing the values will do to the color. Increasing the second value will increase the saturation of that color. Decreasing the third value will decrease the lightness of that color. That makes creating your own color variations on the fly way easier. I would wager that most of us can't create nice and consistent color variations like this using the RGBa model. The HSLa model also makes changing color values programatically much easier."
 
@@ -794,13 +793,13 @@ Monospaced fonts has each letter with the same width., these are often used for 
 
 A font present in windows OS may not be present in Mac or Linux OS. W3C doesn't have a standard list simply because they aren't the ones who determine what fonts are installed on what computers/OS.
 
-Some of the most common fonts: Verdana, Arial, Courier New, Georgia, Comic Sans MS, ...
+Some of the most common fonts: `Verdana`, `Arial`, `Courier New`, `Georgia`, `Comic Sans MS`, ...
 
-Capitalize the 1st letter & lower case the rest: stackoverflow.com/questions/22566468/first-letter-capitalize-and-other-letters-in-lower-case-in-css
+Capitalize the 1st letter & lower case the rest: http://stackoverflow.com/questions/22566468/first-letter-capitalize-and-other-letters-in-lower-case-in-css
 
 Read more:
- - stackoverflow.com/questions/13198119/safe-fonts-all-browser-and-os
- - webspaceworks.com/resources/fonts-web-typography/48/
+ - http://stackoverflow.com/questions/13198119/safe-fonts-all-browser-and-os
+ - http://webspaceworks.com/resources/fonts-web-typography/48/
 
 `text-shadow` is a property from CSS3 that adds shadows to your text
 
@@ -819,12 +818,11 @@ CSS Fonts imported
 @font-face allows you to host your font on the server side, the client's browser will download it when visiting your website if it does not already has it on the computer.
 
 Read more about @font-face on
- - fonts available for @font-face embedding
- - SixRevisions.com/css/font-face-guide
+ - https://www.webfx.com/blog/web-design/font-face-guide/
  - www.FontSpring.com/blog/the-new-bulletproof-font-face-syntax
  - www.FontSpring.com/blog/further-hardening-of-the-bulletproof-syntax
- - Cufon - Fast text replacement with canvas and VML (no Flash or images required: JavaScript based solution)
- - TypeKit - javascript based solution for fancy fonts 
+ - https://github.com/sorccu/cufon - Cufon - Fast text replacement with canvas and VML (no Flash or images required: JavaScript based solution)
+ - https://fonts.adobe.com/ and https://fonts.adobe.com/docs/api - adobe fonts, frmly TypeKit - javascript based solution for fancy fonts 
  - www.myfonts.com/WhatTheFont/ - find out what font is used by submitting an image
 
 CSS Align text horizontally
@@ -898,17 +896,17 @@ You can use top/bottom padding to avoid this.
 
 -------------------------------------------------------
 
-# CSS Display property - inline & block elements
+# CSS `display` property - `inline` & `block` elements
 
-HTML elements have a default value for their display property to either block or inline.
+HTML elements have a default value for their display property to either `block` or `inline`.
 
 > display: inline;
 
 Inline elements are displayed one after another. Inline elements do not create a line break before or after them.
 
-Width on inline elements have no effect.
+Width on `inline` elements have no effect.
 
-Top & bottom margin & padding have no "regular" effect on inline elements. Instead of "moving" itself & elements around the inline element, that top & bottom padding/margin just causes borders and background to overlap elements above and below the inline element.
+Top & bottom `margin` & `padding` have no "regular" effect on inline elements. Instead of "moving" itself & elements around the `inline` element, that top & bottom padding/margin just causes borders and background to overlap elements above and below the inline element.
 
 > display: block;
 
@@ -922,17 +920,17 @@ Leaves the element inline, but paddings, margins, borders, width and height are 
 
 > display: none;
 
-htmldog.com - display property
+https://htmldog.com/guides/css/intermediate/display/ - `display` property
 
-Block level elements
+https://htmlhelp.com/reference/html40/block.html - Block level elements
 
 -------------------------------------------------------
 
 # CSS - Remove Whitespace Between Inline-Block Elements
 
- - css-tricks.com/fighting-the-space-between-inline-block-elements
- - davidwalsh.name/remove-whitespace-inline-block
- - stackoverflow.com/questions/5078239/how-to-remove-the-space-between-inline-block-elements
+ - https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+ - https://davidwalsh.name/remove-whitespace-inline-block
+ - https://stackoverflow.com/questions/5078239/how-to-remove-the-space-between-inline-block-elements
 
 -------------------------------------------------------
 
@@ -974,7 +972,7 @@ However, you can use Box-sizing to force the "element width + padding width" to 
 > 
 > box-sizing: border-box;
 
-see www.paulirish.com/2012/box-sizing-border-box-ftw and css-tricks.com/box-sizing
+see www.paulirish.com/2012/box-sizing-border-box-ftw and http://css-tricks.com/box-sizing
 
 warning: `min-width` & `max-width` do not work with `box-sizing`: `border-box` is a known bug in IE8 and Firefox 16&below. see http://stackoverflow.com/questions/9508262/min-height-min-width-doesnt-respect-box-sizing-in-some-browsers and http://stackoverflow.com/questions/11608291/box-sizing-border-box-for-ie8
 
@@ -1017,10 +1015,9 @@ Like absolute positioning, fixed positioning let you place elements on a page re
 Unlike absolute positioning, fixed positioning is always relative to the browser window.
 
 How to keep a footer at the bottom of the page
- - ryanfait.com/html5-sticky-footer
- - matthewjamestaylor.com - keeping footers at the bottom of the page
- - css-tricks.com/snippets/css/sticky-footer
- - jsbin.com/gawuqejaqugu/6
+ - https://matthewjamestaylor.com/bottom-footer
+ - https://css-tricks.com/snippets/css/sticky-footer
+ - https://jsbin.com/gawuqejaqugu/6
 
 -------------------------------------------------------
 
@@ -1079,8 +1076,8 @@ more about float on guistuff.com - floating elements
 clear fix hacks:
 
 This is to make sure that the height of a parent element is the total of its children elements height, even if these are floating.
- - http://www.quirksmode.org/css/clearing.html - clear fix hack (cross-browser) using overflow:hidden on parent
- - NicolasGallagher.com/micro-clearfix-hack - clear fix hack (cross-browser) using clear:both after last child
+ - `deadlink` - clear fix hack (cross-browser) using overflow:hidden on parent
+ - https://nicolasgallagher.com/micro-clearfix-hack/ - clear fix hack (cross-browser) using clear:both after last child
 
 -------------------------------------------------------
 
@@ -1456,40 +1453,40 @@ Opacity on non-transparent (jpg) colored image with red background for surroundi
 >     <div class="transparent-on-hover-filter">
 >      <img class="transparent-on-hover-img" src="myImage.jpg"/>
 >     </div>
-> 
+
 > .transparent-on-hover-filter {
 > 
->     background-color: red;
+>  background-color: red;
 > 
->     display: inline-block;
+>  display: inline-block;
 > 
 > }
 > 
 > .transparent-on-hover-img:hover {
 > 
->     cursor: pointer;
-> 
->     cursor: hand;    
-> 
->     opacity : .5;    /* all other browsers */
-> 
->     -ms-filter : "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";   /* IE8 */
-> 
->     filter: alpha(opacity=50);   /* IE5-7 */
+>  cursor: pointer;
+>  
+>  cursor: hand;    
+>  
+>  opacity : .5;    /* all other browsers */
+>  
+>  -ms-filter : "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";   /* IE8 */
+>  
+>  filter: alpha(opacity=50);   /* IE5-7 */
 > 
 > }
-> 
+
 >     <a href="#">
 >      <img src="../your/image/path/yourImage.png">
 >     </a>
-> 
+
 > a {
 > 
->     display: inline-block;
+>  display: inline-block;
 > 
->     background-color: black;
+>  background-color: black;
 > 
->     line-height: 0;
+>  line-height: 0;
 > 
 > }
 > 
@@ -1499,7 +1496,7 @@ Opacity on non-transparent (jpg) colored image with red background for surroundi
 > 
 > a:hover img {
 > 
->     border: none;
+>  border: none;
 > 
 > }
 > 
@@ -1507,11 +1504,11 @@ Opacity on non-transparent (jpg) colored image with red background for surroundi
 > 
 > a:hover img {
 > 
->     opacity: .8;  /* all other browsers */
+>  opacity: .8;  /* all other browsers */
 > 
->     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";  /* IE8 */
+>  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";  /* IE8 */
 > 
->     filter: alpha(opacity=80);  /* IE5-7 */
+>  filter: alpha(opacity=80);  /* IE5-7 */
 > 
 > }
 
@@ -1976,61 +1973,61 @@ Example of nice table design:
 > 
 > .nice-table td {
 > 
->     border: none;
+>  border: none;
 > 
 > }
 > 
 > .nice-table {
 > 
->     table-layout: fixed;
+>  table-layout: fixed;
 > 
->     border-collapse: collapse;
+>  border-collapse: collapse;
 > 
->     border-spacing: 0;
+>  border-spacing: 0;
 > 
->     width: 100%;
+>  width: 100%;
 > 
 > }
 > 
 > .nice-table thead tr th {
 > 
->     width: auto;
+>  width: auto;
 > 
->     padding: 10px 0;
+>  padding: 10px 0;
 > 
 > }
 > 
 > .nice-table tbody tr td {
 > 
->     width: auto;
+>  width: auto;
 > 
->     padding: 10px;
+>  padding: 10px;
 > 
->     border-top: 1px dashed #fff;
+>  border-top: 1px dashed #fff;
 > 
 > }
 > 
 > .nice-table thead tr th.colOne {
 > 
->     width: 35%;
+>  width: 35%;
 > 
 > }
 > 
 > .nice-table thead tr th.colTwo {
 > 
->     width: 15%;
+>  width: 15%;
 > 
 > }
 > 
 > .nice-table tbody {
 > 
->     background-color: #EFF1F0;
+>  background-color: #EFF1F0;
 > 
 > }
 > 
 > .nice-table tbody tr:hover td {
 > 
->      background: #d0dafd;
+>  background: #d0dafd;
 > 
 > }
 
@@ -2189,11 +2186,11 @@ Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
 
 2. Then hide the fields using CSS
 
->   .first-name {
+> .first-name {
 > 
->     display: none;    
+>  display: none;    
 > 
->   }
+> }
 
 3. Finally check if one the fields got filled when validating form (via javascript or JSP for instance)
 
