@@ -1,9 +1,6 @@
 
 Notes taken prior to 2018.
 
-TODO:
- - add h2, h3
-
 Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
 -------------------------------------------------------
@@ -431,7 +428,7 @@ www.cssreset.com - reset stylesheet
 
 # HTML/CSS IDs and Classes
 
-Allowed characters: must begin with a letter & cannot contain symbols like &, *, or !
+Allowed characters: must begin with a letter & cannot contain symbols like `&`, `*`, or `!`
 
 Best practice is to never use IDs, but if you do, an ID must be applied to:
 - an element appearing only once per page.
@@ -1072,7 +1069,7 @@ more about float on guistuff.com - floating elements
 clear fix hacks:
 
 This is to make sure that the height of a parent element is the total of its children elements height, even if these are floating.
- - `deadlink` - clear fix hack (cross-browser) using overflow:hidden on parent
+ - `deadlink` - clear fix hack (cross-browser) using `overflow:hidden` on parent
  - https://nicolasgallagher.com/micro-clearfix-hack/ - clear fix hack (cross-browser) using clear:both after last child
 
 -------------------------------------------------------
@@ -1538,9 +1535,9 @@ more on https://www.quirksmode.org/css/opacity.html
 
 RGBa property solution:
 
-background-color: rgba(95,156,140,.75);
+`background-color: rgba(95,156,140,.75);`
 
-The .75 defines the opacity of the background color. Compatible with IE9+, Firefox 3+, Safari 3+, Chrome.
+The `.75` defines the opacity of the background color. Compatible with `IE9+`, `Firefox 3+`, `Safari 3+`, `Chrome`.
 
 css3pie, a JS library, provides this feature for IE older browsers. You will then write your CSS such as:
 
@@ -1861,11 +1858,11 @@ Read more on
 > 
 > text-align: justify;
 
-text-align can be applied to table, th and td elements
+`text-align` can be applied to `table`, `th` and `td` elements
 
-text-align is an inherited property
+`text-align` is an inherited property
 
-tip: since text-align is inherited, if you apply a style to table, it'll be applied to all cells of the table
+tip: since `text-align` is inherited, if you apply a style to `table`, it'll be applied to all cells of the `table`
 
 > vertical-align: top;
 > 
@@ -2235,11 +2232,11 @@ Remove background images (eco-friendly).
 
 Display links' url in plain text if needed.
 
-Use different unit of measurement than px:
+Use different unit of measurement than `px`:
   - point (pt)
   - centimetre (cm)
 
-Page margin can be set using @page , this may not be cross browser though. see http://stackoverflow.com/questions/1542320/margin-while-printing-html-page
+Page margin can be set using `@page` , this may not be cross browser though. see http://stackoverflow.com/questions/1542320/margin-while-printing-html-page
 
 ## Tech links
 
@@ -2309,9 +2306,9 @@ Read more
 
 # CSS3 Transition
 
-Does not work on IE (even IE9).
+Does not work on `IE` (even `IE9`).
 
-Works on Firefox 4, Chrome, Opera, and Safari
+Works on `Firefox 4`, `Chrome`, `Opera`, and `Safari`
 
 > -moz-transition: all 0.5s ease-out; 
 > 
