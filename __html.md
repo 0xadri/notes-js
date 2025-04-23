@@ -3,11 +3,12 @@ Notes taken prior to 2018.
 
 TODO:
  - style titles
- - fix broken links
+ - add https to links
+ - fix broken links 
 
 Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Developer Tool
 
@@ -19,7 +20,7 @@ http://chrispederick.com/work/web-developer/
 
 https://developers.google.com/chrome-developer-tools/
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Force Browser to Refresh its Cache
 
@@ -30,7 +31,7 @@ In this case you want to force the browser to refresh its cache using:
  - `ctrl` + `F5` : `windows IE` & `windows chrome`
  - `ctrl` + `shift` + `r` : `Firefox`
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # HTML validator
 
@@ -40,12 +41,14 @@ Official HTML validator: http://validator.w3.org/
 
 Firefox extension - HTML validator (and also corrector): http://users.skynet.be/mgueury/mozilla/index.html
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # CSS validator
 
 You also need to validate your CSS to make sure there is no incorrect/invalid CSS.
 Official CSS validator: W3C CSS Validation Service
+
+-------------------------------------------------------
 
 # HTML Doctype
 
@@ -65,6 +68,8 @@ Official DTD lists:
 
 www.w3.org - Valid DTD list
 
+-------------------------------------------------------
+
 # IE8 Compatibility View & Quirks mode
 
 Quirks mode: In IE9 & earlier versions, quirks mode restricted the webpage to the features supported by Microsoft Internet Explorer 5.5
@@ -82,6 +87,8 @@ Code to instruct IE8 to ignore Compatibility View and Compatibility View List
 `<meta http-equiv="X-UA-Compatible" content="IE=8" />`
 
 You want to put this in the `<head>` section of your HTML page (before the CSS and JavaScript includes?? as the first thing in the `<head>` element?? "non expected" code above the header tag could also jeopardise this instruction).
+
+-------------------------------------------------------
 
 # IE9 Compatibility View & Quirks mode
 
@@ -113,7 +120,9 @@ Read more:
  - http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge
  - http://www.mat-wright.com/2011/02/internet-explorer-9-compatibility-quick.html
 
-Rendering engines
+-------------------------------------------------------
+
+# Rendering engines
 
 Displays the HTML and/or Flash and process the JavaScript.
 
@@ -125,17 +134,27 @@ Some rendering engines:
  - KHTML - Konqueror web browser
  - Presto - used by Opera until version 14 (June 2013)
 
-Viewport: This is the display area of a web browser window.
+-------------------------------------------------------
 
-HTML comments
+# Viewport
+
+This is the display area of a web browser window.
+
+-------------------------------------------------------
+
+# HTML comments
 
 `<!-- ...some HTML code... -->`
 
-CSS comments
+-------------------------------------------------------
+
+# CSS comments
 
 `/* ...some CSS code... */`
 
-HTML special characters
+-------------------------------------------------------
+
+# HTML special characters
 
 These are the characters that need to be coded for HTML, such as "<", "&" and "©".
 
@@ -143,7 +162,9 @@ Read the official reference on www.w3.org - entities
 
 Read more about HTML special characters on www.tedmontgomery.com
 
-HTML most common tags
+-------------------------------------------------------
+
+# HTML most common tags
 
 `<h1>` to `<h6>` to indicate keywords (not for styling "only")
 
@@ -159,7 +180,9 @@ HTML most common tags
 
 `<strong>` & `<em>` also to indicate keywords (not for styling "only")
 
-HTML IE conditional statement:
+-------------------------------------------------------
+
+# HTML IE conditional statement:
 
 `<!--[if IE ]>`
 `  <link href="ie_stylesheet.css" rel="stylesheet" type="text/css">`
@@ -169,27 +192,25 @@ In this case we use it to import a stylesheet for specific browser.
 
 more on msdn.microsoft.com
 
-Styling "insertion" techniques
+-------------------------------------------------------
 
-1. HTML Include CSS directly in the HTML page (Internal Style Sheet)
+# Styling "insertion" techniques
+
+## 1. HTML Include CSS directly in the HTML page (Internal Style Sheet)
 
 Add the following in the `<head>` element of your HTML page
 
 For all type of media, these formats are valid:
 
-> <style type="text/css">
-> 
->   ...some css here...
-> 
-> </style>
+>     <style type="text/css">
+>      ...some css here...
+>     </style>
 
 /* Is equivalent to */
 
-> <style type="text/css" media="all">
->
->   ...some css here...
->
-> </style>
+>     <style type="text/css" media="all">
+>      ...some css here...
+>     </style>
 
 > @media all{
 >
@@ -199,11 +220,9 @@ For all type of media, these formats are valid:
 
 For a specific media type (print for instance), these 2 formats are valid:
 
-> <style type="text/css" media="print">
-> 
->   ...some print specific style css here...
-> 
-> </style>
+>     <style type="text/css" media="print">
+>      ...some print specific style css here...
+>     </style>
 
 > @media print{
 > 
@@ -211,11 +230,11 @@ For a specific media type (print for instance), these 2 formats are valid:
 > 
 > }
 
-2. HTML Include CSS file (External Style Sheet)
+## 2. HTML Include CSS file (External Style Sheet)
 
 Add the following in the <head> element of your HTML page
 
-> <link rel="stylesheet" type="text/css" href="classic.css" />
+>     <link rel="stylesheet" type="text/css" href="classic.css" />
 > 
 > @import url("myStyleSheet.css");
 > 
@@ -223,7 +242,7 @@ Add the following in the <head> element of your HTML page
 > 
 > @import "./css/myPrintMediaStyleSheet.css" print;
 
-3. CSS Include CSS file
+## 3. CSS Include CSS file
 
 > @import url("header.css");
 > 
@@ -235,15 +254,17 @@ Read more on including Internal and External style sheets:
  - htmldog.com - atrules
  - w3.org - atrules
 
-4. Include the style directly in the HTML (Inline styling)
+## 4. Include the style directly in the HTML (Inline styling)
 
-> <span style="color:red; font:bold;">my text in bold red</span>
+>     <span style="color:red; font:bold;">my text in bold red</span>
 
 This allows you to style directly a specific element. It is recommended to avoid this technique.
 
 It is quite handy to use this technique to quickly have a rough idea of the look of an element when styling it though. The styles used can then be moved to a style sheet.
 
-CSS - Inheritance
+-------------------------------------------------------
+
+# CSS - Inheritance
 
 Some CSS properties are inherited from a parent element. But many CSS properties don't pass down to descendant tags at all.
 
@@ -263,7 +284,9 @@ Read more on
  - www.w3.org - inheritance
  - www.dnncreative.com - CSS and inheritance
 
-CSS - Styles priorities
+-------------------------------------------------------
+
+# CSS - Styles priorities
 
 CSS properties from the style attribute (called inline styling) always have priority on properties from any style sheet.
 
@@ -277,7 +300,9 @@ Properties from a style specifically applied to a tag beat out any inherited pro
 
 If more than one style applies to a particular element, then a web browser combines the properties of all those styles, as long as they don't conflict.
 
-CSS - Specifity
+-------------------------------------------------------
+
+# CSS - Specifity
 
 This is the way the "strength" or priority of a style is calculated.
 
@@ -289,7 +314,9 @@ An approximation to calculate it is to count:
 
 Read more on coding.smashingmagazine.com - specificity
 
-CSS - !important
+-------------------------------------------------------
+
+# CSS - !important
 
 Including !important after a property value means that specific property always wins (wherever your stylesheet is).
 
@@ -297,7 +324,9 @@ When two styles both have !important applied to the same property, the more spec
 
 It generally best to avoid this technique as you may want to override this property someday.
 
-CSS - Reset Stylesheet
+-------------------------------------------------------
+
+# CSS - Reset Stylesheet
 
 The reset stylesheet is very important. It is used to override browsers default styles of some elements to your own custom values. The aim is to reduce browsers inconsistencies.
 
@@ -403,7 +432,9 @@ www.cssreset.com - reset stylesheet
 > 
 >   }
 
-HTML/CSS IDs and Classes
+-------------------------------------------------------
+
+# HTML/CSS IDs and Classes
 
 Allowed characters: must begin with a letter & cannot contain symbols like &, *, or !
 
@@ -462,7 +493,9 @@ css style for each class
 >
 > }
 
-CSS selectors, pseudo classes & pseudo elements
+-------------------------------------------------------
+
+# CSS selectors, pseudo classes & pseudo elements
 
 
 > <table xmlns="http://www.w3.org/1999/xhtml" border="1" bordercolor="#888" cellspacing="0" style="border-collapse:collapse;border-color:rgb(136,136,136);border-width:1px" data-table-local-id="table-2">
@@ -674,7 +707,9 @@ There are more pseudo classes such as: `:first-line`, `:first-letter`, `:focus`
 
 Pseudo classes and pseudo elements are distinguished in CSS3 specification. Pseudo elements are selected using 2 semi-columns such as `::first-child`
 
-CSS Colors - Text, Background, Borders...
+-------------------------------------------------------
+
+# CSS Colors - Text, Background, Borders...
 
 When adding/editing colors, you have the choice between 3 formats:
  - Hexadecimal  - supported by old IE browsers
@@ -689,13 +724,17 @@ HSLa color pickers:
 
 HSLa: As stated by CSS Tricks "The real appeal of HSLa is that it makes more intuitive sense what changing the values will do to the color. Increasing the second value will increase the saturation of that color. Decreasing the third value will decrease the lightness of that color. That makes creating your own color variations on the fly way easier. I would wager that most of us can't create nice and consistent color variations like this using the RGBa model. The HSLa model also makes changing color values programatically much easier."
 
-CSS Shorthand properties
+-------------------------------------------------------
+
+# CSS Shorthand properties
 
 CSS Shorthand properties let you set the values of several other CSS properties simultaneously.
 
 see https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties
 
-CSS Font & Text Properties
+-------------------------------------------------------
+
+# CSS Font & Text Properties
 
 Font shorthand property. 
 
@@ -804,7 +843,9 @@ Stretches the lines so that each line has equal width (like in newspapers)
 
 Value should be inherited from the parent element
 
-CSS Lists
+-------------------------------------------------------
+
+# CSS Lists
 
 > list-style: disc url(/css/img/myCoolBullet.png) inside;  /* shorthand declaration */
 > 
@@ -825,7 +866,9 @@ Read more:
  - http://stackoverflow.com/questions/4098195/can-ordered-list-produce-result-that-looks-like-1-1-1-2-1-3-instead-of-just-1
  - http://stackoverflow.com/questions/10877/how-can-you-customize-the-numbers-in-an-ordered-list
 
-CSS Margins and Paddings
+-------------------------------------------------------
+
+# CSS Margins and Paddings
 
 The padding sets the space between the content, border & edge of the background.
 
@@ -843,7 +886,9 @@ The margin sets the space between an element's border and another.
 
 Like the padding declaration shortcut, we define the margin on each side of our element "clockwise".
 
-CSS Box Model
+-------------------------------------------------------
+
+# CSS Box Model
 
 Vertical margin can collapse
 
@@ -851,7 +896,9 @@ A browser could only be using the top or bottom margin of one of two elements wh
 
 You can use top/bottom padding to avoid this.
 
-CSS Display property - inline & block elements
+-------------------------------------------------------
+
+# CSS Display property - inline & block elements
 
 HTML elements have a default value for their display property to either block or inline.
 
@@ -879,12 +926,17 @@ htmldog.com - display property
 
 Block level elements
 
-CSS - Remove Whitespace Between Inline-Block Elements
+-------------------------------------------------------
+
+# CSS - Remove Whitespace Between Inline-Block Elements
+
  - css-tricks.com/fighting-the-space-between-inline-block-elements
  - davidwalsh.name/remove-whitespace-inline-block
  - stackoverflow.com/questions/5078239/how-to-remove-the-space-between-inline-block-elements
 
-CSS - hide/remove element from page
+-------------------------------------------------------
+
+# CSS - hide/remove element from page
 
 > visibility: hidden;
 
@@ -894,7 +946,9 @@ This technic just hides the element but leaves a hole in the space it woul norma
 
 This technic removes the element completely from the page
 
-CSS Width and Heights
+-------------------------------------------------------
+
+# CSS Width and Heights
 
 > width: 200px;
 > 
@@ -924,7 +978,9 @@ see www.paulirish.com/2012/box-sizing-border-box-ftw and css-tricks.com/box-sizi
 
 warning: `min-width` & `max-width` do not work with `box-sizing`: `border-box` is a known bug in IE8 and Firefox 16&below. see http://stackoverflow.com/questions/9508262/min-height-min-width-doesnt-respect-box-sizing-in-some-browsers and http://stackoverflow.com/questions/11608291/box-sizing-border-box-for-ie8
 
-CSS Position property
+-------------------------------------------------------
+
+# CSS Position property
 
 Unlike with float-based layout, CSS gives no way to clear the bottom of a positioned column.
 
@@ -966,7 +1022,9 @@ How to keep a footer at the bottom of the page
  - css-tricks.com/snippets/css/sticky-footer
  - jsbin.com/gawuqejaqugu/6
 
-CSS `z-index` property
+-------------------------------------------------------
+
+# CSS `z-index` property
 
 `z-index` only effects elements that have a position value other than static (the default)
 
@@ -978,7 +1036,9 @@ The z-index property in CSS controls the vertical stacking order of elements tha
 
 see http://css-tricks.com/almanac/properties/z/z-index/
 
-CSS Float property
+-------------------------------------------------------
+
+# CSS Float property
 
 The float property moves an element to either the left or right. The content below the floated element (in the document) moves up & wraps around the floated element.
 
@@ -1022,7 +1082,9 @@ This is to make sure that the height of a parent element is the total of its chi
  - http://www.quirksmode.org/css/clearing.html - clear fix hack (cross-browser) using overflow:hidden on parent
  - NicolasGallagher.com/micro-clearfix-hack - clear fix hack (cross-browser) using clear:both after last child
 
-CSS Overflow property
+-------------------------------------------------------
+
+# CSS Overflow property
 
 > overflow: visible;
 
@@ -1055,29 +1117,30 @@ Read more:
  - stackoverflow.com/questions/802175/truncating-long-strings-with-css-feasible-yet (text-overflow x-browser support)
  - http://css-tricks.com/line-clampin/ - ellipsis on several lines
 
-HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
+-------------------------------------------------------
 
->      <div class="outer">
+# HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
+
+>     <div class="outer">
 >      <div class="inner">
->    
 >      </div>
->      </div>
-> 
+>     </div>
+
 > .outer {
 > 
->   text-align: center;
+>  text-align: center;
 > 
->   width:100%
+>  width:100%
 > 
->   background-color: red;
+>  background-color: red;
 > 
 > }
 > 
 > .inner {
 > 
->   display: inline-block;
+>  display: inline-block;
 > 
->   background-color: blue;
+>  background-color: blue;
 > 
 > }
 
@@ -1086,11 +1149,15 @@ HTML/CSS Dynamically (not a set width) Center (horizontally) a Div within a Div
 read more about "centering the unknown"
  - css-tricks.com/centering-css-complete-guide
 
-Centering horizontally & vertically
+-------------------------------------------------------
+
+# Centering horizontally & vertically
  - coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css
  - css-tricks.com/centering-css-complete-guide
 
-Make several div positioned one next to another be of the same height
+-------------------------------------------------------
+
+# Make several div positioned one next to another be of the same height
 
 This is normally only achievable using tables. Hence you must declare in CSS display:table-cell;
 
@@ -1100,7 +1167,9 @@ read more:
  - http://stackoverflow.com/questions/22253122/make-variable-number-of-divs-positioned-side-by-side-of-equal-height-with-html-c
  - css-tricks.com/equal-height-blocks-in-rows (js solution)
 
-Make a `div` fill up the remaining width
+-------------------------------------------------------
+
+# Make a `div` fill up the remaining width
 
 >  /*
 > 
@@ -1159,27 +1228,19 @@ Make a `div` fill up the remaining width
 
 >     <div class="content">
 > 
->     <div class="content__left">
+>      <div class="content__left">
+>       max-width of 170px & min-width of 40px<br/>
+>       left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>
+>      </div>
 > 
->         max-width of 170px & min-width of 40px<br/>
+>      <div class="content__right">
+>       max-width of 250px & min-width of 80px<br/>
+>       right div<br/>right div<br/>right div<br/>right div<br/>
+>      </div>
 > 
->         left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>left div<br/>
-> 
->     </div>
-> 
->     <div class="content__right">
-> 
->         max-width of 250px & min-width of 80px<br/>
-> 
->         right div<br/>right div<br/>right div<br/>right div<br/>
-> 
->     </div>
-> 
->     <div class="content__middle">
-> 
->         middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br />bit taller
-> 
->     </div>
+>      <div class="content__middle">
+>       middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br/>middle div<br />bit taller
+>      </div>
 > 
 >     </div>
 
@@ -1193,7 +1254,9 @@ see http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-
 
 or maybe even better http://stackoverflow.com/a/22719552/759452 and http://stackoverflow.com/questions/7189608/how-do-i-make-an-input-element-occupy-all-remaining-horizontal-space/7190310#7190310
 
-`iframe` - styling
+-------------------------------------------------------
+
+# `iframe` - styling
 
 > $('iframe').load( function() {
 > 
@@ -1203,11 +1266,15 @@ or maybe even better http://stackoverflow.com/a/22719552/759452 and http://stack
 
 stackoverflow.com/a/13959836/759452
 
-Link - Redirect to top of the page
+-------------------------------------------------------
+
+# Link - Redirect to top of the page
 
 `<a href="#">Click me!</a>`
 
-Links - `<a>` element
+-------------------------------------------------------
+
+# Links - `<a>` element
 
 Ideally, you want your links to be right clickable (to be able to: open in a new window, copy link, & so on), hence you will you the <a> element. This will also help an easier crawling (SEO) of your website.
 
@@ -1216,11 +1283,8 @@ For links which are not in the text (ie. a link in a menu), you ideally want you
 The following code snipet can be taken as a base (note: nice border effect). see http://jsfiddle.net/eWGY3/1/
 
 >     <a class="nice-link" href="#">Flights 1</a>
->     
 >     <a class="nice-link" href="#">Flights 2</a>
->     
 >     <a class="nice-link" href="#">Flights 3</a>
->     
 >     <a class="nice-link" href="#">Flights 4</a>
 > 
 > .nice-link {
@@ -1293,25 +1357,27 @@ Shading effect on links when over or focussed
 
 > a:focus, a:focus, a:hover {
 > 
->   outline: 1px solid rgba(68, 112, 158, .25);
+>  outline: 1px solid rgba(68, 112, 158, .25);
 > 
->   -webkit-box-shadow: 0 0 4px #447099;
+>  -webkit-box-shadow: 0 0 4px #447099;
 > 
->   -moz-box-shadow: 0 0 4px #447099;
+>  -moz-box-shadow: 0 0 4px #447099;
 > 
->   box-shadow: 0 0 4px #447099;
+>  box-shadow: 0 0 4px #447099;
 > 
 > }
 
 You generally want to use CSS sprite when adding background images to links
 
-CSS Cursors
+-------------------------------------------------------
+
+# CSS Cursors
 
 > .my-class-name {
 > 
->    cursor:pointer;
+>  cursor:pointer;
 > 
->    cursor:hand;
+>  cursor:hand;
 > 
 > }
 
@@ -1322,7 +1388,9 @@ Read more on
  - caniuse.com/#search=cursor
  - online custom cursor editor www.cursor.cc
 
-CSS Element Opacity
+-------------------------------------------------------
+
+# CSS Element Opacity
 
 Opacity: can be used as some kind of filter
 
@@ -1347,11 +1415,9 @@ When applied on images, different effect can be achieved depending on the:
 
 Opacity on colored image (transparent or not) without background for surrounding element: this render the image more or less transparent. see http://jsfiddle.net/KDtAX/2249/
 
-> <div>
-> 
-> <img class="transparent-on-hover" src="myImage.jpg"/>
-> 
-> </div>
+>     <div>
+>      <img class="transparent-on-hover" src="myImage.jpg"/>
+>     </div>
 > 
 > .transparent-on-hover:hover {
 > 
@@ -1369,7 +1435,7 @@ Opacity on colored image (transparent or not) without background for surrounding
 
 Opacity on greyscale (B&W) image (transparent or not) without background for surrounding element: this render the image in grey if your image is black & simply in lighter grey if your image is already grey. see http://jsfiddle.net/KDtAX/2250/
 
-> <img class="grayscale-on-hover" src="http://www-archive.mozilla.org/foundation/identity-guidelines/mozilla-foundation-bw.png"/>
+>     <img class="grayscale-on-hover" src="http://www-archive.mozilla.org/foundation/identity-guidelines/mozilla-foundation-bw.png"/>
 > 
 > img.grayscale-on-hover:hover {
 > 
@@ -1387,11 +1453,9 @@ Opacity on greyscale (B&W) image (transparent or not) without background for sur
 
 Opacity on non-transparent (jpg) colored image with red background for surrounding element: this renders the image with some kind of colored filter. see http://jsfiddle.net/KDtAX/2248/
 
-> <div class="transparent-on-hover-filter">
-> 
->     <img class="transparent-on-hover-img" src="myImage.jpg"/>
-> 
-> </div>
+>     <div class="transparent-on-hover-filter">
+>      <img class="transparent-on-hover-img" src="myImage.jpg"/>
+>     </div>
 > 
 > .transparent-on-hover-filter {
 > 
@@ -1415,11 +1479,9 @@ Opacity on non-transparent (jpg) colored image with red background for surroundi
 > 
 > }
 > 
-> <a href="#">
-> 
->    <img src="../your/image/path/yourImage.png">
-> 
-> </a>
+>     <a href="#">
+>      <img src="../your/image/path/yourImage.png">
+>     </a>
 > 
 > a {
 > 
@@ -1465,7 +1527,7 @@ You can use this jQuery code to solve this inheritance discrepancy issues (in IE
 > 
 > });
 > 
-> //added for IE8 - you may consider using find() instead
+> // added for IE8 - you may consider using find() instead
 > 
 > $('.my-class-name').children().css({
 > 
@@ -1477,7 +1539,9 @@ You can use this jQuery code to solve this inheritance discrepancy issues (in IE
 
 more on quirksmode.org - opacity
 
-CSS Background color opacity
+-------------------------------------------------------
+
+# CSS Background color opacity
 
 RGBa property solution:
 
@@ -1504,7 +1568,9 @@ Have an additional absolutely positioned child element (in a relatively or absol
  - http://stackoverflow.com/a/21984546/759452
  - http://stackoverflow.com/questions/3222961/how-to-make-a-transparent-background-without-background-image/21984546#21984546
 
-CSS Background properties
+-------------------------------------------------------
+
+# CSS Background properties
 
 Background images are not used to be only in the background. This is because there are things you can only do with background images that you can't do with the usual <img> element.
 
@@ -1588,7 +1654,9 @@ Multiple background images are specified using a comma-separated list of values 
 
 Firefox has supported multiple backgrounds since version 3.6 (Gecko 1.9.2), Safari since version 1.3, Chrome since version 10, Opera since version 10.50 (Presto 2.5) and Internet Explorer since version 9.0.
 
-CSS Border
+-------------------------------------------------------
+
+# CSS Border
 
 border shorthand property:
 
@@ -1603,7 +1671,7 @@ The above can also be written:
 > border-style: solid;
 > 
 > border-color: black;
-> 
+
 > .pic-border {
 > 
 >    padding: 3px;
@@ -1680,11 +1748,11 @@ Supported in IE8 and a lot of other poor browsers as well as all the modern ones
 > 
 > }
 > 
-> <div class="my-wicked-class">
+>     <div class="my-wicked-class">
 > 
->   <span class="my-cool-item">Some text</span> <span class="my-cool-item">Some text</span> <span class="my-cool-item"> Some text</span> <span class="my-cool-item">Some text</span>
+>      <span class="my-cool-item">Some text</span> <span class="my-cool-item">Some text</span> <span class="my-cool-item"> Some text</span> <span class="my-cool-item">Some text</span>
 > 
-> </div>
+>     </div>
 
 You need to create both `roundedCorner_right.png` and `roundedCorner_left.png`
 
@@ -1790,7 +1858,9 @@ Read more on
  - stackoverflow.com/questions/6671375/css-box-shadow-top-and-bottom-only
  - stackoverflow.com/questions/11997032/how-to-get-box-shadow-on-left-right-sides-only
 
-HTML/CSS Tables
+-------------------------------------------------------
+
+# HTML/CSS Tables
 
 > text-align: left;
 > 
@@ -1822,17 +1892,13 @@ tip: since text-align is inherited, if you apply a style to table, it'll be appl
 
 vertical align (center vertically) a single line of text
 
-> <style type="text/css">
+>     <style type="text/css">
+>      .my-cool-class { line-height: 34px; }
+>     </style>
 > 
->     .my-cool-class { line-height: 34px; }
-> 
-> </style>
-> 
-> <p class="my-cool-class">
-> 
->     This single line of text is vertically centered
-> 
-> </p>
+>     <p class="my-cool-class">
+>      This single line of text is vertically centered
+>     </p>
 
 Read more on how to align vertically:
  - phrogz.net/CSS/vertical-align/index.html 
@@ -1856,9 +1922,8 @@ Another issue arise: borders applied to cells double up, use table element's bor
 
 HTML of solution
 
-> <table cellspacing="0">
-> 
-> </table>
+>     <table cellspacing="0">
+>     </table>
 
 CSS of solution
 
@@ -1879,6 +1944,31 @@ Cross browser table row styling
 http://coding.smashingmagazine.com/2008/08/13/top-10-css-table-designs/
 
 Example of nice table design:
+
+>     <table class="nice-table">
+>      <thead>
+>       <tr>
+>        <th class="colOne">Col One</th>
+>         <th class="colTwo">Col Two</th>
+>         <th class="colThree">Col Three</th>
+>         <th class="colFour">Col Four</th>
+>        </tr>
+>      </thead>
+>      <tbody>
+>       <tr>
+>        <td></td>
+>        <td></td>
+>        <td></td>
+>        <td></td>
+>       </tr>
+>       <tr>
+>        <td></td>
+>        <td></td>
+>        <td></td>
+>        <td></td>
+>       </tr>
+>      </tbody>
+>     </table>
 
 > .nice-table,
 > 
@@ -1943,54 +2033,6 @@ Example of nice table design:
 >      background: #d0dafd;
 > 
 > }
-> 
-> <table class="nice-table">
-> 
->     <thead>
-> 
->         <tr>
-> 
->             <th class="colOne">Col One</th>
-> 
->             <th class="colTwo">Col Two</th>
-> 
->             <th class="colThree">Col Three</th>
-> 
->             <th class="colFour">Col Four</th>
-> 
->         </tr>
-> 
->     </thead>
-> 
->     <tbody>
-> 
->         <tr>
-> 
->             <td></td>
-> 
-> <td></td>
-> 
->             <td></td>
-> 
->             <td></td>
-> 
->         </tr>
-> 
->         <tr>
-> 
->             <td></td>
-> 
-> <td></td>
-> 
->             <td></td>
-> 
->             <td></td>
-> 
->         </tr>
-> 
-> </tbody>
-> 
-> </table>
 
 Setting all `th` and `td`'s to `"width: auto"`, then only specify the width for the columns you want (using th only). You can then let the browser calculate the width for the rest of the columns.
 
@@ -2001,7 +2043,9 @@ see also:
  - http://stackoverflow.com/questions/4457506/css-how-to-set-the-table-column-width-constant-regardless-of-the-amount-of-text/4457905#4457905
  - http://stackoverflow.com/questions/1258416/word-wrap-in-a-html-table
 
-HTML/CSS Forms
+-------------------------------------------------------
+
+# HTML/CSS Forms
 
 Form's `action` attribute
 
@@ -2040,23 +2084,23 @@ Given size when not focused - then bigger size when focussed.
 
 > .search-input {
 > 
->   width: 80px;
+>  width: 80px;
 > 
 > }
 > 
 > .search-input:focus {
 > 
->   width: 130px;
+>  width: 130px;
 > 
->   -webkit-transition: width .2s ease-in;
+>  -webkit-transition: width .2s ease-in;
 > 
->   -moz-transition: width .2s ease-in;
+>  -moz-transition: width .2s ease-in;
 > 
->   -o-transition: width .2s ease-in;
+>  -o-transition: width .2s ease-in;
 > 
->   -ms-transition: width .2s ease-in;
+>  -ms-transition: width .2s ease-in;
 > 
->   transition: width .2s ease-in;
+>  transition: width .2s ease-in;
 > 
 > }
 
@@ -2130,51 +2174,38 @@ hack for chrome autofill bg issue http://stackoverflow.com/a/14205994/759452
 
 Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
 
-"Honeypot" Anti spam bot protection technique
+## "Honeypot" Anti spam bot protection technique
 
 1. First you add the fields in the form
 
-> <tr>
-> 
-> <th class="first-name" >
-> 
-> <label for="firstName" ><span class="hidden">first Name </span>first Name *:</label>
-> 
-> </th>
-> 
-> <th class="first-name" >
-> 
-> <input name="firstName" value="" tabindex="-1"  >
-> 
-> </th>
-> 
-> </tr>
+>     <tr> 
+>      <th class="first-name" >
+>       <label for="firstName" ><span class="hidden">first Name </span>first Name *:</label>
+>      </th>
+>      <th class="first-name" >
+>       <input name="firstName" value="" tabindex="-1"  >
+>      </th>
+>     </tr>
 
 2. Then hide the fields using CSS
 
-> <style type="text/css">
-> 
 >   .first-name {
 > 
 >     display: none;    
 > 
 >   }
-> 
-> </style>
 
 3. Finally check if one the fields got filled when validating form (via javascript or JSP for instance)
 
 > if(document.getElementsByName(formname)[0].firstName.value != "" || document.getElementsByName(formname )[0].familyName.value != ""){
 > 
->   alert("Bot issue.")
+>  alert("Bot issue.")
 > 
 > }
 > 
-> 
-> 
 > if(myForm.firstName.value != "" || myForm.familyName.value != ""){
 > 
->   alert("Bot issue.")
+>  alert("Bot issue.")
 > 
 > }
 > 
@@ -2188,7 +2219,9 @@ Read more about forms on www.htmldog.com/guides/htmlbeginner/forms
 
 Anti spam bot protection technique for HTML forms: ustrem.org/en/articles/html-form-anti-spam-en/
 
-CSS - Printing a page
+-------------------------------------------------------
+
+# CSS - Printing a page
 
 Guidelines
 
@@ -2230,7 +2263,9 @@ Finally, on the stylesheets normally applied for print view, change the attribut
 
 Reload the page and do the styling changes required
 
-CSS3 Disable selection on elements
+-------------------------------------------------------
+
+# CSS3 Disable selection on elements
 
 CSS only (works in Chrome 13.0.782.218 and Firefox 3.6.6, this does not work on IE8 and below)
 
@@ -2248,23 +2283,27 @@ This is the cross browser solution (so that it works on IE8 for instance)
 
 > $.fn.disableSelection = function () {
 > 
->   return this.each(function () {
+>  return this.each(function () {
+>  
+>   if (typeof this.onselectstart != 'undefined') {
+>  
+>    this.onselectstart = function() { return false; };
+>  
+>   }
+>
+>   else if (typeof this.style.MozUserSelect != 'undefined') {
 > 
->     if (typeof this.onselectstart != 'undefined') {
+>    this.style.MozUserSelect = 'none';
 > 
->         this.onselectstart = function() { return false; };
+>   }
 > 
->     } else if (typeof this.style.MozUserSelect != 'undefined') {
+>   else {
 > 
-> this.style.MozUserSelect = 'none';
+>    this.onmousedown = function() { return false; };
 > 
->     } else {
+>   }
 > 
-> this.onmousedown = function() { return false; };
-> 
->     }
-> 
->   });
+>  });
 > 
 > }
 
@@ -2272,7 +2311,9 @@ Read more on
  - stackoverflow.com - how to make html element unselectable
  - developer.mozilla.org -moz-user-select
 
-CSS3 Transition
+-------------------------------------------------------
+
+# CSS3 Transition
 
 Does not work on IE (even IE9).
 
