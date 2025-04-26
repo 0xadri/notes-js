@@ -242,7 +242,7 @@ When using a functional update to the` `state, the parameter is defaulted to the
 >     const [count, setCount] = useState(0);
 >     
 >     const handleClick = () => {
->     	setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
+>      setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
 >     };
 
 -------------------------------------------------------
@@ -415,12 +415,10 @@ Conditional re-render - Run an effect only when the component mounts (if renders
 # Functions: Multi line return with JSX
 
 >     const HeaderComponent = () => {
->     	const classVal = "blue";
->         return (
->     		<h1
->     	    	className = {classVal}
->     		/>
->         );
+>      const classVal = "blue";
+>      return (
+>       <h1 className = {classVal} />
+>      );
 >     }
 
 ----------------------
