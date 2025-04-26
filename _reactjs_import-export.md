@@ -1,8 +1,8 @@
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# include arbitrary code ——
+# include arbitrary code
 
 import './bootstrap';
 
@@ -14,9 +14,9 @@ But it may have side-effects such as declaring globals or modifying existing glo
 
 https://stackoverflow.com/a/42252008/759452
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# import/export for utility functions ——
+# import/export for utility functions
 
 // in utilities.js
 export function getNewExpirationTime() {
@@ -34,9 +34,9 @@ export default function App() {
 	const genId = getArbitratyId()
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# import/export for utility functions——
+# import/export for utility functions
 
 // in CommentsData.js
 export const commentsProduct = [
@@ -73,9 +73,9 @@ export default function App() {
 	const firstProfile = commentsProfile[0];
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# import/export for CSS——
+# import/export for CSS
 
 // in TitleScreen.module.css
 .btn {
@@ -91,9 +91,9 @@ import titlescreen from './styles/TitleScreen.module.css'
 
 <button className={titlescreen.btn}>Play</button>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# default vs named exports ——
+# default vs named exports
 
 You can export a function component from a file using either default or named exports.
 
@@ -108,6 +108,3 @@ import Gallery from './Gallery';
 export function Profile() {}
 // must use import syntax:
 import { Profile } from './Gallery';
-
-
-

@@ -1,8 +1,7 @@
 
 —— Mixtape Project, for Context API ——
 
-
-//index.js
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -13,7 +12,7 @@ ReactDOM.createRoot(
 ).render(<App />);
 
 
-//App.js
+// App.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {MixtapeProvider} from "./MixtapeContext";
@@ -68,7 +67,7 @@ function App() {
 export default App
 
 
-//SongList.js
+// SongList.js
 import React, {useContext} from "react";
 import {MixtapeContext} from "./MixtapeContext";
 import {Song} from "./Song";
@@ -93,7 +92,7 @@ export const SongList = () => {
 //<Song artist="james" genre="rock" name="lets boggie" year="2022" />
 
 
-//Song.js
+// Song.js
 import React from "react";
 
 export const Song = ({ artist, genre, name, year }) => {
@@ -115,7 +114,7 @@ export const Song = ({ artist, genre, name, year }) => {
 
 
 
-//MixtapeContext.js
+// MixtapeContext.js
 import React, {useState} from "react";
 
 export const MixtapeContext = React.createContext();
@@ -135,7 +134,7 @@ export const MixtapeProvider = ({children,songs}) => {
 
 
 
-//Control.js
+// Control.js
 import React, {useContext} from "react";
 import {MixtapeContext} from "./MixtapeContext";
 
@@ -159,7 +158,7 @@ export const Controls = () => {
 
 
 
-//style.css
+// style.css
 * {
   box-sizing: border-box;
 }

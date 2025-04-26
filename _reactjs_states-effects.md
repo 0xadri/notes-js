@@ -1,11 +1,11 @@
  
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Imports
 
 import React, { useState, useEffect } from 'react';
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Props vs State
 
@@ -21,7 +21,7 @@ Use Cases
  1. Props: customize a child component appearance i.e. a Form can pass a color prop to a Button.
  2. State: i.e. a button to keep track of isHovered state.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # What is "Rendering"
 
@@ -32,7 +32,7 @@ Rendering aka Mounting
 
 https://react.dev/learn/render-and-commit
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Rendering vs Re-Rendering
 
@@ -44,7 +44,7 @@ https://react.dev/learn/render-and-commit
 
 https://react.dev/learn/render-and-commit
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Rendering, Re-Rendering And Recursivity
 
@@ -55,7 +55,7 @@ Rendering is recursive: if the rendered component returns some other component, 
 
 https://react.dev/learn/render-and-commit
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Re-Rendering Conditions
 
@@ -72,7 +72,7 @@ TL;DR: Re-Rendering is tightly related to the Data Flow, Props, and States.
 
 https://react.dev/learn/render-and-commit
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Components Forget Everything
 
@@ -84,7 +84,7 @@ For states that persist across re-renders (component re-runs), we must define th
 
 REACT STATES PERSIST ACROSS RE-RENDERS
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State or not State
 
@@ -94,7 +94,30 @@ Figuring out if data in my app is a state or not.
 - Is it passed in from a parent via props? If so, it isn’t state.
 - Can you compute it based on existing state or props in your component? If so, it definitely isn’t state!
 
-//-------------------------------------------------------//
+-------------------------------------------------------
+
+# Controlled Components - aka form fields controlled by state hook
+
+When a form has one or more fileds controlled by a state hook (useState()), we call it a controlled component.
+
+Maintains any mutable state values within the state property of our components.
+
+ - How: uses useState() and value+onChange attributes on input or other element.
+ - Best: use controlled components whenever possible.
+ - Why: allow for change-by-change tracking of input form values, they better align with React’s pattern of storing mutable data in a component’s state.
+
+-------------------------------------------------------
+
+# Uncontrolled Component - uncontrolled form fields
+
+A form element that maintains its own state in the DOM.
+
+ - How: uses useRef() and ref attribute on input and onchange attribute on form.
+ - Best: if you only need access to the value of the form on submission
+ - Always: w files, for <input> form elements with the type="file" attribute.
+
+---------------------------------
+-------------------------------------------------------
 
 # Re-Rendering Component From Within Itself
 
@@ -102,13 +125,13 @@ useState() is a React Hook that lets you add a state variable to your component.
 
 Once the component has been initially rendered, you can trigger further renders by updating its state.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # React Data Flow
 
 React uses one-way data flow, passing data down the component hierarchy from parent to child component.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Data Flow, Props & States
 
@@ -120,7 +143,7 @@ Data flowing the other way: from children components deep in the hierarchy up to
 
 This reverse flow is required to update the component holding the state.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Props: Basic Example
 
@@ -130,18 +153,38 @@ function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
 // Equivalent...
 function Welcome({name}) { return <h1>Hello, {name}</h1>; }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Props Forwarding With Spread Syntax
+
+## Example A
+
+const Button = ({ children, ...props }) => {
+  return (
+    <button className="someclasses" {...props}>
+      {children}
+    </button>
+  );
+};
+export default Button;
+
+// use such as
+<Button greeting="hey" name="Joe">Click Me</Button>
+
+## Example B
 
 export default function Input({richText, ...props}) {
   if (richText) return <textarea {...props} />
   else return <input {...props} />
 }
 
+// use such as
+<Input richText="hey this is some fancy text" name="long-text">
+<Input value="James" name="fname">
+
 https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Hooks: State Hooks, Effect Hooks
 
@@ -155,7 +198,7 @@ Two main rules to keep in mind when using Hooks:
 —> Only call Hooks from React functions.
 —> Only call Hooks at the top level - never within other functions, conditionals, or loop blocks
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook
 
@@ -174,7 +217,7 @@ const [categories, setCategories] = useState(null); // for object
 <input name="lastname" onChange={handleLastnameChange} />
 <form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating And Prev Object [Best Practice]
 
@@ -187,7 +230,7 @@ Using the functional form ensures that you are working with the latest state sna
 When using a functional update to the state, the parameter is defaulted to the previous state. 
  —> The updating function has an implicit object w the previous value of thesaid object.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating, State/Prev Is Number
 
@@ -197,7 +240,7 @@ const handleClick = () => {
 	setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
 };
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating: Always Use A Deep Clone [Best Practice]
 
@@ -206,7 +249,7 @@ When using the setXYZ method, always do it IMMUTABLY. Especially when arrays or 
 
 https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/39659798
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating When State Is Array
 
@@ -234,7 +277,7 @@ const handleClickRemove = (e) => {
 <button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
 <button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating When State Is Two Dimensional Array
 
@@ -246,7 +289,7 @@ const gameBoard = [
 
 const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array for immutability
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating When State Is Shallow Object
 
@@ -265,7 +308,7 @@ const handleClick = (keyName, value) => {
 <button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
 <button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Updating, State/Prev Is Object With Nested Objects
 
@@ -288,7 +331,7 @@ setPerson(person => {
   };
 });
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Avoid Intersecting States [Best Practice]
 
@@ -296,7 +339,7 @@ Always to only have a piece of data managed only by one state.
 
 Prefer computed values
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # State Hook: Misc [Best Practice]
 
@@ -307,7 +350,7 @@ Prefer computed values
  - Lift Computed Values
  - Derive Computed Values
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Effect Hook
 
@@ -319,7 +362,7 @@ Rule:
  - Effects are an “escape hatch” from the React paradigm. Don’t use Effects to orchestrate the data flow of your application
  - If you’re not interacting with an external system, you might not need an Effect
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Effect Hook: How To
 
@@ -357,7 +400,7 @@ useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count, input]); 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Functions: Multi line return with JSX
 
@@ -370,28 +413,13 @@ const HeaderComponent = () => {
     );
 }
 
-//-------------------------------------------------------//
-
-# Controlled Components - aka controlled form fields
-
-Maintains any mutable state values within the state property of our components.
-
-How: uses useState() and value+onChange attributes on input or other element.
-Best: use controlled components whenever possible. 
-Why: allow for change-by-change tracking of input form values, they better align with React’s pattern of storing mutable data in a component’s state.
-
-//-------------------------------------------------------//
-
-# Uncontrolled Component - uncontrolled form fields
-
-A form element that maintains its own state in the DOM.
-How: uses useRef() and ref attribute on input and onchange attribute on form.
-Best: if you only need access to the value of the form on submission
-Always: w files, for <input> form elements with the type="file" attribute.
-
-//-------------------------------------------------------//
+----------------------
 
 # States vs Refs
+
+Like States, Refs do not loose value when the component re-renders (re-executes).
+
+But unlike States, setting Refs to new values does not trigger re-render.
 
 States: 
 - cause component re-evaluation (re-renders) when changed
@@ -401,11 +429,11 @@ States:
 Refs
 - Do NOT cause component re-evaluation when changed
 - Can be used for direct DOM element access (remember jQuery selector??)
-- 
-
-Like States, Refs do not loose value when the component re-render (re-execute).
-But unlike States, setting Refs to new values does not trigger re-render.
 
 https://react.dev/reference/react/useRef
+
+----------------------
+
+# Debouncing Clicks Actions
 
 

@@ -1,11 +1,11 @@
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Docs —
+# Docs
 
 https://react.dev/learn/writing-markup-with-jsx
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # What is JSX —
 
@@ -15,9 +15,9 @@ JSX stands for JavaScript XML.
 JSX is a syntax extension to JavaScript.
 JSX lets you put markup into JavaScript. 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Curly braces for JSX —
+# Curly braces for JSX
 
 Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.
 
@@ -34,9 +34,9 @@ return (
   />
 );
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Double Curly braces for JSX —
+# Double Curly braces for JSX
 
 Not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
 
@@ -51,9 +51,9 @@ return (
   />
 );
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Conditions in JSX —
+# Conditions in JSX
 
 "if" does not work in JSX.
 
@@ -71,9 +71,9 @@ return (
   {isLoggedIn && <AdminPanel />}
 </div>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Lists in JavaScript —
+# Lists in JavaScript
 
 const products = [{ title: 'Cabbage', id: 1 },  { title: 'Garlic', id: 2 },  { title: 'Apple', id: 3 }];
 
@@ -87,8 +87,4 @@ return (
   <ul>{listItems}</ul>
 );
 
-
-//-------------------------------------------------------//
-
-
-
+-------------------------------------------------------

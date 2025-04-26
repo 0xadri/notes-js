@@ -6,7 +6,7 @@
 - [AWS Cloud Practitioner · 6x Mock Tests · Udemy](https://www.udemy.com/course/practice-exams-aws-certified-cloud-practitioner/)  ✅ Completed in Mar 2025
 - [AWS Cloud Practitioner · Course · Udemy](https://www.udemy.com/course/aws-certified-cloud-practitioner-new/) ✅ Completed in Mar 2025
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Mock Tests
 
@@ -22,7 +22,7 @@
 
 70% , 50min , 2025.03.28
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Docs 
 
@@ -43,20 +43,21 @@ AWS S3 - https://aws.amazon.com/s3/
 
 Exam - https://www.aws.training/
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # HowTos
 
-How to Install and Configure AWS Command Line Interface (CLI) <br />
-https://www.youtube.com/watch?v=BzzCIsjrE7U
+How to Install and Configure AWS Command Line Interface (CLI)
+ - https://www.youtube.com/watch?v=BzzCIsjrE7U
 
-Deploying a React App on AWS S3  <br />
-https://www.youtube.com/watch?v=SHN48wTEQ5I
+Deploying a React App on AWS S3
+ - https://www.youtube.com/watch?v=SHN48wTEQ5I
+ - p.s. for vite use `npm run build`, c.f. https://v4.vitejs.dev/guide/static-deploy.html
 
-Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series  <br />
-https://www.youtube.com/watch?v=y3ZfoCZ_yzg
+Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series
+ - https://www.youtube.com/watch?v=y3ZfoCZ_yzg
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Pending
 
@@ -74,7 +75,7 @@ EFS is a regional service storing data within and across multiple AZs for high a
 
 EFS vs Region ? Which one superseed the other?
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Jargon
 
@@ -129,7 +130,7 @@ EFS vs Region ? Which one superseed the other?
 ✴ PCI = Payment Card Industry <br />
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # IAM
 
@@ -147,7 +148,7 @@ Resource-based policies: attached to a resource.
 
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # IAM Permissions
 
@@ -164,7 +165,7 @@ Good Practices:
 - Use Access Keys for programmatic access
 - Audit permissions with IAM Credentials Report and IAM Last Access
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Regions
 
@@ -172,7 +173,7 @@ Physical location.
 
 Has minimum THREE isolated, and physically separated Availability Zones (AZ).
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AZ = Availability Zone
 
@@ -184,7 +185,7 @@ Each AZ has independent power, cooling, and physical security and is connected v
 
 AZs in a same AWS Region are interconnected with high-bandwidth and low-latency networking.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Local Zones
 
@@ -198,13 +199,13 @@ AWS Local Zones are also connected to the parent region via Amazon’s redundant
 
 Giving apps running in AWS Local Zones fast, secure, and seamless access to the rest of AWS services.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # IAM Policies
 
 JSON documents to define Users, Groups or Roles' permissions
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # IAM Principal
 
@@ -212,7 +213,7 @@ In the context of IAM policies, a principal represents the entity that is allowe
 
 It can be an IAM user, an IAM role, an AWS service, or even an anonymous user (in certain cases)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2
 
@@ -224,7 +225,7 @@ Supports RESERVATION to optimize costs.
 
 User data is the data that you specified in the form of a BOOTSTRAP SCRIPT or configuration parameters while launching your instance.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Instance Types
 
@@ -247,7 +248,7 @@ Cache for in-memory databases (for example, Redis), Data warehousing application
 
 https://instances.vantage.sh/
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Security Groups
 
@@ -261,7 +262,7 @@ They regulate:
 
 A Security Group can have allow rules only — it CANNOT have deny rules
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Classic Ports to know
 
@@ -272,7 +273,7 @@ A Security Group can have allow rules only — it CANNOT have deny rules
 - 443 = HTTPS - access secured websites
 - 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Instances Purchasing Options
 
@@ -292,7 +293,7 @@ Dedicated Instances - no other customers will share your hardware
 
 Capacity Reservations — reserve capacity in a specific AZ for any duration
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 On Demand
 
@@ -306,7 +307,7 @@ No long-term commitment
 
 Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Reserved Instances
 
@@ -320,7 +321,7 @@ Book for fixed/specific instance attributes (Instance Type, Region, Tenancy, OS)
 Recommended for steady-state usage applications (think database)
 You can buy and sell in the Reserved Instance Marketplace
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Convertible Reserved Instances
 
@@ -328,7 +329,7 @@ Lower But Still Huge Discount: Up to 66% discount
 
 Can change the EC2 instance type, instance family, OS, scope and tenancy
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Savings Plans
 
@@ -340,7 +341,7 @@ LOCKED instance family and region (e.g. M5 in us-east-1)
 
 FLEXIBLE instance Size (e.g., m5.xlarge, m5.2xlarge), OS, Tenancy (Host, Dedicated, Default)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Spot Instances
 
@@ -358,7 +359,7 @@ LOSE the instanace if current spot price goes above your max price.
 
 NOT SUITABLE for critical jobs or databases
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Dedicated Hosts
 
@@ -376,7 +377,7 @@ Purchasing Options
  - On-demand: pay per second for active Dedicated Host
  - Reserved: 1 or 3 years (No Upfront, Partial Upfront, All Upfront)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Dedicated Instances
 
@@ -388,7 +389,7 @@ No control over instance placement (can move hardware after Stop / Start)
 
 You CANNOT use Dedicated Instances for using server-bound software licenses.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Capacity Reservations
 
@@ -402,7 +403,7 @@ Combine with Regional Reserved Instances and Savings Plans to benefit from billi
 You're charged at On-Demand rate whether you run instances or not <br />
 Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS charges for IPv4 addresses
 
@@ -412,7 +413,7 @@ FREE TIER for the EC2 service, for new AWS accounts: 750 hours of Public IPV4 pe
 
 For all other services there is no free tier
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Shared Responsibility Model
 
@@ -430,7 +431,7 @@ YOU
  - IAM Roles assigned to EC2 & IAM user access management
  - Data security on your instance
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EBS Elastic Block Storage
 
@@ -446,7 +447,7 @@ i.e. HDD — for throughput-intensive workloads
 
 NOT encrypted by default
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EBS Snapshot
 
@@ -454,7 +455,7 @@ A backup of your EBS Volume at a point in time.
 
 EBS Snapshots are stored incrementally, you are billed only for the changed blocks stored (NOT for the amount of space your data consumes).
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AMI = EC2 AMI = Amazon Machine Image
 
@@ -466,7 +467,7 @@ You must use an Amazon Machine Image (AMI) from the same region as that of the A
 
 The region of the Amazon Machine Image (AMI) has no bearing on the performance of the Amazon EC2 instance.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Image Builder
 
@@ -478,7 +479,7 @@ Creation, Maintenance, Validation, Sharing, and Deployment
 
 For Linux or Windows images for use on AWS and on-premises
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EC2 Instance Store
 
@@ -494,7 +495,7 @@ RISK: lost data if hardware fails
 
 BACKUPS and REPLICATION: your responsibility
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EBS vs Instance Store
 
@@ -502,7 +503,7 @@ EBS = not shared by instances + data persists even after instance termination
 
 Instance Store =  not shared by instances + better IO perf + data lost if EC2 instance is stopped or terminated, or when the underlying disk drive fails
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EFS = Elastic File System
 
@@ -515,7 +516,7 @@ NOT encrypted by default
 HIGH AVAILABILITY by default
  — across how many AZs ?
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EFS vs EBS
 
@@ -525,7 +526,7 @@ EFS = shared by many instances (shared files system) + data does NOT persist aft
 
 Both NOT encrypted by default
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EFS IA = EFS Infrequent Access
 
@@ -542,7 +543,7 @@ DOES NOT sacrifice the high availability, high durability, elasticity, and POSIX
 
 USE CASES: access for audit requirements, perform historical analysis, or perform backup and recovery
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon FSx
 
@@ -551,7 +552,7 @@ THIRD PARTY high-performance file system on AWS
 - Amazon FSx for Windows File Server
 - Amazon FSx for Lustre
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon FSx for Lustre
 
@@ -563,7 +564,7 @@ USE CASES: Machine Learning, Video Processing, Financial Modeling...
 
 SCALES up to 100s GB/s, millions of IOPS, sub-ms latencies
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon FSx for Windows File Server
 
@@ -577,7 +578,7 @@ Built on Windows Server
 
 Wide range of administrative features such as user quotas, end-user file restore, and Microsoft Active Directory (AD) integration.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Scalability and High Availability
 
@@ -587,7 +588,7 @@ Vertical Scalability = increase in instance size = SCALE UP / DOWN
 
 Horizontal Scalability = Elasticity = increase in instance number = SCALE IN / OUT
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # High Availability
 
@@ -600,7 +601,7 @@ Supporting High Availability by default:
  - DynamoDB
  - EFS
  
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # ELB = Elastic Load Balancer
 
@@ -616,7 +617,7 @@ Types of Load Balancer:
 2. NLB = Network Load Balancer
 3. GWLB = Gateway Load Balancer
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # APL = Application Load Balancer
 
@@ -624,7 +625,7 @@ a. HTTP/HTTPS/gRPC protocols (Layer 7) <br />
 b. Feature: HTTP Routing <br />
 c. Use Case: Static DNS (URL)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # NLB = Network Load Balancer
 
@@ -632,7 +633,7 @@ a. TCP/UDP Protocols (Layer 4) <br />
 b. Feature: High Performance: millions of requests per second <br />
 c. Use Case: Static IP through Elastic IP
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # GWLB = Gateway Load Balancer
 
@@ -640,7 +641,7 @@ a. GENEVE Protocol (Layer 3) <br />
 b. Feature: Route Traffic to Firewalls that you manage on EC2 Instances <br />
 c. Use Case: Intrusion detection
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # ASG = Auto Scaling Group
 
@@ -656,7 +657,7 @@ Goals:
 - Make sure we have a min and max number of machines running
 - Automatically register new instances to a load balancer
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Auto Scaling Strategies
 
@@ -666,7 +667,7 @@ Goals:
 
 Auto Scaling in EC2 and DynamoDB are examples of horizontal scaling.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon S3
 
@@ -690,7 +691,7 @@ Cost-Optimization
 
 https://aws.amazon.com/s3/
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon S3 - Security
 
@@ -703,7 +704,7 @@ Resource Based:
 
 Buckets???
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # S3 Block Public Access
 
@@ -713,7 +714,7 @@ However, users can modify bucket policies, access point policies, or object perm
 
 S3 Block Public Access settings override these policies and permissions so that you can limit public access to these resources.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # static website on Amazon S3
 
@@ -721,7 +722,7 @@ Configure an Amazon S3 bucket for website hosting and then upload your website c
 
 You must enable website hosting, set permissions, and create and add an index document.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon S3 Versioning
 
@@ -729,12 +730,12 @@ Means of keeping multiple variants of an object in the same bucket.
 
 Preserve, retrieve, and restore every version of every object stored in your Amazon S3 bucket. 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 [...]
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # Amazon RDS = Relational Database Service
 
@@ -767,7 +768,7 @@ NOT encrypted by default
 
 Supports RESERVATION to optimize costs.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon Aurora
 
@@ -779,7 +780,7 @@ Proprietary technology from AWS.
 
 MANAGED fully.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon ElastiCache
 
@@ -791,7 +792,7 @@ READ INTENSIVE work loads
 
 Usually for Redis or Memcached protocol-compliant server nodes
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DynamoDB
 
@@ -809,13 +810,13 @@ Single digit ms latency
 
 Supports RESERVATION to optimize costs.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DynamoDB VS RDS
 
 Amazon RDS is less operationally efficient than Amazon DynamoDB while building a highly scalable solution.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DAX = DynamoDB Accelerator
 
@@ -823,7 +824,7 @@ IN-MEMORY CACHE for DynamoDB
 
 10X PERF IMPROVEMENT: microseconds latency
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DAX vs ElastiCache
 
@@ -831,13 +832,13 @@ DAX: DynamoDB only
 
 ElastiCache: For other databases
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DynamoDB Global Tables
 
 Active-Active Replication = read/write on table replicated across 2 regions
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Redshift
 
@@ -857,7 +858,7 @@ SCALES TO PBs of data
 
 BI TOOLS integrate with it such as Tableau or AWS Quicksight
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon EMR: Elastic MapReduce
 
@@ -873,7 +874,7 @@ USE CASES: ML, data processing, web indexing...
 
 Amazon EMR is the industry-leading cloud big data platform for processing vast amounts of data using open source tools such as Hadoop, Apache Spark, Apache Hive, Apache HBase, Apache Flink, Apache Hudi, and Presto. Amazon EMR can be used to provision resources to run big data workloads on Hadoop clusters.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon Athena
 
@@ -885,7 +886,7 @@ SEVERLESS QUERY SERVICE
 
 SEVERLESS = no infra to manage
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon Quicksight
 
@@ -893,7 +894,7 @@ DASHBOARD to visualize your data
 
 BI tool
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DocumentDB
 
@@ -905,7 +906,7 @@ HIGHLY AVAILABLE across 3 AZ
 
 Does NOT support reservation to optimize costs.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Neptune
 
@@ -915,7 +916,7 @@ For apps w highly connected datasets
 
 USE CASE: social media app, knowledge graphs (wikipedia), recommendation engines
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon Timestream
 
@@ -923,7 +924,7 @@ TIME SERIES DB
 
 Over 1000x faster and 10x cheaper than relational databases
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon QLDB = Quantum Ledger DB
 
@@ -935,7 +936,7 @@ HIGHLY AVAILABLE across 3 AZ
 
 IMMUTABLE
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Glue
 
@@ -943,7 +944,7 @@ MANAGED ETL service
 
 ETL = Extract Transform Load
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Glue Data Catalog
 
@@ -951,14 +952,14 @@ Central repository to store structural and operational metadata for data assets 
 
 For a given data set, you can store its table definition, physical location, add business relevant attributes, as well as track how this data has changed over time.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # DMS = Data Migration Service
 
 MIGRATE DBs to AWS quickly and securely 
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # Docker
 
@@ -972,7 +973,7 @@ Docker images are stored in Docker Repositories
 
  - PRIVATE: Amazon ECR (Elastic Container Registery)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # ECR = Elastic Container Registery
 
@@ -984,7 +985,7 @@ Eliminates the need to operate your container repositories.
 
 Does NOT support running container applications
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Docker vs VMs
 
@@ -996,7 +997,7 @@ Docker are more lightweight than VMs
 
 Docker do not come with an OS — VMs do
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # ECS = Elastic Container Service
 
@@ -1014,7 +1015,7 @@ NOT a fully managed service
 
 You can manage the underlying servers yourself.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Fargate
 
@@ -1026,13 +1027,13 @@ Works with both Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic
 
 With AWS Fargate, you do NOT have access to the underlying servers.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Fargate vs ECS
 
 Managed vs Not Managed
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # ECR = Elastic Container Registery
 
@@ -1041,7 +1042,7 @@ PRIVATE Docker Registery on AWS
 STORE your docker images to be run by Farget or ECS
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Kubernetes
 
@@ -1051,7 +1052,7 @@ Cloud Agnostic - AWS, GCP, Azure
 
 Open Source
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # EKS = Elastic Kubernetes Service
 
@@ -1063,7 +1064,7 @@ EKS Nodes = EC2 Instances
 
 EKS Pods = 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Serverless
 
@@ -1075,7 +1076,7 @@ AWS Lambda now includes "anything that's managed" such as databases, messaging, 
 
 Does NOT support reservation to optimize costs.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Serverless by AWS
 
@@ -1084,7 +1085,7 @@ Does NOT support reservation to optimize costs.
  - Fargate : Docker Containers
  - Lambda : run functions
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Lambda vs EC2
 
@@ -1099,7 +1100,7 @@ Lambda
  - "Unlimited" and automated scaling
  - Runs on-demand
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Lambda — Lambda Functions
 
@@ -1119,7 +1120,7 @@ EASY SCALING to get more resources per function (up to 10GB RAM)
 
 Pending: Memory size can be configured?
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Lambda Use Cases
 
@@ -1127,7 +1128,7 @@ THUMBNAIL creation: new image in S3 triggers AWS Lambda Function creating thumbn
 
 CRON Job: CloudWatch Event triggers Lambda Function
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon API Gateway
 
@@ -1141,7 +1142,7 @@ RESTful and WebSocket APIs
 
 Use Case: Build a severless API
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Batch
 
@@ -1153,7 +1154,7 @@ Scales to 100,000s of Batch Jobs
 
 Batch Jobs defined as Docker images and run on ECS
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Batch vs Lambda
 
@@ -1168,8 +1169,8 @@ Batch
  - Any Runtime - packaged as Docker Image
  - Relies on EBS and EC2
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # CloudFormation
 
@@ -1198,7 +1199,7 @@ WIDE SUPPORT of AWS resources
 
 CloudFormation StackSets extends the functionality of stacks by enabling you to create, update, or delete stacks across multiple accounts and regions with a single operation
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CDK : Cloud Development Kit
 
@@ -1212,7 +1213,7 @@ INFRA+APP deployed together
 
 Use Case: Lambda Functions, Docker Containers
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Elastic Beanstalk
 
@@ -1236,7 +1237,7 @@ Supports for many platforms: Go, Java, NodeJS, Python, PHP, Docker Container
 
 HEALTH MONITORING in CloudWatch
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CodeBuild
 
@@ -1246,7 +1247,7 @@ Code Building service in the cloud.
 
 COMPILES, RUNS TESTS, CREATES PACKAGES
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CodePipeline
 
@@ -1258,7 +1259,7 @@ MANAGED
 
 COMPATIBLE with CodeCommit, CodeBuild, CodeDeploy, Elastic Beanstalk, CloudFormation, Github...
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CodeDeploy
 
@@ -1268,7 +1269,7 @@ Cloud (EC2s) and on-premises instances.
 
 Easily deploy to one instance or thousands.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CodeArtifact
 
@@ -1282,7 +1283,7 @@ Artifact Management TLDR
  
  - Storing and Retrieving these dependencies is called artifact management.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # SSM = AWS System Manager
 
@@ -1297,7 +1298,7 @@ Features
  - Patching Automation for enhanced compliance.
  - Store Parameter Config - with SSM Param Store.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # SSM Session Manager
 
@@ -1311,7 +1312,7 @@ SUPPORT Linux, macOS, Windows.
 
 SESSION LOG sent to S3 or CloudWatch
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Systems Manager Parameter Store
 
@@ -1323,8 +1324,8 @@ VERSIONING
 
 ENCRYPTION
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # Global Apps
 
@@ -1334,7 +1335,7 @@ AZ = Availability Zones, made of multiple data centers
 
 Edge Locations = Points Of Presence = for content delivery as close as possible to users
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon Route 53
 
@@ -1362,7 +1363,7 @@ Routing policy
 
  - simple routing: route traffic to a single resource, i.e. to website
  
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS CloudFront
 
@@ -1376,11 +1377,11 @@ DDoS protection
 
 OAC = CloudFront Origin Access Control
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 [...]
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # CloudWatch Logs
 
@@ -1394,7 +1395,7 @@ For DevOps engineers, developers, site reliability engineers (SREs), and IT mana
 
 Data and actionable insights to monitor applications, respond to system-wide performance changes, optimize resource utilization, and unified view of operational health
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon EventBrdige - frmly CloudWatch Events
 
@@ -1404,7 +1405,7 @@ REACT to a service - that trigger actions
 
 ACTIONS can be Lambda Functions, send SQS/SNS messages
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Amazon CloudTrail
 
@@ -1418,7 +1419,7 @@ ALL REGIONS by default, can be set per region
 
 ENCRYPTED by default
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # CloudWatch VS CloudTrail
 
@@ -1428,11 +1429,11 @@ CloudTrail = audit & compliance logs only
 
 CloudWatch = for DevOps engineers, developers, site reliability engineers (SREs), and IT managers
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 [...]
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # VPC = Virtual Private Cloud
 
@@ -1628,11 +1629,11 @@ Threat detection service.
 
 Continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 [...]
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Machine Learning
 
@@ -1662,7 +1663,7 @@ Amazon Translate is a neural machine translation service that delivers fast, hig
 
 Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts. 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Account Mgmt, Billing, Support
 
@@ -1795,7 +1796,7 @@ Reservations are available for EC2 Reserved Instances, DynamoDB Reserved Capacit
 
 Reserved Instances are good and more cost-effective (up to 69% discount compared to On-demand pricing, depending on the upfront) for long workloads. You can reserve instances for 1 or 3 years in RDS.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 — Advanced Identity —
 
@@ -1813,7 +1814,7 @@ Quickly and easily add user sign-up, sign-in, and access control to your web and
 
 Integrate w MS Active Directory in AWS
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS IAM Identity Center - formerly AWS SSO
 
@@ -1842,7 +1843,7 @@ Orgs
 
 Quickly and easily assign and manage your employees’ access to multiple AWS accounts, SAML-enabled cloud applications (such as Salesforce, Microsoft 365, and Box), and custom-built in-house applications, all from a central place.
  
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 — Amazon Workspaces —
 
@@ -1869,8 +1870,8 @@ Amazon AppStream 2.0 is a fully managed non-persistent application and desktop s
 AWS Device Farm is an application testing service that lets you improve the quality of your web and mobile apps by testing them across an extensive range of desktop browsers and real mobile devices; without having to provision and manage any testing infrastructure.
 
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # Architecture Principles
 
@@ -1886,7 +1887,7 @@ AWS Device Farm is an application testing service that lets you improve the qual
 
 6. Improve Through Game Days (simulate high stress, chaos)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # AWS Cloud Best Practices
 
@@ -1900,7 +1901,7 @@ D. Loose Coupling : a change or failure in one component shouldn't cascade to ot
 
 E. Services not Servers
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Six Pillars Of A Well Architected Framework
 
@@ -1917,7 +1918,7 @@ E. Services not Servers
 6. Sustainability
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # CAF = Cloud Adoption Framework
 
@@ -1936,8 +1937,8 @@ Envision, Align, Launch, Scale
 Team of experts
 
 
-//-------------------------------------------------------//
-//-------------------------------------------------------//
+-------------------------------------------------------
+-------------------------------------------------------
 
 # MISC
 
@@ -2280,7 +2281,7 @@ Weight the benefits of lower RTO (recovery time objective) and RPO (recovery poi
 https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architecture-on-aws-part-iii-pilot-light-and-warm-standby/
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Free Tier
 
@@ -2297,7 +2298,7 @@ Always Free:
  - Access Management (AWS IAM)
  - AWS Shield Standard, enabled by DEFAULT
  
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Test Tips
 

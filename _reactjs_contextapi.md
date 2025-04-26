@@ -1,16 +1,19 @@
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-—Docs—
+# Docs
 
 lingo
  - "Components subscribing to state" ?
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-Contexts come with a .Provider component that can also take in a value to be made available to child components – without having to prop drill the value.
+# Context: How To
+
+Contexts come with a `.Provider` component that can also take in a value to be made available to child components – without having to prop drill the value.
 
 Child components, acting as Consumers, may subscribe to a Context’s value from their closest parent Provider with React’s useContext() hook.
+
 Components subscribing to a Context will receive the value for the Provider closest to them in the application tree.
 
 Providers may be given an object containing the React state and its corresponding state updater function. Subscribing child components may then use the state updater function to update the state for the Context.
@@ -18,12 +21,9 @@ Providers may be given an object containing the React state and its correspondin
 Three parts:
  - Context providers
  - Context wrappers
- - useContext Hook
+ - `useContext` Hook
  
- Rules
- - useContext must be imported when used // import React , {useContext} from "react";
- 
-//-------------------------------------------------------//
+------------------------------------------------------
 
 # Context: Example 1: Without Context API
 
@@ -67,7 +67,7 @@ export const ContactItem = ({ name , theme }) => {
   );
 };
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Context: Example 1: With Context API
 
@@ -123,7 +123,7 @@ export const ContactItem = ({ name }) => {
   );
 };
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Context: Example 1: With Context API + Wrapper
 
@@ -192,7 +192,7 @@ export const ContactItem = ({ name }) => {
   );
 };
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Context: Example 1: With Context API + Wrapper + 2 buttons
 
@@ -267,7 +267,7 @@ export const ContactItem = ({ name }) => {
 };
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Context: Example Three
 

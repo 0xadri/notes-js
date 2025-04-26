@@ -1,14 +1,14 @@
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Docs —
+# Docs
 
 https://javascript.info/
 https://react.dev/learn
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Topics I Learned —
+# Topics I Learned
 
  - JavaScript ES6+
  - TypeScript
@@ -41,9 +41,9 @@ Things I find difficult
  - function usage - i.e. arrow functions, self executing functions, implicit args, nested arrow functions, number of braces in functions
  - curly braces usage - sometimes has functions that execute?
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# React Project Setup: Build Tools —
+# React Project Setup: Build Tools
 
  - Create React App(CRA)
  - Webpack
@@ -58,7 +58,7 @@ Create React App(CRA): default option for developing React applications
 
  - Start your project w Vite (first 14min): https://www.youtube.com/watch?v=G6D9cBaLViA
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # COMPONENTS THE WORLD
 
@@ -66,13 +66,13 @@ React apps are made out of components. A component is a piece of the UI (user in
 
 A component can be as small as a button, or as large as an entire page.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Component Instances Work In Isolation
 
 They use the same logic, but on their own.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Strict Mode
 
@@ -80,7 +80,7 @@ Component to help you catch errors and mistakes during development phase.
 
 Double renders components.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Strict Mode: How To
 
@@ -92,18 +92,18 @@ import { StrictMode } from "react";
   <App />
 </StrictMode>
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# index.js ——
+# index.js
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 createRoot(document.getElementById('app')).render(<App/>);
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-#— React Component ——
+# React Component
 
 import React from 'react';
 // import React, {useState} from 'react';
@@ -115,36 +115,46 @@ function Component(){
 
 export default Component;
 
+-------------------------------------------------------
 
-—— React Component: Props ——
-// https://react.dev/learn/passing-props-to-a-component
-// props are the only argument to your component
-// React component functions accept a single argument, a props object
+# React Component: Props
+
+React component functions accept a single argument, a props object
+
+props are the only argument to your component
+
+https://react.dev/learn/passing-props-to-a-component
+
+-------------------------------------------------------
+
+# React Component: Props Example
+
 import React from 'react';
 function Component(props){
   let person = props.person;
   let size = props.size;
 }
 export default Component;
-// Destructured — Same as above
+
 import React from 'react';
-function Component({ person, size }){
+function Component({ person, size }){ // Destructured — Same as above
+
 }
 export default Component;
 
+-------------------------------------------------------
 
-—— App.js ——
-    alert ( `Count: ${count}`);
+# React: Inline Styling
 
-
-
-—— Styles ——
-// inline
 <h1 style={{color: "red"}}> Hello, World! </h1>
 
 // equiv
 const myStyle = { color: "red" }
 <h1 style={myStyle}> Hello, World! </h1>
+
+-------------------------------------------------------
+
+# React: Styling
 
 // in TitleScreen.module.css
 // mind here that we switch to "className" — before we used "style" attribute
@@ -156,11 +166,11 @@ const myStyle = { color: "red" }
 import titlescreen from './styles/TitleScreen.module.css'
 <button className={titlescreen.btn}>Play</button>
 
+-------------------------------------------------------
 
+# Functions in Components
 
-—— Functions in Components ——
-// This alert fires when the component renders, not when clicked!
-<button onClick={alert('You clicked me!')}>
-// This creates a function to be called later, that here fires the alert
-<button onClick={() => alert('You clicked me!')}>
+<button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
+
+<button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
 

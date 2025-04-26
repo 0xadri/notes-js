@@ -1,8 +1,8 @@
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Design Pattern : Module Pattern —
+# Design Pattern : Module Pattern
 
 Problem Statement:
 We want to implement the Module Pattern to better organize our source code into components.
@@ -17,9 +17,9 @@ Module Pattern High Level Def:
 The Module pattern can be considered a creational pattern and a structural pattern. 
 It manages the creation and organization of other elements, and groups them as the structural pattern does.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Design Pattern : Module Pattern Implementations —
+# Design Pattern : Module Pattern Implementations
 
 JavaScript did not have built-in support for modules.
 The JS community has created impressive work-arounds. The two most popular standards are:
@@ -38,9 +38,9 @@ Since ECMAScript 2015 (ES6), javascript supports built-in modules through the ne
 
 http://jargon.js.org/_glossary/COMMONJS.md
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# Design Pattern : Module Pattern In Practice —
+# Design Pattern : Module Pattern In Practice
 
 When you have a file called axios.js, we say call it the axios module.
 

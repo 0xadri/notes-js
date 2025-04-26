@@ -1,6 +1,6 @@
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript multiline string
 
@@ -10,13 +10,13 @@ one string`
 
 TL;DR: backticks are awesome.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript OR
 
 || 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: let vs const
 
@@ -24,7 +24,7 @@ let allows the variable to be reassigned multiple times.
 
 const creates a variable that cannot be reassigned after it has been assigned a value.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: arrays
         
@@ -56,7 +56,7 @@ const removeItemAtIndex = (list, index) => {
 
 The spread syntax (...) and array methods such as .map(), .slice(), and .filter() can be used to immutably update the state of a complex app.
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: Promise vs Callback
 
@@ -66,7 +66,7 @@ A callback is when you tell her "hey honey I finished those dishes"
 
 An await is when she asks you to do the dishes and she's standing there in the kitchen tapping her foot
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: Iterate Over Object
 
@@ -76,7 +76,7 @@ for (let itemName in cart) {
 
 https://stackoverflow.com/a/43392879/759452
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: ...
 
@@ -89,7 +89,7 @@ const remindMeLater = (task) => {
 const reminder = remindMeLater('get groceries');
 console.log( reminder() );
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Javascript: Switch Case
 
@@ -106,7 +106,7 @@ function getMaxPrice(price: PriceBracket) {
   }
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # JS: Optional Chaining
 
@@ -125,7 +125,7 @@ becomes
 const nestedProp = obj.first?.second; // With optional chaining
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # JS: Optional Chaining For Method Calls
 
@@ -146,7 +146,7 @@ vs:
 foo?.bar?.baz?.qux?.doSomething?.();
 
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # JS: Destructuring: Nested object and array
 
@@ -180,7 +180,7 @@ const {
 console.log(englishTitle); // "Scratchpad"
 console.log(localeTitle); // "JavaScript-Umgebung"
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Backticks
 
@@ -193,43 +193,55 @@ Use Cases:
 
 Notice the extra $ Sign:
 
+<img className={`${borderColorClass ?? ''} black-border`} src={`/img/${profile.img[0]}`} />
+
 <div className={`${backgroundColor} p-6 rounded-lg shadow-md`}></div>
 
 <img src={`/images/properties/${property.images[0]}`} />
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
-# localStorage and web storage
+# Web Storage API: `sessionStorage` and `localStorage` 
 
-localStorage is one of the 2 mechanisms of a browser’s web storage.
+Web Storage API offers 2 mechanisms: sessionStorage and localStorage.
 
-It allows users to save data as key-value pairs in the browser for later use.
+Allows to save data as key-value pairs in the browser for later use.
 
-Lifecycle: localStorage does not clear data when the browser closes.
+Data stored here will always be available to your Javascript code and cannot be accessed from the backend. Thus you will have to manually add it to your requests in a header for example. 
+
+This storage is only available to your app's domain and not to sub domains.
+
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API
+
+-------------------------------------------------------
+
+# `localStorage` vs `sessionStorage`
+
+Main difference is in data expiry:
+ - `sessionStorage`: Data available only for a session (until the browser or tab is closed).
+ - `localStorage`: Stores data with no expiration date, does not clear data when the browser closes; only gets cleared through JavaScript, or clearing the Browser cache/Locally Stored Data
+
+-------------------------------------------------------
+
+# `localStorage` 
+
+Lifecycle: `localStorage` does not clear data when the browser closes.
 
 Ideal for: persisting data not bound to the current browser tab.
 
 UC: dark mode feature, persist to-do items, or persist a user’s form input values
 
 How To:
- 1. localStorage allows you to store only string values
- 2. store object data to localStorage, convert it to a string - serialize it w JSON.stringify()
- 3. get object data from localStorage, convert string back to object data - deserialize it w JSON.parse()
+ 1. `localStorage` allows you to store only string values
+ 2. store object data to `localStorage`, convert it to a string - serialize it w JSON.stringify()
+ 3. get object data from `localStorage`, convert string back to object data - deserialize it w JSON.parse()
 
 sources: 
 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
 localStorage+react https://blog.logrocket.com/using-localstorage-react-hooks/
 
-//-------------------------------------------------------//
-
-# localStorage vs sessionStorage
-
-sessionStorage persists data in the browser storage as long as the current browser tab is running.
-
-localStorage does not clear data when the browser closes. 
-
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Event Syntax Equivalents
 
@@ -242,8 +254,7 @@ const handleChange = (event) => {
   setEmail(newEmail);
 }
 
-
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # functions
 
@@ -260,7 +271,7 @@ const greet = (greeting) => {
     console.log(greeting);
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # functions: one-liner arrow functions 
 
@@ -292,7 +303,7 @@ let sayHi = function() {
 };
 sayHi(); // alerts "Hello"
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # functions: embedded one-liner arrow functions
 
@@ -306,10 +317,11 @@ students.forEach(
 	student => alert(student)
 );
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # functions: arrow functions multi-liners
-/// Rule: just like regular functions, add curly braces and optionally add return
+
+Rule: just like regular functions, add curly braces and optionally add return
 
 —— functions: return ——
 // If we want the returned expression to wrap across multiple lines, we should start it at the same line as return. 
@@ -322,7 +334,7 @@ const calculate = () => {
     );
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Self-Executing Anonymous Functions
 
@@ -330,7 +342,7 @@ const calculate = () => {
     console.log("Welcome to GeeksforGeeks!");
 })();
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Objects
 
@@ -341,7 +353,7 @@ const thought = {
   expiresAt: getNewExpirationTime(),
 };
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Objects: Create Shallow Copy/Clone
 
@@ -349,19 +361,19 @@ const thought = { id: 345, text: "dreaming today" };
 
 const thoughtClone = Object.assign({}, thought)
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Objects: Create Deep Copy/Clone
 
 https://lodash.com/docs/#cloneDeep
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Primitive vs Reference Type
 
 https://www.youtube.com/watch?v=9ooYYRLdg_g
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 # Destructure: Objects, Arrays
 
@@ -373,7 +385,7 @@ const handleChange = ({target}) => {
     setName(target.value);
 }
 
-//-------------------------------------------------------//
+-------------------------------------------------------
 
 
 
