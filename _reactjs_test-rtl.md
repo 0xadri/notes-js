@@ -293,7 +293,7 @@ As a JS Dev testing my app, I want to mimic user interactions such as clicking a
 
 ## Solution
 
-The library @testing-library/user-event in the @testing-library suite is there just for that.
+The library `@testing-library/user-event` in the `@testing-library` suite is there just for that.
 
 -------------------------------------------------------
 
