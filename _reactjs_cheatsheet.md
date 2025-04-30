@@ -7,6 +7,8 @@ https://javascript.info/
 
 https://react.dev/learn
 
+https://legacy.reactjs.org/ - legacy
+
 -------------------------------------------------------
 
 # Topics I Learned
@@ -150,4 +152,23 @@ https://react.dev/learn/passing-props-to-a-component
 >     <button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
 >     
 >     <button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
+
+-------------------------------------------------------
+
+# Keys Must Have Unique Value [Best Practice] 
+
+Prior to iterating on the list, add an id field with a unique value to each item.
+
+Then use that field as key in the iterating code.
+
+>     {currentRoster.map((player, index) => (
+>      <div key={player.id}>
+>      <p>{player.name}</p>
+>      <p>{player.position}</p>
+>      </div>
+>     ))}
+
+`uuid` library for generating unique id's - https://www.npmjs.com/package/uuid
+
+
 

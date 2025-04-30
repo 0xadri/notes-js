@@ -35,45 +35,45 @@ https://daisyui.com/ — warning: you must include a JavaScript and a CSS file
 
 # Commonly Used
 
-block
+`block`
 
-grid
+`grid`
 
-grid-cols-6
+`grid-cols-6`
 
-flex 
+`flex` 
 
-flex-col
+`flex-col`
 
-inline-flex
+`inline-flex`
 
-relative absolute z-1 top-0 left-0
+`relative` `absolute` `z-1` `top-0` `left-0`
 
-overflow-hidden
+`overflow-hidden`
 
-py-5
+`py-5`
 
-px-10
+`px-10`
 
-inset-1/2 -ml-[15px] -mt-[16px]
+`inset-1/2` `-ml-[15px]` `-mt-[16px]`
 
-h-full w-full
+`h-full` `w-full`
 
-text-center
+`text-center`
 
-text-white
+`text-white`
 
-text-xs
+`text-xs`
 
-font-medium
+`font-medium`
 
-font-mono
+`font-mono`
 
-tracking-widest
+`tracking-widest`
 
-bg-gray-900
+`bg-gray-900`
 
-bg-gradient-to-tl from-indigo-600 to-pink-600
+`bg-gradient-to-tl` `from-indigo-600` `to-pink-600`
 
 
 -------------------------------------------------------

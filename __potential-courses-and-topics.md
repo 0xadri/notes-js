@@ -10,6 +10,20 @@ React The Complete Guide, by Maximilian Schwarzmueller
 
 -------------------------------------------------------
 
+# TODOs
+
+## TOPICS
+
+ - API and Database calls, see `_reactjs_async-calls-api-db.md`
+ - Error handking, see `_reactjs_errors.md`
+ - NodeJS API [Best Practices]
+ - TanStack Query - https://tanstack.com/query/latest
+ - SWR - https://swr.vercel.app/
+ - AWS Deployment [Best Practices]
+ - CI/CD [Best Practices]
+ 
+-------------------------------------------------------
+
 # MAYBEs
 
 Microservices, Docker, Kubernetes, CI/CD, NATS, NodeJS, Express, MongoDB, React (SSR), Typescript, Stripe
