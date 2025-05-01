@@ -22,6 +22,32 @@ https://legacy.reactjs.org/ - legacy
 
 -------------------------------------------------------
 
+# Best Practices
+
+Reusability principles:
+ - To reuse JSX markup, create a component
+ - To reuse logic without React Hooks, create a utility function
+ - To reuse logic with React Hooks, create a custom hook
+ 
+States
+ - When updating state, always do it IMMUTABLY. Do a deep copy/clone for arrays and objects
+ - When updating state based on old state, always pass a `function` with `prev` to your `state` updating function
+ - Derive states from props when possible
+ - Remove unnecessary states
+ - Lift states if needed
+ - Lift computed values if needed
+ - Derive computed values when possible
+
+Lists items must have keys
+ - Keys must have unique value
+ - Generate it if needed
+
+Effects
+ - One effect hook per process i.e. one effect per API call
+ - If you’re not interacting with an external system, you might not need an Effect
+
+-------------------------------------------------------
+
 # React Project Setup: Build Tools
 
  - `Create React App` (CRA)

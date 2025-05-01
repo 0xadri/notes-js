@@ -226,14 +226,16 @@ THREE things to setup: `useState` call, value attribute in `form` element, `onCh
 
 # State Hook: Updating And Prev Object [Best Practice]
 
-Always pass a `function` to your `state` updating function.
+`functional update` aka `functional form`: passing a `function` with `prev` to your `state` updating function
+
+When updating state based on old state, always use a `functional update`
  - otherwise the update is scheduled for "later"
+ - the updating `function` has an implicit parameter (often called `prev`) with the latest value of the state.
+ - `functional update` ensures that you are working with the latest `state` snapshot, especially in scenarios where `state` updates are asynchronous.
 
-Using the functional form ensures that you are working with the latest `state` snapshot
-  - Especially in scenarios where `state` updates are asynchronous.
-
-When using a functional update to the` `state, the parameter is defaulted to the previous `state`. 
-  - The updating `function` has an implicit `object` w the previous value of thesaid object.
+When updating state NOT based on old state, do NOT pass a `function` to your `state` updating function
+ - not necessary
+ - confusing for other devs reading your code
 
 -------------------------------------------------------
 
@@ -348,24 +350,44 @@ Prefer computed values
 
 # State Hook: Misc [Best Practice]
 
- - Update Sates Based On Old State
- - Derive States From Props
- - Remove Unnecessary States
- - Lift States
- - Lift Computed Values
- - Derive Computed Values
+ - If updating state based on old state, use prev
+ - Derive states from props when possible
+ - Remove unnecessary states
+ - Lift states if needed
+ - Lift computed values if needed
+ - Derive computed values when possible
 
 -------------------------------------------------------
 
-# Effect Hook
+# Effect Hook: Use Cases
 
-Use Case
- - Effects let a component connect to and synchronize with external systems.
- - i.e. dealing with network, browser DOM, animations and other non-React code.
+Effects let a component connect to and `synchronize` with external systems.
 
-Rule:
- - Effects are an “escape hatch” from the React paradigm. Don’t use Effects to orchestrate the data flow of your application
- - If you’re not interacting with an external system, you might not need an Effect
+i.e. dealing with network, browser DOM, animations and other non-React code.
+
+-------------------------------------------------------
+
+# `escape hatches`
+
+Effects are an `escape hatch` from the React paradigm.
+
+`escape hatches`: features that let you “step outside” React and connect to external systems.
+
+Other `escape hatches` include refs, custom Hooks
+
+-------------------------------------------------------
+
+# Effect Hook [Best Practice]
+
+One effect hook per process i.e. one API call per effect. Do not use a single Effect to synchronize several independent processes i.e. two API fetch calls
+
+Don’t use Effects to orchestrate the data flow of your application. 
+
+If you’re not interacting with an external system, you might not need an Effect.
+
+If different parts of your Effect should re-run for different reasons, split it into several Effects.
+
+https://react.dev/learn/removing-effect-dependencies#is-your-effect-doing-several-unrelated-things
 
 -------------------------------------------------------
 

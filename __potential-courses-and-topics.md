@@ -14,14 +14,19 @@ React The Complete Guide, by Maximilian Schwarzmueller
 
 ## TOPICS
 
- - API and Database calls, see `_reactjs_async-calls-api-db.md`
- - Error handking, see `_reactjs_errors.md`
+ - API and Database calls, see `_reactjs_async-calls-api-db.md` - [Best Practices] todo: API Fetching Data Example When fetch() is in separate utility file
+ - Error handling, see `_reactjs_errors.md`
  - NodeJS API [Best Practices]
  - TanStack Query - https://tanstack.com/query/latest
  - SWR - https://swr.vercel.app/
  - AWS Deployment [Best Practices]
  - CI/CD [Best Practices]
- 
+ - Best Practices
+   - This is the Only Right Way to Write React clean-code - SOLID - https://www.youtube.com/watch?v=MSq_DCRxOxw
+   - The Most Important Design Pattern in React  - https://www.youtube.com/watch?v=Lbj3vmp8spI
+   - react Custom Hook form https://www.youtube.com/watch?v=I2Bgi0Qcdvc
+
+   
 -------------------------------------------------------
 
 # MAYBEs

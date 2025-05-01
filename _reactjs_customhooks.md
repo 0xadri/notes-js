@@ -7,9 +7,19 @@ https://react.dev/learn/reusing-logic-with-custom-hooks
 
 -------------------------------------------------------
 
+# Problem Statement
+
+I want to reuse code logic that includes a React Hook i.e. useEffect() with call to a database.
+
+# Solution
+
+Create a custom hook.
+
+-------------------------------------------------------
+
 # Custom Hook: Example One
 
-DEFINE
+`useCounter.js`
 
 >     import { useState, useEffect } from "react";
 >     
@@ -28,14 +38,14 @@ DEFINE
 >     
 >       // create an easy-to-use increment function
 >       const increment = () => {
->         setCounter(counter + 1);
+>         setCounter((counter) => counter + 1);
 >       };
 >     
 >       // return the counter value and the incrementer
 >       return [counter, increment];
 >     };
 
-App.js
+`App.js`
 
 >     import React from "react";
 >     import ReactDOM from "react-dom/client";
@@ -58,7 +68,9 @@ App.js
 
 # Custom Hook: Example Two
 
-useFormInput.js
+TBD: custom hooks on form ??
+
+`useFormInput.js`
 
 >     import { useState } from 'react';
 >     
@@ -77,7 +89,7 @@ useFormInput.js
 >       return inputProps;
 >     }
 
-App.js
+`App.js`
 
 >     import { useFormInput } from './useFormInput.js';
 >     
