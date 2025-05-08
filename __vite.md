@@ -7,9 +7,24 @@ https://vite.dev/guide/
 
 -------------------------------------------------------
 
+# Getting Started In Dev Environment
+
+`npm create vite@latest`
+
+`cd my-project`
+
+`npm install`
+
+`npm run dev`
+
+-------------------------------------------------------
+
 # Build
 
 `npm run build`
+
+Then locally preview your build:
+`npm run preview`
 
 https://v4.vitejs.dev/guide/static-deploy.html
 

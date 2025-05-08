@@ -5,7 +5,17 @@
 
 https://tailwindcss.com/docs/
 
-https://tailscan.com/tailwind - tailwind made easy
+https://tailscan.com/tailwind - tailwind in human readable language
+
+-------------------------------------------------------
+
+# Play CDN
+
+For development environment. Not for production.
+
+`<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>`
+
+https://tailwindcss.com/docs/installation/play-cdn
 
 -------------------------------------------------------
 
@@ -30,6 +40,14 @@ https://flyonui.com/ — warning: you must include a JavaScript file
 https://www.preline.co/ — warning: you must include a JavaScript file
 
 https://daisyui.com/ — warning: you must include a JavaScript and a CSS file
+
+-------------------------------------------------------
+
+# Premade UI Components: Special Picks
+
+Application Shell - https://tailspark.co/components?category=app&component=Application%20Shell
+
+Tailwind Profile Card - https://jsfiddle.net/adamwathan/z5pscdmz/
 
 -------------------------------------------------------
 
@@ -77,3 +95,20 @@ https://daisyui.com/ — warning: you must include a JavaScript and a CSS file
 
 
 -------------------------------------------------------
+
+# Responsive
+
+Min width:
+
+`sm`
+
+`md`
+
+Max width:
+
+`max-sm`
+
+`max-md`
+
+https://tailwindcss.com/docs/responsive-design
+

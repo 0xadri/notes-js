@@ -53,7 +53,8 @@ How to Install and Configure AWS Command Line Interface (CLI)
 Deploying a React App on AWS S3
  - https://www.youtube.com/watch?v=SHN48wTEQ5I
  - p.s. for vite use `npm run build`, c.f. https://v4.vitejs.dev/guide/static-deploy.html
-
+ - p.s. add `index.html` to "Error Document" under `Properties` -> `Static website hosting` ; c.f. https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
+ 
 Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series
  - https://www.youtube.com/watch?v=y3ZfoCZ_yzg
 

@@ -149,6 +149,26 @@ https://react.dev/learn/passing-props-to-a-component
 
 -------------------------------------------------------
 
+# Pass Props To Component When Name Equal Value
+
+If `boolean`
+
+>     <div x />
+>     // is equivalent to
+>     <div x={true} />
+
+If `not boolean`
+
+>     <Comp {...{x,y,foo,bar}} />
+>     // is equivalent to
+>     <Comp x={x} y={y} foo={foo} bar={bar} />
+
+You can use this alongside other props
+
+>     <Comp key={getCellId()} color="yellow" size={user.size} {...{x,y,foo,bar}} /> 
+
+-------------------------------------------------------
+
 # React: Inline Styling
 
 >     <h1 style={{color: "red"}}> Hello, World! </h1>
@@ -196,5 +216,10 @@ Then use that field as key in the iterating code.
 
 `uuid` library for generating unique id's - https://www.npmjs.com/package/uuid
 
+-------------------------------------------------------
+
+# Fontawesome in React
+
+https://stackoverflow.com/a/55351950/759452
 
 

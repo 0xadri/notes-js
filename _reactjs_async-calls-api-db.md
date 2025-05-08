@@ -7,25 +7,27 @@ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 -------------------------------------------------------
 
-# API: Fetching Data [Best Practices]
+# API: Principles [Best Practices]
 
-Handling `fetch()` errors
- - use try/catch block, NOT react error boundaries
-
-Handling Fetch Errors: use try/catch block, NOT react error boundaries https://stackoverflow.com/questions/74269197/is-it-a-good-or-bad-practice-to-use-react-error-boundaries-to-handle-fetch-error
-
-https://lokeshchoudharyprogrammer.medium.com/best-practices-for-fetching-data-in-react-63ba88d76b2a
+1. handle `fetch()` errors in `try/catch block`, NOT react error boundaries
+2. use three states: `data`, `loading` and `error`
+3. use a `API Utility Layer`, a separate utility file with all the API calls
+4. handle errors in the `Component Layer` (via try/catch block) 
+ 
+Read more
+ - Handling Fetch Errors: use try/catch block, NOT react error boundaries https://stackoverflow.com/questions/74269197/is-it-a-good-or-bad-practice-to-use-react-error-boundaries-to-handle-fetch-error
+ - https://lokeshchoudharyprogrammer.medium.com/best-practices-for-fetching-data-in-react-63ba88d76b2a
 
 -------------------------------------------------------
 
 # API: Fetching Data: Very Simple Example [Best Practice]
 
-fetch() in try/catch block
+`fetch()` in `try/catch block`
 
 Three states
- - data state: to be updated with response data from fetch if successful
- - loading state: to be updated when start/end whether successful or not
- - error state: to be updated if there is an error
+ - `data`: updated with response data if `fetch()` is successful
+ - `loading`: updated when start/end whether `fetch()` is successful or unsuccessful
+ - `error`: updated if `fetch()` is unsuccessful
 
 >     import { useState, useEffect } from 'react';
 >     import Places from './Places.jsx';
@@ -86,27 +88,28 @@ source: https://github.com/academind/react-complete-guide-course-resources/blob/
 
 ## Problem Statement
 
-I want fetch() calls in separate utility file with all the various functions taking care of the API calls.
+I want `fetch()` calls in a separate utility file with all the various functions taking care of the API calls.
 
-aka the `API utility layer`.
+aka the `API Utility Layer`.
 
-Pb to solve:
- 1. should handling errors (the `try/catch block`) be in the `API utility layer` or in the `component layer` (react component)?
+Pending Questions:
+ 1. should handling errors (the `try/catch block`) be in the `API Utility Layer` or in the `Component Layer` (react component)?
  2. should the functions return "the three states": data state, loading state, error state? or just the response?
 
 ## Solution Explained
 
-If you swallow the error in the API layer, the component loses control.
+If you swallow the error in the `API Utility Layer`, the `Component Layer` loses control.
 
-Handling errors in the `component layer` (via try/catch or .catch()) is generally considered best practice.
+Hence, handling errors in the `Component Layer` (via try/catch block) is generally considered best practice.
 
-Your `API utility layer` is responsible for:
+Your `API Utility Layer` is responsible for:
  - Making the request
  - Returning the parsed data
  - Throwing errors when something goes wrong
 
-Your React component is responsible for:
+Your `Component Layer` (react component) is responsible for:
  - Deciding how to respond to errors (show an alert, redirect, retry, show fallback UI)
+ - Updating "the three states": data state, loading state, error state.
 
 ## Solution Code
 
