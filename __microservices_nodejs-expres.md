@@ -27,7 +27,7 @@ Free and `open-source` software under the MIT License.
 
 # Microservices: Problem Statement
 
-As a project grows larger, more teams of 5-6 people work on the code base.
+As a project grows larger, we're adding more teams of 5-6 people work on the code base.
 
 It quickly becomes unmanageable. How can we make this work?
 
@@ -38,6 +38,8 @@ We can split up the code base in different services.
 Each service is a different code base and belongs to a dedicated team.
 
 Best practice is to also split the database, each service get its own db.
+
+Services being independent means they are also much more reliable/available.
 
 -------------------------------------------------------
 
@@ -65,6 +67,14 @@ Lowest dependency architecture is `asynchronous`. Services cannot make direct ca
 
 - Con: Harder to understand
 
+
+-------------------------------------------------------
+
+# Docker
+
+Container = instance of an image, it runs a program.
+
+Image = single file with all the dependencies and configurations required to run a program.
 
 
 
