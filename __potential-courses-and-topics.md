@@ -12,7 +12,7 @@ React The Complete Guide · by Maximilian Schwarzmueller
  - Updated? looks like it
  - Projects: Quiz App, Food Order App, Multi-Page SPA, 
  - Repo: https://github.com/academind/react-complete-guide-course-resources/tree/main
- - https://www.youtube.com/@academind
+ - More Links: https://academind.com , and https://www.youtube.com/@academind
  - https://www.udemy.com/course/react-the-complete-guide-incl-redux/
 
 Microservices with Node JS and React · by Stephen Grider
@@ -22,7 +22,17 @@ Microservices with Node JS and React · by Stephen Grider
  - Updated? looks like it
  - Projects>
  - https://www.udemy.com/course/microservices-with-node-js-and-react/
- 
+
+NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
+ - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
+ - 40.5 hours
+ - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
+ - 18% rated: 283,063 students - 52,000 ratings - 4.6 stars
+ - 1 Project: ECommerce
+ - Pros: has 3.5 hours on REST APIs + took a previous course by Maximilian and it was great
+ - More Links: https://academind.com , and https://www.youtube.com/@academind
+ - https://www.udemy.com/course/nodejs-the-complete-guide/
+
 -------------------------------------------------------
 
 # TODO
@@ -46,55 +56,7 @@ Microservices with Node JS and React · by Stephen Grider
 
 # MAYBEs
 
-NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
- - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing
- - 40.5 hours
- - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
- - 18% rated: 283,063 students - 52,000 ratings - 4.6 stars
- - 1 Project: ECommerce
- - Pros: has 3.5 hours on REST APIs + took a previous course by Maximilian and it was great
- - https://www.udemy.com/course/nodejs-the-complete-guide/
-
-The Complete Node.js Developer Course (3rd Edition) · by Andrew Mead and Rob Percival
- - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT, Socket.io, Jest
- - 35 hours
- - 23% rated: 308,452 students - 73,000 ratings - 4.6 stars
- - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
- - 4 Projects: Weather App, Notes App, Tasks App, Chat App
- - https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
- 
-Node.js, Express, MongoDB & More: The Complete Bootcamp · by Jonas Schmedtmann
- - Build REST API w NodeJS, Express, MongoDB, Mongoose
- - 42 hours
- - 16% rated: 164,760 students - 27,000 ratings - 4.6 stars
- - Out of date! From 2019. Expect fixing and debugging. Some things do not even exist anymore.
- - 1 Project: Tours Booking App
- - https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/
-
-Node.js API Masterclass With Express & MongoDB · by Brad Traversy
- - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT (authentication)
- - 12 hours
- - 17% rated: 28,105 students - 5,000 ratings - 4.6 stars
- - Out of date! From 2020.
- - Projects?
- - Pros: took a previous course by Brad and it was great
- - https://www.udemy.com/course/nodejs-api-masterclass/
-
-Node.js - The Complete RESTful API Masterclass · by Ghulam Abbas
- - Build REST API w NodeJS, Express, MongoDB, Mongoose
- - 11 hours
- - 9% rated: 11,217 students - 1,000 ratings - 4.3 stars
- - Up to date? Looks like it.
- - Projects?
- - https://www.udemy.com/course/build-restful-api-in-nodejs/
-
-NodeJs API for Beginners (Marketplace with AWS & MongoDB) · by Ryan Dhungel
- - Build REST APIs w NodeJS, AWS, AWS IAM SES, AWS S3, Express, MongoDB, Mongoose
- - 12 hours
- - 6% rated: 120,381 students - 7,232 ratings - 4.3 stars
- - Updated? looks like it.
- - 1 Project: Real Estate Marketplace
- - https://www.udemy.com/course/node-js-api-tutorial/
+none
 
 -------------------------------------------------------
 
@@ -136,3 +98,46 @@ Microservices, AWS DynamoDB, AWS SQS, AWS CLI, AWS S3, Node.js, REST API Develop
  - Out of date! reviews say content is good but code is out-of-date (prob 3-4 years). Expect fixing and debugging.
  - Project?
  - https://www.udemy.com/course/serverless-framework/
+
+
+The Complete Node.js Developer Course (3rd Edition) · by Andrew Mead and Rob Percival
+ - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT, Socket.io, Jest, Testing
+ - 35 hours
+ - 23% rated: 308,452 students - 73,000 ratings - 4.6 stars
+ - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
+ - 4 Projects: Weather App, Notes App, Tasks App, Chat App
+ - Pros: many projects
+ - https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
+ 
+Node.js, Express, MongoDB & More: The Complete Bootcamp · by Jonas Schmedtmann
+ - Build REST API w NodeJS, Express, MongoDB, Mongoose
+ - 42 hours
+ - 16% rated: 164,760 students - 27,000 ratings - 4.6 stars
+ - Out of date! From 2019. Expect fixing and debugging. Some things do not even exist anymore.
+ - 1 Project: Tours Booking App
+ - https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/
+
+Node.js API Masterclass With Express & MongoDB · by Brad Traversy
+ - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT (authentication)
+ - 12 hours
+ - 17% rated: 28,105 students - 5,000 ratings - 4.6 stars
+ - Out of date! From 2020.
+ - Projects?
+ - Pros: took a previous course by Brad and it was great
+ - https://www.udemy.com/course/nodejs-api-masterclass/
+
+Node.js - The Complete RESTful API Masterclass · by Ghulam Abbas
+ - Build REST API w NodeJS, Express, MongoDB, Mongoose
+ - 11 hours
+ - 9% rated: 11,217 students - 1,000 ratings - 4.3 stars
+ - Up to date? Looks like it.
+ - Projects?
+ - https://www.udemy.com/course/build-restful-api-in-nodejs/
+
+NodeJs API for Beginners (Marketplace with AWS & MongoDB) · by Ryan Dhungel
+ - Build REST APIs w NodeJS, AWS, AWS IAM SES, AWS S3, Express, MongoDB, Mongoose
+ - 12 hours
+ - 6% rated: 120,381 students - 7,232 ratings - 4.3 stars
+ - Updated? looks like it.
+ - 1 Project: Real Estate Marketplace
+ - https://www.udemy.com/course/node-js-api-tutorial/
