@@ -5,25 +5,27 @@ Count approx 2 hours of lesson/tutorial per day
 
 # IN PROGRESS
 
-React The Complete Guide · by Maximilian Schwarzmueller
+### React The Complete Guide · by Maximilian Schwarzmueller
  - React, Hooks, Redux, Router, Form Actions, Context API, Tanstack Query, React Server Components, Custom Hooks, Testing, React+Typescript, Next.js, 
  - 71 hours
  - 24% rated: 959,428 students - 229,000 ratings - 4.6 stars
  - Updated? looks like it
  - Projects: Quiz App, Food Order App, Multi-Page SPA, 
  - Repo: https://github.com/academind/react-complete-guide-course-resources/tree/main
- - More Links: https://academind.com , and https://www.youtube.com/@academind
+ - More: https://academind.com , and https://www.youtube.com/@academind
  - https://www.udemy.com/course/react-the-complete-guide-incl-redux/
 
-Microservices with Node JS and React · by Stephen Grider
+### Microservices with Node JS and React · by Stephen Grider
  - Microservices, Docker, Kubernetes, CI/CD, NATS, NodeJS, Express, MongoDB, React (SSR), Typescript, Stripe
  - 54 hours
  - 14% rated: 134,470 students - 19,232 ratings - 4.7 stars
  - Updated? looks like it
- - Projects>
+ - Projects?
+ - Repo?
+ - More?
  - https://www.udemy.com/course/microservices-with-node-js-and-react/
 
-NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
+### NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
  - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
  - 40.5 hours
  - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
@@ -31,6 +33,8 @@ NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Sch
  - 1 Project: ECommerce
  - Pros: has 3.5 hours on REST APIs + took a previous course by Maximilian and it was great
  - More Links: https://academind.com , and https://www.youtube.com/@academind
+ - Repo: https://github.com/unsivilaudio/node.js-complete-guide-2024
+ - More: https://academind.com , and https://www.youtube.com/@academind
  - https://www.udemy.com/course/nodejs-the-complete-guide/
 
 -------------------------------------------------------
@@ -56,13 +60,16 @@ NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Sch
 
 # MAYBEs
 
-none
+### Creating a RESTful API with Node.js · by Maximilian Schwarzmüller
+ - 4 hours
+ - cons: might be redundant w Udemy course
+ - https://www.youtube.com/playlist?list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q
 
 -------------------------------------------------------
 
 # COMPLETED
 
-Next.js From Scratch · by Brad Traversy
+### Next.js From Scratch · by Brad Traversy
  - NextJS, React, MongoDB, Mongoose, Data Fetching, Next Auth
  - 10 hours
  - 7,198 students - 1,150 ratings
@@ -70,12 +77,12 @@ Next.js From Scratch · by Brad Traversy
  - 1 Project: Property Rental Website
  - https://www.udemy.com/course/nextjs-from-scratch/
 
-Tech With Tim: Learn React With This ONE Project
+### Tech With Tim: Learn React With This ONE Project
  - 2 hours
  - https://www.youtube.com/watch?v=G6D9cBaLViA
  - https://github.com/techwithtim/Learn-React-In-One-Project/blob/main/src/pages/Home.jsx
 
-Ultimate AWS Certified Cloud Practitioner CLF-C02 2025 · by Stephane Maarek
+### Ultimate AWS Certified Cloud Practitioner CLF-C02 2025 · by Stephane Maarek
  - 15 hours
  - 1,153,169 students - 247,000 ratings
  - https://www.udemy.com/course/aws-certified-cloud-practitioner-new/
@@ -84,7 +91,7 @@ Ultimate AWS Certified Cloud Practitioner CLF-C02 2025 · by Stephane Maarek
 
 # WON'T
 
-AWS & Typescript Masterclass - CDK, Serverless, React · by Alex Dan
+### AWS & Typescript Masterclass - CDK, Serverless, React · by Alex Dan
  - Serverless APIs with AWS Lambda, ApiGateway, DynamoDB, S3 + AWS CDK + Typescript and React 
  - 13 hours
  - 13% rated: 13,704 students - 1,726 ratings - 4.8 stars
@@ -92,7 +99,7 @@ AWS & Typescript Masterclass - CDK, Serverless, React · by Alex Dan
  - Project?
  - https://www.udemy.com/course/aws-typescript-cdk-serverless-react/
  
-Microservices, AWS DynamoDB, AWS SQS, AWS CLI, AWS S3, Node.js, REST API Development
+### Microservices, AWS DynamoDB, AWS SQS, AWS CLI, AWS S3, Node.js, REST API Development
  - 5.5 hours
  - 4.5% rated: 66,613 students - 3,075 ratings - 4.5 stars
  - Out of date! reviews say content is good but code is out-of-date (prob 3-4 years). Expect fixing and debugging.
@@ -100,7 +107,7 @@ Microservices, AWS DynamoDB, AWS SQS, AWS CLI, AWS S3, Node.js, REST API Develop
  - https://www.udemy.com/course/serverless-framework/
 
 
-The Complete Node.js Developer Course (3rd Edition) · by Andrew Mead and Rob Percival
+### The Complete Node.js Developer Course (3rd Edition) · by Andrew Mead and Rob Percival
  - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT, Socket.io, Jest, Testing
  - 35 hours
  - 23% rated: 308,452 students - 73,000 ratings - 4.6 stars
@@ -109,7 +116,7 @@ The Complete Node.js Developer Course (3rd Edition) · by Andrew Mead and Rob Pe
  - Pros: many projects
  - https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
  
-Node.js, Express, MongoDB & More: The Complete Bootcamp · by Jonas Schmedtmann
+### Node.js, Express, MongoDB & More: The Complete Bootcamp · by Jonas Schmedtmann
  - Build REST API w NodeJS, Express, MongoDB, Mongoose
  - 42 hours
  - 16% rated: 164,760 students - 27,000 ratings - 4.6 stars
@@ -117,7 +124,7 @@ Node.js, Express, MongoDB & More: The Complete Bootcamp · by Jonas Schmedtmann
  - 1 Project: Tours Booking App
  - https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/
 
-Node.js API Masterclass With Express & MongoDB · by Brad Traversy
+### Node.js API Masterclass With Express & MongoDB · by Brad Traversy
  - Build REST API w NodeJS, Express, MongoDB, Mongoose, JWT (authentication)
  - 12 hours
  - 17% rated: 28,105 students - 5,000 ratings - 4.6 stars
@@ -126,7 +133,7 @@ Node.js API Masterclass With Express & MongoDB · by Brad Traversy
  - Pros: took a previous course by Brad and it was great
  - https://www.udemy.com/course/nodejs-api-masterclass/
 
-Node.js - The Complete RESTful API Masterclass · by Ghulam Abbas
+### Node.js - The Complete RESTful API Masterclass · by Ghulam Abbas
  - Build REST API w NodeJS, Express, MongoDB, Mongoose
  - 11 hours
  - 9% rated: 11,217 students - 1,000 ratings - 4.3 stars
@@ -134,7 +141,7 @@ Node.js - The Complete RESTful API Masterclass · by Ghulam Abbas
  - Projects?
  - https://www.udemy.com/course/build-restful-api-in-nodejs/
 
-NodeJs API for Beginners (Marketplace with AWS & MongoDB) · by Ryan Dhungel
+### NodeJs API for Beginners (Marketplace with AWS & MongoDB) · by Ryan Dhungel
  - Build REST APIs w NodeJS, AWS, AWS IAM SES, AWS S3, Express, MongoDB, Mongoose
  - 12 hours
  - 6% rated: 120,381 students - 7,232 ratings - 4.3 stars

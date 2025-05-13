@@ -40,6 +40,10 @@ Differentiate between dependencies environments:
 
 `npm init`
 
+or
+
+`npm init -y`   // instantly initialize project w default values
+
 2. `package.json` was created, add this line
 
 >     "scripts": {
@@ -62,7 +66,7 @@ Typically, only needed for development.
 
 1. Install it for development
 
-`npm install nodemon --save-dev`
+`npm i nodemon --save-dev`
 
 2. then under "scripts" in your package.json file, add "start": "nodemon app.js" like this -
 
@@ -85,7 +89,15 @@ https://expressjs.com/
 
 # Express Install
 
-`npm install express`
+`npm i express`
+
+-------------------------------------------------------
+
+# Express Usage
+
+Always call `next()` unless you send a response (with `res()`).
+
+If you send a `response` (with `res()`), never call `next()`.
 
 -------------------------------------------------------
 
@@ -108,12 +120,103 @@ Directly add `breakpoints` into VS Code.
 
 -------------------------------------------------------
 
-# Body Parser Install
+# Body Parser Middleware
 
-`npm install body-parser`
+Used to process data sent in an `HTTP request body`.
+
+Provides four express middleware for parsing:
+ 1. JSON
+ 2. Text
+ 3. URL-encoded
+ 4. Raw data
+
+Before parsing, `HTTP request body` was just a regular string that could not access the data encoded inside.
+
+After parsing, `HTTP request body` becomes a JavaScript `object`.
+
+`body-parser` allows you to access `req.body` from within routes and use that data.
 
 -------------------------------------------------------
 
-# 
+# Body Parser Install
 
+`npm i body-parser`
+
+-------------------------------------------------------
+
+# Handlebars Install
+
+`npm i express-handlebars@3.0`
+
+-------------------------------------------------------
+
+# REST APIs
+
+`REST` = Representational State Transfer = Transfer Data instead of UI
+
+`JSON` = JavaScript Object Notation
+
+`API Endpoints` = combination of HTTP Method and Path
+
+REST APIs are decoupled from the clients - there is no connection history
+
+-------------------------------------------------------
+
+# HTTP Methods [Best Practice]
+
+ - `GET`: get resource from server
+ - `POST`: post resource to server (i.e. create or append resource)
+ - `PUT`: put resource to server (i.e. create or override resource)
+ - `DELETE`: delete resource on server
+ - `PATCH`: update parts of an existing resource on the server
+ - `OPTIONS`: to check whether follow-up request (i.e. DELETE) is allowed
+
+But ultimately you can run any code you want. These are used to break down the route for a single path into many routes.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
+
+-------------------------------------------------------
+
+# REST Principles [Best Practice]
+
+### Uniform Interface
+Clearly defined API endpoints with clearly defined request + response data structure.
+
+### Stateless Interactions
+Server and client don't store any connection history, every request is handled separately.
+
+### Cacheable
+Servers may set caching headers to allow the client to cache responses.
+
+### Client-Server
+Server and client are separated, client is not concerned with persistent data storage.
+
+### Layered System
+Server may forward requests to other APIs.
+
+### Code On Demand
+Executable code may be transferred from server to client.
+
+-------------------------------------------------------
+
+# CORS [Best Practice]
+
+CORS = Cross Origin Resource Sharing
+
+Fix it in express:
+
+>     app.use((req, res, next) => {
+>       res.setHeader('Access-Control-Allow-Origin', '*');
+>       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+>       res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+>       next();
+>     })
+
+-------------------------------------------------------
+
+# Debugging
+
+You might want to try to change:
+ - `http://localhost` for `http://127.0.0.1`
+ - `Firefox` for `Chrome`
 
