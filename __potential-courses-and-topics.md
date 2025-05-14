@@ -37,6 +37,9 @@ Count approx 2 hours of lesson/tutorial per day
  - More: https://academind.com , and https://www.youtube.com/@academind
  - https://www.udemy.com/course/nodejs-the-complete-guide/
 
+### Webpack: Getting Started
+ - https://www.youtube.com/playlist?list=PL55RiY5tL51rcCnrOrZixuOsZhAHHy6os
+ 
 -------------------------------------------------------
 
 # TODO

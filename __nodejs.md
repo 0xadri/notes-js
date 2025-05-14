@@ -220,3 +220,128 @@ You might want to try to change:
  - `http://localhost` for `http://127.0.0.1`
  - `Firefox` for `Chrome`
 
+-------------------------------------------------------
+
+# Deployment [Best Practices]
+
+- Use environment variables
+- Use API Keys dedicated to Production
+- Reduce error output details, do not show sensitive info to users
+- Set secure response headers
+- Add asset compression
+- Configure logging/logs
+- Use SSL/TLS, encrypt data
+
+-------------------------------------------------------
+
+# Deploying SPAs (i.e. React App)
+
+If your app is using server-side rendering you must go with a node server. 
+
+In other cases you can basically deploy your application on anything you want — apache, nginx, express or host it on a CDN like S3 (Amazon).
+
+https://medium.com/@baphemot/understanding-react-deployment-5a717d4378fd
+
+NodeJS web app on AWS: https://aws.amazon.com/getting-started/projects/deploy-nodejs-web-app/
+
+-------------------------------------------------------
+
+# Environment Variables in NodeJS
+
+`nodemon.json` is the file where you add all your variables such as
+
+>     {
+>         "env": {
+>             "MONGODB_USER": "adri"
+>         }
+>     }
+
+`process.env.MONGODB_USER` is how you access one of these variables in your code
+
+https://www.udemy.com/course/nodejs-the-complete-guide/learn/lecture/12198022#questions
+
+-------------------------------------------------------
+
+# Heroku Alternatives
+
+Try: Vercel, Netlify, or Render
+
+-------------------------------------------------------
+
+# `npm`
+
+`npm` Docs https://docs.npmjs.com/
+
+`npm` CLI https://docs.npmjs.com/cli/
+
+`npm` Web https://www.npmjs.com/
+
+-------------------------------------------------------
+
+# `npm` in short
+
+The largest software registry in the world.
+
+More than two million packages. Used by more than 17 million developers.
+
+Free Registry. At the center of JavaScript code sharing.
+
+`npm Pro` gives features like private packages.
+
+-------------------------------------------------------
+
+# `npm` and `node.js`
+
+`npm` is the default package manager for the JavaScript runtime environment `Node.js`
+
+The `Node.js` installer includes `npm`.
+
+-------------------------------------------------------
+
+# `npm`, Isaac Schlueter and `GitHub`
+
+In 2009 Isaac Schlueter created `npm`. 
+
+In 2014, he launched a company around it called `npm, Inc.`.
+
+In 2020, he sold `npm, Inc.` to `GitHub`.
+
+https://github.com/isaacs
+
+-------------------------------------------------------
+
+# Versioning in `package.json`
+
+We refer to the standard `npm` version annotations.
+
+ - `~version` : only accepts new `patch` versions. Patch releases add "Backward compatible bug fixes" and "Increment the third digit".
+
+ - `^version` : accepts new `minor` and `patch` versions. Minor releases add "Backward compatible new features" and "Increment the middle digit and reset last digit to zero".
+
+ - `version` : must match exact version
+
+https://stackoverflow.com/a/25861938
+
+-------------------------------------------------------
+
+# Build Tools Explained
+
+ - Parse Files
+ - Manipulate Content
+ - Output New Files
+
+Typically, build tools merge all your code and transform it so that:
+ - even old browsers can run it
+ - the final file is much lighter
+ - the final code is optimized
+
+-------------------------------------------------------
+
+# Build Tools
+
+ - Webpack
+ - Vite
+ - esbuild
+
+Webpack (a build tool using Node.js): https://academind.com/tutorials/webpack-2-the-basics
+
