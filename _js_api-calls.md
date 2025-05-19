@@ -20,6 +20,64 @@ Read more
 
 -------------------------------------------------------
 
+# HTTP response status codes
+
+### Categories
+
+- `100` – `199`: Informational responses
+- `200` – `299`: Successful responses
+- `300` – `399`: Redirection messages
+- `400` – `499`: Client error responses
+- `500` – `599`: Server error responses
+
+### The Classics
+
+- `200`: OK
+- `201`
+- `400`: Bad Request
+- `401`: Unauthorized (Unauthenticated)
+- `403`: Forbidden (authenticated but not allowed to access)
+- `404`: Not Found
+- `500`: Internal Server Error
+- `502`: Bad Gateway
+
+Warning: this is just a convention, yes you can return wrong code that does not match the actual status of your response.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+
+-------------------------------------------------------
+
+# `Content-Type` header
+
+`Content-Type` header is used to indicate the original media type of a resource before any content encoding is applied.
+
+### `Content-Type` in URL-encoded form submission
+
+>     Content-Type: application/x-www-form-urlencoded
+
+### `Content-Type` in a REST API using JSON
+
+>     Content-Type: application/json
+
+Example of a 201 Created response showing the result of a successful request
+
+>     HTTP/1.1 201 Created
+>     Content-Type: application/json
+>     
+>     {
+>       "message": "New user created",
+>       "user": {
+>         "id": 123,
+>         "firstName": "Paul",
+>         "lastName": "Klee",
+>         "email": "p.klee@example.com"
+>       }
+>     }
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Type
+
+-------------------------------------------------------
+
 # API: Fetching Data: Very Simple Example [Best Practice]
 
 `fetch()` in `try/catch block`
@@ -92,9 +150,9 @@ I want `fetch()` calls in a separate utility file with all the various functions
 
 aka the `API Utility Layer`.
 
-Pending Questions:
- 1. should handling errors (the `try/catch block`) be in the `API Utility Layer` or in the `Component Layer` (react component)?
- 2. should the functions return "the three states": data state, loading state, error state? or just the response?
+Should handling errors (the `try/catch block`) be in the `API Utility Layer` or in the `Component Layer` (react component)?
+
+Should the functions return "the three states": `data state`, `loading state`, `error state`? or just the `response`?
 
 ## Solution Explained
 
@@ -228,4 +286,64 @@ Use a custom hooks. It allows to reuse logic with React Hooks.
 # Database:
 
 https://loadforge.com/guides/speed-up-your-react-app-best-practices-for-database-caching
+
+-------------------------------------------------------
+
+# API: Send JSON Data with POST
+
+        let url = 'http://localhost:8080/feed/post';
+        let method = 'POST';
+        
+        fetch(url, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            title: 'Epic Title',
+            content: 'Useful content you will never forget.'
+          })
+        })
+
+-------------------------------------------------------
+
+# `express-validator` 
+
+`express-validator` is a set of `express.js` middlewares that wraps the extensive collection of validators and sanitizers offered by `validator.js`.
+
+Validate and sanitize your express requests.
+
+https://express-validator.github.io/docs/
+
+-------------------------------------------------------
+
+# `express-validator` example
+
+Validation rules in router
+
+>     // POST /feed/post
+>     router.post('/post', 
+>       [
+>         body('title')
+>           .trim() // trim its value
+>           .isLength({ min: 7 }) // validate it's minimum 7 characters
+>           .withMessage('title too short'), // add error msg
+>         body('content').trim().isLength({ min: 7 })
+>       ],
+>       feedController.createPost
+>     );
+
+Check passed validation in controller
+
+>     exports.createPost = (req, res, next) => {
+>       const errors = validationResult(req);
+>       if (!errors.isEmpty()){
+>         return res.status(422).json({ message: 'Validation failed sry.', errors: errors.array() })
+>       }
+>       
+>       res.status(201).json({
+>         // ...code
+>       });
+>     };
+
 

@@ -45,16 +45,62 @@ Exam - https://www.aws.training/
 
 -------------------------------------------------------
 
+# Deploying a React App on AWS S3
+
+Source for the below guide: https://www.youtube.com/watch?v=SHN48wTEQ5I
+
+- create a bucket
+- ACL Disabled - leave as is
+- Block Public Access Settings > untick "Block Public Access"
+- Block Public Access Settings > tick "I acknowledge..."
+- click "create bucket"
+- properties tab > static website hosting > select "enable"
+	- index document > type "index.html"
+- permissions tab > bucket policies > edit
+	- add action > type and select "s3"
+	- type "getobj" > select "getobject"
+	- next to "add a resource", click on "add" button
+		- under "resource type", select "object"
+		- under "Resource ARN", replace "{BucketName}" by your project name (as appearing in url) i.e. "my-react-app"
+		- under "Resource ARN", replace "{ObjectName}" by *
+		- under "Resource ARN", will look like: arn:aws:s3:::my-react-app/*
+	- directly in the Policy replace:
+		- "Principal": {},
+		by
+		- "Principal": "*",
+	- click on "Save Changes"
+   	Final file will look like:
+>     {
+>     	"Version": "2012-10-17",
+>     	"Statement": [
+>     		{
+>     			"Sid": "Statement1",
+>     			"Principal": "*",
+>     			"Effect": "Allow",
+>     			"Action": [
+>     				"s3:GetObject"
+>     			],
+>     			"Resource": [
+>     				"arn:aws:s3:::basic-node-rest-api/*"
+>     			]
+>     		}
+>     	]
+>     }
+
+- Objects tab > upload your project files to the bucket
+- Access your project aws url
+
+Additional tips
+ - Fix routing issues by adding `index.html` to "Error Document" under `Properties` -> `Static website hosting` ; c.f. https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
+ - for vite use `npm run build`, c.f. https://v4.vitejs.dev/guide/static-deploy.html
+
+-------------------------------------------------------
+
 # HowTos
 
 How to Install and Configure AWS Command Line Interface (CLI)
  - https://www.youtube.com/watch?v=BzzCIsjrE7U
 
-Deploying a React App on AWS S3
- - https://www.youtube.com/watch?v=SHN48wTEQ5I
- - p.s. for vite use `npm run build`, c.f. https://v4.vitejs.dev/guide/static-deploy.html
- - p.s. add `index.html` to "Error Document" under `Properties` -> `Static website hosting` ; c.f. https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket
- 
 Debugging AWS Lambda and API Gateway (In-Depth Guide) - Part 3 of my Debugging Series
  - https://www.youtube.com/watch?v=y3ZfoCZ_yzg
 

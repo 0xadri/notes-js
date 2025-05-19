@@ -1,14 +1,22 @@
 
-Count approx 2 hours of lesson/tutorial per day
-
--------------------------------------------------------
-
 # IN PROGRESS
+
+### NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
+ - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
+ - 40.5 hours · approx 20 days FT
+ - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
+ - 18% rated: 283,063 students · 52,000 ratings · 4.6 stars
+ - 1 Project: ECommerce
+ - Pros: has 3.5 hours on REST APIs + took a previous course by Maximilian and it was great
+ - More Links: https://academind.com , and https://www.youtube.com/@academind
+ - Repo: https://github.com/unsivilaudio/node.js-complete-guide-2024
+ - More: https://academind.com , and https://www.youtube.com/@academind
+ - https://www.udemy.com/course/nodejs-the-complete-guide/
 
 ### React The Complete Guide · by Maximilian Schwarzmueller
  - React, Hooks, Redux, Router, Form Actions, Context API, Tanstack Query, React Server Components, Custom Hooks, Testing, React+Typescript, Next.js, 
- - 71 hours
- - 24% rated: 959,428 students - 229,000 ratings - 4.6 stars
+ - 71 hours · approx 35 days FT
+ - 24% rated: 959,428 students · 229,000 ratings · 4.6 stars
  - Updated? looks like it
  - Projects: Quiz App, Food Order App, Multi-Page SPA, 
  - Repo: https://github.com/academind/react-complete-guide-course-resources/tree/main
@@ -17,27 +25,15 @@ Count approx 2 hours of lesson/tutorial per day
 
 ### Microservices with Node JS and React · by Stephen Grider
  - Microservices, Docker, Kubernetes, CI/CD, NATS, NodeJS, Express, MongoDB, React (SSR), Typescript, Stripe
- - 54 hours
- - 14% rated: 134,470 students - 19,232 ratings - 4.7 stars
+ - 54 hours · approx 27 days FT
+ - 14% rated: 134,470 students · 19,232 ratings · 4.7 stars
  - Updated? looks like it
  - Projects?
  - Repo?
  - More?
  - https://www.udemy.com/course/microservices-with-node-js-and-react/
 
-### NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
- - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
- - 40.5 hours
- - Out of date! From 2020. Expect fixing and debugging. Some things may not even exist anymore.
- - 18% rated: 283,063 students - 52,000 ratings - 4.6 stars
- - 1 Project: ECommerce
- - Pros: has 3.5 hours on REST APIs + took a previous course by Maximilian and it was great
- - More Links: https://academind.com , and https://www.youtube.com/@academind
- - Repo: https://github.com/unsivilaudio/node.js-complete-guide-2024
- - More: https://academind.com , and https://www.youtube.com/@academind
- - https://www.udemy.com/course/nodejs-the-complete-guide/
-
-### Webpack: Getting Started
+### Webpack: Getting Started · by Maximilian Schwarzmüller
  - https://www.youtube.com/playlist?list=PL55RiY5tL51rcCnrOrZixuOsZhAHHy6os
  
 -------------------------------------------------------
@@ -74,7 +70,7 @@ Count approx 2 hours of lesson/tutorial per day
 
 ### Next.js From Scratch · by Brad Traversy
  - NextJS, React, MongoDB, Mongoose, Data Fetching, Next Auth
- - 10 hours
+ - 10 hours · approx 5 days FT
  - 7,198 students - 1,150 ratings
  - Up to date
  - 1 Project: Property Rental Website
@@ -86,7 +82,7 @@ Count approx 2 hours of lesson/tutorial per day
  - https://github.com/techwithtim/Learn-React-In-One-Project/blob/main/src/pages/Home.jsx
 
 ### Ultimate AWS Certified Cloud Practitioner CLF-C02 2025 · by Stephane Maarek
- - 15 hours
+ - 15 hours · very indigest · approx 10 days FT
  - 1,153,169 students - 247,000 ratings
  - https://www.udemy.com/course/aws-certified-cloud-practitioner-new/
  

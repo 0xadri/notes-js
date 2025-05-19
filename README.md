@@ -1,6 +1,6 @@
 # Personal Notes
 
-Dump of notes I take.
+These are notes I take along months and years. The file namings are self-explanatory so there is no index.
 
 ## Tech Covered
 
