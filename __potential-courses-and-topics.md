@@ -38,14 +38,24 @@
  
 -------------------------------------------------------
 
-# TODO
+# TODOs 
 
-## TOPICS
+### Backend Topics
 
- - UX: code mobile first
- - Error handling, see `_reactjs_errors.md`
+ - REST API project, using TDD
+ - REST API project, integrated w DB
+ - REST API project, w user signup (crypto? jwt?)
+ - REST API project, w user login (jwt)
  - NodeJS API [Best Practices]
- - REST principles
+ - TDD: code using tdd i.e. mocha+chai
+ 
+### Frontend Topics
+
+ - UX/React: code mobile first
+ - Error handling, see `_reactjs_errors.md`
+
+### More Topics
+
  - TanStack Query - https://tanstack.com/query/latest
  - SWR - https://swr.vercel.app/
  - AWS Deployment [Best Practices]

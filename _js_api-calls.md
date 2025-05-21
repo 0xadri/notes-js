@@ -33,7 +33,7 @@ Read more
 ### The Classics
 
 - `200`: OK
-- `201`
+- `201`: OK and resource created i.e. new entry in database
 - `400`: Bad Request
 - `401`: Unauthorized (Unauthenticated)
 - `403`: Forbidden (authenticated but not allowed to access)
