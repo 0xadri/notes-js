@@ -49,14 +49,15 @@ Exam - https://www.aws.training/
 
 Source for the below guide: https://www.youtube.com/watch?v=SHN48wTEQ5I
 
-- create a bucket
-- ACL Disabled - leave as is
-- Block Public Access Settings > untick "Block Public Access"
-- Block Public Access Settings > tick "I acknowledge..."
-- click "create bucket"
-- properties tab > static website hosting > select "enable"
-	- index document > type "index.html"
-- permissions tab > bucket policies > edit
+1. create a bucket
+2. ACL Disabled - leave as is
+3. Block Public Access Settings > untick "Block Public Access"
+4. Block Public Access Settings > tick "I acknowledge..."
+5. click "create bucket"
+6. properties tab > static website hosting > select "enable"
+	- Index Document > type "index.html"
+	- Error Document > type "index.html"
+7. permissions tab > bucket policies > edit
 	- add action > type and select "s3"
 	- type "getobj" > select "getobject"
 	- next to "add a resource", click on "add" button
@@ -87,8 +88,8 @@ Source for the below guide: https://www.youtube.com/watch?v=SHN48wTEQ5I
 >     	]
 >     }
 
-- Objects tab > upload your project files to the bucket
-- Access your project aws url
+8. Objects tab > upload your project files to the bucket
+9. Access your project aws url 🎉
 
 Additional tips
  - Fix routing issues by adding `index.html` to "Error Document" under `Properties` -> `Static website hosting` ; c.f. https://stackoverflow.com/questions/51218979/react-router-doesnt-work-in-aws-s3-bucket

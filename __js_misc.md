@@ -243,6 +243,28 @@ localStorage+react https://blog.logrocket.com/using-localstorage-react-hooks/
 
 -------------------------------------------------------
 
+# Cookies
+
+TODO
+
+-------------------------------------------------------
+
+# How do we send cookies from the browser to the server? 
+
+read cookies with javascript and set the request header?
+
+TODO
+
+-------------------------------------------------------
+
+# How do we send cookies from the server to the browser? 
+
+set the response header?
+
+TODO 
+
+-------------------------------------------------------
+
 # Event Syntax Equivalents
 
 const handleChange = (event) => setEmail(event.target.value);

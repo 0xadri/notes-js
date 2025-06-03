@@ -7,7 +7,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 -------------------------------------------------------
 
-# API: Principles [Best Practices]
+# RESTful API Consumption: Principles [Best Practices]
 
 1. handle `fetch()` errors in `try/catch block`, NOT react error boundaries
 2. use three states: `data`, `loading` and `error`
@@ -20,7 +20,99 @@ Read more
 
 -------------------------------------------------------
 
-# HTTP response status codes
+# HTTP Messages
+
+Mechanism used to exchange data between a server and a client in the HTTP protocol.
+
+Two parts
+ 1. Request
+ 2. Response
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages
+
+-------------------------------------------------------
+
+# HTTP Request Has 4 Parts
+
+ 1. Method
+ 2. Location (url)
+ 3. Headers
+ 4. Content (body)
+
+-------------------------------------------------------
+
+# Request Methods
+
+ - `GET`: get resource from server
+ - `POST`: sends a resource to server, to then receive one (i.e. create or append resource; form submissions like login, search)
+ - `HEAD`: checks the state of a resource (i.e. whether a web page has updated its content)
+ - `PUT`: put resource to server (i.e. create or override resource)
+ - `DELETE`: delete resource on server
+ - `PATCH`: update parts of an existing resource on the server
+ - `OPTIONS`: to check whether follow-up request (i.e. DELETE) is allowed
+
+But ultimately you can run any code you want. These are used to break down the route for a single path into many routes.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
+
+
+-------------------------------------------------------
+
+# RESTful API: Idempotent Methods
+
+GET, PUT, DELETE, HEAD, OPTIONS, and TRACE methods are supposed to be idempotent.
+
+Meaning that no matter how many times the request is made, the server's state remains the same after the first request.
+
+-------------------------------------------------------
+
+# Preflight Request
+
+It is an HTTP request of the OPTIONS method, sent before the request itself, in order to determine if it is safe to send it.
+ 
+It is only after the server has sent a positive response that the actual HTTP request is sent.
+
+-------------------------------------------------------
+
+# Request Headers
+
+Has meta information about the request.
+
+Extremely important metadata i.e. who's requesting the data? What type of data is expecting?
+
+### User-Agent 
+
+An identity header that tells the server who's requesting the document.
+
+Your web browser identifies itself with a `User-Agent` string w format "Browser Name, Operating System, Some version numbers".
+
+`User-agent` helps the server to determine whether to serve or deny the client.
+
+### Cookie
+
+Store persistent data. 
+
+A vital feature for websites to keep track of user state: user logins, configuration preferences etc.
+
+## Accept 
+
+Accet headers (also Accept-Encoding, Accept-Language etc.) contain information about what sort of content we're expecting.
+
+Chrome browser uses this: `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8`
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers
+
+-------------------------------------------------------
+
+# HTTP Response Has 3 Parts
+
+ 1. Status Code
+ 2. Headers
+ 3. Content (body? document? source?) - optional?
+
+-------------------------------------------------------
+
+# Response Status Codes
 
 ### Categories
 
@@ -47,7 +139,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 
 -------------------------------------------------------
 
-# `Content-Type` header
+# `Content-Type` Header
 
 `Content-Type` header is used to indicate the original media type of a resource before any content encoding is applied.
 
@@ -78,7 +170,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Type
 
 -------------------------------------------------------
 
-# API: Fetching Data: Very Simple Example [Best Practice]
+# RESTful API: Fetching Data: Very Simple Example [Best Practice]
 
 `fetch()` in `try/catch block`
 
@@ -142,7 +234,7 @@ source: https://github.com/academind/react-complete-guide-course-resources/blob/
 
 -------------------------------------------------------
 
-# API: Fetching Data: With Helper File [Best Practice]
+# RESTful API: Fetching Data: With Helper File [Best Practice]
 
 ## Problem Statement
 

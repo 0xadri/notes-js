@@ -38,6 +38,11 @@ Instead of exposing your secret to the client, use a Backend API or Proxy:
 - The backend uses `SECRET_API_KEY` securely to call the third-party service.
 - The backend returns only the non-sensitive response to the frontend.
 
+Bonus points
+- You control rate limits
+- You can filter/sanitize
+- You can rotate secrets
+
 ### Example
 
 Frontend code
@@ -63,7 +68,7 @@ Backend code - Express, Next.js API route, or serverless function
 
 Make sure
 - `.env` is in the root folder
-- `.gitignore` contains `.env`, `nodemon.json`
+- `.gitignore` contains `.env`, `.env.development`, `.env.production`, `nodemon.json`
 - `readme` documents the required environment variables in `.env`, `nodemon.json` and/or other files
 - when deploying on a Cloud Platforms-as-a-Service, you figure out if environment variables were included in the final javascript bundle, if not you must be set them up (prob manually) on the platform
 
@@ -86,4 +91,16 @@ Note: it's not super clear how this works, need to investigate
 Vite has built-in `.env` support. It automatically loads `.env`, `.env.development`, etc.
 
 Variables prefixed with `VITE_` are exposed to the client - and then included in the final bundle.
+
+-------------------------------------------------------
+
+# Environment Variables Setup On `Webpack`
+
+c.f. dedicated notes file on `webpack`
+
+-------------------------------------------------------
+
+# Environment Variables Setup On `Vite`
+
+c.f. dedicated notes file on `vite`
 

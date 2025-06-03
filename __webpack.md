@@ -36,7 +36,7 @@ Note you might have to only add the "build" line.
 >       target: 'node',
 >     };
 
-Note you might want to change "./app.js" to your correct path.
+Note you might want to change `./app.js` to your correct path.
 
 https://webpack.js.org/guides/installation/
 
@@ -44,33 +44,47 @@ https://webpack.js.org/guides/installation/
 
 # Build
 
-`npm run build`
+1. `npm run build`
 
-Then locally preview your build:
-`npm run preview`
+2. `node ./dist/final.js`
 
-https://v4.vitejs.dev/guide/static-deploy.html
+This is to locally preview your buid.
 
--------------------------------------------------------
-
-# HTTPS on localhost
-
-`npm install -D @vitejs/plugin-basic-ssl`
-
-> import basicSsl from '@vitejs/plugin-basic-ssl'
-> 
-> export default {
->   plugins: [
->     basicSsl()
->   ]
-> }
-
-https://stackoverflow.com/questions/69417788/vite-https-on-localhost
+Note you may want to change `./final.js` to your correct path.
 
 -------------------------------------------------------
 
-# Env Variables and Modes
+# Environment Variables Setup On `Webpack`
 
-Debugging
- 1. Make sure your `.env` file is in the root of your project. Not in the `src` folder.
- 2. Make sure your variables start with `VITE_`
+1. `npm i dotenv-webpack --save-dev`
+
+Note it's only installed for dev environment.
+
+2. Update Your `webpack.config.js`
+
+>     const Dotenv = require('dotenv-webpack');
+>     
+>     module.exports = {
+>       plugins: [
+>         new Dotenv({
+>           path: './.env',          // default
+>           safe: false,             // true = use .env.example to validate
+>           systemvars: false,       // true = also load system environment variables
+>           allowEmptyValues: false  // true = allow empty env vars
+>         })
+>       ]
+>     };
+
+3. Create Your `.env` File
+
+4. Access Vars In Your Code
+
+>     console.log(process.env.PUBLIC_API_URL);
+
+-------------------------------------------------------
+
+# Development vs Production
+
+https://webpack.js.org/guides/development/
+
+https://webpack.js.org/guides/production/

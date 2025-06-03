@@ -51,3 +51,16 @@ https://stackoverflow.com/questions/69417788/vite-https-on-localhost
 Debugging
  1. Make sure your `.env` file is in the root of your project. Not in the `src` folder.
  2. Make sure your variables start with `VITE_`
+
+https://vite.dev/guide/env-and-mode
+
+Read more in dedicated notes "nodejs environment variables"
+
+-------------------------------------------------------
+
+# Migrate to Vite from Create React App (CRA)
+
+https://www.robinwieruch.de/vite-create-react-app/
+
+-------------------------------------------------------
+
