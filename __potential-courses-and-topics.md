@@ -1,6 +1,16 @@
 
 # IN PROGRESS
 
+### Build 8 Weeks Roadmap
+ - Interviews: Land and Succeed
+ - Technical Gaps: Find and Fix
+ - Projects
+ - Courses
+
+### Analyzing Coaching Programs For Software Devs
+ - TheSeniorDev.com by borthers Dragos and Bogdan Nedelcu - IN PROG...
+ - training.devlaunch.us by Tim Ruscica, Kevin Naughton and Kenny Gunderman - pretty bad - DONE
+
 ### NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
  - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
  - 40.5 hours · approx 20 days FT

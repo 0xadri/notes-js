@@ -122,6 +122,40 @@ Each micro frontend can be developed, tested, and deployed independently by diff
 
 -------------------------------------------------------
 
+# Module Federation Pattern
+
+TODO
+
+-------------------------------------------------------
+
+# Component Driven Development
+
+Encapsulating code in smaller pieces of code called Components.
+
+Includes Component Design and Component Testing.
+
+-------------------------------------------------------
+
+# “State Machine” Pattern
+
+TODO
+
+-------------------------------------------------------
+
+# Essential State vs Derived state
+
+TODO
+
+-------------------------------------------------------
+
+# Hierarchy Of States
+
+Component State, Shared State, and Global State
+
+TODO
+
+-------------------------------------------------------
+
 # Singleton Pattern
 
 TODO
