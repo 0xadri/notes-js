@@ -1,4 +1,19 @@
 
+-------------------------------------------------------
+
+# Basic API Design patterns
+
+TODO
+
+-------------------------------------------------------
+
+# Server Optimisation: Caching
+
+Caching is at its core saving a copy of the data/files that your users require most often and serving them that copy, instead of making a trip to the database and back.
+
+You could cache(save) that copy at different levels. You could save it on the browser. On a server geographically closer to your client (CDN). Or in your backend to avoid doing expensive operations again and again.
+
+-------------------------------------------------------
 
 # Round Robin for load balancing
 
@@ -114,11 +129,41 @@ When you have a file called axios.js, we say call it the axios module.
 
 # Micro Frontends
 
-Architectural style in frontend web development where an application is broken down into independent, deployable features.
+Architectural style in frontend web development.
 
 Similar to the microservices approach in backend development.
 
-Each micro frontend can be developed, tested, and deployed independently by different teams, promoting modularity, scalability, and faster delivery cycles. 
+Breaks big monolithic frontend applications into smaller ones. Into independent, deployable features.
+
+Each micro frontend can be developed, tested, and deployed independently by different teams.
+
+Promotes modularity, scalability, and faster delivery cycles. 
+
+-------------------------------------------------------
+
+# Server Side Rendering (SSR)
+
+Architectural style in frontend web development
+
+Server Side Rendering allows you to render your JavaScript application on the server before sending it to the browser, increasing web performance and SEO. 
+
+This is not easy as SPAs were built with CSR (client-side rendering) in mind. 
+
+Downside is... javascript must be loaded too anyway before the UI has any functionality.
+
+TODO
+
+-------------------------------------------------------
+
+# Backend-For-Frontend Pattern (BFF)
+
+Having a MicroFrontend Architecture or having different types of clients(mobile app, web app) consuming data from the backend means the backend REST APIs will need to adapt to all those different requirements. 
+
+A mobile app might need the same data as the web app but in a different format. This adds a lot of complexity to the backend.
+
+To solve this problem, the BFF(backend-for-frontend pattern) has been invented. It basically means having a backend layer close to the frontend. 
+
+TODO
 
 -------------------------------------------------------
 

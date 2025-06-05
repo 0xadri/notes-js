@@ -318,6 +318,63 @@ It generally best to avoid this technique as you may want to override this prope
 
 -------------------------------------------------------
 
+# CSS Normalise vs CSS Reset
+
+Both intend to override any browser-specific defaults.
+
+### Reset CSS
+
+Reset CSS is hardcore mode: removes all defaults.
+
+Created around 2008
+ - IE 6, 7 were ubiquitous
+ - Chrome didn't exist
+ - multiple CSS engines existed all providing different default presentations
+
+### Normalise CSS
+
+Normalise CSS is prettifier mode: sets many defaults.
+
+Created around 2012
+ - Chrome existed, and used webkit (what Safari used)
+ - Opera was moving to webkit (what Safari used)
+ - IE6 usage had dropped below 1% globally
+ - Today there are two big CSS Engines providing fairly similar default presentations
+ - Blink / Webkit (Blink is a fork of Webkit)
+ - Quantum
+
+-------------------------------------------------------
+
+# CSS Normalise vs CSS Reset: Common Usage
+
+### Testimony in 2024
+
+Use a normalize and throw on top my own handspun baselines:
+ - Typography baseline for making sure every.single.html.element has a style https://www.npmjs.com/package/typography-baseline.css
+ - Table baseline for making sure tables don't look like garbage https://www.npmjs.com/package/table-baseline.css
+ - Form baseline for making sure all inputs and form elements look decent https://www.npmjs.com/package/form-baseline.css
+
+### Testimony in 2025
+
+I prefer resets over normalize. I don't want default browser margins and values mucking with my designs.
+
+-------------------------------------------------------
+
+# CSS Normalise
+
+Normalize CSS by Nicolas Gallagher (Necolas)
+ - https://github.com/necolas/normalize.css
+ - https://www.npmjs.com/package/normalize.css
+
+Normalize CSS by Sindre Sorhus
+ - https://github.com/sindresorhus/modern-normalize
+ - https://www.npmjs.com/package/modern-normalize
+
+Normalize CSS by Jonathan Neal
+ - https://github.com/csstools/normalize.css
+
+-------------------------------------------------------
+
 # CSS - Reset Stylesheet
 
 The reset stylesheet is very important. It is used to override browsers default styles of some elements to your own custom values. The aim is to reduce browsers inconsistencies.

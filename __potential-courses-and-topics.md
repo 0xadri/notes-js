@@ -2,6 +2,7 @@
 # IN PROGRESS
 
 ### Build 8 Weeks Roadmap
+Categories
  - Interviews: Land and Succeed
  - Technical Gaps: Find and Fix
  - Projects
@@ -9,7 +10,7 @@
 
 ### Analyzing Coaching Programs For Software Devs
  - TheSeniorDev.com by borthers Dragos and Bogdan Nedelcu - IN PROG...
- - training.devlaunch.us by Tim Ruscica, Kevin Naughton and Kenny Gunderman - pretty bad - DONE
+ - training.devlaunch.us by Tim Ruscica, Kevin Naughton and Kenny Gunderman - pretty bad - WONT
 
 ### NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno) · by Maximilian Schwarzmüller
  - Build REST APIs w NodeJS, Express, GraphQL, MongoDB, Mongoose, Deno, MVC, SQL, Websockets, Testing, JWT (aauth)
@@ -94,7 +95,8 @@
  - 7,198 students - 1,150 ratings
  - Up to date
  - 1 Project: Property Rental Website
- - https://www.udemy.com/course/nextjs-from-scratch/
+ - Course Link: https://www.udemy.com/course/nextjs-from-scratch/
+ - Course Teacher: https://www.traversymedia.com/ and https://www.youtube.com/traversymedia
 
 ### Tech With Tim: Learn React With This ONE Project
  - 2 hours

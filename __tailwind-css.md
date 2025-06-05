@@ -41,6 +41,8 @@ https://www.preline.co/ — warning: you must include a JavaScript file
 
 https://daisyui.com/ — warning: you must include a JavaScript and a CSS file
 
+https://github.com/cruip/tailwind-dashboard-template - warning: React project
+
 -------------------------------------------------------
 
 # Premade UI Components: Special Picks
