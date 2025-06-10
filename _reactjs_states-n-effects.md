@@ -361,19 +361,15 @@ Prefer computed values
 
 # Effect Hook: Use Cases
 
-Effects let a component connect to and `synchronize` with external systems.
-
-i.e. dealing with network, browser DOM, animations and other non-React code.
-
--------------------------------------------------------
-
-# `escape hatches`
+Effect Hook = `escape hatch`.
 
 Effects are an `escape hatch` from the React paradigm.
 
 `escape hatches`: features that let you “step outside” React and connect to external systems.
 
-Other `escape hatches` include refs, custom Hooks
+Effects let a component connect to and `synchronize` with external systems i.e. deal with network, API calls, DB calls, browser DOM, animations and other non-React code.
+
+Other `escape hatches` include `refs`, and `custom Hooks`.
 
 -------------------------------------------------------
 
@@ -393,14 +389,13 @@ https://react.dev/learn/removing-effect-dependencies#is-your-effect-doing-severa
 
 # Effect Hook: How To
 
-useEffect() function calls its 1st argument (the effect) after each time a component renders - not just once
+`useEffect()` function - calls its 1st argument (the effect) after each time a component renders - not just once
 
 >     useEffect(() => {
 >         alert ( "Yo!" );
 >     });
 
-Effect Cleanup Function
-Called when the component is being unmounted and before calling the effect again
+Effect Cleanup Function – Called when the component is being unmounted and before calling the effect again
 
 >     useEffect(()=>{
 >       alert ( "Yo!" );
@@ -419,7 +414,6 @@ Effect Cleanup Function — used to remove handler
 >         document.removeEventListener('keydown', handleKeyPress);
 >       };
 >     });
-
 
 Conditional re-render - Run an effect only when the component mounts (if renders the first time)
 
@@ -445,9 +439,9 @@ Conditional re-render - Run an effect only when the component mounts (if renders
 
 ----------------------
 
-# States vs Refs
+# `States` vs `Refs`
 
-Like `States`, `Refs` do not loose value when the component `re-renders` (`re-executes`).
+Similarlt to `States`, `Refs` do not loose value when the component `re-renders` (`re-executes`).
 
 But unlike `States`, setting `Refs` to new values does not trigger `re-render`.
 
@@ -466,4 +460,4 @@ https://react.dev/reference/react/useRef
 
 # Debouncing Clicks Actions
 
-
+TODO

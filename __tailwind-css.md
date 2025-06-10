@@ -41,7 +41,9 @@ https://www.preline.co/ — warning: you must include a JavaScript file
 
 https://daisyui.com/ — warning: you must include a JavaScript and a CSS file
 
-https://github.com/cruip/tailwind-dashboard-template - warning: React project
+https://github.com/cruip/tailwind-dashboard-template - warning: comes with React
+
+https://originui.com/ - warning: comes with React
 
 -------------------------------------------------------
 
@@ -95,16 +97,27 @@ Tailwind Profile Card - https://jsfiddle.net/adamwathan/z5pscdmz/
 
 `bg-gradient-to-tl` `from-indigo-600` `to-pink-600`
 
+`max-h-90`
 
 -------------------------------------------------------
 
 # Responsive
 
+There are 5 breakpoints by default, inspired by common device resolutions.
+
+They define a min width, they take effect at the specified breakpoint and above.
+
 Min width:
 
-`sm`
+`sm` = 40rem (640px)
 
-`md`
+`md` = 48rem (768px)
+
+`lg` = 64rem (1024px)
+
+`xl` = 80rem (1280px)
+
+`2xl` = 96rem (1536px)
 
 Max width:
 
@@ -112,5 +125,24 @@ Max width:
 
 `max-md`
 
+`max-lg`
+
+`max-xl`
+
+`max-2xl`
+
 https://tailwindcss.com/docs/responsive-design
+
+-------------------------------------------------------
+
+# Max Height
+
+
+max-h-3/4
+
+max-h-[220px]
+
+https://tailwindcss.com/docs/max-height
+
+https://kombai.com/tailwind/max-height/
 
