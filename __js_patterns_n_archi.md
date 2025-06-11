@@ -7,6 +7,39 @@ TODO
 
 -------------------------------------------------------
 
+# Function Currying pattern
+
+We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
+
+TODO
+
+-------------------------------------------------------
+
+# Higher Order Function pattern
+
+TODO
+
+-------------------------------------------------------
+
+# Observer pattern
+
+TODO
+
+
+-------------------------------------------------------
+
+# Factory pattern
+
+TODO
+
+-------------------------------------------------------
+
+# Function Debouncing pattern
+
+TODO
+
+-------------------------------------------------------
+
 # Server Optimisation: Caching
 
 Caching is at its core saving a copy of the data/files that your users require most often and serving them that copy, instead of making a trip to the database and back.
@@ -236,3 +269,25 @@ Modular Monoliths ?
 Client-Server Architecture ?
 
 TODO
+
+-------------------------------------------------------
+
+# IIFE used as a module declaration
+
+IIFE (Immediately Invoked Function Expression)
+
+(function (module) {
+  const someVariable = "someVar";
+
+  function returnFirstChar(text) {
+    // ...
+  }
+
+  module.returnFirstChar = returnFirstChar;
+  module.firstChar = firstChar;
+  window.myModule = module;
+})({});
+
+
+
+
