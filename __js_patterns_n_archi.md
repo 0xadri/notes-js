@@ -1,6 +1,59 @@
 
 -------------------------------------------------------
 
+# Modular Monolith Architecture
+
+a single service device in separated modules with clear boundaries.
+
+TODO
+
+-------------------------------------------------------
+
+# Event-Driven Architecture
+
+TODO
+
+-------------------------------------------------------
+
+# Client-Server Architecture
+
+TODO
+
+-------------------------------------------------------
+
+# Microservices Architecture
+
+TODO
+
+-------------------------------------------------------
+
+# Which of the following Architecture Style achieves the maximum decoupling between services?
+
+Microservices Architectures ?
+Event-Driven Architectures ???
+Modular Monoliths ?
+Client-Server Architecture ?
+
+TODO
+
+-------------------------------------------------------
+
+# The so-called MicroServices Tax refers to ...
+
+The additional complexity of implementing a MicroServices Architecture (v.s a Monolith Architecture)
+
+Microservices architecture requires more maintenance and development.
+
+Drawbacks of MicroServices:
+
+    extra latency - a call into the system usually translates to a cascade of calls(over the network) to several services downstream. Each extra call makes the total response time longer.
+
+    extra complexity - to get data from another service we need to make a call over the network, handle authentication, caching, and maybe even load balancing. In a modular monolith, it would have been a simple function call.
+
+    extra resources - although we can rip some scalability benefits from Microservices(see system design) we need extra pieces in our architecture: distributed login and monitoring and distributed analytics just to name a few. This all ads up in our cloud bill at the end of the month.
+
+-------------------------------------------------------
+
 # Basic API Design patterns
 
 TODO
@@ -31,6 +84,14 @@ TODO
 # Factory pattern
 
 TODO
+
+-------------------------------------------------------
+
+# The MVC pattern is an example of ...
+
+A Layered Architecture.
+
+It separates the application into three interconnected layers: the Model, the View, and the Controller.
 
 -------------------------------------------------------
 
@@ -154,6 +215,24 @@ http://jargon.js.org/_glossary/COMMONJS.md
 
 -------------------------------------------------------
 
+# CommonJS Modules vs ES6 Modules
+
+>     module.exports = askQuestionSet;
+
+Becomes
+
+>     export default askQuestionSet;
+
+Then 
+
+>     const askQuestionSet = require("./askQuestionSet.js");
+
+Becomes
+
+>     import askQuestionSet from "./askQuestionSet.js";
+
+-------------------------------------------------------
+
 # Design Pattern : Module Pattern In Practice
 
 When you have a file called axios.js, we say call it the axios module.
@@ -258,17 +337,6 @@ Queue?
 Stack?
 Tree?
 Graph?
-
--------------------------------------------------------
-
-# Which of the following Architecture Style achieves the maximum decoupling between services?
-
-Microservices Architectures ?
-Event-Driven Architectures ?
-Modular Monoliths ?
-Client-Server Architecture ?
-
-TODO
 
 -------------------------------------------------------
 

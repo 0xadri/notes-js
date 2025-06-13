@@ -55,14 +55,19 @@ But ultimately you can run any code you want. These are used to break down the r
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
 
-
 -------------------------------------------------------
 
 # RESTful API: Idempotent Methods
 
-GET, PUT, DELETE, HEAD, OPTIONS, and TRACE methods are supposed to be idempotent.
+`GET`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE` methods are supposed to be idempotent.
 
 Meaning that no matter how many times the request is made, the server's state remains the same after the first request.
+
+-------------------------------------------------------
+
+# RESTfull URL Representation
+
+TODO
 
 -------------------------------------------------------
 
@@ -116,20 +121,24 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers
 
 ### Categories
 
-- `100` – `199`: Informational responses
-- `200` – `299`: Successful responses
-- `300` – `399`: Redirection messages
-- `400` – `499`: Client error responses
-- `500` – `599`: Server error responses
+- `2xx`: Successful responses !!
+
+- `4xx`: Client ERROR responses 
+- `5xx`: Server ERROR responses
+
+- `1xx`: Informational responses
+- `3xx`: Redirection messages
 
 ### The Classics
 
 - `200`: OK
 - `201`: OK and resource created i.e. new entry in database
+
 - `400`: Bad Request
 - `401`: Unauthorized (Unauthenticated)
 - `403`: Forbidden (authenticated but not allowed to access)
 - `404`: Not Found
+
 - `500`: Internal Server Error
 - `502`: Bad Gateway
 
