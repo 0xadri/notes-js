@@ -369,7 +369,13 @@ Transforms the code that runs in the browser to the original source which makes 
 
 -------------------------------------------------------
 
-# 
+# What's cache busting?
+
+a technique used in web development to ensure users always see the latest version of website resources (like CSS and JavaScript files) by preventing the browser from using cached, potentially outdated versions. 
+
+It works by appending a unique identifier, such as a version number or timestamp, to the file's URL, causing the browser to treat it as a new file and download it from the server, bypassing the cache.
+
+Often by appending a hash to file names.
 
 -------------------------------------------------------
 

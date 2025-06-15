@@ -88,3 +88,63 @@ Note it's only installed for dev environment.
 https://webpack.js.org/guides/development/
 
 https://webpack.js.org/guides/production/
+
+-------------------------------------------------------
+
+# Cache Busting
+
+This includes a hash in the filename which changes every build.
+
+Prevents browser from caching outdated files.
+
+-------------------------------------------------------
+
+# Cache Busting HowTo
+
+1. Add to `webpack.config.js`:
+
+>     const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+And then 
+
+>     plugins: [new HtmlWebpackPlugin({
+>       template: "./src/template.html",
+>       hash: true
+>     })],
+
+2. modify in `webpack.config.js`:
+
+>     filename: "[contenthash].bundle.js",
+
+https://webpack.js.org/plugins/html-webpack-plugin/
+
+-------------------------------------------------------
+
+# Setup Webpack With React
+
+https://webkul.com/blog/webpack-with-react/
+
+-------------------------------------------------------
+
+# How to setup TypeScript + Babel + Webpack?
+
+https://stackoverflow.com/questions/38320220/how-to-setup-typescript-babel-webpack
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+
+
