@@ -1,4 +1,214 @@
 
+-------------------------------------------------------
+
+# What are Semantic HTML tags?
+
+These are tags that define the meaning of the content they contain.
+
+They make HTML more understandable for both humans and machines, including search engines and accessibility tools.
+
+These are some of the roughly 100 semantic elements available.
+
+Examples:
+
+`<header>`: Defines the header of a document or a section. 
+`<h1>`: Defines a top title
+`<nav>`: Defines a section of navigation links. 
+`<main>`: Defines the main content of a document. 
+`<article>`: Defines a self-contained piece of content that can be distributed or reused independently. 
+`<aside>`: Defines content that is tangentially related to the surrounding content, like a sidebar. 
+`<footer>`: Defines the footer of a document or a section. 
+`<section>`: Defines a generic section of a document. 
+`<figure>`: Defines self-contained content like images, diagrams, or code listings. 
+
+https://developer.mozilla.org/en-US/docs/Glossary/Semantics
+
+https://web.dev/learn/html/semantic-html/
+
+-------------------------------------------------------
+
+# What's ARIA?
+
+ARIA stands for Accessible Rich Internet Applications.
+
+ARIA roles provide semantic meaning to elements on a webpage, enabling assistive technologies to better understand and interact with the content.
+
+If Semantic HTML tags isn’t possible or relevant enough, utilize the 'role' attribute and ARIA labels to define the purpose and function of elements.
+
+So either:
+ 
+ 1. Non-Semantic HTML with 'role' attribute and ARIA label. i.e. `<div role="application">`
+ 
+ 2. Semantic HTML with 'role' attribute and ARIA label. i.e. `<section role="banner">`
+
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles
+
+https://web.dev/learn/accessibility/aria-html
+
+https://wpshout.com/wai-aria-roles/
+
+https://stackoverflow.com/questions/4509761/whats-the-best-semantic-way-to-wrap-a-search-area
+
+-------------------------------------------------------
+
+# Do you know some tools for Accessibility?
+
+axe DevTools - Web Accessibility Testing
+
+A11y ESLint plugin - static evaluation of the JSX to spot accessibility issues in React apps
+
+-------------------------------------------------------
+
+# What are the Best Practices for Accessibility?
+
+Use Semantic HTML.
+
+Use `role` attribute (ARIA) when needed.
+
+Use appropriate contrast for text to ensure readability.
+
+Use the `tabindex` HTML attribute to control the focus order.
+
+Use dev tools to test the quality of the accessibility of your page.
+
+Use A11 to check you have the right accessibility for your target audience https://www.a11yproject.com/checklist/
+
+-------------------------------------------------------
+
+# What are the key concepts of a component framework?
+
+Component frameworks, aka component-based frameworks.
+
+- OOP - Components as the main abstraction 
+
+- Declarative Programming for simpler/readable component structures (JSX)
+
+- The State Machine pattern - to model and manage data in a deterministic way
+
+- Virtual DOM to make UI reconciliation fast
+
+-------------------------------------------------------
+
+# What are the pros of using Component-Based Architecture?
+
+If we split the UI into isolated and reusable pieces we can build it just like we do with Lego pieces. 
+
+That makes development a lot faster and more reliable - we can unit test our components and we eliminate undesired side effects.
+
+-------------------------------------------------------
+
+# What's Declarative Programming?
+
+In react, it is done with JSX.
+
+Simplifies UI construction by allowing developers to declare what the UI should look like, rather than manually manipulating the DOM.
+
+-------------------------------------------------------
+
+# What's the difference between essential state vs derived state?
+
+essential state = independent state
+
+derived state = calculated from other state variables
+
+Redundant state is a derived state that is treated as essential state. 
+
+Redundant state will result in convoluted components that re-render too many times due to unecesarry state updates.
+
+-------------------------------------------------------
+
+# What does "Lifting State Up" mean?
+
+When multiple components need access to the same state, the state is 'lifted up' to their common ancestor and passed down as props.
+
+-------------------------------------------------------
+
+# What's Prop Drilling?
+
+When state is passed down from a parent component through various levels of nested child components as props. 
+
+This can lead to scenarios where intermediate components, which do not directly need the state for their own purposes, still have to pass it down to their children. 
+
+It can result in bloated components making the code more coupled, less testable, and more brittle.
+
+-------------------------------------------------------
+
+# What's the Best Practice when using Context API?
+
+Use of Context and Providers for distributing global state (like authentication data or translation settings) across multiple components.
+
+These can be placed at different points in the component tree, not just at the top level.
+
+-------------------------------------------------------
+
+# What's useReducer() ?
+
+useReducer is a React Hook that provides an alternative way to manage component state, particularly useful for more complex state logic. 
+
+It allows you to manage state using a reducer function, similar to how Redux manages state. The useReducer hook returns the current state and a dispatch function that triggers state updates based on actions
+
+-------------------------------------------------------
+
+# What are Third-Party State Management Libraries? Why would you use them?
+
+These libraries offer pre-built solutions for managing complex application state and/or complex state transitions.
+
+They often implement the Observer Pattern.
+
+Known libraries: Redux, XState, Recoil, Zustand.
+
+Cons: adds another dependency.
+
+TLDR: shiny thing you might not need.
+
+-------------------------------------------------------
+
+# What are some State Management Anti-Patterns?
+
+Overstoring State: Storing both essential and derived state variables in your state management system, leading to redundancy, unnecessary complexity, and potential performance issues
+
+Lifting State Too High
+
+Premature Use of State Libraries
+
+Overloading a Single Context Provider: Consolidating all global states into a single provider, causing unnecessary re-renders across multiple components.
+
+Neglecting Reducer for Complex State: not using the reducer pattern for complex state transitions, leading to convoluted state management by abusing simpler state hooks like useState or useEffect.
+
+-------------------------------------------------------
+
+# What's the Best Practice for Sate Management?
+
+Focus on Essential State: Identify and manage only the essential state.
+
+Optimal State Placement: Instead of lifting state too high, place state in the lowest common ancestor component.
+
+Leveraging Native Framework Features: Before turning to third-party libraries, fully utilize the native state management features of your framework. For React: useState, useReducer, and Context API.
+
+Multiple Context Providers: Use multiple context providers to manage different pieces of global state, i.e. one for language, one for auth, one for theme. This approach reduces unnecessary re-renders and keeps your application more performant.
+
+Use Reducers for Complexity: For complex state logic, especially when dealing with nested state or multiple state transitions, employ reducer patterns (like useReducer in React) to simplify state management and enhance readability.
+
+-------------------------------------------------------
+
+# In a react app, what are some easiest components to Unit Test? What does it imply?
+
+Components located at the bottom of the component tree are generally easier to Unit Test. 
+
+They tend to be stateless, simply rendering props, which makes them straightforward for testing. 
+
+This implies we test these first and then gradually move up the tree to test more components.
+
+-------------------------------------------------------
+
+# What happens when as you move up the component tree when Unit Testing?
+
+Testing complexity increases due to dependencies on child components.
+
+In such cases, Unit Tests may become cumbersome, and it's better to switch to End-To-End Testing.
+
+-------------------------------------------------------
+
 # What is the most effective method to prevent Cross-Site Scripting (XSS) attacks in a frontend application?
 
 Validating and sanitizing all user input before rendering it on the webpage
@@ -105,15 +315,57 @@ The opposite is having arbitrary UI changes and heavily imperative code (e.g. jQ
 
 -------------------------------------------------------
 
-# The product manager complained the web application you are building is slow which frustrates users. What is the first step to fix it?
+# What are the 3 Pillars Of Web Performance?
 
-Running a Core Web Vitals analysis with tools like Lighthouse to understand where the perception of slow comes from
+1. Perceived Load Speed
 
-https://web.dev/articles/optimize-vitals-lighthouse
+2. ResponsivenessToInput/Interactivity
+
+3. Visual Stability
 
 -------------------------------------------------------
 
-# How can you improve a bad CLS(Cumulative Layout Shift)?
+# What's the difference between Core Web Vitals and the 3 Pillars Of Web Performance?
+
+Core Web Vitals are a set of metrics that measure key aspects of a webpage's user experience, specifically focusing on : loading speed, interactivity, and visual stability.
+
+Same focus as 3 Pillars Of Web Performance. But different namings:
+
+1. Largest Contentful Paint (LCP): Perceived Load Speed: how long it takes for the largest content element on a page to become visible. A good LCP score should be less than 2.5 seconds.
+
+2. Interaction to Next Paint (INP): Responsiveness/Interactivity: how quickly a website responds to user interactions. A good INP score should be 200 milliseconds or less.
+
+2.B. First Input Delay (FIP): Responsiveness/Interactivity: how long it takes for the first text/image on a page to become visible. Being deprecated, and replaced by INP.
+
+3. Cumulative Layout Shift (CLS): Visual Stability: the amount of unexpected visual shifting during page loading. A good CLS score should be less than 0.1. 
+
+There are additional Core Web Vitals:
+
+FCP for First Contentful Paint: time at which the first text or image is painted. 
+
+-------------------------------------------------------
+
+# The product manager complained the web application you are building is slow which frustrates users. What is the first step to fix it?
+
+Use:
+
+1. Dev tools to run a Core Web Vitals analysis to understand where the perception of slow comes from - i.e. with Lighthouse or CatchPoint
+
+2. Real User Monitoring (RUM) tools such as Sentry for gathering real-world user data is essential.
+
+https://github.com/GoogleChrome/lighthouse
+
+https://web.dev/articles/optimize-vitals-lighthouse
+
+https://www.catchpoint.com/webpagetest
+
+https://sentry.io/
+
+https://www.speedcurve.com/
+
+-------------------------------------------------------
+
+# How can you improve a bad CLS (Cumulative Layout Shift)?
 
 By adding a visual placeholder library i.e. skeleton, shimmer
 
@@ -125,7 +377,7 @@ https://github.com/tomzaku/react-native-shimmer-placeholder
 
 # Which web performance metric will improve the most if we add a CDN to our architecture?
 
-FCP(First Contentful Paint) - the time it takes to render the first text, image, non-white canvas, or non-white SVG.
+FCP (First Contentful Paint) - the time it takes to render the first text, image, non-white canvas, or non-white SVG.
 
 Adding a CDN will most likely:
 
@@ -135,7 +387,7 @@ Apply the right http caching headers
 
 -------------------------------------------------------
 
-# Client(Browser) Caching is managed by:
+# Client (Browser) Caching is managed by:
 
 Indicating that the file should be cached by the browser and reused in the following requests(using HTTP headers), unless a new version is released
 
@@ -153,9 +405,33 @@ https://web.dev/articles/rendering-on-the-web
 
 -------------------------------------------------------
 
-# Which method is used in production environments to implement cache busting and ensure that users always load the most recent version of a resource like CSS or JavaScript files?
+# What's Cache Busting? And which method is used in production environments to implement cache busting?
 
-Appending a unique hash based on the file's content to the filename.
+Cache Busting ensures that users always load the most recent version of a resource like CSS or JavaScript files.
+
+It is done in production by appending a unique hash based on the file's content to the filename.
+
+This is often done by the bundler, i.e. webpack or vite
+
+https://webpack.js.org/guides/caching/
+
+-------------------------------------------------------
+
+# What's code splitting?
+
+Code splitting is a technique used in web development to break down a large JavaScript codebase into smaller, more manageable chunks that can be loaded independently. 
+
+This allows browsers to download only the necessary code for the current page or functionality, improving initial load time and overall performance.
+
+This is done by the bundler, i.e. webpack or vite
+
+https://webpack.js.org/guides/code-splitting/
+
+-------------------------------------------------------
+
+# What's Critical CSS?
+
+TODO
 
 -------------------------------------------------------
 

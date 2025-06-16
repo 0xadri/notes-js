@@ -60,6 +60,20 @@ TODO
 
 -------------------------------------------------------
 
+# What's state machine pattern?
+
+is a behavioral design pattern that allows an object to alter its behavior based on its internal state. 
+
+It's closely related to the concept of a Finite State Machine (FSM), where a system can be in one of a finite number of states, and transitions between these states are triggered by events.
+
+Every React component is actually an "implicit state machine" — cobbled together based on the component's spread out logic.
+
+The UI is a reflection of the state, or a function of the state.
+
+Changes in state lead to updates in the UI, making the relationship between state and UI predictable and deterministic.
+
+-------------------------------------------------------
+
 # Function Currying pattern
 
 We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
@@ -76,8 +90,27 @@ TODO
 
 # Observer pattern
 
-TODO
+The Observer pattern is a behavioral design pattern that establishes a one-to-many dependency between objects. 
 
+When one object (Subject/Publisher) changes state, all its dependents (Observers/Subscribers) are notified and updated automatically.
+
+This pattern is commonly used in event handling, messaging systems, and UI frameworks.
+
+In components-based frameworks, i.e. React, third-party State Management Libraries implement this pattern.
+
+-------------------------------------------------------
+
+# What is the difference between Subscriber pattern vs Observer pattern?
+
+Observer pattern is mostly implemented in a synchronous way, i.e. the Subject calls the appropriate method of all its Observers when some event occurs. 
+
+The Publisher/Subscriber pattern is mostly implemented in an asynchronous way (using message queue).
+
+-------------------------------------------------------
+
+# PRPL pattern
+
+TODO
 
 -------------------------------------------------------
 
