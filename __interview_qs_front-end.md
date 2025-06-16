@@ -349,9 +349,13 @@ FCP for First Contentful Paint: time at which the first text or image is painted
 
 Use:
 
-1. Dev tools to run a Core Web Vitals analysis to understand where the perception of slow comes from - i.e. with Lighthouse or CatchPoint
+1. Dev tools to run a Core Web Vitals analysis to understand where the perception of slow comes from - i.e. with Lighthouse (built-in with Google Chrome Dev Tools) or CatchPoint
 
 2. Real User Monitoring (RUM) tools such as Sentry for gathering real-world user data is essential.
+
+3. Chrome Performance Insights (Chrome Dev Tool)
+
+4. Performance Tab (Chrome Dev Tool)
 
 https://github.com/GoogleChrome/lighthouse
 
@@ -362,6 +366,18 @@ https://www.catchpoint.com/webpagetest
 https://sentry.io/
 
 https://www.speedcurve.com/
+
+-------------------------------------------------------
+
+# Any tips when using Lighthouse ?
+
+1. Open an incognito window in Chrome when running Lighthouse - this removes Chrome addons and their heavy JavaScript 
+
+2. Checkout the "Lighthouse Treemap" to see the treemap of all the JavaScript sent to our web browser
+
+https://github.com/GoogleChrome/lighthouse
+
+https://web.dev/articles/optimize-vitals-lighthouse
 
 -------------------------------------------------------
 
@@ -393,27 +409,69 @@ Indicating that the file should be cached by the browser and reused in the follo
 
 -------------------------------------------------------
 
-# Server-Side rendering(SSR) would have the most positive impact on the following web performance metric:
+# What's the Critical Rendering Path?
 
-FCP(First Contentful Paint) - the time it takes to render the first text, image, non-white canvas, or non-white SVG.
+The Critical Rendering Path (CRP) is composed of several key steps for processing and displaying a web page:
 
-Rendering the application on the server will decrease the time we need to show something to the users because it speeds up the rendering(as the client receives pre-rendered html instead of JS).
+1. HTML Request (fetch)
 
-Server Side Rendering prevents the White Screen of Death(WSD), which is a common issue with client side rendering.
+2. Parse HTML, Build DOM (render)
 
-https://web.dev/articles/rendering-on-the-web
+3. Blocking Resources in Head - fetch and process
+
+  a. CSS Fetch and Process
+
+  b. JavaScript Processing 
+
+4. Render
+
+  a. Render Tree Construction (CSSOM and DOM trees)
+
+  b. Layout Calculation (Positions and Sizes for Elements)
+
+  c. Paint
+  
+  d. Font and Images are loaded
 
 -------------------------------------------------------
 
-# What's Cache Busting? And which method is used in production environments to implement cache busting?
+# What are Critical Tasks that block the First Render?
 
-Cache Busting ensures that users always load the most recent version of a resource like CSS or JavaScript files.
+The following tasks will block the first render and result in a low FCP score:
 
-It is done in production by appending a unique hash based on the file's content to the filename.
+1. CSS Download and Processing
 
-This is often done by the bundler, i.e. webpack or vite
+2. Synchronous JavaScript Execution
 
-https://webpack.js.org/guides/caching/
+3. HTML Parsing Pauses
+
+-------------------------------------------------------
+
+# What are the steps to build a high performance web app?
+ 
+1. Diagnosis (Lighthouse)
+
+2. Server Optimization (compression, caching)
+
+3. Static Asset Optimization (css, js, images, fonts)
+
+4. JavaScript Optimization (code splitting, lazy loading, dynamic imports)
+
+5. Framework Optimization (react memo, decrease re-renderings)
+
+In all of the points above: implement best practices and remove anti-patterns that crept in.
+
+-------------------------------------------------------
+
+# Server-Side rendering (SSR) would have the most positive impact on the following web performance metric:
+
+FCP (First Contentful Paint) - the time it takes to render the first text, image, non-white canvas, or non-white SVG.
+
+Rendering the application on the server will decrease the time we need to show something to the users because it speeds up the rendering (as the client receives pre-rendered html instead of JS).
+
+Server Side Rendering prevents the White Screen of Death (WSD), which is a common issue with client side rendering.
+
+https://web.dev/articles/rendering-on-the-web
 
 -------------------------------------------------------
 
@@ -426,6 +484,18 @@ This allows browsers to download only the necessary code for the current page or
 This is done by the bundler, i.e. webpack or vite
 
 https://webpack.js.org/guides/code-splitting/
+
+-------------------------------------------------------
+
+# What's Cache Busting? And which method is used in production environments to implement cache busting?
+
+Cache Busting ensures that users always load the most recent version of a resource like CSS or JavaScript files.
+
+It is done in production by appending a unique hash based on the file's content to the filename.
+
+This is often done by the bundler, i.e. webpack or vite
+
+https://webpack.js.org/guides/caching/
 
 -------------------------------------------------------
 
