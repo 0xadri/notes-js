@@ -1,4 +1,10 @@
 
+# Docs
+
+https://www.patterns.dev/vanilla/
+
+https://www.patterns.dev/react
+
 -------------------------------------------------------
 
 # Modular Monolith Architecture
@@ -82,9 +88,35 @@ TODO
 
 -------------------------------------------------------
 
-# Higher Order Function pattern
+# Higher Order Function (HOF) pattern
 
-TODO
+Higher-order functions are a general JavaScript concept where a function takes another function as an argument or returns a function. 
+
+-------------------------------------------------------
+
+# Higher Order Function (HOF) vs Higher Order Component (HOC) pattern
+
+Higher-order functions and higher-order components (HOCs) are both patterns that utilize functions to create reusable logic, but they operate in different contexts. 
+
+Higher-order functions are a general JavaScript concept where a function takes another function as an argument or returns a function. 
+
+In React, higher-order components are a specific pattern that leverages this concept to create reusable component logic by wrapping existing components with enhanced functionality.
+
+https://www.patterns.dev/react/hoc-pattern/
+
+-------------------------------------------------------
+
+# HOC Pattern
+
+Within our application, we often want to use the same logic in multiple components. This logic can include applying a certain styling to components, requiring authorization, or adding a global state.
+
+One way of being able to reuse the same logic in multiple components, is by using the higher order component pattern. This pattern allows us to reuse component logic throughout our application.
+
+A Higher Order Component (HOC) is a component that receives another component. The HOC contains certain logic that we want to apply to the component that we pass as a parameter. 
+
+After applying that logic, the HOC returns the element with the additional logic.
+
+https://www.patterns.dev/react/hoc-pattern/
 
 -------------------------------------------------------
 
@@ -98,9 +130,11 @@ This pattern is commonly used in event handling, messaging systems, and UI frame
 
 In components-based frameworks, i.e. React, third-party State Management Libraries implement this pattern.
 
+https://www.patterns.dev/vanilla/observer-pattern/
+
 -------------------------------------------------------
 
-# What is the difference between Subscriber pattern vs Observer pattern?
+# Subscriber pattern vs Observer pattern: what is the difference ?
 
 Observer pattern is mostly implemented in a synchronous way, i.e. the Subject calls the appropriate method of all its Observers when some event occurs. 
 
@@ -108,9 +142,21 @@ The Publisher/Subscriber pattern is mostly implemented in an asynchronous way (u
 
 -------------------------------------------------------
 
+# Mediator/Middleware Pattern
+
+Used in Express.js
+
+TODO
+
+https://www.patterns.dev/vanilla/mediator-pattern/
+
+-------------------------------------------------------
+
 # PRPL pattern
 
 TODO
+
+https://www.patterns.dev/vanilla/prpl/
 
 -------------------------------------------------------
 
@@ -212,32 +258,44 @@ The Stack Space is where the recursive calls are stored.
 
 # Design Pattern : Module Pattern
 
-Problem Statement:
-We want to implement the Module Pattern to better organize our source code into components.
-The concept of a “module” is not fully supported in many common programming languages.
-Javascript had incomplete support for the concept until 2015 with ES6.
+### Problem Statement
 
-Solution:
-Use the module software design pattern.
+We want to implement the Module Pattern to better organize our source code into components.
+
+The concept of a “module” is not fully supported in many common programming languages.
+
+JavaScript had incomplete support for the concept until 2015 with ES6.
+
+### Solution
+
+Comes the module software design pattern.
+
 It provides the features and syntactic structure defined by the modular programming paradigm to programming languages that have incomplete support for the concept.
 
-Module Pattern High Level Def:
+### Module Pattern High Level Def
+
 The Module pattern can be considered a creational pattern and a structural pattern. 
+
 It manages the creation and organization of other elements, and groups them as the structural pattern does.
+
+https://www.patterns.dev/vanilla/module-pattern/
 
 -------------------------------------------------------
 
 # Design Pattern : Module Pattern Implementations
 
 JavaScript did not have built-in support for modules.
+
 The JS community has created impressive work-arounds. The two most popular standards are:
 
 CommonJS Modules: The dominant implementation of this standard is in Node.js. Characteristics:
+
  - Compact syntax
  - Designed for synchronous loading
  - Main use: server
 
 AMD: The most popular implementation of this standard is RequireJS. Characteristics:
+
  - Slightly more complicated syntax, enabling AMD to work without eval() (or a compilation step)
  - Designed for asynchronous loading
  - Main use: browsers
@@ -286,17 +344,42 @@ Promotes modularity, scalability, and faster delivery cycles.
 
 -------------------------------------------------------
 
+# Static Rendering (SSR)
+
+Static rendering or static generation (SSG) delivers pre-rendered HTML content to the client that was generated when the site was built.
+
+A static HTML file is generated ahead of time corresponding to each route that the user can access. These static HTML files may be available on a server or a CDN and fetched as and when requested by the client.
+
+Static files may also be cached thereby providing greater resiliency.
+
+As the name suggests, static rendering is ideal for static content - where the page need not be customized based on the logged-in user (e.g personalized recommendations).
+
+https://www.patterns.dev/react/static-rendering/
+
+-------------------------------------------------------
+
 # Server Side Rendering (SSR)
 
-Architectural style in frontend web development
+Architectural style in frontend web development.
 
-Server Side Rendering allows you to render your JavaScript application on the server before sending it to the browser, increasing web performance and SEO. 
+Server-side rendering (SSR) is one of the oldest methods of rendering web content - think Java or .NET
+
+SSR generates the full HTML for the page content to be rendered in response to a user request. The content may include data from a datastore or external API.
+
+Server Side Rendering can now be done in JavaScript, it allows you to render your JavaScript application on the server before sending it to the browser.
 
 This is not easy as SPAs were built with CSR (client-side rendering) in mind. 
 
-Downside is... javascript must be loaded too anyway before the UI has any functionality.
+Pros:
+ - increasing web performance
+ - better SEO
+ - gives additional space for client-side JavaScript
+ 
+Downsides:
+ - Slow TTFB - since all processing takes place on the server
+ - javascript must be loaded too anyway before the UI has any functionality.
 
-TODO
+https://www.patterns.dev/react/server-side-rendering/
 
 -------------------------------------------------------
 
@@ -326,18 +409,6 @@ Includes Component Design and Component Testing.
 
 -------------------------------------------------------
 
-# “State Machine” Pattern
-
-TODO
-
--------------------------------------------------------
-
-# Essential State vs Derived state
-
-TODO
-
--------------------------------------------------------
-
 # Hierarchy Of States
 
 Component State, Shared State, and Global State
@@ -350,17 +421,15 @@ TODO
 
 TODO
 
+https://www.patterns.dev/vanilla/singleton-pattern/
+
 -------------------------------------------------------
 
 # Proxy Pattern
 
 TODO
 
--------------------------------------------------------
-
-# Observer Pattern
-
-TODO
+https://www.patterns.dev/vanilla/proxy-pattern/
 
 -------------------------------------------------------
 

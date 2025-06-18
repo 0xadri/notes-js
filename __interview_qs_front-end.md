@@ -1,6 +1,32 @@
 
 -------------------------------------------------------
 
+# What are Pure Components in React?
+
+TLDR: a special component type that avoids unnecesarry re-renders by checking if the props and state really changed.
+
+Pure Components are legacy React components written with classes, with React.PureComponent and React.Component.
+
+PureComponent does a shallow comparison on state change: when comparing scalar values it compares their values, but when comparing objects it compares only references.
+
+Use React.PureComponent when you can satisfy any of the below conditions.
+
+ - State/Props should be an immutable object
+ - State/Props should not have a hierarchy
+ - You should call forceUpdate when data changes
+
+https://legacy.reactjs.org/docs/react-api.html#reactpurecomponent
+
+https://stackoverflow.com/questions/41340697/react-component-vs-react-purecomponent
+
+-------------------------------------------------------
+
+#  Can React components inherit from each other? 
+
+No, React favours composition over inheritance - components can ensemble in different ways but do not inherit from each other.
+
+-------------------------------------------------------
+
 # What are Semantic HTML tags?
 
 These are tags that define the meaning of the content they contain.
@@ -406,6 +432,28 @@ Apply the right http caching headers
 # Client (Browser) Caching is managed by:
 
 Indicating that the file should be cached by the browser and reused in the following requests(using HTTP headers), unless a new version is released
+
+-------------------------------------------------------
+
+# What are the most common ways to compress JavaScript for the web browser?
+
+Gzip and Brotli.
+
+Brotli offers a better compression ratio at similar compression levels. 
+
+https://www.patterns.dev/vanilla/compression/
+
+-------------------------------------------------------
+
+# How do you optimize the JavaScript Bundle ?
+
+JavaScript Bundle Optimization can be done with:
+
+1. Bundle Cleanup: Analyze your bundle and reduce your JavaScript bundle size by removing unused code, uninstalling unused packages, or replacing them with vanilla js implementation. 
+
+2. Minification and uglification: to reduce the size of the final javascript file.
+
+3. Code Splitting: Implement code splitting and defer non-critical JavaScript to ensure that only necessary scripts are loaded initially for each page, improving SPA performance. Module bundlers will tag the non-critical scripts with defer or async so the browser will download them in parallel and parse and execute them after the first render.
 
 -------------------------------------------------------
 

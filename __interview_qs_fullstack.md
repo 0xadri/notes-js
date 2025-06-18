@@ -1,4 +1,40 @@
 
+
+
+-------------------------------------------------------
+
+# How do you optimize the server side?
+
+1. HTTP Caching: reduce sent files - allows users to store assets like images, JavaScript files, and CSS files on their computer.
+
+2. HTTP Compression: reduce size of sent files - send compressed assets (images, fonts, JS and CSS files) that are significantly smaller, typically around 75% smaller.
+
+3. CDN: reduce latency - CDNs distribute static assets globally, reducing latency by serving content from locations closer to the user.
+
+4. DNS Preconnect - less used but possible - technique to speed up connections by resolving domain names before a user requests them.
+
+-------------------------------------------------------
+
+# How do you optimize the Static Assets?
+
+Optimizing CSS, Images and Fonts.
+
+1. CSS Extraction & Minification: Extract CSS from JavaScript and minify it for more efficient load times.
+
+2. CSS Optimizations: Critical CSS: the CSS necessary for rendering above-the-fold content should be extracted and added as an inline style to the HTML document to eliminate render-blocking requests.
+
+3. Image Size Adjustments: Serve images as small as possible (dependent on design requirement) and apply image optimization algorithms.
+
+4. Image Format Adjustment: use WebP for best performance (we can use module bundlers like Webpack to transform images at build time).
+
+5. Responsive Image Sizing: Ensure image dimensions are optimized for their display size to reduce unnecessary loading (use srcset attribute).
+
+6. Image Lazy Loading: load images that are not in the viewport (above the fold) after the initial load.
+
+7. Host Fonts: on your own server to eliminate requests and apply caching and compression to font assets. Use the woff2 format for fonts for best performance.
+
+-------------------------------------------------------
+
 # What are valid ways to version an API in the case of breaking changes?
 
 1. Adding a version number to the URI
@@ -11,9 +47,11 @@
 
 # Which of the following methods are idempotent in REST?
 
-GET
-PUT
-DELETE
+`GET`
+
+`PUT`
+
+`DELETE`
 
 -------------------------------------------------------
 
@@ -35,7 +73,7 @@ PUT will only create the object -- FALSE
 
 `4xx`: Client ERROR responses 
 
-`401` : Unauthorized
+`401`: Unauthorized
 
 -------------------------------------------------------
 
@@ -60,7 +98,6 @@ The Basic Auth mechanism is sent in the `Authorization header` with the value `B
 # How are cookies sent from the browser to the server?
 
 Cookies are sent from the browser to the server in the `Cookie` header automatically on every HTTP request.
-
 
 -------------------------------------------------------
 
@@ -247,15 +284,15 @@ To standardise most of the release process - easier to deploy
 
 -------------------------------------------------------
 
-# What is Kubernetes(Interview Question)?
+# What is Kubernetes ?
 
-An open source tool used to deploy and operate containers(container orchestration)
+An open-source tool used to deploy and operate containers - it is a container orchestration tool.
 
 -------------------------------------------------------
 
-# advantages of a micro-frontends architecture?
+# Advantages of a micro-frontends architecture?
 
-Development Speed(work in parallel, deploy independently)
+Development Speed: work in parallel, and deploy independently.
 
 -------------------------------------------------------
 
@@ -275,11 +312,21 @@ Reversed Proxy
 
 -------------------------------------------------------
 
-# A TTL(time to live) value of zero in a cache means that ...
+# What devices qualify as a reverse proxy?
 
-The cache will expire immediately (`no-cache` policy).
+1. Load Balancers
 
-The TTL(time to live) is the time the asset will be considered FRESH in the cache. 
+2. CDNs
+
+3. API Gateway
+
+-------------------------------------------------------
+
+# A TTL (time to live) value of zero in a cache means that ...
+
+The cache will expire immediately: `no-cache` policy.
+
+The TTL (time to live) is the time the asset will be considered FRESH in the cache. 
 
 A TTL of zero means the asset is immediately considered STALE which is the equivalent of having no cache.
 
@@ -301,16 +348,10 @@ Round-Robin is a rather naive algo.
 
 -------------------------------------------------------
 
-# What devices qualify as a reverse proxy?
+# What is ESLint?
 
-Load Balancers
+ESLint is a configurable JavaScript linter. It helps you find and fix problems in your JavaScript code. 
 
-CDNs
-
-Api Gateway
-
--------------------------------------------------------
-
-# 
+Problems can be anything from potential runtime bugs, to not following best practices, to styling issues.
 
 
