@@ -1,9 +1,29 @@
 
+-------------------------------------------------------
+
 # Docs
 
 https://jestjs.io/
 
 https://github.com/testing-library/jest-dom
+
+-------------------------------------------------------
+
+# 
+
+npm install --save-dev jest ts-jest @types/jest
+
+package.json:
+
+"scripts": {
+  "test": "jest",
+  "test:coverage": "jest --coverage"
+}
+
+npm run test
+
+npm run test:coverage
+
 
 -------------------------------------------------------
 
@@ -229,3 +249,27 @@ Goal: replace the actual function with a mocked one we created
 
 >     import httpRequest from './utils/http-request.js';  // import as usual
 >     jest.mock('./utils/http-request.js');  // only required when mocking local modules — not if mocking modules installed into the node_modules directory
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 

@@ -47,6 +47,12 @@ https://originui.com/ - warning: comes with React
 
 -------------------------------------------------------
 
+# Premade UI Components w React (NOT tailwind)
+
+https://ant.design/docs/spec/introduce
+
+-------------------------------------------------------
+
 # Premade UI Components: Special Picks
 
 Application Shell - https://tailspark.co/components?category=app&component=Application%20Shell

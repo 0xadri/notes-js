@@ -375,13 +375,13 @@ FCP for First Contentful Paint: time at which the first text or image is painted
 
 Use:
 
-1. Dev tools to run a Core Web Vitals analysis to understand where the perception of slow comes from - i.e. with Lighthouse (built-in with Google Chrome Dev Tools) or CatchPoint
+1. Dev tools to run a `Core Web Vitals` analysis to understand where the perception of slow comes from - i.e. with Lighthouse (built-in with Google Chrome Dev Tools) or CatchPoint
 
-2. Real User Monitoring (RUM) tools such as Sentry for gathering real-world user data is essential.
+2. `Real User Monitoring` (RUM) tools such as `Sentry` for gathering real-world user data is essential - production monitoring
 
-3. Chrome Performance Insights (Chrome Dev Tool)
+3. `Chrome Performance Insights` (Chrome Dev Tool)
 
-4. Performance Tab (Chrome Dev Tool)
+4. `Performance Tab` in Chrome Dev Tools
 
 https://github.com/GoogleChrome/lighthouse
 
@@ -511,6 +511,35 @@ In all of the points above: implement best practices and remove anti-patterns th
 
 -------------------------------------------------------
 
+# What can you do to optimize images?
+
+1. Third-party Compression Tools: Before even beginning with webpack, consider using tools like TinyPNG or JPEGmini to compress your images. It ensures your starting point already involves optimized assets.
+
+2. Lazy Loading: Always remember to incorporate lazy loading for images. Utilize the loading=“lazy” attribute on image tags. This ensures images load only when in the viewport, enhancing the initial page load time.
+
+3. Content Delivery Network (CDN): If your React application is expected to have a wide user base, consider serving your images via a CDN. CDNs cache content across global servers, ensuring faster delivery times.
+
+4. Responsive Images with srcSet: In today’s age of multiple devices, it’s crucial to serve the right image size to the right device. Use the srcSet attribute to handle this efficiently.
+
+5. Optimize images using your build/bundling tool
+
+-------------------------------------------------------
+
+# How do you optimize images using webpack?
+
+There are various plugins available such as:
+ - `image-webpack-loader`
+ - `compression-webpack-plugin`
+ - `ImageMinimizerWebpackPlugin`
+
+https://cloudinary.com/blog/guest_post/optimize-images-using-webpack-in-react
+
+https://www.npmjs.com/package/compression-webpack-plugin
+
+https://webpack.js.org/plugins/image-minimizer-webpack-plugin/
+
+-------------------------------------------------------
+
 # Server-Side rendering (SSR) would have the most positive impact on the following web performance metric:
 
 FCP (First Contentful Paint) - the time it takes to render the first text, image, non-white canvas, or non-white SVG.
@@ -549,7 +578,11 @@ https://webpack.js.org/guides/caching/
 
 # What's Critical CSS?
 
-TODO
+Critical CSS, aka Critical Path CSS, aka Above the fold CSS.
+
+It is the CSS applied to above-the-fold elements. 
+ 
+It is the CSS responsible for content a viewer sees on page load, before scrolling.
 
 -------------------------------------------------------
 

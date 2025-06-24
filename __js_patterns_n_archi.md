@@ -302,6 +302,8 @@ AMD: The most popular implementation of this standard is RequireJS. Characterist
 
 Since ECMAScript 2015 (ES6), javascript supports built-in modules through the new syntax.
 
+ESM = ECMAScript Modules = ECMAScript 2015 (ES6) Modules
+
 http://jargon.js.org/_glossary/COMMONJS.md
 
 -------------------------------------------------------

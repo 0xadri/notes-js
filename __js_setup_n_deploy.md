@@ -1,4 +1,5 @@
-
+/Users/adrienberthou/all-that-jazz/reactappsss/frontend-mastery-the-bare-bone-method-0xadri/cypress/screenshots/task_1_upcoming_movies.cy.ts/
+     
 -------------------------------------------------------
 
 # `npm` Docs
@@ -8,6 +9,30 @@
 `npm` CLI https://docs.npmjs.com/cli/
 
 `npm` Web https://www.npmjs.com/
+
+-------------------------------------------------------
+
+# `npm` Cheatsheet
+
+`npm init`
+
+`npm run <alias>`
+
+For each, create an alias under `scripts` in `package.json`:
+
+`webpack serve --mode development --open`
+
+`jest`
+
+`cypress run`
+
+`kill-port -p 3000`
+
+Tests on specific files:
+
+`npm test -- path/to/file.cy.ts`
+
+`npm run start & wait-on tcp:3000 && cypress run --spec path/to/file.cy.ts && npm run server:kill`
 
 -------------------------------------------------------
 
