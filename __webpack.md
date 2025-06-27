@@ -677,7 +677,6 @@ This is what `html-critical-webpack-plugin` does:
 
  - Writes the new file back to disk with that critical CSS inlined, at the location of the `dest` option
 
-
 Docs:
 
 https://webpack.js.org/loaders/style-loader/#examples
@@ -736,7 +735,7 @@ Check your changes by re-running the build and analysis.
 
 -------------------------------------------------------
 
-# JS Optimization: Code Splitting By Route
+# JS Optimization: Code Splitting By Route With Webpack
 
 Code Splitting By Route = Route-based code splitting = Bundle Splitting 
 
@@ -746,9 +745,9 @@ Code splitting allows to produce numerous bundles, each bundle can be dynamicall
 
 Benefits: 
 
- - Easier scalability for large apps
-
  - Shorter initial load time
+
+ - Easier scalability for large apps
 
 Gotchas:
 
@@ -798,12 +797,123 @@ https://rahuljain-dev.medium.com/unveiling-the-power-of-code-splitting-with-webp
 
 # JS Optimization: Lazy Loading & Dynamic Import
 
+Warning: not Webpack specific
+
 Lazy Loading = Module Lazy Loading = Just In Time Loading
 
+Lazy loading modules that are not needed for the initial load.
+
+Module will be loaded asynchronously.
+
+Implementation:
+
+>   -import _ from "lodash"
+>   
+>   export default function MovieCard({ movie }: MovieCardProps) {
+>     ...
+>     const theme = useSelector((state: RootState) => state.themeReducer.theme);
+>   + const [shortPlot, setShortPlot] = useState(movie.overview);
+>   
+>     function plotShorten(text: string, length = 250) {
+>        // const shortText = _.take(text.split(""), length).join("");
+>        // return shortText + "...";
+>   +    return import("lodash").then((_) => {    // dynamic import
+>   +      const shortText = _.default.take(text.split(""), length).join("");
+>   +      setShortPlot(shortText + "...");
+>       });
+>     }
+>   
+>   + useEffect(() => {
+>   +   plotShorten(movie.overview);
+>   + }, [movie]);
+>   
+>     return (
+>       ...
+>           <MoviePlot color={context.theme.foreground}>
+>   +         Plot: {shortPlot}
+>           </MoviePlot>
+>     )
+  
+Because the module will be loaded asynchronously we can only use it in places that accept a Promise. 
+
+To use it in JSX we need to add a new state that will get updated when the module is.
+
+https://webpack.js.org/guides/code-splitting/#dynamic-imports
 
 -------------------------------------------------------
 
-# 
+#  JS Optimization: Compress and Minify JS with Webpack
+
+Various plugins:
+
+ - `compression-webpack-plugin` - Compress
+ 
+ - `terser-webpack-plugin` - Minify and Uglify - shipped with Webpack 5
+ 
+ - `UglifyJS` - Minify and Uglify - the former standard
+
+Implementation:
+
+1. Compress static assets using `compression-webpack-plugin`
+
+Install plugin
+
+`npm i --save-dev compression-webpack-plugin`
+
+Add Plugin to Webpack Config file
+
+>   const CompressionPlugin = require("compression-webpack-plugin");
+>   
+>   module.exports = {
+>     plugins: [
+>       new CompressionPlugin({
+>         filename: "[path][base].gz",
+>         algorithm: "gzip",
+>         test: /\.js$|\.css$|\.html$/,
+>         threshold: 10240,
+>         minRatio: 0.8,
+>       }),
+>       ...
+>     ]
+>   };
+
+2. Set up `Brotli` as a better compression algorithm
+
+Add one more compression plugin to Webpack Config file
+
+>   module.exports = {
+>      plugins: [
+>       ...
+>       new CompressionPlugin({
+>         filename: "[path][base].br",
+>         algorithm: "brotliCompress",
+>         test: /\.(js|css|html|svg)$/,
+>         compressionOptions: { level: 11 },
+>         threshold: 10240,
+>         minRatio: 0.8,
+>       })
+>       ...
+>      ]
+>   };
+
+When running the build, you will get 2 compressed versions of the bundles: one in ".gzip" and the other in ".br".
+
+Depending on the browser requests, the server will send the smallest one in a process called `Content Negotiation`.
+
+3. Explicitly Minify and Uglify with `terser-webpack-plugin`
+
+Webpack 5 ships with the latest `terser-webpack-plugin`. 
+
+You must install `terser-webpack-plugin` only if you wish to customize the options.
+
+`npm i --save-dev terser-webpack-plugin`
+
+
+Docs:
+
+https://webpack.js.org/plugins/compression-webpack-plugin/
+
+https://www.npmjs.com/package/terser-webpack-plugin
 
 -------------------------------------------------------
 

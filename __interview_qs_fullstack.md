@@ -112,19 +112,19 @@ Best Practice: if the resource changes infrequently and one-second granularity i
 
 Optimizing CSS, Images and Fonts.
 
-1. CSS Extraction & Minification: Extract CSS from JavaScript and minify it for more efficient load times.
+1. CSS: Extract & Minify: Extract CSS from JavaScript and minify it for more efficient load times.
 
-2. CSS Optimizations: Critical CSS: the CSS necessary for rendering above-the-fold content should be extracted and added as an inline style to the HTML document to eliminate render-blocking requests.
+2. CSS: Critical CSS: the CSS necessary for rendering above-the-fold content should be extracted and added as an inline style to the HTML document to eliminate render-blocking requests.
 
-3. Image Size Adjustments: Serve images as small as possible (dependent on design requirement) and apply image optimization algorithms.
+3. Image: Size Adjustments: Serve images as small as possible (dependent on design requirement) and apply image optimization algorithms.
 
-4. Image Format Adjustment: use WebP for best performance (we can use module bundlers like Webpack to transform images at build time).
+4. Image: Format Adjustment: use `WebP` for best performance (we can use module bundlers like Webpack to transform images at build time).
 
-5. Responsive Image Sizing: Ensure image dimensions are optimized for their display size to reduce unnecessary loading (use srcset attribute).
+5. Image: Responsive Sizing: Ensure image dimensions are optimized for their display size to reduce unnecessary loading (use `srcset` attribute).
 
-6. Image Lazy Loading: load images that are not in the viewport (above the fold) after the initial load.
+6. Image: Lazy Loading: load images that are not in the viewport (above the fold) after the initial load. Also use `loading="lazy"` attribute to defer loading until the image is near the viewport.
 
-7. Host Fonts: on your own server to eliminate requests and apply caching and compression to font assets. Use the woff2 format for fonts for best performance.
+7. Fonts: Host On Server: to eliminate requests to 3rd parties, also apply caching and compression to font assets. Use the `woff2` format for fonts for best performance.
 
 -------------------------------------------------------
 

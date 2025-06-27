@@ -120,6 +120,42 @@ https://www.patterns.dev/react/hoc-pattern/
 
 -------------------------------------------------------
 
+# higher-order component and React.memo
+
+React.memo is an HOC that adds functionality to another component by using composition.
+
+Liskov substitution principle and Composition Over Inheritance
+
+-------------------------------------------------------
+
+# Composition Over Inheritance
+
+"has-a" vs "is-a" relationship
+
+Advocates for building complex objects by combining simpler objects (composition) rather than relying on class inheritance for code reuse and polymorphism. 
+
+Benefits:
+ - Flexibility
+ - Reduced Coupling
+ - maintainable code
+ - Improved Testability
+
+-------------------------------------------------------
+
+# Liskov Substitution principle
+
+OOP Principle.
+
+States that objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program.
+
+"if S is a subtype of T, then objects of type T in a program can be replaced with objects of type S (i.e., objects of type S can substitute objects of type T) without altering any of the desirable properties of that program." 
+
+Essentially, subclasses should behave in a way that is consistent with their parent class, allowing for seamless substitution.
+
+TODO
+
+-------------------------------------------------------
+
 # Observer pattern
 
 The Observer pattern is a behavioral design pattern that establishes a one-to-many dependency between objects. 
@@ -154,7 +190,19 @@ https://www.patterns.dev/vanilla/mediator-pattern/
 
 # PRPL pattern
 
-TODO
+PRPL Pattern -> Push, Render, Pre-cache, Lazy-load
+
+Pattern that optimizes for interactivity through aggressive code-splitting and caching.
+
+1. Push the minimal code for the initial route
+
+2. Render route - and get interactive
+
+3. Pre-cache using Service Workers
+
+4. Lazy-load async (split) routes
+
+https://web.dev/articles/optimizing-content-efficiency-javascript-startup-optimization#prpl
 
 https://www.patterns.dev/vanilla/prpl/
 

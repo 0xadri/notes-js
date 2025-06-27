@@ -399,7 +399,11 @@ https://www.speedcurve.com/
 
 1. Open an incognito window in Chrome when running Lighthouse - this removes Chrome addons and their heavy JavaScript 
 
-2. Checkout the "Lighthouse Treemap" to see the treemap of all the JavaScript sent to our web browser
+2. Click "Expand View"
+
+3. Click "Expand View", then "Treemap" - see treemap of all the JavaScript sent to our web browser
+
+4. Click "Try Insights"
 
 https://github.com/GoogleChrome/lighthouse
 
@@ -736,7 +740,7 @@ No
 
 -------------------------------------------------------
 
-# What's a HOC(Higher Order Component) ?
+# What's a HOC (Higher Order Component) ?
 
 A higher-order component is a function that takes a component and returns a new component.
 
@@ -806,7 +810,14 @@ Often by appending a hash to file names.
 
 -------------------------------------------------------
 
-# 
+# When optimizing React code by decreasing "re-rendering time"", what should you focus on?
+
+ - Components at the bottom of the component tree - they will most likely re-render the most
+ 
+ - Components that contain Context - they trigger the re-render of all the components connected to that context
+
+Decrease re-rendering time with `useCallback` and `useMemo`
+
 
 -------------------------------------------------------
 
