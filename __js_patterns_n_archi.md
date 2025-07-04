@@ -7,6 +7,41 @@ https://www.patterns.dev/react
 
 -------------------------------------------------------
 
+# The Architect Mindset
+
+Think in trade-offs - developers know the benefits of everything, but architects always think in terms of trade-offs.
+
+Why over How - the implementation details on how we write exports in our code matter much less than the overall level of modularity we accept.
+
+An excellent coder - an architect is before everything an excellent coder. She excelled at coding and loves the craft. Architecture is being decided, implemented, and reviewed with every line of code. written.
+
+-------------------------------------------------------
+
+# Monorepo vs Polyrepo
+
+Monorepo = Monolithic Repository = multiple projects/packages in a single Git repository
+
+Polyrepo = Multiple Repositories = Each project/package in its own Git repository.
+
+| Feature                | Monorepo                      | Polyrepo                     |
+| ---------------------- | ----------------------------- | ---------------------------- |
+| Centralized code       | ✅ Yes                         | ❌ No                         |
+| Independent versioning | ⚠️ Harder                     | ✅ Easy                       |
+| Shared libraries       | ✅ Simple via internal imports | ❌ Needs external publishing  |
+| CI/CD                  | ✅ Shared & centralized        | ❌ Repeated per repo          |
+| Large teams            | ⚠️ Can get complex            | ✅ Scoped per service/project |
+
+
+Turborepo for scaling monorepos of projects in JS/TS https://turborepo.com/docs
+
+-------------------------------------------------------
+
+# Layer !== Tier
+
+It is important to understand that a tier is not a layer. A tier is an independent component deployed at a specific physical location, that can contain many layers. 
+
+-------------------------------------------------------
+
 # Modular Monolith Architecture
 
 a single service device in separated modules with clear boundaries.
@@ -27,9 +62,35 @@ TODO
 
 -------------------------------------------------------
 
+# Service Oriented Architecture
+
+You can think of services as the utilities we share: Internet, Electricity, Water, etc. This translates to: Things like authentication, email sending, or file upload.
+
+They abstract away complexity and expose a simple interface. 
+
+Services can depend on each other following a Service Dependency Graph. 
+
+We typically use a class to define a Service and use access modifiers (read-only, private) to expose a minimum API to anyone using the service (other service or a Controller).
+
+Services can be used across the different layers.
+
+-------------------------------------------------------
+
 # Microservices Architecture
 
 TODO
+
+The Microservices Architecture is a natural evolution of SOA (Service Oriented Architecture): we can transition to by extracting Services from the modular monolith and running them independently. 
+
+Benefits:
+
+ - Each microservice runs independently 
+
+ - Each microservice can be developed by an autonomous (and smaller) team
+
+ - If one service fails, the system will keep running 
+
+ - Services are also deployed independently
 
 -------------------------------------------------------
 
@@ -52,11 +113,23 @@ Microservices architecture requires more maintenance and development.
 
 Drawbacks of MicroServices:
 
-    extra latency - a call into the system usually translates to a cascade of calls(over the network) to several services downstream. Each extra call makes the total response time longer.
+ - extra latency - a call into the system usually translates to a cascade of calls(over the network) to several services downstream. Each extra call makes the total response time longer.
 
-    extra complexity - to get data from another service we need to make a call over the network, handle authentication, caching, and maybe even load balancing. In a modular monolith, it would have been a simple function call.
+ - extra complexity - to get data from another service we need to make a call over the network, handle authentication, caching, and maybe even load balancing. In a modular monolith, it would have been a simple function call.
 
-    extra resources - although we can rip some scalability benefits from Microservices(see system design) we need extra pieces in our architecture: distributed login and monitoring and distributed analytics just to name a few. This all ads up in our cloud bill at the end of the month.
+ - extra resources - although we can rip some scalability benefits from Microservices(see system design) we need extra pieces in our architecture: distributed login and monitoring and distributed analytics just to name a few. This all ads up in our cloud bill at the end of the month.
+
+
+These drawbacks related to the 8 Fallacies of Distributed Computing:
+
+1. The network is reliable.
+2. Latency is zero.
+3. Bandwidth is infinite.
+4. The network is secure.
+5. Topology doesn't change.
+6. There is one administrator.
+7. Transport cost is zero.
+6. The network is homogeneous.
 
 -------------------------------------------------------
 
@@ -249,6 +322,50 @@ Forward and reverse proxies are both intermediaries in network communication, bu
 A forward proxy acts on behalf of clients, managing outgoing traffic to external servers.
 
 While a reverse proxy acts on behalf of servers, managing incoming traffic from external clients. 
+
+-----------------------------------------------------
+
+# Reverse Proxy vs. API Gateway
+
+An API gateway is a specialized form of a reverse proxy, primarily focused on API traffic management rather than general load balancing or data caching.
+
+-------------------------------------------------------
+
+# Proxy Pattern
+
+TODO
+
+https://www.patterns.dev/vanilla/proxy-pattern/
+
+-------------------------------------------------------
+
+# API Gateway Pattter
+
+A common pattern used in the Microservices Architecture and it works like the gate to your cluster of services.
+
+Just like a medieval city gate, the API gateway is the only entry point for requests to the various microservices. 
+
+This setup centralizes security and functionality, making it simpler to manage.
+
+Benefits 
+
+ - Security - The gateway handles critical security functions like TLS handshakes, HTTPS, authentication, and sometimes authorization. It's also the point for implementing shared functionalities like caching or CORS, reducing redundancy in microservices.
+
+ - Centralized Common Functions: Common needs like HTTP caching and CORS are handled centrally, avoiding repetitive coding across services.
+
+Drawbacks 
+
+ - Single point of failure. Despite its benefits, if it goes down, everything behind it is unreachable.
+
+Note:
+
+ - It’s advisable to keep business logic out of the API gateway to prevent it from becoming a bottleneck during updates or system changes. 
+
+ - Business logic should reside in more flexible, adaptable backend services like a Backend for frontend.
+
+Example
+
+https://aws.amazon.com/api-gateway/
 
 -------------------------------------------------------
 
@@ -472,14 +589,6 @@ TODO
 TODO
 
 https://www.patterns.dev/vanilla/singleton-pattern/
-
--------------------------------------------------------
-
-# Proxy Pattern
-
-TODO
-
-https://www.patterns.dev/vanilla/proxy-pattern/
 
 -------------------------------------------------------
 

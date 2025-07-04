@@ -917,7 +917,23 @@ https://www.npmjs.com/package/terser-webpack-plugin
 
 -------------------------------------------------------
 
-# 
+# Webpack Module Federation (MF)
+
+A feature of webpack that allows for the dynamic loading of multiple versions of a module from multiple independent build systems.
+
+Allows for the creation of microfrontend-style applications, where multiple systems can share code and be dynamically updated without having to rebuild the entire application.
+
+https://webpack.js.org/concepts/module-federation/
+
+https://github.com/module-federation
+
+https://module-federation.io/
+
+Alternatives Module Federation to building Microfrontends:
+
+ - SingleSpa https://single-spa.js.org/
+ 
+ - Bit https://bit.dev/
 
 -------------------------------------------------------
 

@@ -37,6 +37,168 @@ Tests on specific files:
 
 -------------------------------------------------------
 
+# `npm ci` vs `npm i`
+
+`npm ci` installs exact dependencies from lockfile, `package-lock.json`
+
+| Feature                  | `npm install` (`npm i`) | `npm ci` (Clean Install)                     |
+| ------------------------ | ----------------------- | -------------------------------------------- |
+| Purpose                  | Install dependencies    | Install **exact** dependencies from lockfile |
+| Uses `package.json`      | ✅ Yes                   | ✅ Yes                                        |
+| Uses `package-lock.json` | ✅ (optional)            | ✅ **Required**                               |
+| Can update lockfile      | ✅ Yes                   | ❌ Never                                      |
+| Deletes `node_modules`   | ❌ No                    | ✅ Always                                     |
+| Speed (in CI/CD)         | 🐢 Slower               | 🚀 Faster and consistent                     |
+| Ideal use case           | Dev environment         | CI/CD pipelines and reproducible builds      |
+
+`npm ci` preferred in CI because:
+
+ - faster
+
+ - reliable (uses exact versions from package-lock.json)
+
+ - fails on mismatch, which helps catch dependency problems early
+
+ - deterministic
+
+What `npm install` Does:
+
+ - Installs dependencies listed in package.json
+
+ - If package-lock.json exists: tt tries to honor it, but may update it if out of sync
+
+ - Creates or updates node_modules/ and package-lock.json
+
+ - May produce slightly different results depending on the environment
+
+ - ✅ Good for local dev
+ 
+ - ⛔️ Not ideal for CI/CD — can be non-deterministic
+
+What npm ci Does:
+
+ - Requires a valid package-lock.json file
+
+ - Completely removes node_modules/
+
+ - Installs exact versions specified in package-lock.json
+
+ - Fails if there’s any mismatch between package.json and package-lock.json
+
+ - ✅ Perfect for CI/CD pipelines
+
+ - ✅ Ensures deterministic, reproducible builds
+
+ - ✅ Typically faster
+
+-------------------------------------------------------
+
+# What does it mean "`npm ci` has deterministic builds" ?
+
+A deterministic build means: Given the same input, the output is always the same.
+
+What makes `npm ci` deterministic:
+
+ - It strictly uses `package-lock.json`: no dependency resolution is done.
+
+ - It installs the exact versions (and sub-dependencies) listed in the lockfile.
+
+ - It deletes `node_modules/` before installing: Prevents leftover or mismatched packages from previous installs.
+
+ - It fails on mismatch: If `package.json` and `package-lock.json` are out of sync, `npm ci` throws an error. This guarantees the lockfile reflects reality.
+
+-------------------------------------------------------
+
+# What is Node LTS ?
+
+Node LTS = Node.js Long-Term Support.
+
+LTS versions of Node.js are officially supported and maintained for a longer period (typically 30 months).
+
+They are considered more stable and reliable for use in production environments.
+
+-------------------------------------------------------
+
+# npm vs nvm ?
+
+Node Package Manager vs Node Version Manager.
+
+nvm = Easily switch between different versions of Node.js (and their bundled npm) on your system.
+
+nvm = ONLY for Node.js versions - not for versions of any other program.
+
+-------------------------------------------------------
+
+# Example of `package-lock.json` and brief overview of how it works?
+
+Given this `package.json`:
+
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "lodash": "^4.17.0"
+  }
+}
+
+When running `npm install`, it creates a `package-lock.json` like this:
+
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "lodash": "^4.17.0"
+      }
+    },
+    "node_modules/lodash": {
+      "version": "4.17.21",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "integrity": "sha512-...=="
+    }
+  },
+  "dependencies": {
+    "lodash": {
+      "version": "4.17.21",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "integrity": "sha512-...=="
+    }
+  }
+}
+
+Anyone who runs `npm ci` or` npm install` with this lockfile will get `lodash@4.17.21`
+
+### Summary
+
+ - `package-lock.json` locks down exact dependency versions, down to sub-dependencies.
+
+ - It prevents unexpected updates or regressions
+
+ - It's a critical part of any reliable Node.js project, especially in CI/CD and teams
+
+### How It Works in Practice
+
+1. First install
+
+`npm install` reads package.json
+
+Resolves dependencies (using ^ or ~ ranges)
+
+Generates or updates `package-lock.json`
+
+2. Subsequent installs
+
+`npm ci` or `npm install` will use the exact versions in the lockfile
+
+3. CI/CD
+
+Use `npm ci` to ensure that the exact same dependency tree is installed, every time
+
+-------------------------------------------------------
+
 # `npm` and 3rd Party Packages
 
 `npm` = node package manager
@@ -804,6 +966,18 @@ Jobs are configured in the `.gitlab-ci.yml` file with a list of commands to exec
 
 -------------------------------------------------------
 
+# GitLab CI/CD: Jobs vs Stages
+
+In GitLab CI, jobs are grouped by stages (like build, test, deploy).
+
+Stages run sequentially, whereas jobs run in parallel (within a stage).
+
+Exception: 
+
+Jobs within the same stage run in parallel, unless explicitly told to wait on another job using `needs:` or `dependencies:`.
+
+-------------------------------------------------------
+
 # GitLab CI/CD YAML file 
 
 GitLab CI/CD YAML file, `.gitlab-ci.yml`, is where you define your pipeline: you add the stages and jobs.
@@ -816,7 +990,9 @@ In this file, you define:
  
 -------------------------------------------------------
 
-# GitLab Pipeline for React SPA with stages: Build and Deploy
+# GitLab Pipeline: React SPA with stages Build & Deploy
+
+This pipeline deploys the React SPA to AWS S3.
 
 HowTo:
 
@@ -862,6 +1038,34 @@ HowTo:
 
 Above is the text for your GitLab CI/CD YAML file - `.gitlab-ci.yml`
 
+Both lint-job and build-job are in the same build stage:
+
+ - If either one fails, the whole build stage fails and the deploy-job won’t run.
+
+ - So even if the code builds fine, a failed lint check blocks deployment, which is intentional and aligns with best practice.
+
+If lint-job fails in your pipeline, the best practice is to:
+
+ 1. Fix the Lint Issues Locally
+ 
+ 2. Re-Run Unit Tests Locally
+ 
+ 3. Commit and Push Fixes - This will rerun the entire pipeline, including both lint-job and build-job
+
+### YAML Explained
+
+`image: node:lts`:
+
+The job uses a Docker image from Docker Hub — specifically, the `node:lts` image, which contains Node.js (LTS version) and npm pre-installed. 
+
+This defines the runtime environment for this job.
+
+`script` explained:
+
+This is the list of commands that will run inside the container in the CI job.
+
+They are run in order, top to bottom.
+
 5. Your Project > Settings > CI/CD > "Variables" section > click "Add Variable"
 
 Untick "Protected Variable" (for simplicity, you might want to change that in a more mature setup)
@@ -903,16 +1107,151 @@ https://docs.gitlab.com/ci/yaml/
 
 -------------------------------------------------------
 
-# GitLab Pipeline for React SPA with stages: Build, Test (Unit Tests) and Deploy
+# GitLab Pipeline: Why Run "npm ci" For Each Job ?
+
+Because each job runs in its own isolated environment:
+
+ - With a fresh container - no shared dependencies, no shared file system
+
+ - Without `node_modules/` from previous jobs
+
+ - Without guarantee that dependencies from other jobs exist
+ 
+This ensures correctness, speed, and consistency.
+
+-------------------------------------------------------
+
+# GitLab Pipeline: How Can Jobs Share State ?
+
+GitLab CI runs each job in a separate container, unless you explicitly share state via:
+
+ - `artifacts`
+
+ - `cache`
+
+ - `dependencies`
+
+ - `needs`
+
+For instance:
+
+If you have 2 jobs independently installing the same dependencies, you can share them using `cache`.
+
+It will result in faster jobs.
+
+-------------------------------------------------------
+
+# GitLab Pipeline: React SPA with stages Build, Test (Unit Tests) and Deploy
+
+Comes with:
+
+ - an `install` job to install the dependencies
+  
+ - cache the `node_modules` folder between jobs
+
+>     stages:          
+>       - build
+>       - deploy
+>     
+>     default:
+>       image: node:latest
+>       cache:  # Cache modules in between jobs
+>         key: $CI_COMMIT_REF_SLUG
+>         paths:
+>           - .npm/
+>       before_script:
+>         - npm ci --cache .npm --prefer-offline
+>         
+>     lint-job: # This job runs in the build stage, which runs first.
+>       stage: build
+>       image: node:lts # The image that will be used to run the job
+>       script: # The commands that will be executed in the job
+>         - npm ci # Installs the dependencies
+>         - npm run lint # Runs the linter
+>     
+>     build-job:  # This job runs in the build stage, which runs first.
+>       stage: build    # It only starts when the job in the build stage completes successfully.
+>       image: node:lts
+>       script:
+>         - touch .env # creates and env file
+>         - echo $ENV_FILE > .env # adds the content of the environment file to the .env file
+>         - npm ci # Installs the dependencies
+>         - npm run build # Builds the project
+>       artifacts:
+>         untracked: false 
+>         when: on_success # The build artifacts are saved only when the job succeeds
+>         expire_in: 10 days # The build artifacts are saved for 10 days
+>         paths:
+>           - "build" # The build folder is saved as an artifact
+>     
+>     unit-test-job:       # This job runs in the build stage, which runs first.
+>       stage: build
+>       image: node:lts
+>       script:
+>         - echo $MY_TEST_VAR
+>         - npm test
+>     
+>     deploy-job: # This job runs in the deploy stage.
+>       stage: deploy  # It only runs when *both* jobs in the build stage complete successfully.
+>       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+>       before_script:
+>         - echo "Deploying to AWS..."
+>       script:
+>         - aws s3 cp ./build s3://$AWS_BUCKET_NAME/ --recursive --acl public-read # Deploys the build folder to the bucket
+
+Above is the text for your GitLab CI/CD YAML file - `.gitlab-ci.yml`
+
+### YAML Explained
+
+`default`: 
+
+Section used to define shared settings for all jobs.
+
+`image: node:latest`:
+
+All jobs will use the `node:latest` Docker image unless they specify another.
+
+This provides `Node.js` and `npm` pre-installed.
+
+`cache`:
+
+This sets up caching between jobs to make builds faster, especially useful for caching `node_modules` or downloaded packages.
+
+`key: $CI_COMMIT_REF_SLUG`
+
+Defines a cache key based on the current Git branch or tag name, slugified.
+
+This makes cache branch-specific, preventing cross-branch interference.
+
+`paths: - .npm/`
+
+GitLab will cache the `.npm/` directory between jobs with the same key.
+
+This is used by npm to cache downloaded packages.
+
+`before_script`:
+
+Commands listed here will run before each job's `script` section.
+
+`npm ci --cache .npm --prefer-offline`
+
+`npm ci`: A fast, clean install of dependencies using `package-lock.json`. Ideal for CI.
+
+`--cache .npm`: Tells npm to use .npm/ as the local cache directory.
+
+`--prefer-offline`: Prefer cached packages if available — speeds up builds and reduces network requests.
+
+### Advanced Version
 
 Generate XML report file with `jest-unit`.
 
-npm install --save-dev jest-junit
+`npm install --save-dev jest-junit`
 
-"test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false --ci --coverage"
+Add in Package.json:
 
-GitLab CI/CD YAML file.
+`"test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false --ci --coverage"`
 
+### Docs
 
 https://evolvingweb.com/blog/comprehensive-guide-react-native-jest-and-gitlab-cicd
 
@@ -920,6 +1259,512 @@ https://about.gitlab.com/blog/how-to-automate-testing-for-a-react-application-wi
 
 -------------------------------------------------------
 
+# GitLab Pipeline: Rules
+
+Example
+
+>     job:
+>       script: echo "Hello, Rules!"
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "release"
+
+https://docs.gitlab.com/ci/jobs/job_rules/
+
+-------------------------------------------------------
+
+# GitLab Pipeline: React SPA with stages Install, Build, Test (Unit Tests) and Deploy
+
+Here we deploy on either:
+ 
+ - "Staging" Bucket in S3
+ 
+ - "Production" Bucket in S3
+
+So we just added the 2 relevant variables in GitLab.
+
+By default, GitLab runs pipelines' jobs whenever there is a commit on any branch. We remove that and run jobs only on specific branch commits.
+
+>     stages:          
+>       - build
+>       - deploy
+>     
+>     default:
+>       image: node:latest
+>       cache:  # Cache modules in between jobs
+>         key: $CI_COMMIT_REF_SLUG
+>         paths:
+>           - .npm/
+>       before_script:
+>         - npm ci --cache .npm --prefer-offline
+>         
+>     lint-job: # This job runs in the build stage, which runs first.
+>       stage: build
+>       image: node:lts # The image that will be used to run the job
+>       script: # The commands that will be executed in the job
+>         - npm ci # Installs the dependencies
+>         - npm run lint # Runs the linter
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "release" || $CI_COMMIT_BRANCH == "main"
+>     
+>     build-job:  # This job runs in the build stage, which runs first.
+>       stage: build    # It only starts when the job in the build stage completes successfully.
+>       image: node:lts
+>       script:
+>         - touch .env # creates and env file
+>         - echo $ENV_FILE > .env # adds the content of the environment file to the .env file
+>         - npm ci # Installs the dependencies
+>         - npm run build # Builds the project
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "release" || $CI_COMMIT_BRANCH == "main"
+>       artifacts:
+>         untracked: false 
+>         when: on_success # The build artifacts are saved only when the job succeeds
+>         expire_in: 10 days # The build artifacts are saved for 10 days
+>         paths:
+>           - "build" # The build folder is saved as an artifact
+>         
+>     unit-test-job:       # This job runs in the build stage, which runs first.
+>       stage: build
+>       image: node:lts
+>       script:
+>         - echo $MY_TEST_VAR
+>         - npm test
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "release" || $CI_COMMIT_BRANCH == "main"
+>     
+>     deploy-staging-job: # This job runs in the deploy stage.
+>       stage: deploy  # It only runs when *both* jobs in the build stage complete successfully.
+>       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+>       before_script:
+>         - echo "Deploying to AWS Staging..."
+>       script:
+>         - aws s3 cp ./build s3://$AWS_BUCKET_STAGING/ --recursive --acl public-read # Deploys the build folder to the bucket
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "release"
+>     
+>     deploy-production-job: # This job runs in the deploy-production stage.
+>       stage: deploy  # It only runs when *both* jobs in the build stage complete successfully.
+>       image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+>       before_script:
+>         - echo "Deploying to AWS Prod..."
+>       script:
+>         - aws s3 cp ./build s3://$AWS_BUCKET_PRODUCTION/ --recursive --acl public-read # Deploys the build folder to the bucket
+>       rules:
+>         - if: $CI_COMMIT_BRANCH == "main"
+
+-------------------------------------------------------
+
+# Amazon CloudFront (CDN): Basic Setup
+
+
+https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html
+
+-------------------------------------------------------
+
+# AWS Account Basics
+
+Each AWS account has a default VPC, three subnets, and an Internet Gateway.
+
+-------------------------------------------------------
+
+# AWS Setup a Budget and Email Alerts
+
+Billing and Cost Management > Budgets > Create budget
+ 
+Leave everything as is ("zero spend budget" should be selected by default).
+
+Just add your email address under "Email recipients".
+
+-------------------------------------------------------
+
+# Virtual Private Cloud (VPC)
+
+It's a virtual network environment provided by AWS, providing an isolated section of the cloud where we can launch resources (servers, databases, etc). 
+
+By default, VPC are not connected to the internet.
+
+-------------------------------------------------------
+
+# AWS Setup Database (Postgres)
+
+Aurora and RDS > Create Database > Pick "PostgreSQL" > Pick "Free Tier"
+
+DB_USER=root
+DB_PASSWORD=theUltraSeniorDev
+
+-------------------------------------------------------
+
+# 🐳 Docker
+
+Docker simplifies the packaging and deployment of applications by providing a platform for creating and running containers.
+
+https://docs.docker.com/engine/install/
+
+-------------------------------------------------------
+
+# Dockerfile
+
+Dockerfiles serve as a recipe for building Docker Container Images, outlining the steps needed to configure and set up the container environment.
+
+You can think of Dockerfile as a class, and Docker Container Image as instances of it.
+
+Dockerfiles are blueprints.
+
+https://docs.docker.com/build/concepts/dockerfile
+
+-------------------------------------------------------
+
+# Docker Container Image
+
+TLDR: an app wrapped into everything required to run it - including an OS (ultra light linux OS).
+
+A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+
+Docker images are typically versioned - as your team/company implements changes and may want to roll back if needed.
+
+-------------------------------------------------------
+
+# Docker Container Images + Operating Systems
+
+Every container image includes some OS components (Linux libraries).
+
+But not a full standalone operating system.
+
+For intance, most Node.js images are based on a minimal Linux distribution, such as:
+
+ - `debian` (default for node:<version>)
+
+ - `alpine` (extra lightweight)
+
+ - `ubuntu` (heavier, but familiar)
+
+These provide:
+
+ - A minimal Linux kernel interface (handled by the host machine)
+
+ - Core utilities (like sh, libc, etc.)
+
+ - Just enough OS libraries to run Node.js and your dependencies
+
+-------------------------------------------------------
+
+# Docker Containers
+
+Docker images become containers when they run on Docker Engine.
+
+Containers isolate software from its environment and ensure that it works uniformly.
+
+-------------------------------------------------------
+
+# Docker Registry
+
+A repository for storing and distributing Docker images. 
+
+It serves as a central hub where Docker images can be uploaded, shared, and pulled by users.
+
+-------------------------------------------------------
+
+# Docker: Benefits
+
+1. Deployment Standardization
+
+Docker enables a consistent deployment pipeline across teams and services within a company, simplifying the deployment process.
+
+TLDR: Blueprint.
+
+2. Less Manual Configuration
+
+Docker images streamline deployment by encapsulating code and dependencies, eliminating the need for manual configuration of servers.
+
+TLDR: Reproducible.
+
+3. Artifact Repository
+
+Docker images stored in repositories allow for easy versioning and rollback in the case of failure.
+
+TLDR: Plan A, B, and C.
+
+4. Container Orchestration
+
+Cloud services offer container orchestration systems like AWS ECS, Kubernetes, and Azure Container Service to automate and manage containerized applications in production environments. 
+
+Those systems handle complex operations such as autoscaling, load balancing, and deployment strategies(Blue/Green), reducing manual overhead and streamlining the deployment process.
+
+-------------------------------------------------------
+
+# Docker Orchestrators
+
+| Tool                     | Notes                                                                  |
+| ------------------------ | ---------------------------------------------------------------------- |
+| **Kubernetes**           | Most popular; powerful, extensible, widely adopted.                    |
+| **Docker Swarm**         | Simpler alternative to Kubernetes, integrated with Docker.             |
+| **Nomad** (by HashiCorp) | Lightweight, general-purpose orchestrator (not limited to containers). |
+| **Amazon ECS / EKS**     | AWS’s managed orchestration services.                                  |
+| **OpenShift**            | Red Hat’s enterprise Kubernetes distribution.                          |
+
+-------------------------------------------------------
+
+# Docker Commands
+
+`docker build -t my-app .`   # builds a Docker image from a Dockerfile and gives it a name (or "tag")
+
+`docker-compose up`  # start and run multi-container Docker applications defined in a docker-compose.yml file
+
+`docker images`   # list all local images
+
+`docker network ls`   # list all Docker networks on your machine
+
+`docker-compose down`   # stop and completely remove all resources created by docker-compose up
+
+-------------------------------------------------------
+
+docker build -t my-app .
+
+docker-compose up
+
+docker network ls
+
+docker images
+
+docker run -p 3000:3000 --env-file .env.development --network tsd-net be1f24362a14
+
+docker-compose down
+
+
+Posted SSL issue on: 
+https://www.skool.com/software-mastery/action-item-done-container-deployment?p=26ee9d00
+
+-------------------------------------------------------
+
+# `docker build -t my-app .`
+
+
+Builds a Docker image from a Dockerfile and gives it a name (or "tag").
+
+`-t my-app` :	Tags (names) the resulting image as my-app. You can later refer to it using this name.
+
+`.`	: Tells Docker to look in the current directory for the Dockerfile.
+
+-------------------------------------------------------
+
+# `docker-compose up`  
+
+TLDR: Start services.
+
+Start resources defined in `docker-compose.yml`.
+
+1. Reads the docker-compose.yml file
+
+2. Pull images (if needed)
+
+3. Builds images (if needed)
+
+4. Create + start containers
+
+5. Setup networks + volumes
+
+6. Streams logs to your terminal
+
+| Common Flags       | Description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| `-d`               | Run containers in **detached mode** (in background)               |
+| `--build`          | Force **rebuild** of images                                       |
+| `--force-recreate` | Recreate containers even if they haven’t changed                  |
+| `--remove-orphans` | Remove containers not defined in the current `docker-compose.yml` |
+
+-------------------------------------------------------
+
+# `docker-compose down`
+
+TLDR: Stop and remove services.
+
+Stop and completely remove all resources created by `docker-compose up`.
+
+1. Stops all containers
+
+2. Removes: Containers, Networks, Default volumes (anonymous volumes — if you used docker-compose up without naming volumes)
+
+3. What it does not remove by default: Named volumes, Images, External networks - explicitly remove those too using flags
+
+| Common Flags                           | Effect                                                        |
+| -------------------------------------- | ------------------------------------------------------------- |
+| `docker-compose down`                  | Stop and remove containers, networks                          |
+| `docker-compose down -v`               | Also remove **named volumes**                                 |
+| `docker-compose down --rmi all`        | Also remove **all images** used by services                   |
+| `docker-compose down --remove-orphans` | Remove containers not defined in current `docker-compose.yml` |
+
+-------------------------------------------------------
+
+# Docker Compose File
+
+A `docker-compose.yml` file is used by Docker Compose to define and run multi-container Docker applications.
+
+Lets you define:
+
+ - The services (containers)
+
+ - The networks they connect to
+
+ - The volumes they use
+
+ - Environment variables, ports, commands, dependencies, etc.
+
+### Basic Structure
+
+services:       # All the containers you want to run
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+
+  app:
+    build: .
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+
+### Explanation
+
+`services` defines each container and config inside each service:
+
+ - `image`: the Docker image to use
+
+ - `build`: path to Dockerfile to build image
+
+ - `ports`: map host ↔ container ports (host:container)
+
+ - `volumes`: define persistent storage, mount host or named volumes
+
+ - `environment`: set environment variables
+
+ - `depends_on`: define startup order
+
+ - `networks`: (Optional) Define private comms
+ 
+-------------------------------------------------------
+
+# Docker: Setup Database (MySQL)
+
+TODO - UNFINISHED
+
+MySQL is the most popular relational database tool, with a market share of over 40%. Following is PostgreSQL (16%) and Oracle Database (11%).
+
+Remember: Docker images are blueprints for building containers.
+
+Run in terminal: 
+
+`docker pull mysql:latest`
+
+Check the image was downloaded:
+
+`docker images`
+
+Create our first container from the `mysql` image:
+
+`docker run --name test-mysql -e MYSQL_ROOT_PASSWORD=strong_password -d mysql`
+
+https://www.datacamp.com/tutorial/set-up-and-configure-mysql-in-docker
+
+https://hub.docker.com/_/mysql
+
+-------------------------------------------------------
+
+# PgAdmin for PostgreSQL
+
+Right click on "Server" > Register > New Server
+
+Go to AWS Console > Aurora and RDS > select your existing DB > under "Endpoint & port", copy value of Endpoint (i.e. movie-api-production-database.c4sfw7u6.eu-north-1.rds.amazonaws.com)
+
+Go back to PgAdmin > "Connection" Tab 
+
+  Host name/address > Paste endpoint value
+
+  Username > enter value
+  
+  Password > enter value
+  
+  Save Password > tick "yes"
+
+-------------------------------------------------------
+
+# 
+
+`scp -i AWS_KEY_PATH FILE_TO_COPY ec2-user@INSTANCE_IP:FILE_DESTINATION`
+
+`scp -i /Users/xyz/reactapps/virtual-server/my_prod_movie_api_key.pem FILE_TO_COPY ec2-user@INSTANCE_IP:FILE_DESTINATION`
+
+scp -i /Users/adrienberthou/all-that-jazz/reactappsss/deployment-to-virtual-server-0xadri/my_prod_movie_api_key.pem FILE_TO_COPY ec2-user@16.171.155.53:FILE_DESTINATION
+
+
+# copy files to the ec2 instance
+export KEY_PATH="my_prod_movie_api_key.pem"
+export SERVER_DNS="ec2-16-171-155-53.eu-north-1.compute.amazonaws.com"
+export SERVER_USER="ec2-user"
+
+# create folder
+ssh -i $KEY_PATH $SERVER_USER@$SERVER_DNS "mkdir /home/ec2-user/api"
+
+# copy build files
+ssh -i $KEY_PATH $SERVER_USER@$SERVER_DNS "rm -rf /home/ec2-user/api/build"
+scp -i $KEY_PATH -r build $SERVER_USER@$SERVER_DNS:/home/ec2-user/api/build
+scp -i $KEY_PATH package.json $SERVER_USER@$SERVER_DNS:/home/ec2-user/api/package.json
+
+# copy and rename the env. file
+scp -i $KEY_PATH .env.development.local $SERVER_USER@$SERVER_DNS:/home/ec2-user/api/.env.development.local
+ssh -i $KEY_PATH $SERVER_USER@$SERVER_DNS "mv /home/ec2-user/api/.env.development.local /home/ec2-user/api/.env.production"
+
+# set the NODE_ENV to production
+ssh -i $KEY_PATH $SERVER_USER@$SERVER_DNS "export NODE_ENV=production"
+
+ssh -i $KEY_PATH $SERVER_USER@$SERVER_DNS
+
+-------------------------------------------------------
+
+# 
+
+image: node:lts   #  This automatically pulls the latest LTS image (e.g., node:20 as of now)
+
+-------------------------------------------------------
+
+# pm2
+
+PM2 is a Node.js Production Process Manager with a built-in Load Balancer. 
+
+Allows you to keep applications alive forever, to reload them without downtime (online 24/7) and to facilitate common system admin tasks.
+
+PM2 = P(rocess) M(anager) 2
+ 
+Common Commands:
+
+`pm2 list` # to check the running apps
+
+`pm2 logs` # to check the logs
+
+`pm2 monit` # to monitor the app
+
+`pm2 restart all` # to restart the app
+
+`pm2 stop all` # to stop the app
+
+https://pm2.keymetrics.io/
+
+-------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
 # 
 
 
@@ -934,4 +1779,16 @@ https://about.gitlab.com/blog/how-to-automate-testing-for-a-react-application-wi
 
 
 -------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
+# 
 

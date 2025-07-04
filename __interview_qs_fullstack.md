@@ -27,7 +27,6 @@ JavaScript did not have built-in support for modules prior to 2015. We had to us
 
 4. (optional) DNS Preconnect - less used but possible - technique to speed up connections by resolving domain names before a user requests them.
 
-
 -------------------------------------------------------
 
 # What are the headers for caching?
@@ -446,5 +445,48 @@ Round-Robin is a rather naive algo.
 ESLint is a configurable JavaScript linter. It helps you find and fix problems in your JavaScript code. 
 
 Problems can be anything from potential runtime bugs, to not following best practices, to styling issues.
+
+-------------------------------------------------------
+
+# Docker Orchestrators run many containers on a single machine. Is that correct?
+
+Not quite — that’s a common misconception.
+
+Docker orchestrators (like Kubernetes or Docker Swarm) are designed to run and manage containers across multiple machines — not just a single one.
+
+Think of it this way:
+
+ - Docker Engine runs containers on a single machine.
+
+ - A Docker Orchestrator manages a cluster of machines (called nodes) and spreads containers across them intelligently.
+
+Orchestrators CAN run multiple containers on a single machine, if:
+
+ - You're running a single-node cluster (for development/testing).
+
+ - That’s where the resources allow containers to run.
+
+But the true power of orchestration comes from managing many machines (nodes) and distributing containers across them.
+
+-------------------------------------------------------
+
+# Isn't it very heavy to include a Linux in every single Container, even if a light version of Linux ?
+
+Nope. See the size of Alpine Linux and distroless images:
+
+| Image type   | Approx. size | Notes                                                  |
+| ------------ | ------------ | ------------------------------------------------------ |
+| `ubuntu`     | \~29 MB      | Full-featured OS                                       |
+| `alpine`     | \~5 MB       | Ultra-minimal Linux                                    |
+| `distroless` | < 2 MB       | No package manager or shell; only app and dependencies |
+
+Comparison to VMs:
+
+| Feature   | Virtual Machine | Container          |
+| --------- | --------------- | ------------------ |
+| Kernel    | Included        | Shared with host   |
+| Boot time | Minutes         | Seconds            |
+| Size      | GBs             | MBs (or even less) |
+| Overhead  | High            | Low                |
 
 
