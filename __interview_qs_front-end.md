@@ -532,8 +532,11 @@ In all of the points above: implement best practices and remove anti-patterns th
 # How do you optimize images using webpack?
 
 There are various plugins available such as:
+
  - `image-webpack-loader`
+
  - `compression-webpack-plugin`
+
  - `ImageMinimizerWebpackPlugin`
 
 https://cloudinary.com/blog/guest_post/optimize-images-using-webpack-in-react
@@ -604,9 +607,54 @@ This attribute allows you to define multiple source images along with their dime
 
 -------------------------------------------------------
 
+# What's the performance metric Time To First Byte (TTFB) ?
+
+Measures how long it takes for a web server to respond to a request and send the first byte of data back to the client.
+
+It's a key indicator of server responsiveness and network performance. 
+
+TTFB is measured from when a browser sends a request to when it receives the initial byte of the response. 
+
+-------------------------------------------------------
+
+# What's the performance metric First Contentful Paint (FCP) ?
+
+Measures the time it takes for any part of a page's content to be rendered on the screen after the user navigates to it. 
+
+This includes text, images, background images, <svg> elements, and non-white <canvas> elements. 
+
+FCP is a key metric for understanding perceived page load speed and user experience. 
+
+-------------------------------------------------------
+
+# What's the performance metric Cumulative Layout Shift (CLS) ?
+
+Calculates the shifting of elements while the page is being downloaded and rendered. 
+
+The more common occurrences are on images, buttons and other interactive elements but can be easily spotted on text as well.
+
+-------------------------------------------------------
+
+# What's the performance metric Interaction to Next Paint (INP) ?
+
+Measures user interface responsiveness – how quickly a website responds to user interactions like clicks or key presses.
+
+-------------------------------------------------------
+
+# First Input Delay (FID) - performance metric
+
+Measures the responsiveness of a webpage by tracking the time it takes for a browser to respond to a user's first interaction, i.e. click a link or tap a button. 
+
+It essentially indicates how quickly the browser becomes able to process a user's interaction after it's initiated.
+
+FID was previously a Core Web Vitals metric, but has been replaced by Interaction to Next Paint (INP).
+
+-------------------------------------------------------
+
 # Which performance metric is most directly affected by excessive re-renders in web frameworks such as React, Vue, or Angular?
 
-1. INP(Interaction to Next Paint) - the time it takes to paint the next frame after a user interaction.
+1. INP (Interaction to Next Paint) - the time it takes to paint the next frame after a user interaction.
+
 2. First Input Delay (FID) measures the time from when a user first interacts with a page (i.e., when they click a link
 
 Interaction to Next Paint (INP): measures the responsiveness of an application by tracking the time from when a user interacts with the page to when the browser is able to update the visual display in response to that interaction. 

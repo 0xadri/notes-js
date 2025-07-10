@@ -24,7 +24,6 @@ npm run test
 
 npm run test:coverage
 
-
 -------------------------------------------------------
 
 # Problem Statement
@@ -249,6 +248,95 @@ Goal: replace the actual function with a mocked one we created
 
 >     import httpRequest from './utils/http-request.js';  // import as usual
 >     jest.mock('./utils/http-request.js');  // only required when mocking local modules — not if mocking modules installed into the node_modules directory
+
+-------------------------------------------------------
+
+# Jest `--runInBand` flag
+
+`--runInBand` flag runs all tests serially in the main process - one after the other - instead of running them in parallel (the default).
+
+Common reasons:
+
+ - Reduce CPU/memory load
+ 
+ - Avoid test collisions
+ 
+ - Debugging flaky tests - i.e. you use Testcontainers, Docker, or a local DB in tests and hit timeouts or port conflicts
+
+Default Jest Behavior is to runs tests in parallel using worker threads (based on the number of CPU cores).
+
+-------------------------------------------------------
+
+# Jest Common Flags: Test Selection
+
+| Flag                        | Description                                                                                   |
+| --------------------------- | --------------------------------------------------------------------------------------------- |
+| `--testNamePattern <regex>` | Run only tests with a name that matches the pattern (great for running a specific test case). |
+| `--testPathPattern <regex>` | Run only test files that match the pattern (based on file path).                              |
+| `--onlyChanged`             | Run only tests related to changed files (based on Git).                                       |
+| `--findRelatedTests <file>` | Run tests related to a specific file.                                                         |
+| `--runTestsByPath`          | Run tests from specified file paths (avoids pattern matching).                                |
+
+
+-------------------------------------------------------
+
+# Jest Common Flags: Performance & Execution
+
+| Flag                  | Description                                                                             |
+| --------------------- | --------------------------------------------------------------------------------------- |
+| `--runInBand`         | Run tests serially in the main process (avoids parallel workers).                       |
+| `--maxWorkers=<num>`  | Limit the number of worker threads used (e.g., `--maxWorkers=2` or `--maxWorkers=50%`). |
+| `--detectOpenHandles` | Detect async operations that prevent Jest from exiting cleanly.                         |
+| `--logHeapUsage`      | Logs memory usage after each test file (useful for profiling memory leaks).             |
+
+-------------------------------------------------------
+
+# Jest Common Flags: Debugging
+
+| Flag             | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| `--verbose`      | Show individual test results (including test names).               |
+| `--noStackTrace` | Suppress stack traces for failed tests (for cleaner output).       |
+| `--showConfig`   | Print resolved Jest config (good for debugging misconfigurations). |
+| `--bail`         | Stop running tests after the first failure.                        |
+| `--detectLeaks`  | Experimental: detect memory leaks.                                 |
+
+-------------------------------------------------------
+
+# Jest Common Flags: Output & Watch Mode
+
+| Flag                  | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| `--watch`             | Re-run tests related to changed files in watch mode.         |
+| `--watchAll`          | Re-run all tests on file change (not just related ones).     |
+| `--coverage`          | Collect and display test coverage information.               |
+| `--json`              | Output test results in JSON (often used in CI or reporting). |
+| `--outputFile=<file>` | Save test results to a file (e.g., with `--json`).           |
+
+-------------------------------------------------------
+
+# Jest Common Flags: Snapshots
+
+| Flag                       | Description                                                                       |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| `-u` or `--updateSnapshot` | Update outdated snapshots.                                                        |
+| `--ci`                     | Run Jest in CI mode (non-interactive, no watch mode, stricter snapshot behavior). |
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
+
+-------------------------------------------------------
+
+# 
 
 -------------------------------------------------------
 

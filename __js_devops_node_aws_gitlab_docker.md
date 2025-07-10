@@ -63,11 +63,11 @@ Tests on specific files:
 
 What `npm install` Does:
 
- - Installs dependencies listed in package.json
+ - Installs dependencies listed in `package.json`
 
- - If package-lock.json exists: tt tries to honor it, but may update it if out of sync
+ - If `package-lock.json` exists: tries to honor it, but may update it if out of sync
 
- - Creates or updates node_modules/ and package-lock.json
+ - Creates or updates `node_modules`/ and `package-lock.json`
 
  - May produce slightly different results depending on the environment
 
@@ -75,15 +75,15 @@ What `npm install` Does:
  
  - ⛔️ Not ideal for CI/CD — can be non-deterministic
 
-What npm ci Does:
+What `npm ci` Does:
 
- - Requires a valid package-lock.json file
+ - Requires a valid `package-lock.json` file
 
- - Completely removes node_modules/
+ - Completely removes `node_modules/`
 
- - Installs exact versions specified in package-lock.json
+ - Installs exact versions specified in `package-lock.json`
 
- - Fails if there’s any mismatch between package.json and package-lock.json
+ - Fails if there’s any mismatch between `package.json` and `package-lock.json`
 
  - ✅ Perfect for CI/CD pipelines
 
@@ -289,6 +289,40 @@ https://docs.npmjs.com/creating-a-package-json-file
 
 -------------------------------------------------------
 
+# Mismatches Between Packages Versions
+
+Very common issue in the JavaScript ecosystem... there is a lot of package fatigue, versions change often and sometimes there in no backwards compatibility.
+
+Try solving:
+
+ - Google Search for exact same issue, include packages and versions in search. For instance: package version mismatch issue "apollo-server-express": "^3.11.1" with "express": "^4.17.1"
+ 
+ - Find exact fix i.e. correct versions to use together, migration instruction, and docs i.e. https://github.com/oven-sh/bun/issues/4947#issuecomment-3049438137
+ 
+ - If migration is difficult, feed answer to AI along with modules that need upgrading
+
+Try solving with different approaches such as:
+
+ 1. Reading the f*ing manual (official doc)
+
+ 2. Look for a command line installation wizard i.e. `npx eslint --init` is great
+
+ 3. Google Search
+
+ 4. Stackoverflow Search
+
+ 5. ChatGPT/DeepSeek - AI has a very hard time solving them also though because of the training data(older versions are over represented and weight more)
+
+If nothing works, fall back to:
+
+ - Start with a major version of the main package aka React - so stick to React 18 and run `npm upgrade` for all the other dependencies to get the latest version that matches that.
+
+ - `npm upgrade --all`
+ 
+ - Update the code to match any changes (this can take hours as you might have to rewrite whole components due to API changes but is sometimes the only way)
+
+-------------------------------------------------------
+
 # Nodemon
 
 `nodemon` is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.
@@ -338,11 +372,17 @@ Directly add `breakpoints` into VS Code.
 # Deployment [Best Practices]
 
 - Use environment variables
+
 - Use API Keys dedicated to Production
+
 - Reduce error output details, do not show sensitive info to users
+
 - Set secure response headers
+
 - Add asset compression
+
 - Configure logging/logs
+
 - Use SSL/TLS, encrypt data
 
 -------------------------------------------------------
@@ -596,44 +636,6 @@ but if you use nodemon:
 https://its-amit.medium.com/how-to-make-build-for-express-js-node-js-using-webpack-and-deployment-on-docker-9cd219ba24a2
 
 Webpack (a build tool using Node.js): https://academind.com/tutorials/webpack-2-the-basics
-
--------------------------------------------------------
-
-# Time To First Byte (TTFB) - performance metric
-
-Measures how long it takes for a web server to respond to a request and send the first byte of data back to the client. 
-It's a key indicator of server responsiveness and network performance. 
-TTFB is measured from when a browser sends a request to when it receives the initial byte of the response. 
-
--------------------------------------------------------
-
-# First Contentful Paint (FCP) - performance metric
-
-Measures the time it takes for any part of a page's content to be rendered on the screen after the user navigates to it. 
-This includes text, images, background images, <svg> elements, and non-white <canvas> elements. 
-FCP is a key metric for understanding perceived page load speed and user experience. 
-
--------------------------------------------------------
-
-# Cumulative Layout Shift (CLS) - performance metric
-
-Calculates the shifting of elements while the page is being downloaded and rendered. 
-The more common occurrences are on images, buttons and other interactive elements but can be easily spotted on text as well.
-
--------------------------------------------------------
-
-# Interaction to Next Paint (INP) - performance metric
-
-Measures user interface responsiveness – how quickly a website responds to user interactions like clicks or key presses.
-
--------------------------------------------------------
-
-# First Input Delay (FID) - performance metric
-
-Measures the responsiveness of a webpage by tracking the time it takes for a browser to respond to a user's first interaction, i.e. click a link or tap a button. 
-It essentially indicates how quickly the browser becomes able to process a user's interaction after it's initiated.
-
-FID was previously a Core Web Vitals metric, but has been replaced by Interaction to Next Paint (INP).
 
 -------------------------------------------------------
 
@@ -1387,10 +1389,67 @@ By default, VPC are not connected to the internet.
 
 # AWS Setup Database (Postgres)
 
+1. Create AWS RDS Database
+
+Note that we are creating a database host, that will then have several databases inside.
+
 Aurora and RDS > Create Database > Pick "PostgreSQL" > Pick "Free Tier"
 
-DB_USER=root
-DB_PASSWORD=theUltraSeniorDev
+DB instance identifier > type value i.e. movie-api-production
+
+Master username > type "root"
+
+Credentials management > Self managed > Master Password > type a password
+
+Instance configuration > pick the smallest (db.t3.mico)
+
+Connectivity > Public Access > pick "Yes"
+
+Connectivity > VPC security group (firewall) > Create new > New VPC security group name > type value i.e. sc-movie-api-production
+
+Tags > click "add new tag" > Key, type value i.e. env > Value, type value i.e. prod
+
+Monitoring > Log exports > tick "PostgreSQL log"
+
+Additional configuration > Database options > Initial database name > type value i.e. movie_api_db
+
+Additional configuration > Database options > Backup > Enable automated backups > untick if you're playing around
+
+Click "create database"
+
+2. Check connectivity w pgAdmin
+
+Connectivity & security > Endpoint & port > Endpoint > copy endpoint - it should look like movie-api-production-05-22.c3sqe2jcc7u6.eu-north-1.rds.amazonaws.com
+
+Right click on "servers" > Register > Server
+
+Name > type value i.e. movie-api-production-05-22
+
+Connection tab > Host name/address > paste endpoint i.e. movie-api-production-05-22.c3sqe2jcc7u6.eu-north-1.rds.amazonaws.com
+
+Connection tab > Username > type value (you chose that during the setup in the previous step) i.e. root
+
+Connection tab > Password > type value (you chose that during the setup in the previous step)
+
+Connection tab > Save Password > tick it
+
+Click "save"
+
+~~~~~
+
+Voila. It should successfully connect to the AWS RDS Database. If not, you may have an issue with the setup on AWS.
+
+~~~~~
+
+Video Tutorials:
+
+ - https://www.loom.com/share/b1ec00286a6a466a81d0239165156a87
+
+ - https://www.loom.com/share/28bbbd2d8f05420fa594bb4b18afe971
+
+Turns out they are different. In that previous tutorial you created a brand new VPC security group, whereas in the other left it on "default".
+
+When I create a new security group, I can successfully connect to the AWS RDS Database via pgAdmin.
 
 -------------------------------------------------------
 
@@ -1426,6 +1485,8 @@ Docker images are typically versioned - as your team/company implements changes 
 
 # Docker Container Images + Operating Systems
 
+Docker Container Images are not OS agnostic. Docker is not fully OS agnostic. You can’t run Windows containers on Linux, and vice versa.
+
 Every container image includes some OS components (Linux libraries).
 
 But not a full standalone operating system.
@@ -1445,6 +1506,18 @@ These provide:
  - Core utilities (like sh, libc, etc.)
 
  - Just enough OS libraries to run Node.js and your dependencies
+
+-------------------------------------------------------
+
+# Docker + MacOS
+
+Docker on macOS uses a Linux virtual machine under the hood (via HyperKit, or now WSL2 on Docker Desktop for Windows). macOS can't run containers natively.
+
+-------------------------------------------------------
+
+# Docker Container Images + Linux
+
+Docker containers are highly portable across Linux distros — as long as the kernel, architecture, and system libraries align.
 
 -------------------------------------------------------
 
@@ -1496,48 +1569,193 @@ Those systems handle complex operations such as autoscaling, load balancing, and
 
 | Tool                     | Notes                                                                  |
 | ------------------------ | ---------------------------------------------------------------------- |
-| **Kubernetes**           | Most popular; powerful, extensible, widely adopted.                    |
-| **Docker Swarm**         | Simpler alternative to Kubernetes, integrated with Docker.             |
-| **Nomad** (by HashiCorp) | Lightweight, general-purpose orchestrator (not limited to containers). |
-| **Amazon ECS / EKS**     | AWS’s managed orchestration services.                                  |
-| **OpenShift**            | Red Hat’s enterprise Kubernetes distribution.                          |
+|   Kubernetes**           | Most popular; powerful, extensible, widely adopted.                    |
+|   Docker Swarm**         | Simpler alternative to Kubernetes, integrated with Docker.             |
+|   Nomad** (by HashiCorp) | Lightweight, general-purpose orchestrator (not limited to containers). |
+|   Amazon ECS / EKS**     | AWS’s managed orchestration services.                                  |
+|   OpenShift**            | Red Hat’s enterprise Kubernetes distribution.                          |
 
 -------------------------------------------------------
 
-# Docker Commands
+# Docker: Common Commands
 
 `docker build -t my-app .`   # builds a Docker image from a Dockerfile and gives it a name (or "tag")
 
-`docker-compose up`  # start and run multi-container Docker applications defined in a docker-compose.yml file
+`docker run -p 3000:3000 my-node-app`   # start a container from image "my-node-app" (node.js server) + exposes port 3000 on host and map it to port 3000 in the container
+
+`docker compose up`  # start and run multi-container Docker applications defined in a docker-compose.yml file
+
+`docker ps`    # list all running containers
 
 `docker images`   # list all local images
 
 `docker network ls`   # list all Docker networks on your machine
 
-`docker-compose down`   # stop and completely remove all resources created by docker-compose up
+`docker system prune`    # Remove unused containers, networks, images (prompted)
+
+`docker compose down`   # stop and completely remove all resources created by docker-compose up
 
 -------------------------------------------------------
 
-docker build -t my-app .
+# Docker Command: `docker run`
 
-docker-compose up
+`docker run -p 3000:3000 my-node-app` 
 
-docker network ls
+ - Starts a container from image "my-node-app" (node.js server)
 
-docker images
+ - Exposes port `3000` on host and map it to port `3000` in the container
 
-docker run -p 3000:3000 --env-file .env.development --network tsd-net be1f24362a14
+ - Executes the commands defined in `Dockerfile` (whatever is after `CMD`)
 
-docker-compose down
+Example Dockerfile:
 
+FROM node:18
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["node", "index.js"]
 
-Posted SSL issue on: 
-https://www.skool.com/software-mastery/action-item-done-container-deployment?p=26ee9d00
+Docker executes everything up to `CMD` during the image build phase - when running `docker build`
+
+Docker executes everything after `CMD`during container runtime - when running `docker run` and `docker compose up`
+
+-------------------------------------------------------
+
+# Docker Command: Compose 
+
+| Command                  | Flags / Usage         | Description                               |
+| ------------------------ | --------------------- | ----------------------------------------- |
+| `docker compose up`      | `-d`, `--detach`      | Run containers in the background          |
+|                          | `--build`             | Build images before starting containers   |
+|                          | `--force-recreate`    | Recreate containers even if unchanged     |
+|                          | `--no-deps`           | Do not start linked services              |
+|                          | `--remove-orphans`    | Remove containers not in the Compose file |
+| `docker compose down`    | `--volumes`, `-v`     | Remove named volumes                      |
+|                          | `--remove-orphans`    | Remove orphaned containers                |
+|                          | `--rmi all`           | Remove all used images                    |
+| `docker compose restart` | `[SERVICE...]`        | Restart specific or all services          |
+| `docker compose stop`    | `[SERVICE...]`        | Stop specific or all services             |
+| `docker compose start`   | `[SERVICE...]`        | Start stopped containers                  |
+| `docker compose build`   | `--no-cache`          | Build without cache                       |
+|                          | `--pull`              | Always pull newer base images             |
+| `docker compose ps`      | `--services`          | List only service names                   |
+|                          | `--all`               | Show all containers (not just running)    |
+| `docker compose logs`    | `-f`                  | Follow log output                         |
+| `docker compose exec`    | `<service> <command>` | Run command inside a running container    |
+| `docker compose run`     | `<service> <command>` | Run one-off command in a new container    |
+| `docker compose config`  | (no flags)            | View the full resolved configuration      |
+| `docker compose pull`    | (no flags)            | Pull images defined in Compose file       |
+
+-------------------------------------------------------
+
+# Docker Commands: Container Management
+
+| Command                             | Description                                 |
+| ----------------------------------- | ------------------------------------------- |
+| `docker ps`                         | List **running** containers                 |
+| `docker ps -a`                      | List **all** containers (including stopped) |
+| `docker run IMAGE`                  | Run a container from an image               |
+| `docker run -it IMAGE`              | Run interactively (with terminal)           |
+| `docker run -d IMAGE`               | Run in **detached** (background) mode       |
+| `docker run -p 8080:80 IMAGE`       | Map host port `8080` to container port `80` |
+| `docker stop CONTAINER_ID`          | Stop a running container                    |
+| `docker start CONTAINER_ID`         | Start a stopped container                   |
+| `docker restart CONTAINER_ID`       | Restart a container                         |
+| `docker rm CONTAINER_ID`            | Remove a **stopped** container              |
+| `docker logs CONTAINER_ID`          | Show logs for a container                   |
+| `docker exec -it CONTAINER_ID bash` | Open bash inside a running container        |
+
+-------------------------------------------------------
+
+# Docker Commands: Image Management
+
+| Command                            | Description                                             |
+| ---------------------------------- | ------------------------------------------------------- |
+| `docker images`                    | List local Docker images                                |
+| `docker pull IMAGE`                | Download an image from Docker Hub                       |
+| `docker build -t myapp .`          | Build an image from a `Dockerfile` in current directory |
+| `docker rmi IMAGE_ID`              | Remove an image                                         |
+| `docker tag SOURCE_IMAGE NEW_NAME` | Tag an image with a new name                            |
+
+-------------------------------------------------------
+
+# Docker Commands: Volumes & Networks
+
+| Command                        | Description          |
+| ------------------------------ | -------------------- |
+| `docker volume ls`             | List volumes         |
+| `docker volume rm VOLUME_NAME` | Remove a volume      |
+| `docker network ls`            | List networks        |
+| `docker network create NAME`   | Create a new network |
+
+-------------------------------------------------------
+
+# Docker Commands: Network
+
+| **Command**                                       | **Description**                                                  | **Example**                                         |
+| ------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------- |
+| `docker network ls`                               | List all Docker networks                                         | `docker network ls`                                 |
+| `docker network inspect <network>`                | Show details of a network (connected containers, settings, etc.) | `docker network inspect bridge`                     |
+| `docker network create <name>`                    | Create a new user-defined bridge network                         | `docker network create my-app-net`                  |
+| `docker network rm <name>`                        | Remove a network (must not be in use)                            | `docker network rm my-app-net`                      |
+| `docker network rm <id>`                          | Remove a network (must not be in use)                            | `docker network rm 2342948927`                      |
+| `docker network connect <network> <container>`    | Connect a container to a network                                 | `docker network connect my-app-net my-container`    |
+| `docker network disconnect <network> <container>` | Disconnect a container from a network                            | `docker network disconnect my-app-net my-container` |
+| `docker network prune`                            | Remove all unused networks                                       | `docker network prune` *(⚠️ be careful)*            |
+
+-------------------------------------------------------
+
+# Docker Commands: Cleanup & System
+
+| Command                  | Description                                           |
+| ------------------------ | ----------------------------------------------------- |
+| `docker system df`       | Show disk usage by Docker                             |
+| `docker system prune`    | Remove unused containers, networks, images (prompted) |
+| `docker system prune -a` | Remove **all** unused data, including images          |
+| `docker volume prune`    | Remove unused volumes                                 |
+| `docker image prune`     | Remove dangling (unused) images                       |
+
+-------------------------------------------------------
+
+# Module 05. End-To-End Delivery > 2.2  Action Item: Container Deployment > 2. Provision The Infrastructure
+
+`docker build -t movie-app-05 .`
+
+`docker compose up`
+
+`localhost:5001/`    # pgAdmin - u: adiber_garcia@hotmail.com, p: theSeniorDev (NOT theUltraSeniorDev)
+
+`docker network ls`
+
+`docker images`
+
+`docker run -p 3000:3000 --env-file .env.development --network software-lifecycle-container-deployment-0xadri_tsd-net movie-app-05`
+
+`docker compose down`
+
+`http://localhost:3000/docs/`    # go to this URL, and try execute the GET method for movies
+
+Issues Fixed: SSL error, such as "new Error('The server does not support SSL connections')" - do this:
+
+`docker network rm <id/name>`    #  Delete the docker network
+
+`docker rmi IMAGE_ID`    # Delete the image
+
+Then run it all again
+
+Issue Fixed: Db connection error:
+
+The database connection was failing because of the password used.
+
+It was using the password of a previous instance (theSeniorDev).
+
+Change the password in `.env.development` to "theSeniorDev".
+
+Then rerun `docker run -p 3000:3000 ...`
 
 -------------------------------------------------------
 
 # `docker build -t my-app .`
-
 
 Builds a Docker image from a Dockerfile and gives it a name (or "tag").
 
@@ -1752,6 +1970,350 @@ Common Commands:
 `pm2 stop all` # to stop the app
 
 https://pm2.keymetrics.io/
+
+-------------------------------------------------------
+
+# Apache Benchmark
+
+Apache Benchmark is a tool for benchmarking your Apache Hypertext Transfer Protocol (HTTP) server. 
+
+Designed to measure your current Apache installation performance.
+
+AB features: 
+
+ - Simple Syntax - no complex setup needed
+ 
+ - Load Testing Simulation - how many requests per second your web server can handle
+
+AB sends a flood of requests to a web server and measures performance metrics:
+
+ - Requests per second (RPS)
+
+ - Latency (min, max, mean, median)
+
+ - Failed requests
+
+ - Transfer rate
+
+https://httpd.apache.org/docs/2.4/programs/ab.html
+
+-------------------------------------------------------
+
+# Apache Benchmark: Alternatives
+
+`ab` (ApacheBench) is a **widely recognized but somewhat outdated** tool for simple HTTP benchmarking.
+
+Its popularity has declined compared to modern alternatives, but it remains in use due to its simplicity and availability.
+
+| Tool          | Best For | Strengths | Weaknesses | Typical Users |
+|--------------|----------|-----------|------------|---------------|
+|   `ab`   | Quick, single-URL tests | - Preinstalled on many systems <br> - Simple syntax <br> - Fast for basic tests | - No scripting <br> - Single-threaded <br> - Limited metrics | Developers, DevOps (quick checks) |
+|   `wrk`   | High-performance benchmarking | - Multi-threaded <br> - Lua scripting support <br> - More efficient than `ab` | - No GUI <br> - Requires Lua for advanced use | Performance engineers |
+|   `k6` (Grafana) | Modern load testing (DevOps-friendly) | - JavaScript scripting <br> - CLI & cloud options <br> - Good for CI/CD | - Requires learning JS syntax | DevOps, SREs |
+|   JMeter   | Complex test scenarios | - GUI + CLI <br> - Rich plugins <br> - Supports protocols beyond HTTP | - Heavy resource usage <br> - Steeper learning curve | QA engineers, perf testers |
+|   Locust   | Distributed, Python-based tests | - Scalable <br> - Code-driven (Python) <br> - Real-time UI | - Needs Python setup | Developers, Python shops |
+
+-------------------------------------------------------
+
+# Apache Benchmark: Basic Usage
+
+`ab -n 1000 -c 50 http://example.com/`
+
+Explained:
+
+`-n 1000` → Total requests (1000)
+
+`-c 50` → Concurrent users (50)
+
+-------------------------------------------------------
+
+# Redis
+
+Speed: 100,000+ ops/sec with low latency.
+
+Scalability: Supports clustering for horizontal scaling.
+
+Flexibility in use cases: 
+
+ - Cache
+ 
+ - DB
+ 
+ - Message broker
+ 
+ - Real-Time Analytics
+
+Redis = Remote Dictionary Server.
+
+-------------------------------------------------------
+
+# Redis vs. Traditional Databases (Speed Comparison)
+
+Redis is orders of magnitude faster than disk-based databases - i.e. MySQL, PostgreSQL, or MongoDB - for most operations.
+
+That's because it stores data in RAM rather than on disk.
+
+| Metric       | Redis (In-Memory)               | Traditional DB (Disk-Based)             |
+|--------------|---------------------------------|-----------------------------------------|
+| Latency      | ~0.1 ms (sub-millisecond)       | ~1–10 ms+ (depends on disk I/O)         |
+| Throughput   | 100,000–1M+ ops/sec (per core)  | 1,000–10,000 ops/sec (depends on indexing & hardware) |
+| Read Speed   | Microseconds (RAM access)       | Milliseconds (disk seeks + cache)       |
+| Write Speed  | Microseconds (append-only)      | Slower (disk sync, WAL, transactions)   |
+| Concurrency  | Single-threaded (but efficient) | Multi-threaded (but bottlenecked by locks/disk) |
+
+-------------------------------------------------------
+
+# When Is a Traditional Database Better Than Redis?
+
+Redis is not a full replacement for disk-based databases because:
+
+❌ No complex queries (e.g., joins, aggregations).
+
+❌ Limited durability (unless configured with AOF + fsync).
+
+❌ Data must fit in RAM (unless using Redis Enterprise with tiered storage).
+
+Use a traditional DB when:
+
+✔ You need ACID transactions (e.g., banking apps).
+
+✔ Data exceeds available RAM.
+
+✔ You require complex SQL queries.
+
+-------------------------------------------------------
+
+# What Does "Limited Durability" Mean in Redis?
+
+Redis prioritizes speed over durability by default, meaning data is stored in memory (RAM) and not immediately written to disk. 
+
+This makes it vulnerable to data loss if the server crashes or restarts unexpectedly.
+
+-------------------------------------------------------
+
+# Container with Service (i.e. Database): Timeout Issues
+
+Debug by adding console.log() at the start and end of methods.
+
+TLDR: my CPU was overloaded (with other processes/tasks), hence the Containers, Redis, Postgres, Node, and test runners were all fighting for resources.
+FYI potential culprits in these situations include:
+
+ - Heavy background indexing (e.g. Spotlight on macOS, Windows Search)
+ - Syncing services (Dropbox, OneDrive, iCloud)
+ - Design tools (Figma, Photoshop, Blender, etc.)
+ - Video conferencing apps or screen recorders
+ - VS Code extensions (TypeScript server or ESLint pegging the CPU)
+ - Machine learning models or Docker containers running inference
+ - Build tools (Webpack, Vite dev server, etc.)
+
+-------------------------------------------------------
+
+# Container with Service: Timeout Issue
+
+This is often due to mistakes with ports.
+
+Double check the implementation is correct by using the debugger in combination with docker cli commands.
+
+i.e. you can put a breakpoint after a service is launched and double check the ports using the `docker compose ls`
+
+-------------------------------------------------------
+
+docker-compose up   # start Postgre DB, pgAdmin, Redis DB
+
+npm start  # start HTTP server in nodejs
+
+http://localhost:8001/redis-stack/browser     # access Redis DB
+
+redisPassword
+
+http://localhost:3000/performance-test   # access test
+
+http://localhost:3000/performance-test-cache    # access cached test
+
+------------------ 
+
+% ab -c 100 -n 500 http://localhost:3000/performance-test
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /performance-test
+Document Length:        22 bytes
+
+Concurrency Level:      100
+Time taken for tests:   27.103 seconds
+Complete requests:      500
+Failed requests:        0
+Total transferred:      142000 bytes
+HTML transferred:       11000 bytes
+Requests per second:    18.45 [#/sec] (mean)
+Time per request:       5420.579 [ms] (mean)
+Time per request:       54.206 [ms] (mean, across all concurrent requests)
+Transfer rate:          5.12 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   2.7      0      11
+Processing:    34 4487 1636.1   4456    9277
+Waiting:       22 4422 1750.4   4454    9276
+Total:         35 4488 1634.2   4456    9277
+
+Percentage of the requests served within a certain time (ms)
+  50%   4456
+  66%   4541
+  75%   4576
+  80%   4607
+  90%   7101
+  95%   7976
+  98%   8721
+  99%   9018
+ 100%   9277 (longest request)
+
+------------------ 
+
+% ab -c 100 -n 500 http://localhost:3000/performance-test-cache
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /performance-test-cache
+Document Length:        22 bytes
+
+Concurrency Level:      100
+Time taken for tests:   1.670 seconds
+Complete requests:      500
+Failed requests:        0
+Total transferred:      142000 bytes
+HTML transferred:       11000 bytes
+Requests per second:    299.35 [#/sec] (mean)
+Time per request:       334.055 [ms] (mean)
+Time per request:       3.341 [ms] (mean, across all concurrent requests)
+Transfer rate:          83.02 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.6      0       6
+Processing:    12  304 120.4    336     493
+Waiting:        6  292 123.5    323     485
+Total:         12  305 119.1    336     493
+
+Percentage of the requests served within a certain time (ms)
+  50%    336
+  66%    367
+  75%    399
+  80%    409
+  90%    440
+  95%    466
+  98%    483
+  99%    489
+ 100%    493 (longest request)
+
+-------------------------------------------------------
+
+# TestContainers
+
+Testcontainers is an open source library for providing anything that can run in a Docker container as "a throwaway" i.e. database instances, message brokers, web browsers.
+
+Run your tests and containers will be created and then deleted.
+
+https://testcontainers.com/
+
+https://testcontainers.com/modules/postgresql/
+
+-------------------------------------------------------
+
+# NGinx
+
+NGINX has evolved from a web server to a comprehensive platform for app delivery, optimization, and security in Kubernetes environments.
+
+Now, with the SaaS-based web console NGINX One, enterprises can manage web traffic, load balancing, API gateway capabilities, and security in a single, easy-to-use package.
+
+https://nginx.com/
+
+https://docs.nginx.com/
+
+https://nginx.org/en/docs/beginners_guide.html
+
+-------------------------------------------------------
+
+# Nginx: Basic Config
+
+A basic Nginx configuration typically involves setting up a server block with directives for listening to specific ports, defining server names, and handling different request types. Here's a simplified example
+
+http {
+    server {
+        listen 80;
+        server_name example.com www.example.com;
+        root /var/www/example.com;
+        index index.html;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+    }
+}
+
+-------------------------------------------------------
+
+Module 06: Software Architecture - Chapter 1.7: Action Item: API Scalability
+
+Excercise 3: Setup of a load balancer(reverse proxy) with Nginx
+
+`docker build -t movies-api `.       #  build the API image
+
+`docker-compose up`     # start Postgre DB, pgAdmin, Redis DB
+
+// npm start    # start HTTP server in nodejs NOT NEEDED - it's now done by Docker, see `Dockerfile`
+
+Check you can access the services and test urls:
+
+`localhost:80/api-docs`          # load balancer
+
+`localhost:3001/api-docs`        # backend instance 1 (Node.js server)
+
+`localhost:3002/api-docs`        # backend instance 2 (Node.js server)
+
+`localhost:3003/api-docs`        # backend instance 3 (Node.js server)
+
+`localhost:8002/`                # postgresql db via pgAdmin - e: bogdan@theseniordev.com, pw: theSeniorDev
+
+`localhost:8001/redis-stack/browser`     # Redis DB - pw: redisPassword
+
+`localhost:3000/performance-test`     # test url wo cache
+
+`localhost:3000/performance-test-cache`      # test url w cache
+
+Run Perf Tests:
+
+`ab -c 100 -n 500 http://localhost:3001/performance-test`       # Load test a single service
+
+`ab -c 100 -n 500 http://localhost/performance-test`     # Load test the load-balanced route
 
 -------------------------------------------------------
 
