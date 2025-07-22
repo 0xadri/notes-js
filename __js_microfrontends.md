@@ -208,6 +208,20 @@ npm run build
 
 # 
 
+cd /Users/adrienberthou/all-that-jazz/reactappsss/week-5-serverless-deployment-0xadri/
+
+npm run build
+
+npm i --omit=dev
+
+mv ./node_modules ./build/node_modules
+
+cp ./.env ./build/.env
+
+cp ./src/middleware/swagger.yaml ./build/middleware/swagger.yaml
+
+cd build && zip -r ../archive14.zip . && cd ..
+
 -------------------------------------------------------
 
 # 

@@ -701,7 +701,6 @@ Difference between state file and real infrastructure state?
 
 IAC examples are Terraform or the Cloud Development Kit
 
-     
 -------------------------------------------------------
 
 # Operation Excellence Principles 
@@ -726,7 +725,7 @@ Infra = Server
 
 -------------------------------------------------------
 
-# Infra-As-A-Service: Infra-As-Code
+# IaaS-IaC - Infra-As-A-Service: Infra-As-Code
 
 The latest tech for CI/CD.
 
@@ -1437,7 +1436,15 @@ Click "save"
 
 ~~~~~
 
-Voila. It should successfully connect to the AWS RDS Database. If not, you may have an issue with the setup on AWS.
+Voila. 
+
+If connections issues:
+
+ - You may have an issue with the setup on AWS
+ 
+ - Security Group: Check if port 5462 is not open for inbound connections. If missing, add the port 5462 open for inbound connections and put your current IP address is in the sources.
+ 
+ - Security Group: Check if port 5462 is not open for inbound connections. If present, check that your current IP address is in the sources. If not, add it.
 
 ~~~~~
 
@@ -1447,7 +1454,7 @@ Video Tutorials:
 
  - https://www.loom.com/share/28bbbd2d8f05420fa594bb4b18afe971
 
-Turns out they are different. In that previous tutorial you created a brand new VPC security group, whereas in the other left it on "default".
+Turns out they are different. In the first tutorial it created a brand new VPC security group, whereas in the other left it on "default".
 
 When I create a new security group, I can successfully connect to the AWS RDS Database via pgAdmin.
 
@@ -1717,44 +1724,6 @@ Docker executes everything after `CMD`during container runtime - when running `d
 
 -------------------------------------------------------
 
-# Module 05. End-To-End Delivery > 2.2  Action Item: Container Deployment > 2. Provision The Infrastructure
-
-`docker build -t movie-app-05 .`
-
-`docker compose up`
-
-`localhost:5001/`    # pgAdmin - u: adiber_garcia@hotmail.com, p: theSeniorDev (NOT theUltraSeniorDev)
-
-`docker network ls`
-
-`docker images`
-
-`docker run -p 3000:3000 --env-file .env.development --network software-lifecycle-container-deployment-0xadri_tsd-net movie-app-05`
-
-`docker compose down`
-
-`http://localhost:3000/docs/`    # go to this URL, and try execute the GET method for movies
-
-Issues Fixed: SSL error, such as "new Error('The server does not support SSL connections')" - do this:
-
-`docker network rm <id/name>`    #  Delete the docker network
-
-`docker rmi IMAGE_ID`    # Delete the image
-
-Then run it all again
-
-Issue Fixed: Db connection error:
-
-The database connection was failing because of the password used.
-
-It was using the password of a previous instance (theSeniorDev).
-
-Change the password in `.env.development` to "theSeniorDev".
-
-Then rerun `docker run -p 3000:3000 ...`
-
--------------------------------------------------------
-
 # `docker build -t my-app .`
 
 Builds a Docker image from a Dockerfile and gives it a name (or "tag").
@@ -1863,7 +1832,7 @@ services:       # All the containers you want to run
  - `depends_on`: define startup order
 
  - `networks`: (Optional) Define private comms
- 
+
 -------------------------------------------------------
 
 # Docker: Setup Database (MySQL)
@@ -1907,6 +1876,44 @@ Go back to PgAdmin > "Connection" Tab
   Password > enter value
   
   Save Password > tick "yes"
+
+-------------------------------------------------------
+
+# Module 05. End-To-End Delivery > 2.2  Action Item: Container Deployment > 2. Provision The Infrastructure
+
+`docker build -t movie-app-05 .`
+
+`docker compose up`
+
+`localhost:5001/`    # pgAdmin - u: adiber_garcia@hotmail.com, p: theSeniorDev (NOT theUltraSeniorDev)
+
+`docker network ls`
+
+`docker images`
+
+`docker run -p 3000:3000 --env-file .env.development --network software-lifecycle-container-deployment-0xadri_tsd-net movie-app-05`
+
+`docker compose down`
+
+`http://localhost:3000/docs/`    # go to this URL, and try execute the GET method for movies
+
+Issues Fixed: SSL error, such as "new Error('The server does not support SSL connections')" - do this:
+
+`docker network rm <id/name>`    #  Delete the docker network
+
+`docker rmi IMAGE_ID`    # Delete the image
+
+Then run it all again
+
+Issue Fixed: Db connection error:
+
+The database connection was failing because of the password used.
+
+It was using the password of a previous instance (theSeniorDev).
+
+Change the password in `.env.development` to "theSeniorDev".
+
+Then rerun `docker run -p 3000:3000 ...`
 
 -------------------------------------------------------
 
@@ -2317,8 +2324,238 @@ Run Perf Tests:
 
 -------------------------------------------------------
 
+# AWS Lambda
+
+Serverless compute service that lets you run code without provisioning or managing servers.
+
+You write small units of code (“functions”), and Lambda runs them in response to events (e.g., HTTP request, file upload, DB update).
+
+| Advantage                | Description                                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------------------------- |
+| **No server management** | No need to manage infrastructure — AWS handles scaling, patching, availability.                    |
+| **Auto-scaling**         | Scales **automatically and instantly** based on demand.                                            |
+| **Cost-efficient**       | Pay **only for actual execution time** (in milliseconds) — great for low or unpredictable traffic. |
+| **Quick to deploy**      | Deploy functions fast; easy iteration for microservices or event-driven tasks.                     |
+| **Event-driven**         | Integrates tightly with other AWS services like S3, DynamoDB, API Gateway, SNS, etc.               |
+
+| Limitation                            | Description                                                                                           |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Cold starts**                       | Initial invocation can be slow (\~100ms+), especially in VPCs or large runtimes (e.g. Node.js, Java). |
+| **Timeout limit**                     | Max execution time is **15 minutes**. Not suitable for long-running tasks.                            |
+| **Resource limits**                   | Memory: 128MB–10GB, Ephemeral storage: 512MB–10GB.                                                    |
+| **Debugging is harder**               | Logging/debugging in distributed, short-lived functions is more complex than in monolithic apps.      |
+| **Tight vendor lock-in**              | Built around AWS ecosystem; not easily portable.                                                      |
+| **Latency-sensitive apps may suffer** | Cold start and event trigger latency can be an issue for real-time apps.                              |
+
+| Trade-off                           | Consideration                                                                                                                           |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Simplicity vs Control**           | You lose fine-grained control over infrastructure in exchange for speed and simplicity.                                                 |
+| **Event-driven vs Persistent**      | Lambda is perfect for *sporadic*, *event-based* workloads — not for apps needing persistent connections (e.g., WebSockets, DB pooling). |
+| **Low traffic vs High performance** | Ideal for low-to-medium traffic. For sustained high traffic, containers or EC2 may be more efficient and predictable.                   |
+
+-------------------------------------------------------
+
+# Amazon ECS task definitions
+
+Blueprint for your application. Text file in JSON format that describes the parameters and one or more containers that form your application.
+
+-------------------------------------------------------
+
 # 
 
+https://www.skool.com/software-mastery/action-item-done-container-deployment?p=b896cf88
+
+https://github.com/the-senior-dev/software-lifecycle-container-deployment-0xadri?tab=readme-ov-file
+
+https://www.loom.com/share/e552c93140e14620b9fef4fa7876d255?sid=bb86ea4f-6406-44ca-9e74-7894eaa9ed48
+
+docker buildx build --platform linux/arm64 -t movie-api .
+
+docker buildx create --use
+docker buildx build --platform linux/amd64,linux/arm64 \
+-t 523080972561.dkr.ecr.eu-north-1.amazonaws.com/movie_api:latest \
+. --push
+
+export AWS_DEFAULT_REGION=eu-north-1
+export ECS_CLUSTER_NAME=PoductionClusterMovieApi
+export ECS_SERVICE_NAME=movie-api-prod-20250711
+export ECS_TASK_DEFINITION_FAMILY_NAME=MovieApiService
+export DOCKER_REGISTRY_URL=523080972561.dkr.ecr.eu-north-1.amazonaws.com/movie_api:latest
+
+"executionRoleArn": "arn:aws:iam::590183889307:role/ecsTaskExecutionRole",
+
+accountid: 590183889307
+
+role: ecsTaskExecutionRole
+
+
+aws ecs describe-services \
+  --cluster PoductionClusterMovieApi \
+  --services movie-api-prod-20250711 \
+  --region eu-north-1
+
+                {
+                    "id": "54aa292b-f165-4164-9374-046b8afd6725",
+                    "createdAt": "2025-07-15T10:09:57.431000+02:00",
+                    "message": "(service movie-api-prod-20250711) (deployment ecs-svc/9503441161339037463) deployment failed: tasks failed to start."
+                },
+
+aws ecs list-tasks \
+  --cluster PoductionClusterMovieApi \
+  --service-name movie-api-prod-20250711 \
+  --desired-status STOPPED \
+  --region eu-north-1
+
+aws ecs describe-tasks \
+  --cluster ProductionClusterMovieApi \
+  --tasks <TASK_ARN> \
+  --region eu-north-1
+                
+-------------------------------------------------------
+
+# AWS Map
+
+| Concept             | What it is                             | Think of it as...              |
+| ------------------- | -------------------------------------- | ------------------------------ |
+| **Repository**      | Hosts the container images             |                                |
+| **Cluster**         | Container for ECS resources            | A warehouse or fleet           |
+| **Task Definition** | App configuration (image, ports...)    | A recipe or blueprint          |
+| **Task**            | Running container(s) from a definition | A dish made from a recipe      |
+| **Service**         | Manages & maintains tasks              | A supervisor for running tasks |
+
+### Cluster: A logical grouping of ECS resources.
+
+Groups your services and tasks. It's like a warehouse where all your applications (containers) run.
+
+Can run tasks on either:
+ - Fargate (serverless)
+ - EC2 (you manage the instances)
+
+### Task Definition: blueprint that defines how to run a containerized app
+
+Contains settings like:
+ - Container image
+ - CPU & memory
+ - Env vars
+ - Port mappings
+ - IAM roles
+ - Logging configuration
+
+It's like a recipe or instruction manual for running a container.
+
+### Task: running instance of a task definition
+
+ECS launches tasks based on task definitions.
+
+Tasks can run:
+ - Independently (via run-task)
+ - As part of a service (for long-running apps)
+
+It's a cooked dish based on the recipe (task definition).
+
+### Service: long-running controller that maintains a specified number of tasks
+
+Keeps N copies of a task running (e.g., 2 replicas of your API)
+
+Handles:
+ - Auto-restarts on failure
+ - Rolling updates
+ - Load balancing (via ALB/NLB)
+ - Optional deployment circuit breaker (rollback on failure)
+
+A service is a manager ensuring your app always has the right number of running instances.
+
+-------------------------------------------------------
+
+# AWS Lambda Function + RDS : Security Groups
+
+Adjust security groups to allow your AWS Lambda Function to connect to your existing RDS DB.
+
+Option 1: Aurora and RDS > Databases > YourDB > Connectivity & security Tab > VPC security groups Section, click on the security group > Security group ID Column, click on the security group > Inbound Rules Tab > click on "Edit inbound rules" > click "add rule" > Type column, select "PostgreSQL" > Source column, select "Anywhere-IPV4" > click "Save rules"
+
+Option 2 (Todo: Test): Lambda > Functions > myFunction > Configuration Tab > RDS Database > Connect To RDS Database
+
+-------------------------------------------------------
+
+# Add Permission To Allow Function To Access Secret In Secret Manager
+
+IAM > Roles > myMovieApiFunction-role-xyz > Add Permission > Attach Policies > search "proxy" > select relevant proxy policy i.e. rds-proxy-policy-xyz > Add permissions
+
+### Check for typos and modify your secret
+
+AWS Secrets Manager > Secrets > select relevant secret i.e. secret-db-lambda > Retrieve Secret Value > then Edit if needed
+
+-------------------------------------------------------
+
+# Terraform
+
+Primary Purpose: Infrastructure provisioning.
+
+IaaS-IaC aka Infra-As-A-Service, Infra-As-Code.
+
+Manages AWS resources: EC2, S3, VPC, IAM, RDS, etc.
+
+Scope: Cloud infrastructure lifecycle.
+
+-------------------------------------------------------
+
+# Terraform vs Docker
+
+| Feature/Goal                  | Terraform                                        | Docker (Container Images)                     |
+| ----------------------------- | ------------------------------------------------ | --------------------------------------------- |
+| Primary Purpose               | Infrastructure provisioning (IaaC)               | Packaging & running applications              |
+| What it manages               | AWS resources: EC2, S3, VPC, IAM, RDS, etc.      | Application environments: code, libs, runtime |
+| Scope                         | Cloud infrastructure lifecycle                   | Application runtime behavior                  |
+| Used for                      | AWS (or multi-cloud) resource deployment         | Application deployment & testing              |
+| Declarative vs Imperative     | Declarative (`.tf` files describe desired state) | Declarative image builds, imperative runtime  |
+| Maintains state?              | Yes (Terraform state file)                       | No (stateless containers)                     |
+| Infrastructure-aware?         | Yes                                              | No                                            |
+| Runs on                       | Local or CI/CD                                   | Local, CI/CD, container runtimes              |
+| Target Audience               | DevOps, Cloud Engineers                          | Developers, DevOps                            |
+
+Using Them Together (Common Scenario):
+1. Build your app as a Docker image.
+2. Push the image to AWS ECR (Elastic Container Registry).
+3. Use Terraform to deploy, either:
+ - ECS (Elastic Container Service) tasks
+ - Lambda with container image
+ - EC2 instances that run Docker
+ - Fargate workloads
+
+| Use Case                              | Tool(s) to Use                      |
+| ------------------------------------- | ----------------------------------- |
+| Provision cloud infra (e.g. RDS, VPC) | Terraform                           |
+| Package and run a web API             | Docker                              |
+| Deploy a containerized app to AWS ECS | Docker + Terraform (for infra)      |
+| Create Lambda with image support      | Docker (image) + Terraform (deploy) |
+| Manage stateful cloud services        | Terraform                           |
+
+-------------------------------------------------------
+
+# Terraform Commands
+
+`terraform plan`
+
+`terraform apply`
+
+`terraform destroy`
+
+-------------------------------------------------------
+
+# 
+
+lead front-end developer on a RWD international CMS website
+lead front-end developer for Phonak’s new German e-shop
+front-end developer for Elektro-Material AG’s new e-shop
+front-end developer for Archithema Verlag AG’s new CMS website
+front-end developer for Transa’s e-shop
+front-end developer for Tour de Suisse’s e-shop
+Client: Sika AG, for its corporate website. Adrien gave workshops to the stakeholders, management & marketing teams, to drive change in the UI and responsive website. Adrien also had to create mockups, clarify requirements & translate mockups into code, and integrate web services.
+
+Either as a front-end lead or developer, Adrien integrated elegant UIs in eCommerce (Hybris) & CMS (Magnolia) websites. Adrien joined technical expertise with good communication to achieve the best results. Adrien liaised with business-owners & technical specialists in order to take the best decisions regarding technical, strategical (content), & esthetical challenges.
+
+Stack: Magnolia CMS (Java), Hybris (Java), JavaScript, jQuery, JS libraries, JSP, JSTL, HTML, CSS, Bootstrap.
+jQuery, JavaScript libraries, HTML, LESS, Backbone, Bootstrap.
 
 -------------------------------------------------------
 
@@ -2353,4 +2590,20 @@ Run Perf Tests:
 -------------------------------------------------------
 
 # 
+
+
+-------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
+# 
+
+
+-------------------------------------------------------
+
+# 
+
 

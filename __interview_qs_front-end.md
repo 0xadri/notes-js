@@ -317,7 +317,7 @@ Polyfills: Incorrect handling of polyfills can increase the bundle size but isn'
 
 1. Keep component dependencies minimal
 
-2. Avoid using global state(unless necessary)
+2. Avoid using global state (unless necessary)
 
 -------------------------------------------------------
 
@@ -415,6 +415,8 @@ https://web.dev/articles/optimize-vitals-lighthouse
 
 By adding a visual placeholder library i.e. skeleton, shimmer
 
+Tag(s): Frontend optimization.
+
 https://shimmereffectreact.vercel.app/
 
 https://github.com/tomzaku/react-native-shimmer-placeholder
@@ -435,7 +437,7 @@ Apply the right http caching headers
 
 # Client (Browser) Caching is managed by:
 
-Indicating that the file should be cached by the browser and reused in the following requests(using HTTP headers), unless a new version is released
+Indicating that the file should be cached by the browser and reused in the following requests (using HTTP headers), unless a new version is released.
 
 -------------------------------------------------------
 
@@ -444,6 +446,8 @@ Indicating that the file should be cached by the browser and reused in the follo
 Gzip and Brotli.
 
 Brotli offers a better compression ratio at similar compression levels. 
+
+Tag(s): Frontend optimization, JavaScript optimization.
 
 https://www.patterns.dev/vanilla/compression/
 
@@ -555,6 +559,8 @@ Rendering the application on the server will decrease the time we need to show s
 
 Server Side Rendering prevents the White Screen of Death (WSD), which is a common issue with client side rendering.
 
+Tag(s): Frontend optimization.
+
 https://web.dev/articles/rendering-on-the-web
 
 -------------------------------------------------------
@@ -566,6 +572,8 @@ Code splitting is a technique used in web development to break down a large Java
 This allows browsers to download only the necessary code for the current page or functionality, improving initial load time and overall performance.
 
 This is done by the bundler, i.e. webpack or vite
+
+Tag(s): Frontend optimization, Javascript optimization.
 
 https://webpack.js.org/guides/code-splitting/
 
@@ -591,11 +599,15 @@ It is the CSS applied to above-the-fold elements.
  
 It is the CSS responsible for content a viewer sees on page load, before scrolling.
 
+Tag(s): Frontend optimization, CSS optimization.
+
 -------------------------------------------------------
 
 # From a web performance perspective, which image format is generally considered the best (high compression rates that still maintain good image quality)?
 
 WebP
+
+Tag(s): Frontend optimization, Image optimization.
 
 -------------------------------------------------------
 
@@ -604,6 +616,8 @@ WebP
 The `srcset` attribute with the `<img>` tag.
 
 This attribute allows you to define multiple source images along with their dimensions, enabling the browser to choose the most appropriate image based on the screen resolution and device orientation.
+
+Tag(s): Frontend optimization, Image optimization.
 
 -------------------------------------------------------
 
@@ -615,6 +629,8 @@ It's a key indicator of server responsiveness and network performance.
 
 TTFB is measured from when a browser sends a request to when it receives the initial byte of the response. 
 
+Tag(s): Frontend optimization.
+
 -------------------------------------------------------
 
 # What's the performance metric First Contentful Paint (FCP) ?
@@ -625,6 +641,8 @@ This includes text, images, background images, <svg> elements, and non-white <ca
 
 FCP is a key metric for understanding perceived page load speed and user experience. 
 
+Tag(s): Frontend optimization.
+
 -------------------------------------------------------
 
 # What's the performance metric Cumulative Layout Shift (CLS) ?
@@ -633,11 +651,15 @@ Calculates the shifting of elements while the page is being downloaded and rende
 
 The more common occurrences are on images, buttons and other interactive elements but can be easily spotted on text as well.
 
+Tag(s): Frontend optimization.
+
 -------------------------------------------------------
 
 # What's the performance metric Interaction to Next Paint (INP) ?
 
 Measures user interface responsiveness – how quickly a website responds to user interactions like clicks or key presses.
+
+Tag(s): Frontend optimization.
 
 -------------------------------------------------------
 
@@ -648,6 +670,8 @@ Measures the responsiveness of a webpage by tracking the time it takes for a bro
 It essentially indicates how quickly the browser becomes able to process a user's interaction after it's initiated.
 
 FID was previously a Core Web Vitals metric, but has been replaced by Interaction to Next Paint (INP).
+
+Tag(s): Frontend optimization.
 
 -------------------------------------------------------
 
@@ -663,9 +687,11 @@ First Input Delay (FID): measures the time from when a user first interacts with
 
 Excessive re-renders can significantly delay both metrix as they often involve additional computations and DOM manipulations, which block the main thread. This leads to longer wait times for visual updates after interactions, such as clicks or key presses, directly impacting the user's perceived responsiveness of the application.
 
+Tag(s): Frontend optimization.
+
 -------------------------------------------------------
 
-#  True statements about Server-Side Rendering (SSR)
+# True statements about Server-Side Rendering (SSR)
 
 SSR improves SEO by allowing web crawlers to see the fully rendered page.
 
@@ -673,11 +699,13 @@ SSR generally doesn't impact static websites as they do not rely heavily on rend
 
 SSR can actually increase the TFB(Time To First Byte) as we need to first render the application on the server and then send the rendered response.
 
+Tag(s): Frontend optimization.
+
 -------------------------------------------------------
 
 # In which order will the event handlers be called when the user clicks the button?
 
- - most inner button has: `addEventListener("click", onButtonClick)`
+- most inner button has: `addEventListener("click", onButtonClick)`
 
 - inner div has: `addEventListener("click", onContainerClick, {capture: true})`
 
@@ -694,7 +722,6 @@ Here's the sequence of events when the "Submit" button is clicked:
  - onOuterContainerClick() — This event handler is not specified to execute during the capturing phase (the default is bubbling), so it will execute last, during the bubbling phase after the event has reached the outer_container in the propagation sequence.
 
 The capturing phase occurs from the outermost element down to the target element, and the bubbling phase occurs from the target element up to the outermost element. Since the onContainerClick is explicitly set to capture, it goes first, followed by the button's click handler as the event target, and finally, the event bubbles up to the outer_container.
-
 
 -------------------------------------------------------
 
@@ -714,7 +741,7 @@ Set the `box-sizing` property to `border-box`.
 
 # when should you use HTML ARIA attributes?
 
-Whenever we cannot use semantic HTML tags
+Whenever we cannot use semantic HTML tags.
 
 Semantic HTML elements (such as <nav>, <article>, <button>, etc.) provide built-in accessibility features by conveying the meaning and structure of the content to both users and assistive technologies(like screen readers).
 
@@ -722,7 +749,7 @@ However, in cases where semantic HTML alone cannot adequately describe the inter
 
 -------------------------------------------------------
 
-# examples of poor accessibility?
+# Examples of poor accessibility?
 
 - Poor contrast between text and background - this directly impacts accessibility, as it can make content difficult or impossible to read for users with visual impairments
 
@@ -740,7 +767,7 @@ Incorrect Answers:
 
  - Running Accessibility audits with tools like Lighthouse or the axe DevTools
 
- - Setting up the a11y linter to catch accessibility issues in the IDE(HTML, JSX, etc)
+ - Setting up the a11y linter to catch accessibility issues in the IDE (HTML, JSX, etc)
 
 -------------------------------------------------------
 
@@ -870,3 +897,18 @@ Decrease re-rendering time with `useCallback` and `useMemo`
 -------------------------------------------------------
 
 # 
+
+
+
+Make Public Your LinkedIn Profile
+
+"Your public profile is visible to people who aren't members, viewers who aren't signed in to LinkedIn, etc"
+
+Profile > Settings and Privacy > Visibility Tab > Profile Viewing Options > Tick: Your name and headline
+
+Profile > Settings and Privacy > Visibility Tab > Edit Your Public Profile > Section "Your profile’s public visibility" > Tick/Untick sections as required
+
+
+
+
+
