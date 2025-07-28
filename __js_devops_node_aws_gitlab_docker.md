@@ -2554,8 +2554,37 @@ Client: Sika AG, for its corporate website. Adrien gave workshops to the stakeho
 
 Either as a front-end lead or developer, Adrien integrated elegant UIs in eCommerce (Hybris) & CMS (Magnolia) websites. Adrien joined technical expertise with good communication to achieve the best results. Adrien liaised with business-owners & technical specialists in order to take the best decisions regarding technical, strategical (content), & esthetical challenges.
 
-Stack: Magnolia CMS (Java), Hybris (Java), JavaScript, jQuery, JS libraries, JSP, JSTL, HTML, CSS, Bootstrap.
-jQuery, JavaScript libraries, HTML, LESS, Backbone, Bootstrap.
+Swissquote Group (Gland, Switzerland)
+Analyst Developer
+
+Analyst Developer for a BI System
+
+Bachelor of Engineering (BEng), Computer Engineering, John Moores University
+
+💻 Languages & Frameworks: React, Node, JavaScript, TypeScript, Express, JSX, HTML, Tailwind, CSS.
+
+🔧 Technologies & Tools: Webpack, Vite, MongoDB, Lighthouse, CSS-in-JS, Styled Components, Git, Responsive Design, Figma.
+
+☁️ Cloud: AWS (S3, EC2, ECS, RDS, Lambda), Docker, GitLab, CI/CD Pipelines.
+
+👀 Interests: Micro Services, REST APIs, Web Performance, Testing.
+
+🌍 I am into exercising, outdoors and languages — which sparked my passion for traveling and living abroad.
+
+Experience in orgs of all sizes, ranging from 2-men startups to multi-billion dollar projects.
+
+ ✧ Program Manager @ Web3Family
+ ✧ Program Manager @ Ledger
+ ✧ Head Of Comms @ aleph.im
+ ✧ Lead Analyst @ Ten8 Capital
+ ✧ Tokenomics Consultant
+ ✧ CMO @ NFT Marketplace
+ 
+ React, JavaScript, Node.js, Typescript, Next.js, React Native, Express, NoSQL, MongoDB, Mongoose, TailwindCSS, Build and Consume RESTful APIs, Vite, Webpack, AWS, AWS S3, Vercel, Render, jQuery, Ajax, React Router & Testing, modernizr, polyfills, D3.js, underscore.js, select2.js.
+HTML & CSS, SASS, LESS, Bootstrap, Responsive Design (cross-device), Mockups Creation (Balsamiq, Figma), Cross-Browser (IE8+), Progressive Enhancement & Graceful Degradation.
+GIT, Visual Studio, IntelliJ, Eclipse IDE, Subversion, UML, Jenkins, JIRA, Sharepoint, Confluence.
+“Legacy” skills: Java, J2EE Web Profile, Spring (basics), SQL, PL/SQL, Unix (Korn) shell scripting, JIL (Autosys), XML, CMS (Wordpress, Magnolia), FTL , Sybase, Oracle 10g, MySQL.
+
 
 -------------------------------------------------------
 

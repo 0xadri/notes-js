@@ -56,13 +56,13 @@ Free and `open-source` software under the MIT License.
 
 -------------------------------------------------------
 
-# Microservices: Problem Statement
+# Microservices: Problem Statement 1
 
 As a project grows larger, we're adding more teams of 5-6 people work on the code base.
 
 It quickly becomes unmanageable. How can we make this work?
 
-### Microservices: Solution
+### Microservices: Solution 1
 
 We can split up the code base in different services.
 
@@ -71,6 +71,16 @@ Each service is a different code base and belongs to a dedicated team.
 Best practice is to also split the database, each service get its own db.
 
 Services being independent means they are also much more reliable/available.
+
+-------------------------------------------------------
+
+# Microservices: Problem Statement 2 
+
+As a project gets traffic peaks on a specific part of the project which results in issues i.e. unable to handle the load/requests, API becoming unavailable temporarily because of too many requests
+
+### Microservices: Solution 2
+
+Migrate system to a set of microservices with the objective to create a more robust and scalable solution that could handle traffic peaks, with the API always staying available.
 
 -------------------------------------------------------
 
