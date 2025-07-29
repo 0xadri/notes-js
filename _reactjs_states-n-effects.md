@@ -149,11 +149,13 @@ This reverse flow is required to update the `component` holding the `state`.
 
 # `Props`: Basic Example
 
->     const element = <Welcome name="Sara" />;
->     
->     function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
->     // Equivalent...
->     function Welcome({name}) { return <h1>Hello, {name}</h1>; }
+```javascript
+const element = <Welcome name="Sara" />;
+
+function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
+// Equivalent...
+function Welcome({name}) { return <h1>Hello, {name}</h1>; }
+```
 
 -------------------------------------------------------
 
@@ -161,30 +163,37 @@ This reverse flow is required to update the `component` holding the `state`.
 
 ## Example A
 
->     const Button = ({ children, ...props }) => {
->       return (
->         <button className="someclasses" {...props}>
->           {children}
->         </button>
->       );
->     };
->     export default Button;
+```javascript
+const Button = ({ children, ...props }) => {
+  return (
+    <button className="someclasses" {...props}>
+      {children}
+    </button>
+  );
+};
+export default Button;
+```
 
 Use such as
 
->     <Button greeting="hey" name="Joe">Click Me</Button>
+```javascript
+<Button greeting="hey" name="Joe">Click Me</Button>
+```
 
 ## Example B
 
->     export default function Input({richText, ...props}) {
->       if (richText) return <textarea {...props} />
->       else return <input {...props} />
->     }
-
+```javascript
+export default function Input({richText, ...props}) {
+  if (richText) return <textarea {...props} />
+  else return <input {...props} />
+}
+```
 use such as
 
->     <Input richText="hey this is some fancy text" name="long-text">
->     <Input value="James" name="fname">
+```javascript
+<Input richText="hey this is some fancy text" name="long-text">
+<Input value="James" name="fname">
+```
 
 https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
 
@@ -212,15 +221,17 @@ Updating a `state` re-renders your component
 
 THREE things to setup: `useState` call, value attribute in `form` element, `onChange` function handler
 
->     // state setter declaration - useState call
->     const [phone, setPhone] = useState('');
->     const [cool, setCool] = useState([]);
->     const [formState, setFormState] = useState({});
->     const [categories, setCategories] = useState(null); // for object
->     
->     // form element declaration for value and onChange
->     <input name="lastname" onChange={handleLastnameChange} />
->     <form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
+```javascript
+// state setter declaration - useState call
+const [phone, setPhone] = useState('');
+const [cool, setCool] = useState([]);
+const [formState, setFormState] = useState({});
+const [categories, setCategories] = useState(null); // for object
+
+// form element declaration for value and onChange
+<input name="lastname" onChange={handleLastnameChange} />
+<form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
+```
 
 -------------------------------------------------------
 
@@ -241,11 +252,13 @@ When updating state NOT based on old state, do NOT pass a `function` to your `st
 
 # State Hook: Updating, State/Prev Is Number
 
->     const [count, setCount] = useState(0);
->     
->     const handleClick = () => {
->      setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
->     };
+```javascript
+const [count, setCount] = useState(0);
+
+const handleClick = () => {
+ setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
+};
+```
 
 -------------------------------------------------------
 
@@ -260,60 +273,66 @@ https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/3
 
 # State Hook: Updating When State Is Array
 
->     const [students, setStudents] = useState(["Max","Lauren","Marc"]);
->     
->     const handleClickAdd = (e) => {
->       const name = e.target.value;
->       setStudents((students) => { // Add Item When State Is Array
->         const newStudents = [...students]; // Clone array for immutability
->         newStudents.push(name); // Modify array
->         return newStudents;
->       });
->     };
->     
->     const handleClickRemove = (e) => {
->       const name = e.target.value;
->       setStudents((students) => { // Remove Item When State Is Array
->         const newStudents = [...students]; // Clone array for immutability
->         const index = newStudents.indexOf(name);
->         if (index > -1) newStudents.splice(index, 1); // Modify array
->         return newStudents;
->       });
->     };
->     
->     <button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
->     <button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
+```javascript
+const [students, setStudents] = useState(["Max","Lauren","Marc"]);
+
+const handleClickAdd = (e) => {
+  const name = e.target.value;
+  setStudents((students) => { // Add Item When State Is Array
+    const newStudents = [...students]; // Clone array for immutability
+    newStudents.push(name); // Modify array
+    return newStudents;
+  });
+};
+
+const handleClickRemove = (e) => {
+  const name = e.target.value;
+  setStudents((students) => { // Remove Item When State Is Array
+    const newStudents = [...students]; // Clone array for immutability
+    const index = newStudents.indexOf(name);
+    if (index > -1) newStudents.splice(index, 1); // Modify array
+    return newStudents;
+  });
+};
+
+<button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
+<button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
+```
 
 -------------------------------------------------------
 
 # State Hook: Updating When State Is Two Dimensional Array
 
->     const gameBoard = [
->       ["max",null,null],
->       [null,"adri",null],
->       [null,"james",null],
->     ]
->     
->     const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array for immutability
+```javascript
+const gameBoard = [
+  ["max",null,null],
+  [null,"adri",null],
+  [null,"james",null],
+]
+
+const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array for immutability
+```
 
 -------------------------------------------------------
 
 # State Hook: Updating When State Is Shallow Object
 
->     const [profile, setProfile] = useState({
->       name: "James",
->       city: "London",
->     });
->     
->     const handleClick = (keyName, value) => {
->       setProfile((prev) => ({
->         ...prev, // Clone object for immutability (Shallow Clone)
->         [keyName]: value, // Add/Update Property
->       }));
->     };
->     
->     <button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
->     <button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
+```javascript
+const [profile, setProfile] = useState({
+  name: "James",
+  city: "London",
+});
+
+const handleClick = (keyName, value) => {
+  setProfile((prev) => ({
+    ...prev, // Clone object for immutability (Shallow Clone)
+    [keyName]: value, // Add/Update Property
+  }));
+};
+
+<button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
+<button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
+```
 
 -------------------------------------------------------
 
@@ -321,22 +340,24 @@ https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/3
 
 Assume state is an object with a property 'data'.
 
->     const [person, setPerson] = useState({
->       name: "James",
->       data: {
->         dob-year: 1988
->       }
->     });
->     
->     setPerson(person => {
->       return {
->         ...person,
->         data: {
->           ...person.data,
->           someProperty: newValue
->         }
->       };
->     });
+```javascript
+const [person, setPerson] = useState({
+  name: "James",
+  data: {
+    dob-year: 1988
+  }
+});
+
+setPerson(person => {
+  return {
+    ...person,
+    data: {
+      ...person.data,
+      someProperty: newValue
+    }
+  };
+});
+```
 
 -------------------------------------------------------
 
@@ -391,51 +412,61 @@ https://react.dev/learn/removing-effect-dependencies#is-your-effect-doing-severa
 
 `useEffect()` function - calls its 1st argument (the effect) after each time a component renders - not just once
 
->     useEffect(() => {
->         alert ( "Yo!" );
->     });
+```javascript
+useEffect(() => {
+    alert ( "Yo!" );
+});
+```
 
 Effect Cleanup Function – Called when the component is being unmounted and before calling the effect again
 
->     useEffect(()=>{
->       alert ( "Yo!" );
->       // clean up
->       return () => {
->         alert ( "Remove something!" );
->       };
->     });
+```javascript
+useEffect(()=>{
+  alert ( "Yo!" );
+  // clean up
+  return () => {
+    alert ( "Remove something!" );
+  };
+});
+```
 
 Effect Cleanup Function — used to remove handler
 
->     useEffect(()=>{
->       document.addEventListener('keydown', handleKeyPress);
->       // clean up
->       return () => {
->         document.removeEventListener('keydown', handleKeyPress);
->       };
->     });
+```javascript
+useEffect(()=>{
+  document.addEventListener('keydown', handleKeyPress);
+  // clean up
+  return () => {
+    document.removeEventListener('keydown', handleKeyPress);
+  };
+});
+```
 
 Conditional re-render - Run an effect only when the component mounts (if renders the first time)
 
->     useEffect(() => {
->       alert("component rendered for the first time");
->     }, []);
->     
->     // Conditional re-render — Only re-run the effect if the value stored by count or input changes
->     useEffect(() => {
->       document.title = `You clicked ${count} times`;
->     }, [count, input]); 
+```javascript
+useEffect(() => {
+  alert("component rendered for the first time");
+}, []);
+
+// Conditional re-render — Only re-run the effect if the value stored by count or input changes
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count, input]); 
+```
 
 -------------------------------------------------------
 
 # Functions: Multi line return with JSX
 
->     const HeaderComponent = () => {
->      const classVal = "blue";
->      return (
->       <h1 className = {classVal} />
->      );
->     }
+```javascript
+const HeaderComponent = () => {
+ const classVal = "blue";
+ return (
+  <h1 className = {classVal} />
+ );
+}
+```
 
 ----------------------
 
