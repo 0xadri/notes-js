@@ -23,8 +23,8 @@ Debugging Node.js
 https://nodejs.org/en/docs/guides/debugging-getting-started/
 
 Debugging Node.js in VS Code
-https://code.visualstudio.com/docs/nodejs/nodejs-debugging
-https://www.loom.com/share/d9f0bf7f608643e987ac3de0378a074f
+ - https://code.visualstudio.com/docs/nodejs/nodejs-debugging
+ - https://www.loom.com/share/d9f0bf7f608643e987ac3de0378a074f
 
 -------------------------------------------------------
 

@@ -133,6 +133,7 @@ nvm = ONLY for Node.js versions - not for versions of any other program.
 
 Given this `package.json`:
 
+```json
 {
   "name": "my-app",
   "version": "1.0.0",
@@ -140,9 +141,11 @@ Given this `package.json`:
     "lodash": "^4.17.0"
   }
 }
+```
 
 When running `npm install`, it creates a `package-lock.json` like this:
 
+```json
 {
   "name": "my-app",
   "version": "1.0.0",
@@ -168,6 +171,7 @@ When running `npm install`, it creates a `package-lock.json` like this:
     }
   }
 }
+```
 
 Anyone who runs `npm ci` or` npm install` with this lockfile will get `lodash@4.17.21`
 
@@ -268,9 +272,9 @@ or
 
 2. `package.json` was created, add this line
 
->     "scripts": {
->         "start": "node app.js"
->     }
+"scripts": {
+    "start": "node app.js"
+}
 
 3. Create file `app.js`
 
@@ -339,10 +343,12 @@ Typically, only needed for development.
 
 2. then under "scripts" in your package.json file, add "start": "nodemon app.js" like this -
 
->     "scripts": {
->         "test": "echo \"Error: no test specified\" && exit 1",
->         "start": "nodemon app.js"
->     }
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+}
+```
 
 3. then run
 
@@ -364,8 +370,10 @@ Directly add `breakpoints` into VS Code.
 
 2. Add these lines
 
->     "restart" : true,
->     "runtimeExecutable": "nodemon"
+```json
+"restart" : true,
+"runtimeExecutable": "nodemon"
+```
 
 -------------------------------------------------------
 
@@ -391,11 +399,13 @@ Directly add `breakpoints` into VS Code.
 
 `nodemon.json` is the file where you add all your variables such as
 
->     {
->         "env": {
->             "MONGODB_USER": "adri"
->         }
->     }
+```json
+{
+    "env": {
+        "MONGODB_USER": "adri"
+    }
+}
+```
 
 `process.env.MONGODB_USER` is how you access one of these variables in your code
 
@@ -603,8 +613,8 @@ If you're starting a new project today, especially with modern frameworks like R
 
 4. Create `webpack.config.js` and add:
 
->     const path = require('path');
->     
+const path = require('path');
+
 >     module.exports = {
 >       mode: 'production',
 >       entry: './app.js',
@@ -622,11 +632,15 @@ If you're starting a new project today, especially with modern frameworks like R
 
 6. Add to `package.json` under `scripts` section:
 
-`"prod": "node dist/final.js",`
+```json
+"prod": "node dist/final.js",
+```
 
 but if you use nodemon:
 
-`"prod": "nodemon dist/final.js"`
+```json
+"prod": "nodemon dist/final.js"
+```
 
 7. Run the project with prod build
 
@@ -1250,7 +1264,9 @@ Generate XML report file with `jest-unit`.
 
 Add in Package.json:
 
-`"test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false --ci --coverage"`
+```json
+"test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\" --watchAll=false --ci --coverage"
+```
 
 ### Docs
 

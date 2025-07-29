@@ -74,20 +74,23 @@ TODO
 # What's function hoisting?
 
 Function hoisting means that functions are moved to the top of their scope. That is,
-
+```
 function b() {  
    a = 10;  
    return;  
    function a() {} 
 } 
+```
 
 will be rewritten by the interpeter to this
 
+```
 function b() {
   function a() {}
   a = 10;
   return;
 }
+```
 
 -------------------------------------------------------
 
@@ -190,9 +193,11 @@ It is a placeholder for a type that must be specified when the function is calle
 
 This is a common pattern in TypeScript for creating generic functions that can work with different types and having type flexibility without sacrificing type safety.
 
+```
 function makeCopy<T>(input: T): T[] {
   return [input, input];
 }
+```
 
 -------------------------------------------------------
 

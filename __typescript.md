@@ -282,7 +282,7 @@ https://stackoverflow.com/questions/42273853/in-typescript-what-is-the-exclamati
 
 Always placed in the root of your project and you can customize what rules you want the TypeScript compiler to enforce.
 
-```typescript
+```json
 {
   "compilerOptions": {
     "target": "es2017",

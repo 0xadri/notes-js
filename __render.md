@@ -15,10 +15,10 @@
 
 Language: Node
 
-Build Command: npm install
-Start Command: node app.js
+Build Command: `npm install`
+Start Command: `node app.js`
 
 OR
 
-Build Command: npm run build
-Start Command: node ./dist/final.js
+Build Command: `npm run build`
+Start Command: `node ./dist/final.js`

@@ -11,18 +11,20 @@ https://github.com/testing-library/jest-dom
 
 # 
 
-npm install --save-dev jest ts-jest @types/jest
+`npm install --save-dev jest ts-jest @types/jest`
 
-package.json:
+`package.json`:
 
+```json
 "scripts": {
   "test": "jest",
   "test:coverage": "jest --coverage"
 }
+```
 
-npm run test
+`npm run test`
 
-npm run test:coverage
+`npm run test:coverage`
 
 -------------------------------------------------------
 
