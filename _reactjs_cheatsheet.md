@@ -99,34 +99,32 @@ import { StrictMode } from "react";
   </StrictMode>
 ```
 
->     import { StrictMode } from "react";
->     
->     <StrictMode>
->       <App />
->     </StrictMode>
-
 -------------------------------------------------------
 
 # index.js
 
->     import React from 'react';
->     import { createRoot } from 'react-dom/client';
->     
->     createRoot(document.getElementById('app')).render(<App/>);
+```javascript
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+createRoot(document.getElementById('app')).render(<App/>);
+```
 
 -------------------------------------------------------
 
 # React Component
 
->     import React from 'react';
->     // import React, {useState} from 'react';
->     // import React, { useState, useEffect } from 'react';
->     // import GuineaPigsSlideShow from "../components/GuineaPigsSlideShow";  // buggy: debug by adding/removing ".js"
->     
->     function Component(){
->     }
->     
->     export default Component;
+```javascript
+import React from 'react';
+// import React, {useState} from 'react';
+// import React, { useState, useEffect } from 'react';
+// import GuineaPigsSlideShow from "../components/GuineaPigsSlideShow";  // buggy: debug by adding/removing ".js"
+
+function Component(){
+}
+
+export default Component;
+```
 
 -------------------------------------------------------
 
@@ -142,18 +140,20 @@ https://react.dev/learn/passing-props-to-a-component
 
 # React Component: Props Example
 
->     import React from 'react';
->     function Component(props){
->       let person = props.person;
->       let size = props.size;
->     }
->     export default Component;
->     
->     import React from 'react';
->     function Component({ person, size }){ // Destructured — Same as above
->     
->     }
->     export default Component;
+```javascript
+import React from 'react';
+function Component(props){
+  let person = props.person;
+  let size = props.size;
+}
+export default Component;
+
+import React from 'react';
+function Component({ person, size }){ // Destructured — Same as above
+
+}
+export default Component;
+```
 
 -------------------------------------------------------
 
@@ -161,51 +161,64 @@ https://react.dev/learn/passing-props-to-a-component
 
 If `boolean`
 
->     <div x />
->     // is equivalent to
->     <div x={true} />
-
+```javascript
+<div x />
+// is equivalent to
+<div x={true} />
+```
 If `not boolean`
 
->     <Comp {...{x,y,foo,bar}} />
->     // is equivalent to
->     <Comp x={x} y={y} foo={foo} bar={bar} />
+```javascript
+<Comp {...{x,y,foo,bar}} />
+// is equivalent to
+<Comp x={x} y={y} foo={foo} bar={bar} />
+```
 
 You can use this alongside other props
 
->     <Comp key={getCellId()} color="yellow" size={user.size} {...{x,y,foo,bar}} /> 
-
+```javascript
+<Comp key={getCellId()} color="yellow" size={user.size} {...{x,y,foo,bar}} /> 
+```
 -------------------------------------------------------
 
 # React: Inline Styling
 
->     <h1 style={{color: "red"}}> Hello, World! </h1>
->     
->     // equiv
->     const myStyle = { color: "red" }
->     <h1 style={myStyle}> Hello, World! </h1>
+```javascript
+<h1 style={{color: "red"}}> Hello, World! </h1>
+
+// equiv
+const myStyle = { color: "red" }
+<h1 style={myStyle}> Hello, World! </h1>
+```
 
 -------------------------------------------------------
 
 # React: Styling
 
->     // in TitleScreen.module.css
->     // mind here that we switch to "className" — before we used "style" attribute
->     .btn {
->       height: 45px;
->       width: 110px;
->     }
->     // in App.js
->     import titlescreen from './styles/TitleScreen.module.css'
->     <button className={titlescreen.btn}>Play</button>
+```css
+// in TitleScreen.module.css
+// mind here that we switch to "className" — before we used "style" attribute
+.btn {
+  height: 45px;
+  width: 110px;
+}
+```
+
+```javascript
+// in App.js
+import titlescreen from './styles/TitleScreen.module.css'
+<button className={titlescreen.btn}>Play</button>
+```
 
 -------------------------------------------------------
 
 # Functions in Components
 
->     <button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
->     
->     <button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
+```javascript
+<button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
+
+<button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
+```
 
 -------------------------------------------------------
 
@@ -215,12 +228,14 @@ Prior to iterating on the list, add an id field with a unique value to each item
 
 Then use that field as key in the iterating code.
 
->     {currentRoster.map((player, index) => (
->      <div key={player.id}>
->      <p>{player.name}</p>
->      <p>{player.position}</p>
->      </div>
->     ))}
+```javascript
+{currentRoster.map((player, index) => (
+ <div key={player.id}>
+ <p>{player.name}</p>
+ <p>{player.position}</p>
+ </div>
+))}
+```
 
 `uuid` library for generating unique id's - https://www.npmjs.com/package/uuid
 
