@@ -4,9 +4,11 @@
 
 # Javascript multiline string
 
+```javascript
 `x is a long
 sentence in
 one string`
+```
 
 TL;DR: backticks are awesome.
 
@@ -14,20 +16,21 @@ TL;DR: backticks are awesome.
 
 # Javascript OR
 
-|| 
+`||`
 
 -------------------------------------------------------
 
 # Javascript: let vs const
 
-let allows the variable to be reassigned multiple times.
+`let` allows the variable to be reassigned multiple times.
 
-const creates a variable that cannot be reassigned after it has been assigned a value.
+`const` creates a variable that cannot be reassigned after it has been assigned a value.
 
 -------------------------------------------------------
 
 # Javascript: arrays
-        
+
+```javascript
 // forEach
 danceMoves.forEach( move => performDanceMove(<something>))
 
@@ -53,8 +56,9 @@ const removeItemAtIndex = (list, index) => {
  //const arrEnd = list.slice(index+1);
  return [ ...list.slice(0,index) , ...list.slice(index+1) ];
 };
+```
 
-The spread syntax (...) and array methods such as .map(), .slice(), and .filter() can be used to immutably update the state of a complex app.
+The spread syntax `...` and array methods such as `.map()`, `.slice()`, and `.filter()` can be used to immutably update the state of a complex app.
 
 -------------------------------------------------------
 
@@ -70,9 +74,11 @@ An await is when she asks you to do the dishes and she's standing there in the k
 
 # Javascript: Iterate Over Object
 
+```javascript
 for (let itemName in cart) {
   // do something with itemName
 }
+```
 
 https://stackoverflow.com/a/43392879/759452
 
@@ -80,6 +86,7 @@ https://stackoverflow.com/a/43392879/759452
 
 # Javascript: ...
 
+```javascript
 const remindMeLater = (task) => {
   return () => {
     return remindMeTo(task);
@@ -88,11 +95,13 @@ const remindMeLater = (task) => {
 
 const reminder = remindMeLater('get groceries');
 console.log( reminder() );
+```
 
 -------------------------------------------------------
 
 # Javascript: Switch Case
 
+```javascript
 function getMaxPrice(price: PriceBracket) {
   switch (price) {
     case PriceBracket.Low:
@@ -105,6 +114,7 @@ function getMaxPrice(price: PriceBracket) {
       throw new Error('Invalid PriceBracket value');
   }
 }
+```
 
 -------------------------------------------------------
 
@@ -113,17 +123,21 @@ function getMaxPrice(price: PriceBracket) {
 The optional chaining (?.) operator accesses an object's property or calls a function. 
 If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
+```javascript
 obj?.prop
 obj?.[expr]
 func?.(args)
+```
 
-
+```javascript
 const nestedProp = obj.first && obj.first.second;  // Without optional chaining
+```
 
 becomes
 
+```javascript
 const nestedProp = obj.first?.second; // With optional chaining
-
+```
 
 -------------------------------------------------------
 
@@ -131,33 +145,42 @@ const nestedProp = obj.first?.second; // With optional chaining
 
 Optional Chaining for method calls can be much nicer for deeply-nested methods:
 
+```javascript
 if (foo && foo.bar && foo.bar.baz && foo.bar.baz.qux && foo.bar.baz.qux.doSomething) {
   foo.bar.baz.qux.doSomething();
 }
+```
 
 vs:
 
+```javascript
 if (foo?.bar?.baz?.qux?.doSomething) {
   foo.bar.baz.qux.doSomething();
 }
+```
 
 vs:
 
+```javascript
 foo?.bar?.baz?.qux?.doSomething?.();
-
+```
 
 -------------------------------------------------------
 
 # JS: Destructuring: Nested object and array
 
 — Example 1 —
+
+```javascript
 const obj = { prop1: x, prop2: y, prop3: z };
 const { prop1: x, prop2: y, prop3: z } = obj;
 // Equivalent to:
 // const x = obj.prop1, y = obj.prop2, z = obj.prop3;
+```
 
 — Example 2 —
 
+```javascript
 const metadata = {
   title: "Scratchpad",
   translations: [
@@ -179,6 +202,7 @@ const {
 
 console.log(englishTitle); // "Scratchpad"
 console.log(localeTitle); // "JavaScript-Umgebung"
+```
 
 -------------------------------------------------------
 
@@ -193,11 +217,13 @@ Use Cases:
 
 Notice the extra $ Sign:
 
+```javascript
 <img className={`${borderColorClass ?? ''} black-border`} src={`/img/${profile.img[0]}`} />
 
 <div className={`${backgroundColor} p-6 rounded-lg shadow-md`}></div>
 
 <img src={`/images/properties/${property.images[0]}`} />
+```
 
 -------------------------------------------------------
 
@@ -267,6 +293,7 @@ TODO
 
 # Event Syntax Equivalents
 
+```javascript
 const handleChange = (event) => setEmail(event.target.value);
 
 const handleChange = ({target}) => setEmail(target.value);
@@ -275,11 +302,13 @@ const handleChange = (event) => {
   const newEmail = event.target.value;
   setEmail(newEmail);
 }
+```
 
 -------------------------------------------------------
 
 # functions
 
+```javascript
 // Anonymous function — coz does not have a name i.e. function coolFun(){}
 const greet = function () {
     console.log("Welcome to GeeksforGeeks!");
@@ -292,31 +321,36 @@ const greet = () => {
 const greet = (greeting) => {
     console.log(greeting);
 }
+```
 
 -------------------------------------------------------
 
 # functions: one-liner arrow functions 
 
-/// Rule: expression is actually "returned" - great for callbacks
+```javascript
+// Rule: expression is actually "returned" - great for callbacks
 let func = (arg1, arg2, ..., argN) => expression;
 // equivalent to
 let func = function(arg1, arg2, ..., argN) {
   return expression;
 };
-/// Example: with several args
+
+// Example: with several args
 let sum = (a, b) => a + b;
 // equiv
 let sum = function(a, b) {
   return a + b;
 };
 alert( sum(1, 2) ); // 3
-/// Example: with one arg — parenthesis can be removed
+
+// Example: with one arg — parenthesis can be removed
 let multiTwo = n => n * 2;
 // equiv
 let multiTwo = function(n) {
   return n * 2;
 };
 alert( multiTwo(3) ); // 6
+
 // Example: with no arg — parentheses must be present
 let sayHi = () => alert("Hello!");
 // equiv
@@ -324,11 +358,13 @@ let sayHi = function() {
   return alert("Hello!");
 };
 sayHi(); // alerts "Hello"
+```
 
 -------------------------------------------------------
 
 # functions: embedded one-liner arrow functions
 
+```javascript
 let students = ["John", "Pete", "Alice"];
 // regular function
 students.forEach(function(student) {
@@ -338,6 +374,7 @@ students.forEach(function(student) {
 students.forEach(
 	student => alert(student)
 );
+```
 
 -------------------------------------------------------
 
@@ -346,6 +383,7 @@ students.forEach(
 Rule: just like regular functions, add curly braces and optionally add return
 
 —— functions: return ——
+```javascript
 // If we want the returned expression to wrap across multiple lines, we should start it at the same line as return. 
 // Or at least put the opening parentheses
 const calculate = () => {
@@ -355,33 +393,40 @@ const calculate = () => {
     	arbVal
     );
 }
+```
 
 -------------------------------------------------------
 
 # Self-Executing Anonymous Functions
 
+```javascript
 (function () {
     console.log("Welcome to GeeksforGeeks!");
 })();
+```
 
 -------------------------------------------------------
 
 # Objects
 
+```javascript
 // create a thought object
 const thought = {
   id: generateId(),
   text: text,
   expiresAt: getNewExpirationTime(),
 };
+```
 
 -------------------------------------------------------
 
 # Objects: Create Shallow Copy/Clone
 
+```javascript
 const thought = { id: 345, text: "dreaming today" };
 
 const thoughtClone = Object.assign({}, thought)
+```
 
 -------------------------------------------------------
 
@@ -399,6 +444,7 @@ https://www.youtube.com/watch?v=9ooYYRLdg_g
 
 # Destructure: Objects, Arrays
 
+```javascript
 // basics
 const {name, value} = target;
 const [a, b] = target;
@@ -406,6 +452,7 @@ const [a, b] = target;
 const handleChange = ({target}) => {
     setName(target.value);
 }
+```
 
 -------------------------------------------------------
 
