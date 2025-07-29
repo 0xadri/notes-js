@@ -36,6 +36,24 @@ Here you go. Explanations in comments.
 
 ### `tsconfig.json` example 1
 
+```
+{
+  "compilerOptions": {
+    "module": "commonjs",   // Specify module code generation
+    "noImplicitAny": true,  // issue an error whenever TypeScript will fall back to a type of any for a variable when it cannot infer the type.
+    "removeComments": true,  // Strips all comments from TypeScript files when converting into JavaScript
+    "preserveConstEnums": true,   // Do not erase const enum declarations in generated code
+    "sourceMap": true,    // Enables the generation of sourcemap files. These files allow debuggers and other tools to display the original TypeScript source code
+    "target": "es5",    // Specify ECMAScript target version
+    "jsx": "react",   // Support JSX in .tsx files
+    "allowJs": true,  // Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files
+    "moduleResolution": "node"    // Resolve modules using Node.js style
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
+```
+
 >   {
 >     "compilerOptions": {
 >       "module": "commonjs",   // Specify module code generation
