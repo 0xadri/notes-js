@@ -91,6 +91,14 @@ Double renders components.
 
 You can wrap a specific component or your entire app.
 
+```react
+import { StrictMode } from "react";
+  
+  <StrictMode>
+    <App />
+  </StrictMode>
+```
+
 >     import { StrictMode } from "react";
 >     
 >     <StrictMode>
