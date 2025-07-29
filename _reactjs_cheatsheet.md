@@ -91,7 +91,7 @@ Double renders components.
 
 You can wrap a specific component or your entire app.
 
-```react
+```javascript
 import { StrictMode } from "react";
   
   <StrictMode>
