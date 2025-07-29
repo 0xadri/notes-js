@@ -36,7 +36,7 @@ Here you go. Explanations in comments.
 
 ### `tsconfig.json` example 1
 
-```
+```json
 {
   "compilerOptions": {
     "module": "commonjs",   // Specify module code generation
@@ -56,7 +56,7 @@ Here you go. Explanations in comments.
 
 ### `tsconfig.json` example 2
 
-```
+```json
 {
   "compilerOptions": {
     "target": "es5", // Specify ECMAScript target version
