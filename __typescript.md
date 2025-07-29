@@ -150,7 +150,7 @@ function smush(...manyStrings : string[]){
 
 # Tuples and Spread Syntax
 
-```
+```typescript
 function gpsNavigate(startLatitudeDegrees:number, startLatitudeMinutes:number, startNorthOrSouth:string, startLongitudeDegrees: number, startLongitudeMinutes: number, startEastOrWest:string, endLatitudeDegrees:number, endLatitudeMinutes:number , endNorthOrSouth:string, endLongitudeDegrees: number, endLongitudeMinutes: number,  endEastOrWest:string) {
   /* calculates a route from one GPS Coordinates to another */
 }
@@ -165,7 +165,7 @@ gpsNavigate(...bermudaTCoordinates, ...codecademyCoordinates); // other directio
 
 # type annotations
 
-```
+```typescript
 let mustBeAString : string;
 mustBeAString = 'Catdog';
 
@@ -184,7 +184,7 @@ let arr: string[][] = [['str1', 'str2'], ['more', 'strings']];
 
 In TypeScript, when an array is typed with elements of specific types, it’s called a tuple
 
-```
+```typescript
 // arrays with a fixed sequence of types
 let ourTuple: [string, number, string, boolean] = ['Is', 7 , 'our favorite number?' , false]; 
 ```
@@ -196,7 +196,7 @@ We can’t assign an array to a tuple variable, even when the elements are of th
 
 # type annotations on functions
 
-```
+```typescript
 // use void when nothing to return
 function logGreeting(name:string): void{
   console.log(`Hello, ${name}!`)
@@ -213,7 +213,7 @@ console.log(returnFruit())
 
 # Functions default parameters
 
-```
+```typescript
 // defaults to the name 'Anonymous' if no name is provided
 function greet(name = 'Anonymous') {
   console.log(`Hello, ${name}!`);
@@ -227,7 +227,7 @@ greet();
 
 To indicate that a parameter is intentionally optional, we add a ? after its name. This tells TypeScript that the parameter is allowed to be undefined and doesn’t always have to be provided.
 
-```
+```typescript
 function greet(name?: string) {
   console.log(`Hello, ${name|| 'Anonymous'}!`);
 }
@@ -247,7 +247,7 @@ TypeScript will infer the variable type to be the same as the default value’s 
 Exclamation mark operator aka bang operator.
 It is the non-null assertion operator. It is a way to tell the compiler "this expression cannot be null or undefined here, so don't complain about the possibility of it being null or undefined."
 
-```
+```typescript
 // Regular Declaration
 let myVar : number;
 // Becomes
@@ -256,7 +256,7 @@ let myVar !: number;
 
 Can be used in other parts of your code
 
-```
+```typescript
 // Regular
 let myVar : number;
 console.log(myVar);
@@ -282,7 +282,7 @@ https://stackoverflow.com/questions/42273853/in-typescript-what-is-the-exclamati
 
 Always placed in the root of your project and you can customize what rules you want the TypeScript compiler to enforce.
 
-```
+```typescript
 {
   "compilerOptions": {
     "target": "es2017",
@@ -303,7 +303,7 @@ Always placed in the root of your project and you can customize what rules you w
 
 TypeScript automatically assigns: ExampleEnum.FirstValue = 0, ExampleEnum.SecondValue = 1, and ExampleEnum.ThirdValue = 2.
 
-```
+```typescript
 // Example 
 enum Direction {
   North,
@@ -322,7 +322,7 @@ whichWayToArcticOcean = West; // Wrong syntax
 
 # Enums and Tuples
 
-```
+```typescript
 enum Pet {
   Hamster,
   Rat,
@@ -345,7 +345,7 @@ let ordersArrayTS : [Pet,number][] = [
 We recommend to always use string enums because numeric enums allow for some behaviors that can let bugs sneak into our code.
 With string enums, variables cannot be assigned to strings at all!
 
-```
+```typescript
 enum DirectionNumber { North, South, East, West }
 enum DirectionString { North = 'NORTH', South = 'SOUTH', East = 'EAST', West = 'WEST' }
 ```
@@ -354,7 +354,7 @@ enum DirectionString { North = 'NORTH', South = 'SOUTH', East = 'EAST', West = '
 
 # String Enums continued
 
-```
+```typescript
 let birthdayBabies : { name : string , age : number , giftWish : string , success : boolean }[] = [
   {name: 'Liam', age: 0, giftWish: 'karate skills', success: false}, 
   {name: 'Olivia', age: 0, giftWish: 'a bright future', success:true}, 
@@ -366,7 +366,7 @@ let birthdayBabies : { name : string , age : number , giftWish : string , succes
 
 # Enums
 
-```
+```typescript
 function getMaxPrice(price: PriceBracket) {
   switch (price) {
     case PriceBracket.Low:
@@ -385,7 +385,7 @@ function getMaxPrice(price: PriceBracket) {
 
 # Type Aliases
 
-```
+```typescript
 type MyString = string;
 let myVar: MyString = 'Hi'; // Valid code.
 
@@ -418,7 +418,7 @@ let bermudaTCoordinates: Coord = [25, 0 , 'N' , 71, 0, 'W'];
 
 # Type Aliases
 
-```
+```typescript
 const orders = [
  [{
      name: "Miso Ramen",
@@ -443,7 +443,7 @@ type Order = typeof orders[0][0];
 
 # Function Types
 
-```
+```typescript
 type StringsToNumberFunction = (arg0: string, arg1: string) => number;
 
 // Cannot omit the parameter names in a function type annotation
@@ -460,7 +460,7 @@ Allows us to use T within the type annotation as a type placeholder.
 
 Later, when the generic type is used, T is replaced with the provided type.
 
-```
+```typescript
 // getFilledArray('cheese', 3) evaluates to ['cheese', 'cheese', 'cheese']
 function getFilledArray(value, n) {
   return Array(n).fill(value);
@@ -476,7 +476,7 @@ function getFilledArray<T>(value: T, n: number): T[] {
 
 # Generic Functions
 
-```
+```typescript
 function getFilledArray<T>(value: T, n: number): T[] {
   return Array(n).fill(value);
 }
@@ -497,7 +497,7 @@ coordinateArray = getFilledArray<[number, number]>([3,4],6);
 
 # Union Types
 
-```
+```typescript
 // Example 1
 let ID: string | number;
 ID = 1; // number
@@ -514,7 +514,7 @@ function getMarginLeft(margin: string | number) {
 
 # Type Narrowing
 
-```
+```typescript
 type guard: using typeof
 
 // Example
@@ -536,7 +536,7 @@ formatValue(42);
 
 Annotation: (type | type)[]
 
-```
+```typescript
 const dateNumber = new Date().getTime(); // returns a number
 const dateString = new Date().toString(); // returns a string
 const timesList: (string | number)[] = [dateNumber, dateString];
@@ -546,7 +546,7 @@ const timesList: (string | number)[] = [dateNumber, dateString];
 
 # Unions with Literal Types
 
-```
+```typescript
 // Ensures that wherever changeLight() is called, that it gets passed only allowed stoplight colors
 type Color = 'green' | 'yellow' | 'red';
 function changeLight(color: Color) {
@@ -560,7 +560,7 @@ changeLight('purple');  // does not work
 
 # "in" and Type Guards
 
-```
+```typescript
 // Example
 type Tennis = {
   serve: () => void;
@@ -602,7 +602,7 @@ function play(sport: Tennis | Soccer) {
 
 # Interfaces and Types
 
-```
+```typescript
 // This
 type Mail = {
   postagePrice: number;
@@ -635,7 +635,7 @@ interface
 
 # Interfaces vs Types: How To
 
-```
+```typescript
 // Example 1
 interface Robot {
   identify: (id: number) => void;
@@ -650,7 +650,7 @@ class OneSeries implements Robot {
 }
 ```
 
-```
+```typescript
 // Example 2
 interface Directory {
   addFile: (name: string) => void;
@@ -667,7 +667,7 @@ interface Directory {
 
 # Composed Types
 
-```
+```typescript
 // This
 interface About {
   general: {
@@ -680,7 +680,7 @@ interface About {
 }
 ```
 
-```
+```typescript
 // Becomes
 interface About {
   general: General;
@@ -699,7 +699,7 @@ interface Version {
 
 # Extend Interfaces
 
-```
+```typescript
 // Example
 interface Shape {
   color: string;
@@ -723,7 +723,7 @@ We still want to be able to type our objects. Dynamically?
 
 # Index Signatures
 
-```
+```typescript
 // Imagine we query a map API. The data might look like:
 {
   '40.712776': true;
@@ -745,7 +745,7 @@ As a human-readable name that will show up in potential error messages later.
 
 We wanna make some type members optional.
 
-```
+```typescript
 // Example
 interface OptionsType {
   name: string;
