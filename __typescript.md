@@ -54,66 +54,55 @@ Here you go. Explanations in comments.
 }
 ```
 
->   {
->     "compilerOptions": {
->       "module": "commonjs",   // Specify module code generation
->       "noImplicitAny": true,  // issue an error whenever TypeScript will fall back to a type of any for a variable when it cannot infer the type.
->       "removeComments": true,  // Strips all comments from TypeScript files when converting into JavaScript
->       "preserveConstEnums": true,   // Do not erase const enum declarations in generated code
->       "sourceMap": true,    // Enables the generation of sourcemap files. These files allow debuggers and other tools to display the original TypeScript source code
->       "target": "es5",    // Specify ECMAScript target version
->       "jsx": "react",   // Support JSX in .tsx files
->       "allowJs": true,  // Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files
->       "moduleResolution": "node"    // Resolve modules using Node.js style
->     },
->     "include": ["src"],
->     "exclude": ["node_modules"]
->   }
-
 ### `tsconfig.json` example 2
 
->   {
->     "compilerOptions": {
->       "target": "es5", // Specify ECMAScript target version
->       "lib": [
->         "dom",
->         "dom.iterable",
->         "esnext"
->       ], // List of library files to be included in the compilation
->       "allowJs": true, // Allow JavaScript files to be compiled
->       "skipLibCheck": true, // Skip type checking of all declaration files
->       "esModuleInterop": true, // Disables namespace imports (import * as fs from "fs") and enables CJS/AMD/UMD style imports (import fs from "fs")
->       "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
->       "strict": true, // Enable all strict type checking options
->       "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
->       "module": "esnext", // Specify module code generation
->       "moduleResolution": "node", // Resolve modules using Node.js style
->       "isolatedModules": true, // Unconditionally emit imports for unresolved files
->       "resolveJsonModule": true, // Include modules imported with .json extension
->       "noEmit": true, // Do not emit output (meaning do not compile code, only perform type checking)
->       "jsx": "react", // Support JSX in .tsx files
->       "sourceMap": true, // Generate corresponding .map file
->       "declaration": true, // Generate corresponding .d.ts file
->       "noUnusedLocals": true, // Report errors on unused locals
->       "noUnusedParameters": true, // Report errors on unused parameters
->       "incremental": true, // Enable incremental compilation by reading/writing information from prior compilations to a file on disk
->       "noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statement
->     },
->     "include": [
->       "src/**/*" // *** The files TypeScript should type check ***
->     ],
->     "exclude": ["node_modules", "build"] // *** The files to not type check ***
->   }
+```
+{
+  "compilerOptions": {
+    "target": "es5", // Specify ECMAScript target version
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // List of library files to be included in the compilation
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "skipLibCheck": true, // Skip type checking of all declaration files
+    "esModuleInterop": true, // Disables namespace imports (import * as fs from "fs") and enables CJS/AMD/UMD style imports (import fs from "fs")
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "strict": true, // Enable all strict type checking options
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+    "module": "esnext", // Specify module code generation
+    "moduleResolution": "node", // Resolve modules using Node.js style
+    "isolatedModules": true, // Unconditionally emit imports for unresolved files
+    "resolveJsonModule": true, // Include modules imported with .json extension
+    "noEmit": true, // Do not emit output (meaning do not compile code, only perform type checking)
+    "jsx": "react", // Support JSX in .tsx files
+    "sourceMap": true, // Generate corresponding .map file
+    "declaration": true, // Generate corresponding .d.ts file
+    "noUnusedLocals": true, // Report errors on unused locals
+    "noUnusedParameters": true, // Report errors on unused parameters
+    "incremental": true, // Enable incremental compilation by reading/writing information from prior compilations to a file on disk
+    "noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statement
+  },
+  "include": [
+    "src/**/*" // *** The files TypeScript should type check ***
+  ],
+  "exclude": ["node_modules", "build"] // *** The files to not type check ***
+}
+```
 
 -------------------------------------------------------	
 
 # Terminal
 
 // Command to transpile
-`tsc`
-
+```
+tsc
+```
 // Command to run script — mind the ".js" , not ".ts"
-`node index.js`
+```
+node index.js
+```
 
 -------------------------------------------------------
 
@@ -140,17 +129,17 @@ onOrOff = false;
 
 # Type In Functions Params
 
->   function triple(value : number) {
->     return value * 3;
->   }
+function triple(value : number) {
+  return value * 3;
+}
 
->   function smush(...manyStrings : string[]){
->     let output : string;
->     for(let i = 0; i < manyStrings.length; i++){
->       output = output.concat(manyStrings[i]);
->     }
->     return output;
->   }
+function smush(...manyStrings : string[]){
+  let output : string;
+  for(let i = 0; i < manyStrings.length; i++){
+    output = output.concat(manyStrings[i]);
+  }
+  return output;
+}
 
 -------------------------------------------------------
 
