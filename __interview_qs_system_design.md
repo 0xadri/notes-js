@@ -2,7 +2,7 @@
 
 You can find everything you need for free on Youtube (Neetcode, Striver, CrackingFAANG, etc).
 
-YouTube: system design interviews
+YouTube: system design interviews.
 
 Discord where to do mock tech interviews - https://discord.gg/nGGvH9KXnm
 
@@ -25,9 +25,7 @@ Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech compan
 3. Scale The Design
 4. Scale Individual Components
 
-explain tradeoffs in design decisions
-
-system design interviews on youtube
+Explain tradeoffs in design decisions.
 
 -------------------------------------------------------
 
