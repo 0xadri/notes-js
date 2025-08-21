@@ -28,18 +28,39 @@ TL;DR: backticks are awesome.
 
 -------------------------------------------------------
 
-# Javascript: arrays
+# Javascript: array basic tricks
+
+Check if variable is of type `Array.isArray()`
 
 ```javascript
-// forEach
-danceMoves.forEach( move => performDanceMove(<something>))
+if( Array.isArray(myVariable) ){
+  // do array things
+}
+```
 
+Add Array to Array
+```javascript
+arrayOne.push(...arrayTwo)
+```
+
+Array `forEach()`
+
+```javascript
+danceMoves.forEach( move => performDanceMove(<something>))
+```
+
+Array `forEach()` on Object keys
+
+```javascript
 const keys = Object.keys(events); // dynamically get all the properties of an object
 keys.forEach( (eventKey) => {
   // do something
 });
-    
-// filter()
+```
+
+Array `filter()`
+
+```javascript  
 myArray.filter(song => song !== action.payload);  // "song" is the current item, it get removed if equal to action.payload
 
 const favRecipes = allRecipes.filter( (recipe) => {
@@ -49,8 +70,11 @@ const favRecipes = allRecipes.filter( (recipe) => {
 const favoriteRecipes = state.favoriteRecipes.filter( (recipe) => {
   return recipe.id !== action.payload.id; 
 })
+```
 
-// array.slice()
+Array `slice()`
+
+```javascript  
 const removeItemAtIndex = (list, index) => {
  //const arrStart = list.slice(0,index);
  //const arrEnd = list.slice(index+1);
@@ -58,7 +82,39 @@ const removeItemAtIndex = (list, index) => {
 };
 ```
 
-The spread syntax `...` and array methods such as `.map()`, `.slice()`, and `.filter()` can be used to immutably update the state of a complex app.
+The spread syntax (`...`) and array methods such as `.map()`, `.slice()`, and `.filter()` can be used to immutably update the state of a complex app.
+
+-------------------------------------------------------
+
+# Objects
+
+Object creation
+
+```javascript
+const thought = {
+  id: generateId(),
+  text: text,
+  expiresAt: getNewExpirationTime(),
+};
+```
+
+Object: Add key-value pair
+
+thought
+
+
+Object: Create Shallow Copy/Clone
+
+```javascript
+const thought = { id: 345, text: "dreaming today" };
+
+const thoughtClone = Object.assign({}, thought)
+```
+
+Object: Create Deep Copy/Clone
+
+https://lodash.com/docs/#cloneDeep
+
 
 -------------------------------------------------------
 
@@ -169,7 +225,7 @@ foo?.bar?.baz?.qux?.doSomething?.();
 
 # JS: Destructuring: Nested object and array
 
-— Example 1 —
+Example 1
 
 ```javascript
 const obj = { prop1: x, prop2: y, prop3: z };
@@ -178,7 +234,7 @@ const { prop1: x, prop2: y, prop3: z } = obj;
 // const x = obj.prop1, y = obj.prop2, z = obj.prop3;
 ```
 
-— Example 2 —
+Example 2
 
 ```javascript
 const metadata = {
@@ -407,52 +463,10 @@ const calculate = () => {
 
 -------------------------------------------------------
 
-# Objects
-
-```javascript
-// create a thought object
-const thought = {
-  id: generateId(),
-  text: text,
-  expiresAt: getNewExpirationTime(),
-};
-```
-
--------------------------------------------------------
-
-# Objects: Create Shallow Copy/Clone
-
-```javascript
-const thought = { id: 345, text: "dreaming today" };
-
-const thoughtClone = Object.assign({}, thought)
-```
-
--------------------------------------------------------
-
-# Objects: Create Deep Copy/Clone
-
-https://lodash.com/docs/#cloneDeep
-
--------------------------------------------------------
-
 # Primitive vs Reference Type
 
 https://www.youtube.com/watch?v=9ooYYRLdg_g
 
--------------------------------------------------------
-
-# Destructure: Objects, Arrays
-
-```javascript
-// basics
-const {name, value} = target;
-const [a, b] = target;
-// destructure in event handler
-const handleChange = ({target}) => {
-    setName(target.value);
-}
-```
 
 -------------------------------------------------------
 

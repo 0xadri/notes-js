@@ -29,6 +29,27 @@ Explain tradeoffs in design decisions.
 
 -------------------------------------------------------
 
+# System Design For Real-Life Frontend Project
+
+Note that steps "Clarify Requirements" and "Visualize Requirements" often go hand-in-hand, so there is some back-and-forth
+
+1. Clarify Requirements: input, output, base cases, common case and edge cases
+     1.a Input: Get JSON files for different inputs such as base cases and common cases
+     1.b Input Analysis: Answer Questions: "What are the essential data types we have?", "For each data type, what quantity of data would a common case have?"
+     1.c Input: Make sure you understand the JSON files provided - use GPT if needed
+2. Visualize Requirements
+     2.a Draw Schemas - identify relationships between data types (one-to-one, one-to-many, many-to-one, many-to-many)
+     2.b Draw Wireframes - identify all the views/pages and components
+     2.c Write Pseudo Code - write pseudo unit tests
+3. Brute Force Solution: implement basic solution
+     3.a Code unit tests for each view/page and component
+     3.b Code basic solution for each view/page and component
+4. Analyze: gather feedback, measure, and monitor
+5. Optimize/Improve: prioritise first
+6. Repeat 4+5 as many times as needed
+
+-------------------------------------------------------
+
 # 1. System Design: Requirements Analysis
 
 - Who - i.e. content editors/admins, end users , etc
