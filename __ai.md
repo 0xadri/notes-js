@@ -1,16 +1,49 @@
 
-# AI: Models, Prompting, Agents, Tools, etc
+# AI: Models, Prompting, Rules, Agents, Tools, etc
 
 ---
 
 ## AI Prompting
 
+TODO: Look further into guardrails
+TODO: Look further into scope
+
+Before executing prompt, ask if there are conflicting instructions?
+
+You can build instructions and so on in chat mode by doing back-n-forth, and then switch to agent mode once you want to move the content to actual files.
+
+PRD : Project Requirements Document
+
 - Format the prompt well whether using markdown, xml or json.
-- Models - strongest influencing parameter
-- Purpose - brief outline of the goal
-- Instructions - as many as needed
-- Examples (sample outputs, data samples, wireframes, designs, etc)
+- Models - strongest influencing parameter.
+- Purpose - brief outline of the goal.
+- Instructions - as many as needed, get AI help to break up the problem into a todo list.
+  - Tasks - must have priority (low, mid, high), dependencies, difficulty
+- Examples (sample outputs, data samples, wireframes, designs, etc).
 - Variables ?
+- Context Window - keep it tight
+
+Too much `context` will make any model hallucinate. Breaking tasks down to the bare minimum complexity and version control are indispensable.
+
+`Context` in Cursor: https://docs.cursor.com/en/context/@-symbols/overview
+
+---
+
+## Dynamic Content in Prompts
+
+### Cursor
+
+Dynamically include external data using @-commands for files, code, terminal output, and even documentation through features like @Files or @Docs.
+
+That's kinda what is meant by `context` in Cursor.
+
+### Claude: Prompt Templates and Variables
+
+Help save you time, test out different inputs, and get more consistent answers.
+
+https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables
+
+https://www.reddit.com/r/ClaudeAI/comments/1gmcvxv/pro_tip_using_variables_in_prompts_made_claude/
 
 ---
 
@@ -108,8 +141,33 @@ I want to refactor the requirements. Here are the improvements needed:
 
 ---
 
+## Cursor Rules 
+
+Rules provide system-level instructions to Agent and Inline Edit. 
+
+Think of rules as persistent context, preferences, or workflows for your projects.
+
+### Basic Examples
+
+Be concise in your responses,
+Use fewer comments
+
+### Docs
+
+https://docs.cursor.com/en/context/rules
+
+---
+
 ## AI Tools and Projects
 
+Cursor:
+- https://cursor.com/
+- https://docs.cursor.com/
+
+Claude / Anthtopic:
+- https://www.anthropic.com
+- https://docs.anthropic.com/en/home
+ 
 Edgar Recommendations:
 - https://www.jointakeoff.com/ 
 - AI Code Editor https://www.cursor.com/ 
@@ -127,3 +185,22 @@ Summarize Articles
  - getrecall.ai 
  
 OpenMind - AI open source project
+
+---
+
+## Learning Resources
+
+Cursor's Context Engineering
+- intro vid https://www.youtube.com/watch?v=QgA55EnmUp4
+- docs/prompts https://docs.google.com/document/d/1IGyUjicRSl2niGbL5tHRWzTZo1rL-oLOfjOdMilDtEk/edit?tab=t.0
+
+
+Task Master - Taskmaster: A task management system for AI-driven development, AI agnostic. 
+ - intro vid https://www.youtube.com/watch?v=UtkPb9UevBM
+ - https://github.com/eyaltoledano/claude-task-master
+ 
+Rules in Cursor
+ - https://www.youtube.com/watch?v=IsXrCBlAshg
+ - https://github.com/PatrickJS/awesome-cursorrules?tab=readme-ov-file
+ 
+ 
