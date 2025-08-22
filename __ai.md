@@ -3,7 +3,40 @@
 
 ---
 
-## AI Prompting
+## Why
+
+Claude Code, Cursor and other AI solutions augments your entire software product development lifecycle
+
+1. Discover
+- Explore codebase and history
+- Search documentation
+- Onboard & learn
+
+2. Design
+- Plan project
+- Develop tech specs
+- Define architecture
+
+3. Build
+- Implement code
+- Write and execute tests
+- Create commits and PRs
+
+4. Deploy
+- Automate CI/CD
+- Configure environments
+- Manage deployments
+
+5. Support & Scale
+- Debug errors
+- Large-scale refactor
+- Monitor usage & performance
+
+Using and mastering CLI tools such as git, docker, bq.
+
+---
+
+## Prompting
 
 TODO: Look further into guardrails
 TODO: Look further into scope
@@ -21,23 +54,31 @@ PRD : Project Requirements Document
   - Tasks - must have priority (low, mid, high), dependencies, difficulty
 - Examples (sample outputs, data samples, wireframes, designs, etc).
 - Variables ?
-- Context Window - keep it tight
-
-Too much `context` will make any model hallucinate. Breaking tasks down to the bare minimum complexity and version control are indispensable.
-
-`Context` in Cursor: https://docs.cursor.com/en/context/@-symbols/overview
+- Context - keep it tight
 
 ---
 
-## Dynamic Content in Prompts
+### Prompting: Context
 
-### Cursor
+Context Window - keep it tight.
 
-Dynamically include external data using @-commands for files, code, terminal output, and even documentation through features like @Files or @Docs.
+Too much `context` will make any model hallucinate. Breaking tasks down to the bare minimum complexity and version control are indispensable.
+
+Using `@-commands` to build `context` in Cursor: https://docs.cursor.com/en/context/@-symbols/overview
+
+**Clear context regularly** to maintain focused conversations.
+
+---
+
+### Prompting: Dynamic Content in Prompts
+
+#### Cursor
+
+Dynamically include external data using `@-commands` for files, code, terminal output, and even documentation through features like @Files or @Docs.
 
 That's kinda what is meant by `context` in Cursor.
 
-### Claude: Prompt Templates and Variables
+#### Claude: Prompt Templates and Variables
 
 Help save you time, test out different inputs, and get more consistent answers.
 
@@ -47,14 +88,30 @@ https://www.reddit.com/r/ClaudeAI/comments/1gmcvxv/pro_tip_using_variables_in_pr
 
 ---
 
-## AI Prompt Examples
+### Prompting: Cursor Layered Prompt
 
-### Add UID To AI Results
+Cursor builds prompts by orchestrating various pieces of dynamic content, including:
+- System instructions: Core rules and guidelines for the AI's behavior. 
+- User message: The most recent input or question from the user. 
+- File context: The content of the current file or referenced files. 
+- Code snippets: User-highlighted code or referenced symbols within the codebase. 
+- Terminal output: Results from commands executed in the integrated terminal. 
+- Cursor position: The exact location of the cursor in the code. 
+- Team rules: Persistent instructions or settings shared within a team. 
+- Tool schemas: Definitions for tools the AI can use, such as APIs or other functions. 
+
+Also whatever was added to `context` using @-commands: https://docs.cursor.com/en/context/@-symbols/overview
+
+---
+
+### Prompting: Examples
+
+#### Add UID To AI Results
 
 From this point forward, always:
 - add a simple private identifier to each answer you give me - i.e. two digits valid for the current conversation
 
-### AI For Docs
+#### AI For Docs
 
 For the previous response, use format:
 From this point forward, always use format:
@@ -62,7 +119,7 @@ From this point forward, always use format:
 - Remove all the emojis
 - Do not add bold (double asterisc) in the titles that already start with one or several dashes (#)
 
-### AI Refactor Requirements
+#### AI Refactor Requirements
 
 I want to refactor the requirements. Here are the improvements needed:
  - Some features are mentioned several times: remove redundant features in the doc
@@ -71,7 +128,7 @@ I want to refactor the requirements. Here are the improvements needed:
  - For each feature: rate if mostly Frontend Feature or mostly Backend Feature, , add this in the feature title
  - For each feature: rate implementation difficulty from 0 to 10 (10 being the most important), add this estimation in the feature title
 
-### Vistoso.ai User Dashboard
+#### Vistoso.ai User Dashboard
 
    ```markdown
     # Vistoso.ai User Dashboard - Technical Requirements
@@ -143,18 +200,71 @@ I want to refactor the requirements. Here are the improvements needed:
 
 ## Cursor Rules 
 
-Rules provide system-level instructions to Agent and Inline Edit. 
+Rules provide system-level instructions to `Agent` and `Inline Edit`. 
 
-Think of rules as persistent context, preferences, or workflows for your projects.
+Think of rules as **persistent** `context`, `preferences`, or `workflows`.
+
+Rules can be applied to different scopes: `user` scope, `project` scope, and `folder` scope.
 
 ### Basic Examples
 
-Be concise in your responses,
-Use fewer comments
+```markdown
+# Questions and Responses
+- Be concise in your responses
+- If the task is unclear, ask clarifying questions
+- Explain technical decisions in plain English
+- Generate concise, actionable responses that minimize disruption to the developer’s workflow
 
-### Docs
+# Languages and Frameworks
+- Always use Tailwind v4 syntax and refer to the docs for v4. Never use v3
+- Use TypeScript over JavaScript for any React or Next.js projects
+
+# TypeScript
+- Fix type errors immediately rather than working around them
+- Never use 'any' type unless absolutely necessary with documented justification
+- Do not ignore or suppress TypeScript errors – focus on clean, passing code
+
+# Code Style
+- Follow existing project structure and coding conventions
+- Clean up unused code instead of leaving it "just in case"
+- If something looks confusing, add a comment explaining why you did it that way
+- Eliminate any redundant or speculative elements
+- Identify potential issues in the code and suggest actionable fixes
+- Always strive to produce high-quality, production-ready code that adheres to modern development principles
+- Follow best practices and design patterns appropriate for the language, framework and project
+- Prioritize clean, efficient, and maintainable code
+- Write self-documenting code with descriptive naming
+- Prioritize readability and developer experience
+- Rigorously apply DRY and KISS principles in all code
+- Deliver optimal, production-grade code with zero technical debt
+```
+
+### Rules Docs
 
 https://docs.cursor.com/en/context/rules
+
+https://cursor.directory/rules
+
+---
+
+## Guardrails
+
+Regular mode can have guardrails such as:
+- Automatic backups before modifications (i.e. git add . && git commit)
+- Folders (and subfolders) to never be changed or deleted
+
+`YOLO`/`autorun` mode MUST have strong guardrails such as:
+- Max % of code to be deleted/changed before approval
+- Max tokens to be used before approval
+- Max run time before approval
+- Folders (and subfolders) to never be deleted or changed  
+- Automatic backups before modifications
+- Audit trail of all operations
+- All operations must be reversible
+
+https://github.com/jikyu/cursor-guardrails
+
+https://forum.cursor.com/t/guardrails-against-large-scale-feature-removal/40374/
 
 ---
 
@@ -163,6 +273,8 @@ https://docs.cursor.com/en/context/rules
 Cursor:
 - https://cursor.com/
 - https://docs.cursor.com/
+- https://cursor.directory/
+- https://forum.cursor.com
 
 Claude / Anthtopic:
 - https://www.anthropic.com
@@ -190,10 +302,12 @@ OpenMind - AI open source project
 
 ## Learning Resources
 
+Cursor Getting Started: tab autocompletion, inline mode, full file mode, rules, context, and more.
+- https://www.youtube.com/watch?v=5zR1ZE5aqho&t=193s
+
 Cursor's Context Engineering
 - intro vid https://www.youtube.com/watch?v=QgA55EnmUp4
 - docs/prompts https://docs.google.com/document/d/1IGyUjicRSl2niGbL5tHRWzTZo1rL-oLOfjOdMilDtEk/edit?tab=t.0
-
 
 Task Master - Taskmaster: A task management system for AI-driven development, AI agnostic. 
  - intro vid https://www.youtube.com/watch?v=UtkPb9UevBM
