@@ -3,7 +3,7 @@
 
 ---
 
-## Why
+## Why AI
 
 Claude Code, Cursor and other AI solutions augments your entire software product development lifecycle
 
@@ -36,6 +36,32 @@ Using and mastering CLI tools such as git, docker, bq.
 
 ---
 
+## How I Use AI
+
+Cursor with Claude.
+
+The productivity gains are good. The quality gains are good too. Feels like doing pair programming, which is nice.
+
+For specs and reqs: AI tends to mix up many topics tho, so I prefer to rewrite them most of the time, and use the AI generated content for inspiration, and ask AI to review my writings (provide tips, watch out for red flags, etc).
+
+For coding: I never do "big asks" as I noticed it easily gets carried away and hallucinates, I never let it "think and code" the goal I ask to reach for more than 2-3min. This makes sure 1/ my prompt, goal(s), context, rules, and guardrails are well-defined and 2/ the scope of the task is well-limited, and 3/ I can catch mistakes/omissions and review the code in a reasonable amount of time.
+
+For Quality: overall, it definitely helps to find potential improvements, find potential critical issues, improve web app performances, and more.
+
+---
+
+## How I Tell I Use AI
+
+Cursor with Claude.
+
+Great gains in both quality and quantity (productivity).
+
+I mostly used it these software development phases: discovery, design, build.
+
+AI does make many mistakes though, so I remain a skeptic optimist user.
+
+---
+
 ## Prompting
 
 TODO: Look further into guardrails
@@ -55,6 +81,23 @@ PRD : Project Requirements Document
 - Examples (sample outputs, data samples, wireframes, designs, etc).
 - Variables ?
 - Context - keep it tight
+
+---
+
+### Good Practices
+
+Remember: the AI "has amnesia" between chats. You must "refresh its memory" to make it work well, in Cursor that means using "permanent context" such as rules, and "current context" such as files relevant to the current task.
+
+- Use a popular stack.
+- Format prompt i.e. with markdown.
+- Commit often. Commit every time you made a change you like.
+- Use Cursor Checkpoint if you need to roll back.
+- Write end-to-end tests. Unit tests can too easily be passed. Also test the feature manually if possible (i.e. the feature in the web app).
+- Make Cursor write a plan if what you are asking is fairly ambitious. Tell it NOT to write any code while you are making the plan, as this conversation can take several back-and-forth.
+- When making plans, create visual aids such as schemas, diagrams, and wireframes.
+- Start new chats often - so context does not bloat.
+- Keep context tight - be specific.
+- Use Rules.
 
 ---
 
@@ -237,9 +280,36 @@ Rules can be applied to different scopes: `user` scope, `project` scope, and `fo
 - Prioritize readability and developer experience
 - Rigorously apply DRY and KISS principles in all code
 - Deliver optimal, production-grade code with zero technical debt
+
+# Testing
+- Write tests for all new functions
+- Use descriptive test names
+- Aim for 80% code coverage
+
+# Coding pattern preferences
+– Always prefer simple solutions.
+– Avoid duplication of code whenever possible, which means checking for other areas of the codebase that might already have similar code and functionality  
+– Write code that takes into account the different environments: dev, test, and prod  
+– You are careful to only make changes that are requested or you are confident are well understood and related to the change being requested  
+– When fixing an issue or bug, do not introduce a new pattern or technology without first exhausting all options for the existing implementation. And if you finally do this, make sure to remove the old implementation afterwards so we don’t have duplicate logic.  
+– Keep the codebase very clean and organized  
+– Avoid writing scripts in files if possible, especially if the script is likely only to be run once  
+– Avoid having files over 200–300 lines of code. Refactor at that point.  
+– Mocking data is only needed for tests, never mock data for dev or prod  
+– Never add stubbing or fake data patterns to code that affects the dev or prod environments  
+– Never overwrite my .env file without first asking and confirming
+
+$ Technical Stack
+- TypeScript for the backend
+- TypeScript, React.js, Tailwind for the frontend
+- Separate databases for dev, test and prod
+
 ```
 
 ### Rules Docs
+
+You can also directly ask in Cursor Chat: 
+- What are the top 15 most common rules cursor users use for React/TS/xyz?
 
 https://docs.cursor.com/en/context/rules
 
@@ -316,5 +386,5 @@ Task Master - Taskmaster: A task management system for AI-driven development, AI
 Rules in Cursor
  - https://www.youtube.com/watch?v=IsXrCBlAshg
  - https://github.com/PatrickJS/awesome-cursorrules?tab=readme-ov-file
- 
+
  
