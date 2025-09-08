@@ -1,4 +1,10 @@
 
+
+Ultra Short Answer Without Typical AI Words: INSERTQUESTION
+
+-------------------------------------------------------
+
+
 # Which type of memory is generally preferred for storing temporary data  in a program, such as local variables within a function?
 
 Stack

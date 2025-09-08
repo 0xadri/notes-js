@@ -54,9 +54,9 @@ For Quality: overall, it definitely helps to find potential improvements, find p
 
 Cursor with Claude.
 
-Great gains in both quality and quantity (productivity).
+Great gains in both quality and quantity/productivity.
 
-I mostly used it these software development phases: discovery, design, build.
+I mostly used it these phases: discover/onboard/learn, design/plan, code/test.
 
 AI does make many mistakes though, so I remain a skeptic optimist user.
 
