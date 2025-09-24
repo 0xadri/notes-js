@@ -115,16 +115,111 @@ Object: Create Deep Copy/Clone
 
 https://lodash.com/docs/#cloneDeep
 
+-------------------------------------------------------
+
+# Javascript: `Promise` vs `Callback`
+
+A `promise` is when the wife asks you to do the dishes and you say "sure honey I'll do that"
+
+A `callback` is when you tell her "hey honey I finished those dishes"
+
+An `await` is when she asks you to do the dishes and she's standing there in the kitchen tapping her foot
 
 -------------------------------------------------------
 
-# Javascript: Promise vs Callback
+# What are the top 5 use cases for functions returning `Promises`?
 
-A promise is when the wife asks you to do the dishes and you say "sure honey I'll do that"
+Promises are the backbone of modern JavaScript.
 
-A callback is when you tell her "hey honey I finished those dishes"
+1. Fetching data (HTTP requests / APIs) - probably the most common. Functions that return Promises let you handle **async network calls**.
 
-An await is when she asks you to do the dishes and she's standing there in the kitchen tapping her foot
+2. Reading & writing files (Node.js) - I/O operations are async, so they return Promises.
+
+3. Database queries - Most DB libraries (MongoDB, PostgreSQL, etc.) return Promises for queries.
+
+4. Delays / timeouts - You can wrap setTimeout in a Promise to wait for something.
+
+5. Parallel / batch async tasks - Functions returning Promises can be run in parallel with Promise.all, Promise.race, etc.
+
+When you have multiple async operations that don’t depend on each other, you can run them at the same time instead of one after the other.
+
+6. User interactions (events wrapped in Promises) - Sometimes you want to wait for a user action just once (e.g., button click, modal close).
+
+Leaving a listener attached is sometimes okay, but wrapping it in a Promise:
+ - Automatically removes the listener after the first event.
+ - Prevents memory leaks.
+ - Makes async code cleaner (await).
+ - Lets you integrate it with other Promises (Promise.all, Promise.race).
+ 
+7. Animations & transitions - You can wrap CSS/JS animations in Promises so they integrate with async code.
+
+8. Geolocation & browser APIs - Many browser APIs (Clipboard, Geolocation, Notifications, etc.) use Promises.
+
+9. Background jobs / workers - Web Workers or background tasks in Node often expose Promises.
+
+For heavy tasks (image processing, data crunching, machine learning, etc.), you don’t want to freeze the main UI thread. 
+
+That’s what `Web Workers` (browser) or `Worker Threads` (Node.js) are for. They run in the background.
+
+10. Retries, polling, & error handling - Functions that retry failed requests or poll for changes often return Promises.
+
+11. Payment APIs – Stripe, PayPal, etc. return Promises for charges and tokens.
+
+12. Authentication – login, logout, token refresh.
+
+13. Hardware access – WebUSB, WebBluetooth, WebRTC calls.
+
+14. Testing async code – most test runners accept functions returning Promises.
+
+15. Build tooling – webpack, rollup, ESLint plugins often return Promises.
+
+16. CI/CD scripts – deploy steps, running shell commands asynchronously.
+
+explain further 5, 6, 9
+
+
+-------------------------------------------------------
+
+# How do you return a Promise with a function?
+
+Two options
+
+1. Explicitly return a `Promise`
+
+```
+  function getData() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    });
+  }
+  getData().then(result => console.log(result));
+```
+
+2. Make the function `async` using `async` keyword
+
+```
+  async function getData() {
+    return "Here’s your data!";
+  }
+  getData().then(result => console.log(result));
+```
+
+Even though it looks like it’s just returning a string, the function is async.
+
+That means JavaScript automatically wraps the return value in a `Promise.resolve(...)`.
+
+3. With `await` inside `async`
+
+```
+  async function fetchData() {
+   let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+   let data = await response.json();
+   return data; // still returns a Promise
+  }
+  fetchData().then(todo => console.log(todo));
+```
 
 -------------------------------------------------------
 
@@ -467,10 +562,4 @@ const calculate = () => {
 
 https://www.youtube.com/watch?v=9ooYYRLdg_g
 
-
 -------------------------------------------------------
-
-
-
-
-

@@ -9,31 +9,31 @@ https://react.dev/learn/writing-markup-with-jsx
 
 # What is JSX —
 
-JSX was invented by a team at Facebook/Meta, the same team that created React. 
+`JSX` was invented by a team at Facebook/Meta, the same team that created `React`. 
 
-JSX stands for JavaScript XML.
-JSX is a syntax extension to JavaScript.
-JSX lets you put markup into JavaScript. 
+`JSX` stands for JavaScript XML.
+`JSX` is a syntax extension to JavaScript.
+`JSX` lets you put markup into JavaScript. 
 
 -------------------------------------------------------
 
 # Curly braces for JSX
 
-Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.
+Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user.
 
 ```javascript
-return (
+ return (
   <h1>
     {user.name}
   </h1>
-);
+ );
 
-return (
+ return (
   <img
     className="avatar"
     src={user.imageUrl}
   />
-);
+ );
 ```
 
 -------------------------------------------------------
@@ -43,7 +43,7 @@ return (
 Not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
 
 ```javascript
-return (
+ return (
   <img
     className="avatar"
     src={user.imageUrl}
@@ -52,7 +52,7 @@ return (
       height: user.imageSize
     }}
   />
-);
+ );
 ```
 
 -------------------------------------------------------
@@ -64,21 +64,21 @@ return (
 if else
 
 ```javascript
-<div>
+ <div>
   {isLoggedIn ? (
     <AdminPanel />
   ) : (
     <LoginForm />
   )}
-</div>
+ </div>
 ```
 
 if wo else
 
 ```javascript
-<div>
+ <div>
   {isLoggedIn && <AdminPanel />}
-</div>
+ </div>
 ```
 
 -------------------------------------------------------
@@ -86,17 +86,17 @@ if wo else
 # Lists in JavaScript
 
 ```javascript
-const products = [{ title: 'Cabbage', id: 1 },  { title: 'Garlic', id: 2 },  { title: 'Apple', id: 3 }];
+ const products = [{ title: 'Cabbage', id: 1 },  { title: 'Garlic', id: 2 },  { title: 'Apple', id: 3 }];
 
-const listItems = products.map(product =>
+ const listItems = products.map(product =>
   <li key={product.id}>
     {product.title}
   </li>
-);
+ );
 
-return (
+ return (
   <ul>{listItems}</ul>
-);
+ );
 ```
 
 -------------------------------------------------------

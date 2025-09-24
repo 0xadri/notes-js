@@ -20,12 +20,20 @@ Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech compan
 
 # System Design Process
 
-1. Requirements Analysis
-2. Brute Force Design
-3. Scale The Design
-4. Scale Individual Components
+ 1. Requirements Analysis
 
-Explain tradeoffs in design decisions.
+ 2. Brute Force Design
+
+ 3. Scale The Design
+
+ 4. Scale Individual Components
+
+IMPORTANT
+ - You have to lead the interview but appear not to.
+ - You need to get “buy in” from the interviewers.
+ - Explain TRADE-OFFS in design decisions. Senior Devs know that BALANCE is key.
+ - You MUST keep flowing, do NOT run out of things to say.
+ - You MAY get trolled/shit-tested to see how you handle that - take it as an exercise
 
 -------------------------------------------------------
 
@@ -37,52 +45,63 @@ Note that steps "Clarify Requirements" and "Visualize Requirements" often go han
      1.a Input: Get JSON files for different inputs such as base cases and common cases
      1.b Input Analysis: Answer Questions: "What are the essential data types we have?", "For each data type, what quantity of data would a common case have?"
      1.c Input: Make sure you understand the JSON files provided - use GPT if needed
+
 2. Visualize Requirements
      2.a Draw Schemas - identify relationships between data types (one-to-one, one-to-many, many-to-one, many-to-many)
      2.b Draw Wireframes - identify all the views/pages and components
      2.c Write Pseudo Code - write pseudo unit tests
+
 3. Brute Force Solution: implement basic solution
      3.a Code unit tests for each view/page and component
      3.b Code basic solution for each view/page and component
+
 4. Analyze: gather feedback, measure, and monitor
+
 5. Optimize/Improve: prioritise first
+
 6. Repeat 4+5 as many times as needed
 
 -------------------------------------------------------
 
 # 1. System Design: Requirements Analysis
 
-- Who - i.e. content editors/admins, end users , etc
-- Where - i.e. mobile app, web app, api service, physical location
-- When - i.e. when used the most
-- What - inputs and outputs they give to the system (data, images, video).
-- How many - Traffic, 
-- How much - Storage, Throughput
+TLDR:
+ 1. **FR**: Who, What, When, Where: Action-Oriented: Use Cases
+ 2. **NFR**: Demands and Constraints Oriented: Scalability And Availability Challenges: System Performance Metrics
 
+## Functional Requirements
+ i. Who - Do we have different types of users ? - i.e. content editors/admins, end users , etc
+ ii. Where - Where do they use the System (Web, Mobile, Desktop ...) ? - i.e. mobile app, web app, api service, physical location
+ iii. What - What is the user input and the system output (data, images videos) ? - i.e. pdf files, profile pics, output generated vids
+ iv. When - When used the most? - i.e. peak time every day at 6PM CET when people finish work
 
-Extract Functional Requirements (Use Cases)
-i.Who - Do we have different types of users ?
-ii. where - Where do they use the System (Web, Mobile, Desktop ...) ?
-iii. what - What is the user input and the system output (data, images videos) ?
+## Non-Functional Requirements
+ i. Traffic - How many users per day/week/month ? Peak usage ? What does "active users" mean? Where are users located?
+ ii. Throughput - Do users mostly read pages? Or also publish data? Do they fetch data? What's the estimated payload size?
+ iii. Storage - What kind of data are we storing(if any)? Are relationships important?
+ iv. Read/Write Ratio - Do users mostly consume content? Or often publish too, like everyday? Diff between nb of reads vs nb of writes?
 
-Extract NonFunction Requirements (Traffic, Throughput, Storage) - scalability and availability??
-i. Traffic
-ii. Read/Write Ratio
-iii. Storage
-iv. Throughput
+## Main Goals
 
-System Performance Metrics
-- Latency - the time it takes to send data from point A to point B(HTTP request, reading data from memory, reading data from disk).
-- Throughput - the volume of data we can send over a period of time from point A to point B(100 MB/second).
+ 1. Traffic & Throughput
+  - Estimated number of users - translate it - into a concrete number of request per secons or requests per minute. 
+  - Estimate the throughput in Mb/seconds using back of the envelope numbers(payload size) and requests per second.
+
+ 2. Storage & Read/Write Ratio
+  - Extract the requirements for the kind of database to use - MySQL and NoSQL databases.
+  - For very unusual and specific use-cases graph databases of spatial database can makes sense.
+
+Lingo:
+ - Throughput - the volume of data we can send over a period of time from point A to point B(100 MB/second).
+ - Latency - the time it takes to send data from point A to point B (HTTP request, reading data from memory, reading data from disk).
 
 -------------------------------------------------------
 
-# 2. Brute Force Design (MVD)
+# 2. Brute Force Design (MVD) - aka Minimum Viable Design
 
-The “Minimum Viable Design”
-a. Fullfill the usecases with the minimum number of components
-b. Get a “top view” of how the System Should look like
-c. let your interviewer know: you will not address scalability or Availability challenges, you will focus only on the functional requirements
+ a. Fullfill the use-cases with the minimum number of components - base cases, common cases, and corner cases
+ b. Get a “top view” of how the System Should look like
+ c. Let your interviewer know: you will NOT address Scalability or Availability challenges, you will focus only on the functional requirements
     
 Components:
  --> Frontend (web app, mobile app)
@@ -93,13 +112,14 @@ Components:
 
 # 3. Scaling the Design
 
-a. Split backend based on the Read/Write ratio
-b. Split the database according to the Read/Write ratio
-c. Add CDNs to Frontend Web Applications and Blob Storage
-d. Add load balancing to (read) backend under pressure
-e. Scale the Database with Read Only Replicas
+ a. Split backend based on the Read/Write ratio
+ b. Split the database according to the Read/Write ratio
+ c. Add CDNs to Frontend Web Applications and Blob Storage
+ d. Add load balancing to (read) backend under pressure
+ e. Scale the Database with Read Only Replicas
 
-Scalability is the ability to maintain performance under an increasing workload. 
+Scalability is the ability to maintain performance under an increasing workload.
+
 In system design language is the ability to handle high throughput with low latency. 
 
 Vertical Scalability - increase CPU or Memory - Scale Up
@@ -111,7 +131,7 @@ Vertical Scalability - increase CPU or Memory - Scale Up
  - not flexible - we cannot adjust to traffic in real-time, the capacity (and our expense) are constant
 
 Horizontal Scalability - increase instances of the App - Scale-Out
- + flexibility - we can adapt to traffic changes quickly and only pay for more machines when we need more 
+ + flexibility - we can adapt to traffic changes quickly and only pay for more machines when we need more
  + no downtime - adding or removing new instances does not result in downtime
  + fault tolerance - if an instance fails (hardware failure, etc) the other ones take over
  + cheap - we can use much cheaper and available hardware

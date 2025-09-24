@@ -1,6 +1,21 @@
 
 -------------------------------------------------------
 
+# What's a frontend design system?
+
+It is a collection of reusable UI components, patterns, and guidelines that ensures consistency, efficiency, and scalability in web or app interfaces.
+
+It’s more than just a component library; it also includes design principles, branding rules, accessibility standards, and often a shared codebase.
+
+Key aspects:
+
+ 1. Core Components - i.e. Buttons, Inputs, Modals, Cards, Navigation components
+ 2. Design Tokens - single source of truth for style values
+ 3. Guidelines & Principles - rules for how UI should look and behave
+ 4. Documentation
+
+-------------------------------------------------------
+
 # What are Pure Components in React?
 
 TLDR: a special component type that avoids unnecesarry re-renders by checking if the props and state really changed.

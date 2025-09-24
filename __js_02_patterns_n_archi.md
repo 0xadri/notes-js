@@ -9,11 +9,85 @@ https://www.patterns.dev/react
 
 # The Architect Mindset
 
-Think in trade-offs - developers know the benefits of everything, but architects always think in terms of trade-offs.
+Think in trade-offs - BALANCE - developers know the benefits of everything, but architects always think in terms of trade-offs.
 
 Why over How - the implementation details on how we write exports in our code matter much less than the overall level of modularity we accept.
 
 An excellent coder - an architect is before everything an excellent coder. She excelled at coding and loves the craft. Architecture is being decided, implemented, and reviewed with every line of code. written.
+
+-------------------------------------------------------
+
+# SOLID principles
+
+Set of five principles in object-oriented programming (OOP) that make software designs more maintainable, scalable, and flexible.
+
+S — Single Responsibility Principle (SRP): A class should have only one reason to change.
+
+O — Open/Closed Principle (OCP): Software entities (classes, modules, functions) should be open for extension but closed for modification.
+
+L — Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types.
+
+I — Interface Segregation Principle (ISP): No client should be forced to depend on methods it does not use.
+
+D — Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules; both should depend on abstractions.
+
+-------------------------------------------------------
+
+# What does the Single Responsibility Principle (SRP) mandate?
+
+A class should only have one job or responsibility.
+
+Hence a class should have only one reason to change.
+
+For instance, if you have a class that is designed to manage customer records, it should not also be responsible for printing those records.
+
+-------------------------------------------------------
+
+# Which principle in SOLID stands for classes should depend upon abstractions, not concrete implementations?
+
+Dependency Inversion Principle (DIP).
+
+In simpler terms, the DIP encourages coding to interfaces rather than concrete implementations, making the code more flexible, reusable, and resistant to changes in the underlying components.
+
+-------------------------------------------------------
+
+# In the context of the Open-Closed Principle, which of the following best explains what closed means?
+
+Classes, modules, functions should be closed for modification but open for extension.
+
+-------------------------------------------------------
+
+# What does the Liskov Substitution Principle (LSP) state about inheritance?
+
+Child classes must be able to fully substitute their parent classes.
+
+Think of it as:
+
+- similar to classes-interface relationship
+
+- most specific implementations must be able to fully replace less specific implementations.
+
+-------------------------------------------------------
+
+# The Interface Segregation Principle (ISP) states that:
+
+Many client-specific interfaces are better than a single general-purpose interface.
+
+-------------------------------------------------------
+
+# Not following SOLID principles will...
+
+🧱 Lower Module Cohesion - modules are not focused on a single purpose
+
+🕸️ Tight coupling
+
+🍝 Difficulties in maintaining and extending the code(spaghetti code)
+
+-------------------------------------------------------
+
+# In the context of the SOLID principles, what does the term 'code smell' refer to?
+
+A potential violation of the SOLID principles
 
 -------------------------------------------------------
 

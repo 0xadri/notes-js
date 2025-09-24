@@ -1,22 +1,27 @@
 
+-------------------------------------------------------
 
 # Big O Notation / Big(O) Complexity Analysis
 
-Big O Notation is a way to describe how the performance (time and space) of an algorithm scales with the size of its input (dimensions of the input and the number of operations).
+`Big O Notation` is a way to describe how the performance (time and space) of an algorithm scales with the size of its input (dimensions of the input and the number of operations).
 
 It gives an upper bound on the time or memory used, in the worst case, as the input size grows.
 
-Two Big(O) dimensions: Time complexity and Space complexity.
+Two Big(O) dimensions: `Time complexity` and `Space complexity`.
 
 1. Time complexity 
 
-How many operations the algorithm performs - later translated to CPU cycles.
+Time = Operations = Reads.
+
+How many **operations** the algorithm performs - later translated to **CPU cycles**.
 
 For example, iterating through an array once has O(N) time complexity because we will do N operations to go through each element once, where N is the array's length.
 
 2. Space complexity
 
-How much memory it uses - refers to RAM (Random Access Memory), not hard drive storage.
+Space = Memory = Writes.
+
+How much **memory** it uses - refers to **RAM** (Random Access Memory), not hard drive storage.
 
 For example, to copy an array fully to another memory location, the space complexity would be O(N) as we will need as much space as an element in the array.
 
@@ -105,12 +110,15 @@ If the binary tree was skewed (i.e., it behaves like a linked list where each no
 
 -------------------------------------------------------
 
-# Big(O) Complexity Analysis
+# Suppose you are using a dynamic array to store values. If an array resize occurs by doubling its size, what is the Average(Amortised) Time Complexity of inserting an element?
 
+O(1).
 
+When inserting elements into a dynamic array, most insertions take constant time, O(1). However, when the array runs out of space, it needs to resize by doubling its capacity, which involves copying all the elements to a new larger array. This resizing operation can take O(n) time, where n is the current size of the array.
 
+Amortized analysis helps account for the occasional costly resize by spreading the cost of resizing over many insertions. Over a sequence of n insertions, the total cost of resizing is O(n), making the average (amortized) time per insertion O(1).
 
-
+Thus, while individual insertions may sometimes be expensive, the amortized time complexity for each insertion is O(1)
 
 
 

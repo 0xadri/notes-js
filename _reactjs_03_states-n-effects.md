@@ -37,11 +37,11 @@ https://react.dev/learn/render-and-commit
 
 # `Rendering` vs `Re-Rendering`
 
- 1. Rendering: initial render, React calls the root component.
+ 1. Rendering: initial render, React calls the `root` component.
  2. Re-Rendering: subsequent renders, React calls component whose state update triggered the render.
 
- 1. Rendering runs the entire code of a component.
- 2. Re-Rendering re-runs the entire code of a component.
+ 1. Rendering runs the **entire code** of a component.
+ 2. Re-Rendering re-runs the **entire code** of a component.
 
 https://react.dev/learn/render-and-commit
 
@@ -51,8 +51,8 @@ https://react.dev/learn/render-and-commit
 
 `Rendering` is recursive: if the rendered component returns some other component, React will render that component next, and so on.
 
- 1. `Rendering`: React initial render calls the root component, and its child components recursively.
- 2. `Re-Rendering`: React calls component whose state update triggered the render, and its child components recursively.
+ 1. `Rendering`: React initial render calls the `root` component, and its child components recursively.
+ 2. `Re-Rendering`: React calls the `component` whose state update triggered the render, and its child components recursively.
 
 `Re-Rendering` aka `re-executing` aka `re-evaluation`
 
@@ -70,8 +70,8 @@ A component `re-renders` when:
  1. one of its parents gets `re-rendered`
  2. one of its `props` gets updated (sent from parent)
  3. one of its `states` gets updated
- 
-TL;DR: `Re-Rendering` is tightly related to the `Data Flow`, `Props`, and `States`.
+
+TLDR: `Re-Rendering` is tightly related to the `Data Flow`, `Props`, and `States`.
 
 https://react.dev/learn/render-and-commit
 

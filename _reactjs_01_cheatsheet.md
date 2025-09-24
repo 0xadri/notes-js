@@ -30,16 +30,16 @@ Reusability principles:
  - To reuse logic with React Hooks, create a custom hook
  
 States
- - When updating state, always do it IMMUTABLY. Do a deep copy/clone for arrays and objects
- - When updating state based on old state, always pass a `function` with `prev` to your `state` updating function
- - Derive states from props when possible
- - Remove unnecessary states
- - Lift states if needed
- - Lift computed values if needed
- - Derive computed values when possible
+ - When updating `state`, always do it IMMUTABLY. Do a deep copy/clone for arrays and objects
+ - When updating `state` based on old `state`, always pass a `function` with `prev` to your `state` updating function
+ - Derive `states` from `props` when possible
+ - Remove unnecessary `states`
+ - Lift `states` if needed
+ - Lift computed `values` if needed
+ - Derive computed `values` when possible
 
 Lists items must have keys
- - Keys must have unique value
+ - `Keys` must have unique value
  - Generate it if needed
 
 Effects
@@ -50,7 +50,7 @@ Effects
 
 # React Project Setup: Build Tools
 
- - `Create React App` (CRA)
+ - `Create React App` aka `CRA`
  - `Webpack`
  - `Vite`
  - `esbuild`
@@ -59,15 +59,17 @@ Effects
 
 `Create React App` (CRA): default option for developing React applications
 
- - Vite vs CRA : https://www.tatvasoft.com/outsourcing/2024/07/vite-vs-create-react-app.html
+ - `Vite` vs `CRA` : https://www.tatvasoft.com/outsourcing/2024/07/vite-vs-create-react-app.html
 
- - Start your project w Vite (first 14min): https://www.youtube.com/watch?v=G6D9cBaLViA
+ - Start your project w `Vite` (first 14min): https://www.youtube.com/watch?v=G6D9cBaLViA
 
 -------------------------------------------------------
 
 # COMPONENTS THE WORLD
 
-React apps are made out of `components`. A `component` is a piece of the UI (user interface) that has its own logic and appearance. 
+React apps are made out of `components`.
+
+A `component` is a piece of the UI (user interface) that has its own logic and appearance. 
 
 A component can be as small as a `button`, or as large as an entire page.
 
@@ -92,7 +94,7 @@ Double renders components.
 You can wrap a specific component or your entire app.
 
 ```javascript
-import { StrictMode } from "react";
+  import { StrictMode } from "react";
   
   <StrictMode>
     <App />
@@ -104,10 +106,10 @@ import { StrictMode } from "react";
 # index.js
 
 ```javascript
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+ import React from 'react';
+ import { createRoot } from 'react-dom/client';
 
-createRoot(document.getElementById('app')).render(<App/>);
+ createRoot(document.getElementById('app')).render(<App/>);
 ```
 
 -------------------------------------------------------
@@ -115,12 +117,9 @@ createRoot(document.getElementById('app')).render(<App/>);
 # React Component
 
 ```javascript
-import React from 'react';
-// import React, {useState} from 'react';
-// import React, { useState, useEffect } from 'react';
-// import GuineaPigsSlideShow from "../components/GuineaPigsSlideShow";  // buggy: debug by adding/removing ".js"
+ import React from 'react';
 
-function Component(){
+ function Component(){
 }
 
 export default Component;
@@ -141,18 +140,21 @@ https://react.dev/learn/passing-props-to-a-component
 # React Component: Props Example
 
 ```javascript
-import React from 'react';
-function Component(props){
+ import React from 'react';
+ 
+ function Component(props){
   let person = props.person;
   let size = props.size;
-}
-export default Component;
+ }
+ export default Component;
+```
 
-import React from 'react';
-function Component({ person, size }){ // Destructured — Same as above
-
-}
-export default Component;
+```javascript
+ import React from 'react';
+ function Component({ person, size }){ // Destructured — Same as above
+  ...
+ }
+ export default Component;
 ```
 
 -------------------------------------------------------
@@ -162,33 +164,35 @@ export default Component;
 If `boolean`
 
 ```javascript
-<div x />
-// is equivalent to
-<div x={true} />
+ <div x />
+ // is equivalent to
+ <div x={true} />
 ```
+
 If `not boolean`
 
 ```javascript
-<Comp {...{x,y,foo,bar}} />
-// is equivalent to
-<Comp x={x} y={y} foo={foo} bar={bar} />
+ <Comp {...{x,y,foo,bar}} />
+ // is equivalent to
+ <Comp x={x} y={y} foo={foo} bar={bar} />
 ```
 
 You can use this alongside other props
 
 ```javascript
-<Comp key={getCellId()} color="yellow" size={user.size} {...{x,y,foo,bar}} /> 
+ <Comp key={getCellId()} color="yellow" size={user.size} {...{x,y,foo,bar}} /> 
 ```
+
 -------------------------------------------------------
 
 # React: Inline Styling
 
 ```javascript
-<h1 style={{color: "red"}}> Hello, World! </h1>
+ <h1 style={{color: "red"}}> Hello, World! </h1>
 
-// equiv
-const myStyle = { color: "red" }
-<h1 style={myStyle}> Hello, World! </h1>
+ // equiv
+ const myStyle = { color: "red" }
+ <h1 style={myStyle}> Hello, World! </h1>
 ```
 
 -------------------------------------------------------
@@ -196,18 +200,18 @@ const myStyle = { color: "red" }
 # React: Styling
 
 ```css
-// in TitleScreen.module.css
-// mind here that we switch to "className" — before we used "style" attribute
-.btn {
+ // in TitleScreen.module.css
+ // mind here that we switch to "className" — before we used "style" attribute
+ .btn {
   height: 45px;
   width: 110px;
-}
+ }
 ```
 
 ```javascript
-// in App.js
-import titlescreen from './styles/TitleScreen.module.css'
-<button className={titlescreen.btn}>Play</button>
+ // in App.js
+ import titlescreen from './styles/TitleScreen.module.css'
+ <button className={titlescreen.btn}>Play</button>
 ```
 
 -------------------------------------------------------
@@ -215,9 +219,9 @@ import titlescreen from './styles/TitleScreen.module.css'
 # Functions in Components
 
 ```javascript
-<button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
+ <button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
 
-<button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
+ <button onClick={() => alert('You clicked me!')}> // alert fires when component clicked, creates function to be called later
 ```
 
 -------------------------------------------------------
@@ -229,15 +233,15 @@ Prior to iterating on the list, add an id field with a unique value to each item
 Then use that field as key in the iterating code.
 
 ```javascript
-{currentRoster.map((player, index) => (
- <div key={player.id}>
- <p>{player.name}</p>
- <p>{player.position}</p>
- </div>
-))}
+ {currentRoster.map((player, index) => (
+  <div key={player.id}>
+  <p>{player.name}</p>
+  <p>{player.position}</p>
+  </div>
+ ))}
 ```
 
-`uuid` library for generating unique id's - https://www.npmjs.com/package/uuid
+`uuid` library for generating unique ID's - https://www.npmjs.com/package/uuid
 
 -------------------------------------------------------
 
