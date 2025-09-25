@@ -830,16 +830,6 @@ No
 
 -------------------------------------------------------
 
-# What's a HOC (Higher Order Component) ?
-
-A higher-order component is a function that takes a component and returns a new component.
-
-Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
-
-HOCs are common in third-party React libraries, such as Redux’s connect and Relay’s createFragmentContainer.
-
--------------------------------------------------------
-
 # Our application requires users to authenticate for them to see our premium content. We want an easy way to show/hide certain components depending on if the user is logged in or not. What do you think is the cleanest(least coupled) way to do that?
 
 Add our auth state to `React.Context` (`useContext()`)and subscribe our components to it.

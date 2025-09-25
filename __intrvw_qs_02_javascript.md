@@ -409,11 +409,19 @@ This increases code maintainability, reduces in-production issues, and reduces r
 
 # JavaScript is pass by value or reference language?
 
-JavaScript is a pass by value language. 
+JavaScript is a **pass by value** language. 
 
-When a function is called, a copy of the value of each argument is passed to the function, not the original argument. 
+When a `function` is called, a **copy** of the `value` of each `argument` is passed to the `function`, NOT the original `argument`. 
 
-This means that the function cannot modify the original arguments. If you modify the value of any argument the function received your changes only have effect inside the function.
+This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
+
+1. `Primitives` → Passed by `Value`
+
+2. `Objects` & `Arrays` → Passed by Reference to Value (reference itself is copied)
+
+JavaScript always passes function arguments by `value`.
+
+But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the reference itself is copied, so both variables point to the **same** underlying object.
 
 -------------------------------------------------------
 

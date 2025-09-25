@@ -283,7 +283,44 @@ B-Trees (and their variant B+ Trees) are excellent for:
 
 So, for price searches and category lookups, a B+ Tree index works well.
 
+-------------------------------------------------------
 
+# Binary Search Tree
 
+In a Binary Search Tree, the left subtree of a node contains only nodes with keys: 
+Less than the node key?
+Greater than the node key?
+...?
 
+Binary Search works on an array that:
+Contains only positive integers?
+Is not longer than 128 elements?
+Is already sorted?
 
+TODO
+
+-------------------------------------------------------
+
+# Hash Map
+
+A Hash Map (Object) is based on:
+An array, a hash function, and linked lists?
+
+TODO
+
+-------------------------------------------------------
+
+# Data Structures
+
+In which data structure is faster to insert an element?
+LinkedList?
+Array?
+Hash Map?
+
+TODO
+
+-------------------------------------------------------
+
+# Stack Space
+
+The Stack Space is where the recursive calls are stored.

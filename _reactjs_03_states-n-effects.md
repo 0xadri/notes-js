@@ -1,3 +1,9 @@
+
+----------------------
+
+# Debouncing Clicks Actions
+
+TODO
  
 -------------------------------------------------------
 
@@ -54,7 +60,7 @@ https://react.dev/learn/render-and-commit
  1. `Rendering`: React initial render calls the `root` component, and its child components recursively.
  2. `Re-Rendering`: React calls the `component` whose state update triggered the render, and its child components recursively.
 
-`Re-Rendering` aka `re-executing` aka `re-evaluation`
+`Re-Rendering` aka `re-executing` aka `re-evaluation` aka `re-runs`
 
 https://react.dev/learn/render-and-commit
 
@@ -83,7 +89,7 @@ https://react.dev/learn/render-and-commit
 
 When `components` `re-render`, all the previous values are lost because it re-runs from scratch.
 
-For `states` that persist across `re-renders` (aka component re-runs), we must define them with `useState()`.
+For `states` that persist across `re-renders`, we must define them using `useState()`.
 
 REACT STATES PERSIST ACROSS RE-RENDERS
 
@@ -93,19 +99,19 @@ REACT STATES PERSIST ACROSS RE-RENDERS
 
 Figuring out if data in my app is a `state` or not.
 
-- Does it remain unchanged over time? If so, it isn’t `state`.
-- Is it passed in from a parent via `props`? If so, it isn’t `state`.
-- Can you compute it based on existing `state` or `props` in your `component`? If so, it definitely isn’t `state`!
+ - Does it remain unchanged over time? If so, it is not a `state`.
+ - Is it passed-in from a parent via `props`? If so, it is not a `state`.
+ - Can you compute it based on existing `state` or `props` in your `component`? If so, it definitely is not a `state`.
 
 -------------------------------------------------------
 
 # Controlled `Components` - aka `form` fields controlled by `state` hook
 
-When a `form` has one or more fileds controlled by a `state` hook (`useState()`), we call it a controlled `component`.
+When a `form` has one or more fields controlled by a `state` hook (`useState()`), we call it a controlled `component`.
 
 Maintains any mutable `state` values within the `state` property of our `components`.
 
- - How: uses `useState()` and value+onChange `attributes` on `input` or other element.
+ - How: using `useState()` and value+onChange `attributes` on `input` or other element.
  - Best: use controlled `components` whenever possible.
  - Why: allow for change-by-change tracking of `input` `form` values, they better align with React’s pattern of storing mutable data in a `component`’s state.
 
@@ -115,7 +121,7 @@ Maintains any mutable `state` values within the `state` property of our `compone
 
 A `form` element that maintains its own `state` in the DOM.
 
- - How: uses `useRef()` and ref attribute on input and onchange attribute on `form`.
+ - How: uses `useRef()` and `ref` attribute on `input` and `onchange` attribute on `form`.
  - Best: if you only need access to the value of the `form` on submission
  - Always: w files, for `<input>` `form` elements with the `type="file"` attribute.
 
@@ -131,68 +137,103 @@ Once the `component` has been initially `rendered`, you can trigger further `ren
 
 # React Data Flow
 
-React uses one-way data flow, passing data down the `component` hierarchy from parent to child `component`.
+React uses ONE-WAY data flow.
+
+`Props` and `state` flow DOWN the hierarchy from parent to child `component`.
 
 -------------------------------------------------------
 
-# Data Flow, `Props` & `States`
+# Two-Way Data Binding
 
-Two-way data binding???
+React does NOT have built-in `two-way data binding`.
 
-`Props` and `state` flowing down the hierarchy = one-way flow.
+But you can achieve the same effect by combining `component` `state` with `event` handlers.
 
-Data flowing the other way: from children `components` deep in the hierarchy up to a top `component`.
+This way, data can flow UP from children `components` deep in the hierarchy up to a top `component`.
 
 This reverse flow is required to update the `component` holding the `state`.
+
+```javascript
+ import { useState } from "react";
+
+ export default function TwoWayBindingExample() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}              // value comes from state
+        onChange={(e) => setName(e.target.value)}     // updates state when the user types → input and state stay in sync
+      />
+      
+      <p>Hello {name || "Stranger"}</p>
+    </div>
+  );
+ }
+```
+
+This is effectively two-way binding:
+ - `Input` → `State`
+ - `State` → `Input`
+
+-------------------------------------------------------
+
+# Why Use Two-Way Data Binding ?
+
+The `two-way data binding pattern` is common in `forms`, `search bars`, or `live previews`.
+
+If you’re building more complex forms, you may want to use 3rd party libraries to simplify two-way binding across many fields.
 
 -------------------------------------------------------
 
 # `Props`: Basic Example
 
 ```javascript
-const element = <Welcome name="Sara" />;
+ const element = <Welcome name="Sara" />;
 
-function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
-// Equivalent...
-function Welcome({name}) { return <h1>Hello, {name}</h1>; }
+ function Welcome(props) { return <h1>Hello, {props.name}</h1>; }
+ // Equivalent...
+ function Welcome({name}) { return <h1>Hello, {name}</h1>; }
 ```
 
 -------------------------------------------------------
 
-# Props Forwarding With Spread Syntax
+# `Props` Forwarding With `Spread` Syntax
 
 ## Example A
 
 ```javascript
-const Button = ({ children, ...props }) => {
+ const Button = ({ children, ...props }) => {
   return (
     <button className="someclasses" {...props}>
       {children}
     </button>
   );
-};
-export default Button;
+ };
+ export default Button;
 ```
 
 Use such as
 
 ```javascript
-<Button greeting="hey" name="Joe">Click Me</Button>
+ <Button greeting="hey" name="Joe">Click Me</Button>
 ```
 
 ## Example B
 
 ```javascript
-export default function Input({richText, ...props}) {
+ export default function Input({richText, ...props}) {
   if (richText) return <textarea {...props} />
   else return <input {...props} />
-}
+ }
 ```
-use such as
+
+Use such as
 
 ```javascript
-<Input richText="hey this is some fancy text" name="long-text">
-<Input value="James" name="fname">
+ <Input richText="hey this is some fancy text" name="long-text">
+ <Input value="James" name="fname">
 ```
 
 https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax
@@ -203,7 +244,7 @@ https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-j
 
 Hooks allow us to perform essential logic with our function `components`
 
-Hooks let us “hook into” the internal component state for managing dynamic data in function `components`.
+Hooks let us “hook into” the internal `component` `state` for managing dynamic data in function `components`.
  - `useState()`: Hook to manage `state`
  - `useEffect()`: Hook to execute code after a `render`
 
@@ -215,22 +256,25 @@ Two main rules to keep in mind when using Hooks:
 
 # State Hook
 
-State lets a component “remember” information like user input. For
+State lets a component “remember” information like user input.
 
-Updating a `state` re-renders your component
+Updating a `state` re-renders your component.
 
-THREE things to setup: `useState` call, value attribute in `form` element, `onChange` function handler
+THREE things to setup: 
+ 1. `useState` call
+ 2. value attribute in `form` element
+ 3. `onChange` function handler
 
 ```javascript
-// state setter declaration - useState call
-const [phone, setPhone] = useState('');
-const [cool, setCool] = useState([]);
-const [formState, setFormState] = useState({});
-const [categories, setCategories] = useState(null); // for object
+ // state setter declaration - useState call
+ const [phone, setPhone] = useState('');
+ const [cool, setCool] = useState([]);
+ const [formState, setFormState] = useState({});
+ const [categories, setCategories] = useState(null); // for object
 
-// form element declaration for value and onChange
-<input name="lastname" onChange={handleLastnameChange} />
-<form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
+ // form element declaration for value and onChange
+ <input name="lastname" onChange={handleLastnameChange} />
+ <form onSubmit={handleSubmit}><input type="submit" value="Submit" /></form>
 ```
 
 -------------------------------------------------------
@@ -239,33 +283,40 @@ const [categories, setCategories] = useState(null); // for object
 
 `functional update` aka `functional form`: passing a `function` with `prev` to your `state` updating function
 
-When updating state based on old state, always use a `functional update`
+When updating `state` is based on `old state`, ALWAYS use a `functional update`:
  - otherwise the update is scheduled for "later"
  - the updating `function` has an implicit parameter (often called `prev`) with the latest value of the state.
  - `functional update` ensures that you are working with the latest `state` snapshot, especially in scenarios where `state` updates are asynchronous.
 
-When updating state NOT based on old state, do NOT pass a `function` to your `state` updating function
+When updating `state` is NOT based on `old state`, NEVER use a `functional update`:
  - not necessary
  - confusing for other devs reading your code
 
 -------------------------------------------------------
 
-# State Hook: Updating, State/Prev Is Number
+# State Hook: Functional Update When State/Prev Is A Number
+
+`functional update` = `functional form`.
 
 ```javascript
-const [count, setCount] = useState(0);
+ const [count, setCount] = useState(0);
 
-const handleClick = () => {
- setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
-};
+ const handleClick = () => {
+  setCount((prevCount) =>  prevCount + 1); // prevCount is whatever is defined in the useState() argument
+ };
 ```
 
 -------------------------------------------------------
 
-# State Hook: Updating: Always Use A Deep Clone [Best Practice]
+# State Hook: Functional Update When State/Prev Is An Object [Best Practice]
 
-When using the `setXYZ` method, always do it IMMUTABLY. Especially when arrays or objects. 
-  - Do a deep copy/clone
+`functional update` = `functional form`.
+
+When State/Prev Is An Object, ALWAYS:
+ - do it IMMUTABLY.
+ - do a deep copy/clone.
+
+Examples below for array, 2D array, shallow object, nest objects.
 
 https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/39659798
 
@@ -274,29 +325,29 @@ https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/3
 # State Hook: Updating When State Is Array
 
 ```javascript
-const [students, setStudents] = useState(["Max","Lauren","Marc"]);
+ const [students, setStudents] = useState(["Max","Lauren","Marc"]);
 
-const handleClickAdd = (e) => {
+ const handleClickAdd = (e) => {
   const name = e.target.value;
-  setStudents((students) => { // Add Item When State Is Array
-    const newStudents = [...students]; // Clone array for immutability
-    newStudents.push(name); // Modify array
+  setStudents((students) => {   // Add Item When State Is Array
+    const newStudents = [...students];   // Clone array for immutability
+    newStudents.push(name);   // Modify array
     return newStudents;
   });
-};
+ };
 
-const handleClickRemove = (e) => {
+ const handleClickRemove = (e) => {
   const name = e.target.value;
-  setStudents((students) => { // Remove Item When State Is Array
-    const newStudents = [...students]; // Clone array for immutability
+  setStudents((students) => {   // Remove Item When State Is Array
+    const newStudents = [...students];   // Clone array for immutability
     const index = newStudents.indexOf(name);
-    if (index > -1) newStudents.splice(index, 1); // Modify array
+    if (index > -1) newStudents.splice(index, 1);   // Modify array
     return newStudents;
   });
-};
+ };
 
-<button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
-<button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
+ <button onClick={handleClickAdd} value="Jamie">ADD STUDENT "Jamie"</button>
+ <button onClick={handleClickRemove} value="Jamie">REMOVE STUDENT "Jamie"</button>
 ```
 
 -------------------------------------------------------
@@ -304,13 +355,13 @@ const handleClickRemove = (e) => {
 # State Hook: Updating When State Is Two Dimensional Array
 
 ```javascript
-const gameBoard = [
+ const gameBoard = [
   ["max",null,null],
   [null,"adri",null],
   [null,"james",null],
-]
+ ]
 
-const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array for immutability
+ const newBoard = [...gameBoard.map( (array) => [...array] )];   // Clone 2D array for immutability
 ```
 
 -------------------------------------------------------
@@ -318,20 +369,20 @@ const newBoard = [...gameBoard.map( (array) => [...array] )]; // Clone 2D array 
 # State Hook: Updating When State Is Shallow Object
 
 ```javascript
-const [profile, setProfile] = useState({
+ const [profile, setProfile] = useState({
   name: "James",
   city: "London",
-});
+ });
 
-const handleClick = (keyName, value) => {
+ const handleClick = (keyName, value) => {
   setProfile((prev) => ({
     ...prev, // Clone object for immutability (Shallow Clone)
     [keyName]: value, // Add/Update Property
   }));
-};
+ };
 
-<button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
-<button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
+ <button onClick={() => handleClick("age", "33")}>UPDATE AGE TO 33</button>
+ <button onClick={() => handleClick("age", "44")}>UPDATE AGE TO 44</button>
 ```
 
 -------------------------------------------------------
@@ -341,14 +392,14 @@ const handleClick = (keyName, value) => {
 Assume state is an object with a property 'data'.
 
 ```javascript
-const [person, setPerson] = useState({
+ const [person, setPerson] = useState({
   name: "James",
   data: {
     dob-year: 1988
   }
-});
+ });
 
-setPerson(person => {
+ setPerson(person => {
   return {
     ...person,
     data: {
@@ -356,27 +407,27 @@ setPerson(person => {
       someProperty: newValue
     }
   };
-});
+ });
 ```
 
 -------------------------------------------------------
 
 # State Hook: Avoid Intersecting States [Best Practice]
 
-Always to only have a piece of data managed only by one state.
+ALWAYS have a single piece of data managed by a single state only.
 
-Prefer computed values
+Prefer `computed` values - keep number of states to a minimum.
 
 -------------------------------------------------------
 
 # State Hook: Misc [Best Practice]
 
- - If updating state based on old state, use prev
- - Derive states from props when possible
- - Remove unnecessary states
- - Lift states if needed
- - Lift computed values if needed
- - Derive computed values when possible
+ - If updating `state` based on `old state`, use `prev` (functional updates)
+ - Derive `states` from `props` when possible
+ - Remove unnecessary `states`
+ - Lift `states` if needed
+ - Lift `computed` values if needed
+ - Derive `computed` values when possible - instead of creating more `states`
 
 -------------------------------------------------------
 
@@ -388,7 +439,7 @@ Effects are an `escape hatch` from the React paradigm.
 
 `escape hatches`: features that let you “step outside” React and connect to external systems.
 
-Effects let a component connect to and `synchronize` with external systems i.e. deal with network, API calls, DB calls, browser DOM, animations and other non-React code.
+Effects let a component connect to and `synchronize` with external systems, with non-React code i.e. deal with network, API calls, DB calls, browser DOM, animations and other non-React code.
 
 Other `escape hatches` include `refs`, and `custom Hooks`.
 
@@ -396,7 +447,9 @@ Other `escape hatches` include `refs`, and `custom Hooks`.
 
 # Effect Hook [Best Practice]
 
-One effect hook per process i.e. one API call per effect. Do not use a single Effect to synchronize several independent processes i.e. two API fetch calls
+Effect hooks ALWAYS run AFTER a component renders.
+
+One effect hook per process i.e. one API call per effect. NEVER use a single Effect to synchronize several independent processes i.e. two API fetch calls
 
 Don’t use Effects to orchestrate the data flow of your application. 
 
@@ -410,49 +463,54 @@ https://react.dev/learn/removing-effect-dependencies#is-your-effect-doing-severa
 
 # Effect Hook: How To
 
-`useEffect()` function - calls its 1st argument (the effect) after each time a component renders - not just once
+Effect hooks ALWAYS run AFTER a component renders.
+
+No Condition: Runs each time a component renders
 
 ```javascript
-useEffect(() => {
+ useEffect(() => {
     alert ( "Yo!" );
-});
+ });
 ```
 
-Effect Cleanup Function – Called when the component is being unmounted and before calling the effect again
+Conditional Re-Render: Runs only ONCE, when the component `mounts`
 
 ```javascript
-useEffect(()=>{
+ useEffect(() => {
+  alert("component rendered for the first time");
+ }, []);
+```
+
+Conditional Re-Render: Runs MANY times, when `count` or `input` changes
+
+```javascript
+ useEffect(() => {
+  document.title = `You clicked ${count} times`;
+ }, [count, input]); 
+```
+
+Conditional Re-Render: Cleanup Function: Runs when component `unmounts` AND before calling the effect again
+
+```javascript
+ useEffect(()=>{
   alert ( "Yo!" );
   // clean up
   return () => {
     alert ( "Remove something!" );
   };
-});
+ });
 ```
 
-Effect Cleanup Function — used to remove handler
+Conditional Re-Render: Cleanup Function: Here used to remove handler
 
 ```javascript
-useEffect(()=>{
+ useEffect(()=>{
   document.addEventListener('keydown', handleKeyPress);
   // clean up
   return () => {
     document.removeEventListener('keydown', handleKeyPress);
   };
-});
-```
-
-Conditional re-render - Run an effect only when the component mounts (if renders the first time)
-
-```javascript
-useEffect(() => {
-  alert("component rendered for the first time");
-}, []);
-
-// Conditional re-render — Only re-run the effect if the value stored by count or input changes
-useEffect(() => {
-  document.title = `You clicked ${count} times`;
-}, [count, input]); 
+ });
 ```
 
 -------------------------------------------------------
@@ -460,21 +518,24 @@ useEffect(() => {
 # Functions: Multi line return with JSX
 
 ```javascript
-const HeaderComponent = () => {
- const classVal = "blue";
- return (
-  <h1 className = {classVal} />
- );
-}
+ const HeaderComponent = () => {
+  const classVal = "blue";
+  return (
+   <h1 className = {classVal} />
+  );
+ }
 ```
 
 ----------------------
 
 # `States` vs `Refs`
 
-Similarlt to `States`, `Refs` do not loose value when the component `re-renders` (`re-executes`).
+Similar to `States`:
+ - `Refs` do not loose value when the component `re-renders`
+ - `Refs` persists across `re-renders`
 
-But unlike `States`, setting `Refs` to new values does not trigger `re-render`.
+But unlike `States`:
+ - Setting `Refs` to new values does NOT trigger `re-render`.
 
 States:
  - cause `component` `re-evaluation` (`re-renders`) when changed
@@ -489,6 +550,47 @@ https://react.dev/reference/react/useRef
 
 ----------------------
 
-# Debouncing Clicks Actions
+# Lifting States
 
-TODO
+When multiple components can all update the same state, the principle is: 
+ - The state lives in the common parent
+ - All children get the state and the updater function via props
+
+Example: Three components updating a counter
+
+```javascript
+ import React, { useState } from 'react';
+
+ function Incrementer({ counter, setCounter }) {
+  return <button onClick={() => setCounter(counter + 1)}>Increment</button>;
+ }
+
+ function Decrementer({ counter, setCounter }) {
+  return <button onClick={() => setCounter(counter - 1)}>Decrement</button>;
+ }
+
+ function Resetter({ setCounter }) {
+  return <button onClick={() => setCounter(0)}>Reset</button>;
+ }
+
+ function Parent() {
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div>
+      <h1>Counter: {counter}</h1>
+      <Incrementer counter={counter} setCounter={setCounter} />
+      <Decrementer counter={counter} setCounter={setCounter} />
+      <Resetter setCounter={setCounter} />
+    </div>
+  );
+ }
+
+ export default Parent;
+```
+
+ 1. `counter` lives in the Parent component.
+ 2. All child components (`Incrementer`, `Decrementer`, `Resetter`) receive `setCounter` via props.
+ 3. Any child can update the counter, causing the parent to re-render.
+ 4. All children always see the latest state, because the parent passes it down again on each render.
+

@@ -1,4 +1,13 @@
 
+
+# Big-O Notation
+
+It is a way to describe the time complexity or space complexity of an algorithm. 
+
+It essentially tells you how the algorithm's performance (or memory usage) changes as the size of the input data grows. 
+
+In other words, it helps you understand how efficiently an algorithm scales with larger inputs.
+
 -------------------------------------------------------
 
 # Big O Notation / Big(O) Complexity Analysis

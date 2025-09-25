@@ -8,15 +8,22 @@ lingo
 
 -------------------------------------------------------
 
+# Context API
+
+TLDR: app-wide states that you can inject anywhere
+
+
+-------------------------------------------------------
+
 # Context: How To
 
 Contexts come with a `.Provider` component that can also take in a value to be made available to child components – without having to prop drill the value.
 
-Child components, acting as Consumers, may subscribe to a Context’s value from their closest parent Provider with React’s useContext() hook.
+Child components, acting as `Consumers`, may subscribe to a Context’s value from their closest parent `Provider` with React’s `useContext()` hook.
 
-Components subscribing to a Context will receive the value for the Provider closest to them in the application tree.
+Components subscribing to a `Context` will receive the value for the `Provider` closest to them in the application tree.
 
-Providers may be given an object containing the React state and its corresponding state updater function. Subscribing child components may then use the state updater function to update the state for the Context.
+`Providers` may be given an object containing the React `state` and its corresponding state updater function. Subscribing child components may then use the state updater function to update the state for the Context.
 
 Three parts:
  - Context providers
@@ -27,19 +34,20 @@ Three parts:
 
 # Context: Example 1: Without Context API
 
-// App.js
-import React from "react";
-import ReactDOM from "react-dom/client";
+```javascript
+ // App.js
+ import React from "react";
+ import ReactDOM from "react-dom/client";
 
-import { ContactItem } from "./ContactItem";
+ import { ContactItem } from "./ContactItem";
 
-const family = [
+ const family = [
   { name: "Finn the Human" },
   { name: "Jake the Dog" },
   { name: "Dan the Great" },
-];
+ ];
 
-function App() {
+ function App() {
   return (
   	  <>
        <div>
@@ -52,44 +60,46 @@ function App() {
        </div>
       </>
   );
-}
-export default App;
+ }
+ export default App;
 
-// ContactItem.js
-import React from "react";
+ // ContactItem.js
+ import React from "react";
 
-export const ContactItem = ({ name , theme }) => {
+ export const ContactItem = ({ name , theme }) => {
   return (
     <div className={`theme-${theme}`}>
       {name} ! <br/><br/>
       Prop theme is {theme}  <br/>
     </div>
   );
-};
+ };
+```
 
 -------------------------------------------------------
 
 # Context: Example 1: With Context API
 
-// ThemeContext.js
-import React from 'react';
+```javascript
+ // ThemeContext.js
+ import React from 'react';
 
-export const ThemeContext = React.createContext();
+ export const ThemeContext = React.createContext();
 
-// App.js
-import React from "react";
-import ReactDOM from "react-dom/client";
-import {ThemeContext} from "./ThemeContext";
+ // App.js
+ import React from "react";
+ import ReactDOM from "react-dom/client";
+ import {ThemeContext} from "./ThemeContext";
 
-import { ContactItem } from "./ContactItem";
+ import { ContactItem } from "./ContactItem";
 
-const family = [
+ const family = [
   { name: "Finn the Human" },
   { name: "Jake the Dog" },
   { name: "Dan the Great" },
-];
+ ];
 
-function App() {
+ function App() {
   return (
   	<>
      <ThemeContext.Provider value={"light"}>
@@ -106,14 +116,14 @@ function App() {
      </ThemeContext.Provider>
     </>
   );
-}
-export default App;
+ }
+ export default App;
 
-// ContactsItem.js
-import React , {useContext} from "react";
-import {ThemeContext} from "./ThemeContext";
+ // ContactsItem.js
+ import React , {useContext} from "react";
+ import {ThemeContext} from "./ThemeContext";
 
-export const ContactItem = ({ name }) => {
+ export const ContactItem = ({ name }) => {
   const themeInContext = useContext(ThemeContext);
   return (
     <div className={`theme-${themeInContext}`}>
@@ -121,40 +131,41 @@ export const ContactItem = ({ name }) => {
       Context theme is {themeInContext} {themeInContext === "dark" ? "🌑" : "☀"}
     </div>
   );
-};
+ };
+```
 
 -------------------------------------------------------
 
 # Context: Example 1: With Context API + Wrapper
 
-// ThemeContext.js
-import React , {useState} from 'react';
+```javascript
+ // ThemeContext.js
+ import React , {useState} from 'react';
 
-export const ThemeContext = React.createContext();
+ export const ThemeContext = React.createContext();
 
-export const ThemeArea = ({children,initialTheme}) => {
+ export const ThemeArea = ({children,initialTheme}) => {
   const [count, setCount] = useState(0);
   return (
     <ThemeContext.Provider value={{initialTheme,count,setCount}}>
       {children}
     </ThemeContext.Provider>
   );
-};
+ };
 
+ // App.js
+ import React from "react";
+ import {ThemeArea} from "./ThemeContext";
 
-// App.js
-import React from "react";
-import {ThemeArea} from "./ThemeContext";
+ import { ContactItem } from "./ContactItem";
 
-import { ContactItem } from "./ContactItem";
-
-const family = [
+ const family = [
   { name: "Finn the Human" },
   { name: "Jake the Dog" },
   { name: "Dan the Great" },
-];
+ ];
 
-function App() {
+ function App() {
   return (
     <>
     <ThemeArea initialTheme={"light"}>
@@ -171,15 +182,15 @@ function App() {
     </ThemeArea>
     </>
   );
-}
-export default App;
+ }
+ export default App;
 
 
-// ContactItem.js
-import React , {useContext} from "react";
-import {ThemeContext} from "./ThemeContext";
+ // ContactItem.js
+ import React , {useContext} from "react";
+ import {ThemeContext} from "./ThemeContext";
 
-export const ContactItem = ({ name }) => {
+ export const ContactItem = ({ name }) => {
   const { initialTheme, count, setCount } = useContext(ThemeContext);
   return (
     <div className={`theme-${initialTheme}`}>
@@ -190,18 +201,21 @@ export const ContactItem = ({ name }) => {
       </button>
     </div>
   );
-};
+ };
+```
 
 -------------------------------------------------------
 
-# Context: Example 1: With Context API + Wrapper + 2 buttons
+# Context: Example 1: With Context API + Wrapper + 2 Buttons
 
-// ThemeContext.js
-import React , {useState} from 'react';
+ThemeContext.js
 
-export const ThemeContext = React.createContext();
+```javascript
+ import React , {useState} from 'react';
 
-export const ThemeArea = ({children,initialTheme}) => {
+ export const ThemeContext = React.createContext();
+
+ export const ThemeArea = ({children,initialTheme}) => {
   const [count, setCount] = useState(0);
   const [fontSize, toggleFontSize] = useState("large");
   return (
@@ -209,22 +223,24 @@ export const ThemeArea = ({children,initialTheme}) => {
       {children}
     </ThemeContext.Provider>
   );
-};
+ };
+```
 
+App.js
 
-// App.js
-import React from "react";
-import {ThemeArea} from "./ThemeContext";
+```javascript
+ import React from "react";
+ import {ThemeArea} from "./ThemeContext";
 
-import { ContactItem } from "./ContactItem";
+ import { ContactItem } from "./ContactItem";
 
-const family = [
+ const family = [
   { name: "Finn the Human" },
   { name: "Jake the Dog" },
   { name: "Dan the Great" },
-];
+ ];
 
-function App() {
+ function App() {
   return (
     <>
     <ThemeArea initialTheme={"light"}>
@@ -241,15 +257,17 @@ function App() {
     </ThemeArea>
     </>
   );
-}
-export default App;
+ }
+ export default App;
+```
 
+ContactItem.js
 
-// ContactItem.js
-import React , {useContext} from "react";
-import {ThemeContext} from "./ThemeContext";
+```javascript
+ import React , {useContext} from "react";
+ import {ThemeContext} from "./ThemeContext";
 
-export const ContactItem = ({ name }) => {
+ export const ContactItem = ({ name }) => {
   const { initialTheme, count, setCount, fontSize, toggleFontSize } = useContext(ThemeContext);
   return (
     <div className={`theme-${initialTheme}`}>
@@ -264,22 +282,24 @@ export const ContactItem = ({ name }) => {
       now it's "{fontSize}"
     </div>
   );
-};
-
+ };
+```
 
 -------------------------------------------------------
 
-# Context: Example Three
+# Context: Example 3
 
-// USE — App.js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { ContactsSection } from "./ContactsSection";
-import { ThemeArea } from "./ThemeContext";
+App.js
 
-const family = [{name: "Finn the Human"},{name: "Jake the Dog"}];
-const friends = [{name: "Marceline"},{name: "Princess Bubblegum"}];
-function App() {
+```javascript
+ import React from 'react';
+ import ReactDOM from 'react-dom/client';
+ import { ContactsSection } from "./ContactsSection";
+ import { ThemeArea } from "./ThemeContext";
+
+ const family = [{name: "Finn the Human"},{name: "Jake the Dog"}];
+ const friends = [{name: "Marceline"},{name: "Princess Bubblegum"}];
+ function App() {
   return (
     <div>
       <h1>Contacts</h1>
@@ -292,16 +312,19 @@ function App() {
       </ThemeArea>
     </div>
   );
-}
+ }
+```
 
-// ThemeContext.js
-import React , { useState } from "react";
+ThemeContext.js
 
-// to get the props
-export const ThemeContext = React.createContext();
+```javascript
+ import React , { useState } from "react";
 
-// defines JXL tag to pass the prop
-export const ThemeArea = ({ children, initialTheme }) => {
+ // to get the props
+ export const ThemeContext = React.createContext();
+
+ // defines JXL tag to pass the prop
+ export const ThemeArea = ({ children, initialTheme }) => {
   const [theme,setTheme] = useState(initialTheme);
   
   return (
@@ -309,15 +332,18 @@ export const ThemeArea = ({ children, initialTheme }) => {
       {children}
     </ThemeContext.Provider>
   )
-}
+ }
+```
 
-// ContactsSection.js
-import React from "react";
-import { ContactsList } from "./ContactsList";
+ContactsSection.js
 
-import { ThemeContext } from "./ThemeContext";
+```javascript
+ import React from "react";
+ import { ContactsList } from "./ContactsList";
 
-export const ContactsSection = ({ contacts, name }) => {
+ import { ThemeContext } from "./ThemeContext";
+
+ export const ContactsSection = ({ contacts, name }) => {
   const {theme} = useContext(ThemeContext);  // get the props
   
   return (
@@ -326,6 +352,6 @@ export const ContactsSection = ({ contacts, name }) => {
       <ContactsList contacts={contacts} />
     </div>
   );
-};
-
+ };
+```
 
