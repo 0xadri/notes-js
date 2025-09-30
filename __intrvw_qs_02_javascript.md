@@ -13,6 +13,218 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
+# 10 lingo/terms of Core Concepts every JS developer should know?
+
+1. Variable – Named storage (let, const, var).
+
+2. Scope – Defines where `variables`/`functions` are accessible (block, function, global).
+
+3. Hoisting – JS moves variable/function declarations to the top of their scope.
+
+4. Closure – A function that “remembers” variables from its outer scope.
+
+5. Lexical Scope – Scope determined by **where code is written**, not where it's executed.
+
+6. Execution Context – The environment in which code is evaluated (this, variables, functions).
+
+7. Call Stack – Stack structure that tracks function calls.
+
+8. Event Loop – JS mechanism that handles async tasks (callbacks, promises).
+
+9. Garbage Collection – Automatic memory management by JS engine.
+
+10. Strict Mode ('use strict') – Enables stricter parsing & error handling.
+
+-------------------------------------------------------
+
+# 10 lingo/terms of Data Types & Structures every JS developer should know?
+
+11. 7 Primitive Types – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
+
+12. Reference Types – `Object`, `Array`, `Function`, etc.
+
+13. NaN (Not a Number) – Special value for invalid number operations.
+
+14. Falsy Values – `false`, `0`, `""`, `null`, `undefined`, `NaN`.
+
+15. JSON (JavaScript Object Notation) – Lightweight data format.
+
+16. Spread Operator (...) – Expands elements (arrays, objects).
+
+17. Rest Parameters (...args) – Collects arguments into an array.
+
+18. Destructuring – Extracting values from arrays/objects.
+
+19. Map / Set – Modern collections with unique keys/values.
+
+20. Prototype – Mechanism for inheritance in JS objects.
+
+-------------------------------------------------------
+
+# 10 lingo/terms of Functions & OOP every JS developer should know?
+
+21. First-class Functions – Functions treated like values.
+
+22. Higher-order Functions – Functions that take/return functions.
+
+23. Arrow Functions (()=>) – Shorter syntax, no this binding.
+
+24. Callback – A function passed as an argument.
+
+25. Constructor Function – Function used with new to create objects.
+
+26. Class – ES6 syntax sugar for object-oriented programming.
+
+27. This Keyword – Refers to the current execution context.
+
+28. Bind / Call / Apply – Methods to control this context.
+
+29. Encapsulation – Grouping related state and behavior.
+
+30. Polymorphism – Different forms of the same method in inheritance.
+
+-------------------------------------------------------
+
+# 10 lingo/terms of Asynchronous & Events every JS developer should know?
+
+31. Callback Hell – Nested callbacks, making code messy.
+
+32. Promise – Object representing async completion/failure.
+
+33. Async / Await – Syntactic sugar for promises.
+
+34. Microtask Queue – Where promises are queued (faster than macrotasks).
+
+35. Macrotask Queue – Queue for setTimeout, setInterval, etc.
+
+36. Event Bubbling – Events propagate from child → parent.
+
+37. Event Capturing – Events propagate from parent → child.
+
+38. Event Delegation – Handling events at a higher level for efficiency.
+
+39. Debouncing – Delays execution until after a pause.
+
+40. Throttling – Limits execution to once per interval.
+
+-------------------------------------------------------
+
+# What is a Symbol?
+
+Primitive data types introduced in ES6.
+
+A Symbol is a `unique` and `immutable` identifier.
+
+Even if two symbols have the same description, they are always different values.
+
+-------------------------------------------------------
+
+# Why use Symbol?
+
+Often used as object property keys to:
+- avoid naming conflicts
+- create hidden properties
+
+Symbol is often used to define unique constants.
+
+JavaScript also uses some well-known symbols internally (Symbol.iterator, Symbol.toStringTag, etc.).
+
+-------------------------------------------------------
+
+# How to use Symbol with code examples?
+
+Example 1 – Uniqueness
+
+```javascript
+const a = Symbol("id");
+const b = Symbol("id");
+console.log(a === b);    // false (even if descriptions are the same)
+```
+
+Example 2 – Using as Object Keys
+
+```javascript
+// Define a symbol for private/hidden data
+const secretId = Symbol("secretId");
+const user = {
+  name: "Alice",
+  age: 25,
+  [secretId]: 98765  // hidden property
+};
+
+// Normal access
+console.log(user.name);       // Output: "Alice"
+console.log(user.age);        // Output: 25
+console.log(user.secretId);   // Output: undefined
+
+// Access using the symbol
+console.log(user[secretId]);  // Output: 98765
+
+// Iterating over keys/properties
+for (let key in user) {       // Output: name, age
+  console.log(key);
+}
+
+console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId) ]
+```
+
+-------------------------------------------------------
+
+# Declared vs Created in JS ?
+
+```
+let x;       // declared
+x = 5;       // created in memory with value 5
+var y;       // declared
+const z = 10;   // declared and initialized
+```
+
+Declaration = A variable is declared when you introduce its name in the code using var, let, or const.
+
+Declaration = telling JS “this name exists”.
+
+Creation = JS allocates memory and stores the value.
+
+Declaration:
+- tells JS: “Hey, reserve a spot for this variable.”
+- No memory for actual value is allocated yet (for some cases) until it’s initialized.
+- Declaration alone does not mean it has a value (except for const, which must be initialized).
+
+Creation:
+- For primitives: creation = storing the value in the stack.
+- For objects: creation = allocating memory in the heap + storing reference in stack.
+
+-------------------------------------------------------
+
+# Created vs Called in JS Functions ?
+
+1. Created (Function Creation / Definition)
+
+JavaScript allocates memory for it, i.e., the function object is created in memory and assigned to a reference (the function name).
+
+```
+function greet() {
+  return "Hello!";
+}
+```
+
+2. Called (Function Invocation / Execution)
+
+JavaScript runs the code inside the function body.
+
+JavaScript creates an execution context for the function.
+
+Any local variables inside the function are created in the stack.
+
+When execution finishes, local variables are popped from the stack.
+
+```
+greet(); // calling the function
+```
+
+
+-------------------------------------------------------
+
 # What's ES5, ES6, ES7 about?
 
 `ES` stands for `ECMAScript`.
@@ -107,15 +319,77 @@ Access it using dot notation `obj.key` or bracket notation `obj["key"]`.
 
 -------------------------------------------------------
 
+# What's the difference between Context vs Scope in Javascript?
+
+Context and scope are related but very different concepts. People often confuse them.
+
+1. Scope (Lexical)
+
+Definition: Scope refers to the current set of variables that are available at a specific point in your code.
+
+Determined by: it is set at write time (lexical structure) - how and where your code is written (lexical environment) - it cannot be changed at runtime.
+
+Key idea: Scope is about variable access.
+
+```javascript
+function outer() {
+  let a = 10;       // function scope
+  if (true) {
+    let b = 20;     // block scope
+    console.log(a); // 10 (accessible inside nested scope)
+  }
+  console.log(b);   // ReferenceError (block-scoped)
+}
+outer();
+```
+
+2. Context (this)
+
+Definition: Context refers to the value of `this` within a piece of code.
+
+Determined by: How a function is invoked (called).
+
+Key idea: Context is about the object that **owns the current execution** (`this`).
+
+```javascript
+ const obj = {
+  value: 42,
+  regularFn: function () {
+    console.log(this.value);    // depends on how it's called
+  },
+  arrowFn: () => {
+    console.log(this.value);    // arrow functions don't have their own `this`
+  }
+ };
+
+ obj.regularFn();    // 42 (context is `obj`)
+ obj.arrowFn();      // undefined (context comes from outer scope, usually `window` in browsers)
+```
+
+3. Comparison Table
+
+| Aspect        | Scope (Lexical)                       | Context (`this`)                                 |
+| ------------- | ------------------------------------- | ------------------------------------------------ |
+| **What?**     | Variables available to use            | The object that "owns" the execution             |
+| **When set?** | At **write time** (lexical structure) | At **call time** (invocation)                    |
+| **Changes?**  | Cannot be changed at runtime          | Can change with `.call()`, `.apply()`, `.bind()` |
+| **Example**   | `{ let x = 1; }` → `x` is scoped      | `obj.method()` → context is `obj`                |
+
+Scope = what variables you can access.
+
+Context = what `this` refers to when running a function.
+
+-------------------------------------------------------
+
 # What are the different scope in JavaScript?
 
-1. Global Scope → Accessible everywhere.
+1. Global Scope → Accessible everywhere – variables declared outside any function/block.
 
 2. Function Scope → Created inside functions (var).
 
 3. Block Scope (let and const) → Created by `{}` with `let` and `const`.
 
-4. `Lexical Scope` (Static Scope) → how closures work - Inner functions access variables of outer function.
+4. `Lexical Scope` (Static Scope) → how closures work - Inner functions access variables of Outer Function.
 
 5. Module Scope (ES6 Modules) → Variables private to modules unless exported.
 
@@ -133,7 +407,7 @@ Functions remember the scope in which they were defined, no matter where they’
 
 # Was `Lexical Scope` introduced by `arrow functions` with ES6 (2015) ?
 
-No. Lexical scoping is in JavaScript since its very first version in 1995.
+No. Lexical scoping is in JavaScript since its very first version in 1995. But it improved `lexical scoping` for arguments and closures.
 
 ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that are `block-scoped`:
 
@@ -145,7 +419,7 @@ ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that a
 
 -------------------------------------------------------
 
-# Use cases for Lexical Scope
+# Use Cases for Lexical Scope
 
  1. Closures (data privacy) - private variables - "remember" variables from their defining scope, even after that scope is gone
  
@@ -219,7 +493,7 @@ Explain these points:
 
 # How to use `rest` or `spread` syntaxes together ?
 
-```
+```javascript
  function logAndCall(fn, ...args) {   // rest syntax
   console.log("Calling with: ", args);
   console.log(fn(...args));    // spread syntax
@@ -243,7 +517,7 @@ This pattern allows you to write generic wrappers for any function (c.f. HOFs)
 
 Collects all arguments passed to a `function` into a single `array`.
 
-```
+```javascript
  function foo(...args) {
   console.log(args);
  }
@@ -274,8 +548,6 @@ Makes functions flexible, concise, and future-proof.
 
 `...args` must be the last parameter in the function.
 
-
-
 -------------------------------------------------------
 
 # Advanced usage of ...args ? 
@@ -283,7 +555,6 @@ Makes functions flexible, concise, and future-proof.
 Example with nested functions with each its own ...args
 
 In nested function, `args` is different and local. They don’t overwrite each other.
-
 
 -------------------------------------------------------
 
@@ -327,25 +598,25 @@ Arrow functions were introduced in ES6 (ECMAScript 2015) primarily to:
 
 One of the most common pitfalls in JavaScript was that `this` was inconsistent/dynamic. It changed depending on how a function was called:
 
-```
+```javascript
  function Person() {
   this.age = 0;
 
   setInterval(function() {
- this.age++;  // this is not the Person object
+   this.age++;  // "this" is not the Person object
   }, 1000);
  }
 ```
 
 Solutions before ES6 required hacks: `var self = this;` or `bind(this)`.
 
-```
+```javascript
  const person = {
   name: "Alice",
   greet: function() {
-   const self = this;
+   const self = this;         // `self = this` hack
    setTimeout(function() {
-    console.log(self.name); // prints "Alice"
+    console.log(self.name);   // prints "Alice"
    }, 1000);
   }
  };
@@ -353,7 +624,7 @@ Solutions before ES6 required hacks: `var self = this;` or `bind(this)`.
 
 Arrow functions capture `this` from their surrounding scope, so you don’t need extra hacks:
 
-```
+```javascript
  function Person() {
   this.age = 0;
 
@@ -407,6 +678,46 @@ This increases code maintainability, reduces in-production issues, and reduces r
 
 -------------------------------------------------------
 
+# Which are JavaScript primitive type 
+
+Primitive type is data that is not an object.
+
+7 primitive types:
+- number
+- string
+- boolean
+- null
+- undefined
+- symbol
+- bigint
+
+-------------------------------------------------------
+
+# What are Reference Types?
+
+All non-primitive types in JavaScript are reference types, with Object being the root.
+
+All objects are reference types.
+
+And all reference types are objects.
+
+Main Reference Types:
+
+| Category | Example         | Notes                                     |
+| -------- | --------------- | ----------------------------------------- |
+| Object   | `{}`            | Base for most structures                  |
+| Array    | `[]`            | Ordered list                              |
+| Function | `function(){}`  | Callable object                           |
+| Date     | `new Date()`    | Date/time                                 |
+| RegExp   | `/pattern/`     | String matching                           |
+| Map      | `new Map()`     | Key–value pairs, keys can be any type     |
+| Set      | `new Set()`     | Unique values                             |
+| WeakMap  | `new WeakMap()` | Keys must be objects, garbage-collectable |
+| WeakSet  | `new WeakSet()` | Stores objects only, garbage-collectable  |
+| Error    | `new Error()`   | Error handling                            |
+
+-------------------------------------------------------
+
 # JavaScript is pass by value or reference language?
 
 JavaScript is a **pass by value** language. 
@@ -415,9 +726,9 @@ When a `function` is called, a **copy** of the `value` of each `argument` is pas
 
 This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
 
-1. `Primitives` → Passed by `Value`
+1. `Primitives` → Passed by `Value` → stored in Stack
 
-2. `Objects` & `Arrays` → Passed by Reference to Value (reference itself is copied)
+2. `Objects` → Passed by Reference to Value (reference itself is copied) → Object stored in Heap, Reference stored in Stack.
 
 JavaScript always passes function arguments by `value`.
 
@@ -425,9 +736,79 @@ But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the
 
 -------------------------------------------------------
 
-# Why React So Fast?
+# How does the memory work in JavaScript ?
 
-Virtual DOM, Diffing, etc
+JavaScript uses two main memory regions:
+
+1. Stack → Fast, small storage for simple data (`primitives`).
+
+2. Heap → Large, flexible storage for complex data (`objects`, `arrays`, `functions`).
+
+Reference types (objects, arrays, functions) live in the `heap`, and variables store a pointer (reference) to them in the `stack`.
+
+That’s why when you copy a reference type, you don’t copy the value itself, but the reference (so changes affect both).
+
+-------------------------------------------------------
+
+# Code example illustrating how the memory work in JavaScript ?
+
+
+```javascript
+let num = 42;                   // primitive → stack
+let obj1 = { name: "Alice" };   // reference → stack holds pointer, heap stores actual object
+let obj2 = obj1;
+obj2.name = "Bob";
+console.log(obj1.name);      // Output: "Bob"
+```
+
+Memory model:
+
+```javascript
+Stack:
+num → 42
+obj1 → (ref) 0x001
+obj2 → (ref) 0x001
+
+Heap:
+0x001 → { name: "Bob" }
+```
+
+-------------------------------------------------------
+
+# Are Stack and Heap are different type of hardware ?
+
+This is a very common confusion.
+
+The stack and heap in programming are NOT different pieces of physical hardware.
+
+Conceptual differences, not hardware differences.
+
+They are two regions of memory managed differently by the runtime (in our case, the JavaScript engine, like V8 in Chrome).
+
+Stack:
+
+- Think of it as a neat pile of plates — last in, first out.
+
+- Stores simple, fixed-size data (like numbers, booleans, and references to objects).
+
+- Memory is automatically managed — when a function ends, all its local variables are popped off.
+
+- Very fast because it’s just pushing/popping in a known order.
+
+Heap:
+
+- Think of it as a messy storage room — you can put things anywhere, but need to keep track of where.
+
+- Stores complex, dynamic data (like objects, arrays, functions).
+
+- Memory allocation is flexible but slower than stack.
+
+- The JavaScript garbage collector cleans unused objects.
+
+-------------------------------------------------------
+
+# 
+
 
 -------------------------------------------------------
 
@@ -443,31 +824,9 @@ Yes, used by all modern frameworks to mimic HTTP-like routing in SPAs (Single Pa
 
 -------------------------------------------------------
 
-# Which are JavaScript primitive type 
-
-Primitive type is data that is not an object. The primitive types are:
-
-- number
-
-- string
-
-- boolean
-
-- null
-
-- undefined
-
-- symbol
-
-- bigint
-
-- object
-
--------------------------------------------------------
-
 # What's hoisting?
 
-The process whereby the interpreter appears to move the declaration of functions, variables, classes, or imports to the top of their scope, prior to execution of the code.
+The process whereby the interpreter appears to move the declaration of `functions`, `variables`, `classes`, or `imports` to the top of their scope, prior to execution of the code.
 
 Functions and Variables are hoisted.
 
@@ -575,27 +934,6 @@ If you want to control what `this` points to inside the function.
 `call` / `apply` → when you want to invoke the function right now with a specific `this`.
 
 `bind` → when you want a function you can call later, but with `this` (and maybe some `args`) already “locked in”.
-
--------------------------------------------------------
-
-# What's a closure in JavaScript ?
-
-A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the "lexical environment"). 
-
-In other words, a closure gives a function access to its outer scope.
-
-In JavaScript, closures are created every time a function is created, at function creation time.
-
-Using closures makes JavaScript use more memory.
-
-A closure is a pairing of:
- 1. A function and
- 2. A reference to that function's outer scope (lexical environment)
-
-https://stackoverflow.com/questions/111102/how-do-javascript-closures-work
-
-TODO
-
 
 -------------------------------------------------------
 
@@ -728,163 +1066,6 @@ Promise: an object that represents a value that may be available now, later, or 
 | Multiple tasks | Hard to manage       | Promise helpers (`all`, `race`, etc.) |
 | Modern usage   | Legacy / still used in Node APIs | Standard in modern JS     |
 
--------------------------------------------------------
-
-# What JavaScript (design) patterns is used in the following code snippet?
-
-```
- // Initial function
- function authorization(role, permission_name) {
-  if (role.name == "admin") return true;
-  if (role.name == "user") {
- return role.permission[permission_name];
-  }
-  if (role == "visitor") return false;
- }
-
- // Helper function
- function authFactory(callback) {
-  return function (role) {
-   return function (permission_name) {
-    return callback(role, permission_name);
-   };
-  };
- }
-
- // Creating different authorization functions
- const adminAuth = authFactory(authorization)({ name: "admin" });
- const visitorAuth = authFactory(authorization)({ name: "visitor" });
- const userAuth = authFactory(authorization)({
-  name: "user",
-  permission: { change_password: true },
- });
-```
-
-Function Currying.
-
--------------------------------------------------------
-
-# What is Currying?
-
-Currying is a concept from `functional programming`. 
-
-Essence of Currying: transformation of functions.
-
-It refers to the process of transforming a **single function** that takes **multiple arguments** into a **sequence of functions** that each take a **single argument**.
-
-```
- function add(x, y) { return x + y; } // Normal function
-
- function curriedAdd(x) { // Curried function - Curried version
-  return function(y) {
- return x + y;
-  };
- }
- console.log(curriedAdd(2)(3));
-```
-
-In short: Currying turns f(a, b, c) into f(a)(b)(c)
-
--------------------------------------------------------
-
-# Why currying is useful?
-
-Enables more **flexible** and **reusable** function calls.
-
-1. Partial application: You can “fix” some arguments and reuse the function.
-
-```
- const add10 = curriedAdd(10);
- console.log(add10(5)); // 15
-```
-
-2. Reusability & composition: Makes functions more **modular**.
-
-3. Functional programming: Currying is a foundation for techniques like `point-free style`.
-
--------------------------------------------------------
-
-# How: Use Cases for Currying?
-
-We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
-
-1. Partial application: You can “fix” (pre-fill) some arguments and reuse the function.
-
-```
- const add10 = curriedAdd(10);
- console.log(add10(5)); // 15
-```
-
-Reduces duplication and improves readability.
-
-2. Function Composition & Pipelines
-
-Curried functions work well in functional programming, where you chain transformations.
-
-```
- const map = fn => arr => arr.map(fn);
- const filter = fn => arr => arr.filter(fn);
-
- const isEven = x => x % 2 === 0;
- const square = x => x * x;
-
- const process = filter(isEven)([1,2,3,4,5,6]);
- console.log(map(square)(process)); // [4, 16, 36]
-```
-
-Here `filter` and `map` become modular building blocks.
-
-3. Reusability with Configurable Functions
-
-Currying lets you create configurable utilities easily.
-
-```
- const logger = level => message => console.log(`[${level}] ${message}`);
-
- const info = logger("INFO");
- const error = logger("ERROR");
-
- info("App started");   // [INFO] App started
- error("Something went wrong"); // [ERROR] Something went wrong
-
-```
-
-Useful for logging, validation, or formatting.
-
-4. Event Handling
-
-You can pass extra parameters without creating messy inline functions.
-
-```
- const handleClick = id => event => {
-  console.log(`Button ${id} clicked!`);
- };
-
- document.getElementById("btn1").addEventListener("click", handleClick(1));
- document.getElementById("btn2").addEventListener("click", handleClick(2));
-```
-
-5. Working with Higher-Order Functions
-
-Libraries like `Lodash`, `Ramda`, or functional utilities in JS often use currying to make APIs flexible.
-
-```
- const add = a => b => a + b;
-
- const numbers = [1, 2, 3, 4];
- const incrementAll = numbers.map(add(1)); // partially applied
- console.log(incrementAll); // [2, 3, 4, 5]
-```
-
-Easily create "predicate factories".
-
--------------------------------------------------------
-
-# Closures makes Javascript consume more ...
-
-Memory.
-
-Because it keeps the scope where a function is defined in memory even after the function has finished executing.
 
 -------------------------------------------------------
 
@@ -954,18 +1135,96 @@ Promise.all is a method that takes an Array of promises and returns a new promis
 
 -------------------------------------------------------
 
+# What is a class in javascript?
+
+Think of it as a template for objects.
+
+It's a blueprint for creating objects.
+
+Encapsulates:
+ - data (properties)
+ - behavior (methods)
+
+ES6 introduced the `class` keyword for cleaner syntax.
+
+Before ES6, JavaScript used functions and prototypes for object creation. 
+
+-------------------------------------------------------
+
+# Code example for classes in javascript ?
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name; // property
+    this.age = age;   // property
+  }
+
+  greet() {           // method
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+}
+
+// Creating an instance
+const person1 = new Person('Alice', 25);
+person1.greet(); // Hello, my name is Alice and I am 25 years old.
+```
+
+ - class Person { ... } → defines the class.
+ - constructor → special method called when you create a new object.
+ - this → refers to the instance being created.
+ - greet() → a method attached to the class.
+
+-------------------------------------------------------
+
+# What about class inheritance in javascript?
+
+A class can `inherit` from another class by using `extends`.
+
+```javascript
+ class Person {
+  constructor(name, age) {
+    this.name = name;      // property
+    this.age = age;        // property
+  }
+
+  greet() {                // method
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+ }
+
+ class Employee extends Person {      // `extends` sets up inheritance.
+  constructor(name, age, position) {
+    super(name, age);     // call parent constructor
+    this.position = position;
+  }
+
+  work() {
+    console.log(`${this.name} is working as a ${this.position}`);
+  }
+ }
+
+ const emp1 = new Employee('Bob', 30, 'Developer');
+ emp1.greet(); // Hello, my name is Bob and I am 30 years old.
+ emp1.work();  // Bob is working as a Developer
+```
+
+ - `extends` → sets up inheritance.
+ - `super(...)` → calls the parent class constructor.
+ - Child class can add new methods or override parent methods.
+
+-------------------------------------------------------
+
 # What is wrong with the subclass declaration below?
 
 ```
- // superclass
- class Vehicle {
+ class Vehicle {   // superclass
   constructor() {
    this.type = "Vehicle";
   }
  }
  
- // subclass
- class Car extends Vehicle {
+ class Car extends Vehicle {    // subclass
   constructor() {
    this.type = "Car";
   }
@@ -979,26 +1238,111 @@ The subclass should call the constructor of the `superclass(parent)` using the `
 
 -------------------------------------------------------
 
-# What is the output to the console of the following code snippet?
+# What are prototypes in javascript?
 
-```
+Every JavaScript object has an internal link to another object called its prototype.
+
+That prototype object can have its own prototype, and so on, forming a prototype chain.
+
+When you try to access a property on an object, JavaScript looks for it:
+
+ 1. On the object itself.
+
+ 2. If not found, it looks up the prototype chain until it reaches Object.prototype.
+
+
+ - `ES6` `class` is syntactic sugar over prototype-based inheritance.
+
+ - Objects inherit from other objects via prototypes.
+
+ - Constructor functions use `prototype` for shared methods.
+
+ - `Object.create(proto)` creates a new object with the given prototype.
+ 
+ - An object’s internal Prototype is accessible via `__proto__`
+
+-------------------------------------------------------
+
+# How: Code Example for a Basic Prototype
+
+```javascript
  const person = {
-  name: 'John',
-  sayHello: () => {
-   console.log(this);
-  },
+  greet() {
+    console.log("Hello!");
+  }
  };
 
- person.sayHello();
+ const user = Object.create(person);   // user’s prototype is person
+ user.greet();   // Inherited from person → "Hello!"
 ```
 
-The Global Scope.
+Here, `user` doesn’t have `greet`, but it inherits it from its `prototype` (`person`).
+
+-------------------------------------------------------
+
+# Why Use Function.prototype?
+
+Because we want all objects created by the same constructor to share methods instead of duplicating them.
+
+```javascript
+ Person.prototype.sayHello = function() {
+  console.log("Hi, I'm " + this.name);
+ };
+
+ const alice = new Person("Alice");
+ const bob = new Person("Bob");
+
+ alice.sayHello(); // "Hi, I'm Alice"
+ bob.sayHello();   // "Hi, I'm Bob"
+```
+
+Both alice and bob share the same `sayHello` function on `Person.prototype`.
+
+This saves memory and allows consistent behavior across instances.
+
+Prototype chain for an object like alice created from Person:
+
+- alice → inherits from `Person.prototype`
+
+- `Person.prototype` → inherits from `Object.prototype`
+
+- `Object.prototype` → ends with `null`
+
+-------------------------------------------------------
+
+# Constructor Functions and Prototypes
+
+A constructor function in JavaScript is just a normal function.
+
+```javascript
+ function Person(name) {
+  this.name = name;
+ }
+```
+
+`const alice = new Person("Alice");` - But when you call it with new, special things happen.
+
+JavaScript does these steps under the hood:
+
+1. Create a new empty object
+
+2. Set the prototype of that object to the function’s prototype property.
+
+`obj.__proto__ = Person.prototype;`
+
+3. Call the constructor function with this bound to the new object:
+
+`Person.call(obj, "Alice");`
+
+4. Return the object unless the function explicitly returns something else.
+
+`return obj;`
 
 -------------------------------------------------------
 
 # How can we make sure that nobody can edit the properties of an object?
 
-```
+```javascript
  const person = {
   name: 'John',
  };
@@ -1020,7 +1364,7 @@ Common Mistakes:
 
 # What creates a new type with all the properties optional?
 
-```
+```javascript
  interface Table {
   legs: number;
   height: number;
@@ -1041,32 +1385,6 @@ Typescript will merge the interfaces
 
 -------------------------------------------------------
 
-# What is the essence of closures?
-
-The essence of closures is all about `scope`.
-
-👉 You can think of closure as: “A function bundled together with its surrounding scope.”
-
-1. Normally, when a function finishes, its local variables disappear.
-
-2. Closure = when a function “remembers” the scope it was created in, even after that scope is gone.
-
--------------------------------------------------------
-
-# What are the 5 most common use cases for closure?
-
-1. Data Privacy / Encapsulation : “hide” variables so they can’t be accessed directly from outside.
-
-2. Function Factories : create functions with “preset” values.
-
-3. Callbacks & Event Handlers : callbacks remember the data they were created with.
-
-4. Iterators & State Management : help functions remember their state across calls.
-
-5. Once / Memoization : Closures can limit function execution or cache results.
-
--------------------------------------------------------
-
 # How different type of functions handle the "this" object?
 
 The behavior of `this` in JavaScript is very tricky bc it depends on how a function is called, not just where it’s defined.
@@ -1083,38 +1401,219 @@ Arrow functions:
  - `this` is always "lexically inherited" from surrounding scope.
  - Great for callbacks where you don’t want `this` to change.
 
-## 1. Normal (non-arrow) functions
+-------------------------------------------------------
+
+# The global "this", what is the output to the console of the following snippet?
+
+```javascript
+ console.log(this); 
+```
+
+Prints the value of `this` to the console, in the global scope
+- In a `browser`: `this` refers to the `window` object.
+- In `Node.js`: `this` refers to `{} (an empty object)` because the global scope in modules is not the same as the global object.
+
+Output:
+- Browser -> Window {...}
+- Node.js -> {}
+
+-------------------------------------------------------
+
+# Normal functions and the "this" object?
 
 Function declaration / function expression:
-```
+
+```javascript
  function foo() {
   console.log(this);
  }
- foo(); // "this" = global object (window in browsers, global in Node) in non-strict mode
- // undefined in strict mode
+ foo(); 
 ```
 
-When called as a method of an object:
-```
- const obj = {
-  x: 10,
-  show: function() {
- console.log(this.x);
-  }
- };
- obj.show(); // 10 (this = obj)
-```
+Output:
+- "this" = global object (window in browsers, global in Node) in non-strict mode
+- "this" = undefined in strict mode
 
-With `new` (constructor):
-```
+-------------------------------------------------------
+
+# Normal functions with `new` (constructor), the "this" object?
+
+A constructor function in JavaScript is just a normal function.
+
+```javascript
  function Person(name) {
   this.name = name;
  }
  const p = new Person("Alice");
- console.log(p.name); // Alice
+ console.log(p.name); 
 ```
 
-## 2. Arrow functions
+Output: "Alice".
+
+-------------------------------------------------------
+
+# Normal Function with Object method: what is the output to the console?
+
+```javascript
+const obj = {
+  name: "John",
+  normalFunc: function() {
+    console.log(this.name);
+  }
+};
+obj.normalFunc();
+```
+
+For an object method with normal function, `this` refers to the object (`obj`).
+
+Output: "John".
+
+-------------------------------------------------------
+
+# Object method with Arrow Function and "this": what is the output to the console?
+
+```javascript
+const person = {
+  name: 'John',
+  sayHello: () => {
+   console.log(this);
+  },
+ };
+person.sayHello();
+```
+
+Arrow functions don’t have their own `this`, they inherit it from the surrounding lexical scope: the global `this` (not person!)
+
+Output:
+- Browser -> Window {...}
+- Node.js -> {}
+
+-------------------------------------------------------
+
+# Object methods with Normal Function and Arrow Function: what is the output to the console?
+
+```javascript
+const obj = {
+  name: "ChatGPT",
+  normalFunc: function() {
+    console.log("Normal:", this); // obj
+  },
+  arrowFunc: () => {
+    console.log("Arrow:", this);  // global object or undefined
+  }
+};
+
+obj.normalFunc();
+obj.arrowFunc();
+```
+
+Output:
+`Normal: obj`
+`Arrow: undefined` (strict mode) or `Arrow: window` (browser sloppy mode)
+
+When to use what?
+- Use `normal functions` for object methods if you want `this` to refer to the `object`.
+- Use `arrow functions` when you want to preserve the `this` from the outer scope (e.g., inside a setTimeout or callback in a class method).
+
+-------------------------------------------------------
+
+# Class methods with Normal Function and Arrow Function: what is the output to the console?
+
+```javascript
+ class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  // Normal method
+  normalMethod() {
+    console.log("Normal:", this.name);
+  }
+
+  // Arrow function method
+  arrowMethod = () => {
+    console.log("Arrow:", this.name);
+  }
+ }
+
+ const user = new User("Alice");
+
+ // Direct call
+ user.normalMethod(); // "Normal: Alice"
+ user.arrowMethod();  // "Arrow: Alice"
+
+ // Extract methods
+ const normal = user.normalMethod;
+ const arrow = user.arrowMethod;
+
+ normal();   // Error: Cannot read property 'name' of undefined ("this" is lost)
+ arrow();    // "Arrow: Alice" (this is bound to the instance)
+```
+
+1. Normal method
+   - Lives on the prototype.
+   - Its `this` depends on how it’s called.
+   - If you detach it (const normal = user.normalMethod), `this` is no longer user — it becomes undefined (in strict mode).
+
+2. Arrow method
+   - Created as a property on the instance.
+   - Lexically binds `this` at the moment the instance is created.
+   - Even if you detach it, it still points to the correct `this` (the instance).
+
+When to use what?
+- Use normal methods most of the time (less memory overhead, fits standard OO style).
+- Use arrow functions in classes when you need to keep the method as a callback (e.g., event listeners, async code, React components).
+
+-------------------------------------------------------
+
+# Practical example with setTimeout: Normal Function and Arrow Function
+
+```
+class Timer {
+  constructor() {
+    this.seconds = 0;
+  }
+
+  // Normal function method
+  startNormal() {
+    setTimeout(function () {
+      this.seconds++;
+      console.log("Normal:", this.seconds);
+    }, 1000);
+  }
+
+  // Arrow function method
+  startArrow() {
+    setTimeout(() => {
+      this.seconds++;
+      console.log("Arrow:", this.seconds);
+    }, 1000);
+  }
+}
+
+const t = new Timer();
+
+t.startNormal();
+t.startArrow();  
+```
+
+Output:
+t.startNormal(); // TypeError (this is undefined inside the callback)
+t.startArrow();  // "Arrow: 1"
+
+Normal function: its this is not the class instance. It's the global scope.
+Arrow function: inherits this from its enclosing scope (startArrow method), it's bound to the class instance (t). So it correctly updates `t.seconds`.
+
+This is a classic case where `arrow functions` save you from this headaches.
+
+-------------------------------------------------------
+
+# Class methods with Normal Function using self and bind: what is the output ?
+
+
+
+
+
 
 
 -------------------------------------------------------
@@ -1132,321 +1631,4 @@ Some libraries you will be able to easily remove, some others are harder to repl
 The important thing is you make those decisions (adding a new library to the codebase for example) with performance in mind, rather than keep adding dependencies to a project (pretty common in the JS world).
 
 -------------------------------------------------------
-
-# What are Higher-Order Functions (HOFs) ?
-
-A function that either:
-
- - Takes another function as an argument, or
-
- - Returns a function as its result.
-
-Core concept in functional programming and very common in JavaScript.
-
-1. Takes a function as an argument
-
-```
- function repeat(n, action) {
-  for (let i = 0; i < n; i++) {
-    action(i);
-  }
- }
- repeat(3, console.log); // Logs: 0, 1, 2
-```
-
-2. Returns a function
-
-```
- function multiplier(factor) {
-  return function(x) {
-   return x * factor;
-  };
- }
- const double = multiplier(2);
- console.log(double(5)); // 10
-```
-
--------------------------------------------------------
-
-# Why Higher-Order Functions (HOFs) ?
-
-They’re great at **wrapping** (decorating) other functions - also called function decoration or middleware pattern:
- 1. Take an existing function.
- 2. Put it inside another function.
- 3. Add extra behavior before/after (or even instead of) the original function.
-
-Essential for:
- - abstraction
- - reusability (DRY)
- - cleaner code
- - declarative code
- - modular code
- - expressive code
-
-Especially when working with collections, async tasks, or configurable behavior.
-
--------------------------------------------------------
-
-# Why: Real-Life Use-Cases for Higher-Order Functions (HOFs) ?
-
-In real-world apps, HOFs help with:
-
- - React event handling: parameterized handlers.
-
- - API middleware such as logging, error handling, authentication - used by Express middleware
-
- - Reusable utilities such as debounce, and throttle.
-
-Built-in `HOFs` in JS:
-
- - `map()` – transforms arrays
-
- - `filter()` – keeps matching items
-
- - `reduce()` – folds values into one
-
- - `forEach()` – iterates over items
-
- - `sort()` – sorts with a callback
-
--------------------------------------------------------
-
-# How: Can you give some Code Examples?
-
-1. **Abstraction & Reusability**
-
-Let you extract patterns and reuse logic.
-
-```
- function withLogging(fn) {
-  return function(...args) {   // rest syntax
-    console.log("Calling with", args);
-    return fn(...args);   // spread syntax
-  };
- }
-
- const add = (a, b) => a + b;
- const loggedAdd = withLogging(add);
-
- console.log(loggedAdd(2, 3)); 
- // Calling with [2,3]
- // 5
-```
-
-2. **Cleaner Code (Declarative style)**
-
-Instead of manual loops, you describe what to do.
-
-```
- const nums = [1, 2, 3, 4, 5];
- 
- let evens = [];
- for (let n of nums) { if (n % 2 === 0) evens.push(n); }   // Imperative
-
- const evens2 = nums.filter(n => n % 2 === 0);    // Declarative with HOF
-
- console.log(evens2); // [2, 4]
-```
-
-Shorter and more readable.
-
-3. **Function Composition**
-
-You can combine small functions into bigger ones.
-
-```
- const map = fn => arr => arr.map(fn);
- const filter = fn => arr => arr.filter(fn);
-
- const double = x => x * 2;
- const isEven = x => x % 2 === 0;
-
- const process = arr => map(double)(filter(isEven)(arr));
-
- console.log(process([1,2,3,4])); // [4, 8]
-```
-
-Small reusable pieces → powerful pipelines.
-
-4. **Callbacks & Asynchronous Programming**
-
-HOFs power event handling, promises, and async patterns.
-
-`setTimeout(() => console.log("Hello after 2s"), 2000);`
-
-Here, `setTimeout` is a HOF that takes a function (callback).
-
-5. **Customization without Duplication**
-
-You can inject behavior without rewriting code.
-
-```
- function createComparator(key) {
-  return (a, b) => a[key] > b[key] ? 1 : -1;
- }
-
- const users = [{name: "Alice"}, {name: "Bob"}];
- users.sort(createComparator("name"));
- console.log(users); // sorted by name
-```
-
-One HOF → many custom comparators.
-
-
-
-
--------------------------------------------------------
-
-# Leetcode: Curry
-
-is curry a native feature in js ?
-
-
-Requirements:
- - Given a function fn, return a curried version of it
- - The curried function should accept fewer than or equal to the number of parameters as the original function
- - If enough arguments are provided, it should return the final result
- - If not enough arguments are provided, it should return another function waiting for the remaining arguments
-
-Example behavior: If you have an original function `sum(a, b, c)` that takes 3 arguments, after currying it to csum, you can call it in multiple ways:
- 1. `csum(1)(2)(3)` - one argument at a time
- 2. `csum(1)(2, 3)` - one argument, then two arguments
- 3. `csum(1, 2)(3)` - two arguments, then one argument
- 4. `csum(1, 2, 3)` - all three arguments at once
-
-Do you understand the problem? Really?
-
-The above hints to the problem to be solved, turn any of the following:
- 1. `csum(1)(2)(3)` - one argument at a time
- 2. `csum(1)(2, 3)` - one argument, then two arguments
- 3. `csum(1, 2)(3)` - two arguments, then one argument
-Into the last:
- 4. `csum(1, 2, 3)` - all three arguments at once
-
-
-The key insight is that we need to accumulate arguments across multiple function calls until we have enough to execute the original function.
-
-Think of it like filling a bucket - each time the curried function is called, we add more water (arguments) to the bucket. Once the bucket is full (we have all required arguments), we can pour it out (execute the original function).
-
-To achieve this behavior, we need:
- - A way to remember previously passed arguments - This naturally suggests using closures, where inner functions can access variables from outer scopes
- - A way to check if we have enough arguments - JavaScript functions have a length property that tells us how many parameters they expect
- - A recursive structure - If we don't have enough arguments yet, we need to return another function that continues the same pattern
-
-SOLUTION 1: ITERATIVE
-
-```
- var curry = function (fn) {
-  let nums = [];
-  
-  return function curried (...args) {
-   nums = [...nums, ...args];
-  
-   if (fn. length === nums.length) {
-    const res = fn(...nums);
-    nums = [];
-    return res;
-   } else {
-    return curried;
-   };
- };
-```
-
-SOLUTION 2: RECURSIVE
-
-```
- function curry(fn) {
-  return function helper(...args) {
-   if (args.length === fn.length){
-    return fn.apply(this,args);
-   }
-   else {
-    return (...nextArgs) => helper(...args,...nextArgs)  
-   }
-  }
- }
- export default curry;
-```
-
-EXPLANATION
-
- - `if (args.length === fn.length)`   Condition to break out of recursion
- - `return (...nextArgs) => helper(...args,...nextArgs)`   Creates and returns a new function that expects additional arguments
- - `(...nextArgs)`   Accepts additional arguments 
- - `nextArgs` is not coming from anywhere "magical." It’s just the `rest` parameter of the arrow function you return inside helper.
- - `(...args, ...moreArgs)`   Combines them with the previously collected ones 
- - helper is a recursive call curried with the combined arguments
-
-EXAMPLES
-
-How this curry implementation handles arguments one at a time, or in groups.
-
-1. Example 1: **one** arg at the time
-
-```
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1)(2)(3)
- 
- const f1 = curriedAdd3(1);
- // First call: args = [1]
- // f1 is now (...nextArgs) => helper(1, ...nextArgs)
-
- const f2 = f1(2);
- // Second call: args = [1,2]
- // f2 is now (...nextArgs) => helper(1,2, ...nextArgs)
-
- const f3 = f2(3);
- // Third call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-2. Example 2: **multiple** args at once
-
-```
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1,2)(3)
- 
- const f1 = curriedAdd3(1,2);   // 1st call: args = [1,2] - So it returns (...moreArgs) => helper(1,2,...moreArgs)
- // First call: args = [1,2]
- // f1 is now (...nextArgs) => helper(1,2, ...nextArgs)
-
- const f2 = f1(3);   // 2nd call: args[3] - So it returns (...moreArgs) => helper(1,2,3)
- // Second call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-3. Example 3: **multiple** args at once in other brackets
-
-```
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1)(2,3)
- 
- const f1 = curriedAdd3(1);   // 1st call: args = [1] - So it returns (...moreArgs) => helper(1,...moreArgs)
- // First call: args = [1]
- // f1 is now (...nextArgs) => helper(1, ...nextArgs)
-
- const f2 = f1(2,3);   // 2nd call: args[2,3] - So it returns (...moreArgs) => helper(1,2,3)
- // Second call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-Links
- - Leetcode Curry: Explained https://algo.monster/liteproblems/2632
- - Leetcode Curry: Explanation on Iterative and Recursive Solutions https://www.youtube.com/watch?v=pi4kqMWQXxA
-
 

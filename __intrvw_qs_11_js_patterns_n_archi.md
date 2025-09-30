@@ -223,14 +223,6 @@ Changes in state lead to updates in the UI, making the relationship between stat
 
 -------------------------------------------------------
 
-# What's Function Currying pattern ?
-
-We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
-
-TODO
-
--------------------------------------------------------
-
 # Observer pattern
 
 The Observer pattern:
@@ -337,25 +329,6 @@ TODO
 
 -------------------------------------------------------
 
-# What's Higher Order Function (HOF) pattern ?
-
-Think of it as:
- - a wrapper
- - intersector
- - decorator
- - transformator
-
-It is: 
- - a function that takes **another function as an argument** or **returns a function**
- - transforms a function into another function.
- - Wraps existing functions without modifying their internals.
-
-Use cases:
- - `logging`, `theming`, `global state mgmt`, or `auth`.
- - generally for cross-cutting concerns, encourages code reuse.
- 
--------------------------------------------------------
-
 # Singleton Pattern
 
 TODO
@@ -370,6 +343,407 @@ Queue?
 Stack?
 Tree?
 Graph?
+
+-------------------------------------------------------
+
+# What's Higher Order Function (HOF) pattern ?
+
+Think of it as:
+ - a wrapper
+ - intersector
+ - decorator
+ - transformator
+
+A function that either:
+ - Takes another function as an argument, and/or
+ - Returns a function as its result.
+
+How it works:
+ 1. Take an existing function.
+ 2. Put it inside another function.
+ 3. Add extra behavior before/after (or even instead of) the original function.
+
+TRANSFORMATIVE
+ - Transforms a function into another function.
+ - Wraps existing functions without modifying their internals.
+
+Core concept in functional programming and very common in JavaScript.
+
+-------------------------------------------------------
+
+# Code examples of Higher-Order Functions (HOFs) ?
+
+1. HOF taking a function as an argument
+
+```javascript
+ function repeat(n, action) {
+  for (let i = 0; i < n; i++) {
+    action(i);
+  }
+ }
+ repeat(3, console.log); // Logs: 0, 1, 2
+```
+
+2. HOF returning a function
+
+```javascript
+ function multiplier(factor) {
+  return function(x) {
+   return x * factor;
+  };
+ }
+ const double = multiplier(2);
+ console.log(double(5)); // 10
+```
+
+-------------------------------------------------------
+
+# Why: High-Level Use-Cases for Higher-Order Functions (HOFs) ?
+
+They’re great at **wrapping** (decorating/intersecting-with) other functions.
+
+Especially when working with collections, async tasks, or configurable behavior.
+
+Essential for:
+ - abstraction
+ - reusability (DRY)
+ - cleaner code
+ - declarative code
+ - modular code
+ - expressive code
+
+-------------------------------------------------------
+
+# Why: Real-Life Use-Cases for Higher-Order Functions (HOFs) ?
+
+Use cases:
+ - `logging`, `theming`, `global state mgmt`, or `auth`.
+ - generally for cross-cutting concerns, encourages code reuse.
+
+In real-world apps, HOFs help with:
+ - `API middleware` such as logging, error handling, authentication 
+ - `utilities` such as debounce, and throttle.
+ - `event handling` in react: parameterized handlers.
+
+Built-in `HOFs` in JS:
+ - `map()` – transforms arrays
+ - `filter()` – keeps matching items
+ - `reduce()` – folds values into one
+ - `forEach()` – iterates over items
+ - `sort()` – sorts with a callback
+
+TODO: also called function decoration or middleware pattern??
+TODO: - used by Express middleware
+
+-------------------------------------------------------
+
+# How: Can you give some Code Examples of HOFs?
+
+1. **Abstraction & Reusability**
+
+Let you extract patterns and reuse logic.
+
+```javascript
+ function withLogging(fn) {
+  return function(...args) {   // rest syntax
+    console.log("Calling with", args);
+    return fn(...args);   // spread syntax
+  };
+ }
+
+ const add = (a, b) => a + b;
+ const loggedAdd = withLogging(add);
+
+ console.log(loggedAdd(2, 3)); 
+ // Calling with [2,3]
+ // 5
+```
+
+2. **Cleaner Code (Declarative style)**
+
+Instead of manual loops, you describe what to do.
+
+```javascript
+ const nums = [1, 2, 3, 4, 5];
+ 
+ let evens = [];
+ for (let n of nums) { if (n % 2 === 0) evens.push(n); }   // Imperative
+
+ const evens2 = nums.filter(n => n % 2 === 0);    // Declarative with HOF
+
+ console.log(evens2); // [2, 4]
+```
+
+Shorter and more readable.
+
+3. **Function Composition**
+
+You can combine small functions into bigger ones.
+
+```javascript
+ const map = fn => arr => arr.map(fn);
+ const filter = fn => arr => arr.filter(fn);
+
+ const double = x => x * 2;
+ const isEven = x => x % 2 === 0;
+
+ const process = arr => map(double)(filter(isEven)(arr));
+
+ console.log(process([1,2,3,4])); // [4, 8]
+```
+
+Small reusable pieces → powerful pipelines.
+
+4. **Callbacks & Asynchronous Programming**
+
+HOFs power event handling, promises, and async patterns.
+
+`setTimeout(() => console.log("Hello after 2s"), 2000);`
+
+Here, `setTimeout` is a HOF that takes a function (callback).
+
+5. **Customization without Duplication**
+
+You can inject behavior without rewriting code.
+
+```javascript
+ function createComparator(key) {
+  return (a, b) => a[key] > b[key] ? 1 : -1;
+ }
+
+ const users = [{name: "Alice"}, {name: "Bob"}];
+ users.sort(createComparator("name"));
+ console.log(users); // sorted by name
+```
+
+One HOF → many custom comparators.
+
+-------------------------------------------------------
+
+# What pattern is used in the following code snippet?
+
+```javascript
+ // Initial function
+ function authorization(role, permission_name) {
+  if (role.name == "admin") return true;
+  if (role.name == "user") {
+ return role.permission[permission_name];
+  }
+  if (role == "visitor") return false;
+ }
+
+ // Helper function
+ function authFactory(callback) {
+  return function (role) {
+   return function (permission_name) {
+    return callback(role, permission_name);
+   };
+  };
+ }
+
+ // Creating different authorization functions
+ const adminAuth = authFactory(authorization)({ name: "admin" });
+ const visitorAuth = authFactory(authorization)({ name: "visitor" });
+ const userAuth = authFactory(authorization)({
+  name: "user",
+  permission: { change_password: true },
+ });
+```
+
+Function Currying.
+
+-------------------------------------------------------
+
+# What is Currying?
+
+TLDR: Currying turns f(a, b, c) into f(a)(b)(c)
+
+Currying always produces a function.
+
+It refers to the process of transforming a **single function** that takes **multiple arguments** into a **sequence of functions** that each take a **less arguments**.
+
+```javascript
+ function add(x, y) { return x + y; } // Normal function
+
+ function curriedAdd(x) { // Curried function - Curried version
+  return function(y) {
+ return x + y;
+  };
+ }
+ console.log(curriedAdd(2)(3));
+```
+
+Essence of Currying: transformation of functions.
+
+Currying is a concept from `functional programming`. 
+
+-------------------------------------------------------
+
+# Why currying is useful?
+
+Enables more **flexible** and **reusable** function calls.
+
+1. Partial application: You can “fix” some arguments and reuse the function.
+
+```javascript
+ const add10 = curriedAdd(10);
+ console.log(add10(5)); // 15
+```
+
+2. Reusability & composition: Makes functions more **modular**.
+
+3. Functional programming: Currying is a foundation for techniques like `point-free style`.
+
+-------------------------------------------------------
+
+# How: Use Cases for Currying?
+
+We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
+
+1. Partial application: You can “fix” (pre-fill) some arguments and reuse the function.
+
+```javascript
+ const add10 = curriedAdd(10);
+ console.log(add10(5)); // 15
+```
+
+Reduces duplication and improves readability.
+
+2. Function Composition & Pipelines
+
+Curried functions work well in functional programming, where you chain transformations.
+
+```javascript
+ const map = fn => arr => arr.map(fn);
+ const filter = fn => arr => arr.filter(fn);
+
+ const isEven = x => x % 2 === 0;
+ const square = x => x * x;
+
+ const process = filter(isEven)([1,2,3,4,5,6]);
+ console.log(map(square)(process)); // [4, 16, 36]
+```
+
+Here `filter` and `map` become modular building blocks.
+
+3. Reusability with Configurable Functions
+
+Currying lets you create configurable utilities easily.
+
+```javascript
+ const logger = level => message => console.log(`[${level}] ${message}`);
+
+ const info = logger("INFO");
+ const error = logger("ERROR");
+
+ info("App started");   // [INFO] App started
+ error("Something went wrong"); // [ERROR] Something went wrong
+
+```
+
+Useful for logging, validation, or formatting.
+
+4. Event Handling
+
+You can pass extra parameters without creating messy inline functions.
+
+```javascript
+ const handleClick = id => event => {
+  console.log(`Button ${id} clicked!`);
+ };
+
+ document.getElementById("btn1").addEventListener("click", handleClick(1));
+ document.getElementById("btn2").addEventListener("click", handleClick(2));
+```
+
+5. Working with Higher-Order Functions
+
+Libraries like `Lodash`, `Ramda`, or functional utilities in JS often use currying to make APIs flexible.
+
+```javascript
+ const add = a => b => a + b;
+
+ const numbers = [1, 2, 3, 4];
+ const incrementAll = numbers.map(add(1)); // partially applied
+ console.log(incrementAll); // [2, 3, 4, 5]
+```
+
+Easily create "predicate factories".
+
+-------------------------------------------------------
+
+# How Do Currying Pattern Relate To HOF ?
+
+A `curried function` is by definition a `higher-order function` because it `returns a function`.
+
+Every curried function is a HOF, but not every HOF is curried.
+
+Currying always produces a function.
+
+-------------------------------------------------------
+
+# How does currying pattern relate to closure?
+
+Currying relies on closures to work - to pass along and remember previous arguments.
+
+Currying = breaking multi-argument function into unary functions.
+
+Closures = inner functions “remember” variables from outer functions.
+
+-------------------------------------------------------
+
+# What is the essence of closures?
+
+The essence of closures is all about `scope`.
+
+👉 You can think of closure as: “A function bundled together with its surrounding scope.”
+
+1. Normally, when a function finishes, its local variables disappear.
+
+2. Closure = when a function “remembers” the scope it was created in, even after that scope is gone.
+
+-------------------------------------------------------
+
+# What's a closure in JavaScript ?
+
+A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the "lexical environment"). 
+
+In other words, a closure gives a function access to its outer scope.
+
+In JavaScript, closures are created every time a function is created, at function creation time.
+
+Using closures makes JavaScript use more memory.
+
+A closure is a pairing of:
+ 1. A function and
+ 2. A reference to that function's outer scope (lexical environment)
+
+https://stackoverflow.com/questions/111102/how-do-javascript-closures-work
+
+-------------------------------------------------------
+
+# Why: use-cases top-5 for closure?
+
+1. Data Privacy / Encapsulation : “hide” variables so they can’t be accessed directly from outside.
+
+2. Function Factories : create functions with “preset” values.
+
+3. Callbacks & Event Handlers : callbacks remember the data they were created with.
+
+4. Iterators & State Management : help functions remember their state across calls.
+
+5. Once / Memoization : Closures can limit function execution or cache results.
+
+-------------------------------------------------------
+
+# Closures makes Javascript consume more ...
+
+Memory.
+
+Because it keeps the scope where a function is defined in memory even after the function has finished executing.
+
+
+
 
 
 -------------------------------------------------------
@@ -622,6 +996,12 @@ Example Architecture with GraphQL as BFF
 
 -------------------------------------------------------
                   ARCHITECTURE
+-------------------------------------------------------
+
+# TODO
+
+DDD, Clean Architecture o Hexagonal.
+
 -------------------------------------------------------
 
 # What's Modular Monolith Architecture ?

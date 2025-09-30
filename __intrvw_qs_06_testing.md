@@ -11,7 +11,7 @@ Instill a culture of quality within the team.
 
 # How would you implement a more robust testing strategy?
 
-Included both unit tests and end-to-end tests. 
+Included both `unit tests` and `end-to-end tests`. 
 
 Assess current testing practices and identify key areas where additional testing could be most beneficial.
 

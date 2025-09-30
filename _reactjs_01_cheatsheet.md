@@ -1,9 +1,6 @@
 
 TODO
 
-Components should never directly update their props. 
-Components should be pure functions.
-
 -------------------------------------------------------
 
 # Docs
