@@ -1,12 +1,12 @@
 # Summary
 
 * [Introduction](README.md)
-* [___potential-courses-and-topics.md](___potential-courses-and-topics.md)
+
 * [__ai.md](__ai.md)
 * [__aws-cloud-practitioner.md](__aws-cloud-practitioner.md)
 * [__babel.md](__babel.md)
 * [__html.md](__html.md)
-* [__intrvw_qs_01_misc.md](__intrvw_qs_01_misc.md)
+* [Interview Questions 01: Miscellaneous](__intrvw_qs_01_misc.md)
 * [__intrvw_qs_02_javascript.md](__intrvw_qs_02_javascript.md)
 * [__intrvw_qs_03_typescript.md](__intrvw_qs_03_typescript.md)
 * [__intrvw_qs_04_react.md](__intrvw_qs_04_react.md)
@@ -52,5 +52,5 @@
 * [_reactjs_testing_rtl.md](_reactjs_testing_rtl.md)
 reactjs_code_cmixtape.md
 speech-notes_codecademy.md
-
+___potential-courses-and-topics.md
 

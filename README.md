@@ -4,8 +4,16 @@ These are notes I take along months and years. The file namings are self-explana
 
 ## Tech Covered
 
-`JavaScript` · `Typescript` · `React` · `React Native` · `NextJS` · `NodeJS` · `MongoDB` · `Mongoose` · `Vercel` · `Vite`
+`JavaScript` · `Typescript` · `React`
 
-`RESTful APIs` · `NextAuth (GoogleAuth)` · `Testing (Jest, RTL)` · `Redux (RTK, ImmerJS)`
+`Testing (Jest, RTL)` · `RESTful APIs` · `Redux (RTK, ImmerJS)`
 
-`AWS`
+`NodeJS` · `MongoDB` · `Mongoose` · `Vercel` · `Vite`
+
+`React Native` · `NextJS` · `NextAuth (GoogleAuth)`
+
+`Microfrontends` · `NodeJS` 
+
+`AWS` · `AWS Cloud Practictioner Exam` · `Docker` · `GitLab`
+
+`Tech Interview Questions` · `leecode`
