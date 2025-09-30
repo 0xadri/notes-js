@@ -1,8 +1,7 @@
-# Personal Notes
 
 These are notes I take along months and years. The file namings are self-explanatory so there is no index.
 
-## Tech Covered
+## Topics Covered
 
 `JavaScript` · `Typescript` · `React`
 
@@ -16,4 +15,6 @@ These are notes I take along months and years. The file namings are self-explana
 
 `AWS` · `AWS Cloud Practictioner Exam` · `Docker` · `GitLab`
 
-`Tech Interview Questions` · `leecode`
+`Tech Interview Questions` · `LeetCode`
+
+More in the navigation bar.
