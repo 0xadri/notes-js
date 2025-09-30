@@ -1,5 +1,5 @@
 
-These are notes I take along months and years, migration is still in progress, more to come.
+These are notes I took during months and years. Migration is still in progress, more on the way.
 
 Check out the navigation bar for all the topics covered.
 

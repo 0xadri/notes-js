@@ -413,10 +413,10 @@ How To:
  2. store object data to `localStorage`, convert it to a string - serialize it w JSON.stringify()
  3. get object data from `localStorage`, convert string back to object data - deserialize it w JSON.parse()
 
-sources: 
-https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
-localStorage+react https://blog.logrocket.com/using-localstorage-react-hooks/
+Sources: 
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- https://blog.logrocket.com/storing-retrieving-javascript-objects-localstorage/
+- localStorage+react https://blog.logrocket.com/using-localstorage-react-hooks/
 
 -------------------------------------------------------
 

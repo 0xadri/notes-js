@@ -1,5 +1,64 @@
 
 
+
+
+-------------------------------------------------------
+
+# Add Method To Array Object: Add `last()`
+
+Add method `last()` to `Array` so that it returns the last element, if `Array` is empty return `-1`.
+
+```javascript
+Array.prototype.last = function() {
+    if(this.length===0){
+        return -1;
+    }
+    return this[this.length-1];
+};
+```
+
+-------------------------------------------------------
+
+# Add Method To Array Object: Pollyfill Reduce
+
+Implement your own version of the `Array.reduce` method. Let's call it `Array.myReduce`.
+
+The Array.reduce method is a built-in JavaScript method that takes a callback function and an initial value as arguments, and returns a single reduced value.
+
+A reduced value is created by applying the following operation:
+- `val = fn(init, arr[0])`
+- `val = fn(val, arr[1])`
+- `val = fn(val, arr[2])`
+- ... until every element in the array has been processed.
+
+The final value of val is returned. If the length of the array is 0, it should return init.
+
+```javascript
+Array.prototype.myReduce = function (fn, init){
+    let total = 0;
+
+    if (this.length ===0){
+        return init;
+    }
+
+    for (let i = 0 ; i < this.length ; i++ ){
+        if (i===0){
+            total = fn( init , this[i] );
+        }
+        else {
+            total = fn( total , this[i] );
+        }
+    }
+    // Pseudocode:
+    // for each element in array of args
+        // if 1st item
+            // total = fn(init, element)
+        // else
+            // total = fn(total, element)
+    return total; // return single reduced value
+}
+```
+
 -------------------------------------------------------
 
 # Wrap A Function In A Timeout

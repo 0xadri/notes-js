@@ -15,99 +15,99 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# 10 One-Liners on "Core Concepts" every JS developer should know?
+# JS Core Concepts - 10 One-Liners Every Dev Should Know
 
-1. Variable – Named storage (let, const, var).
+1. **Variable** – Named storage (let, const, var).
 
-2. Scope – Defines where `variables`/`functions` are accessible (block, function, global).
+2. **Scope** – Defines where `variables`/`functions` are accessible (block, function, global).
 
-3. Hoisting – JS moves variable/function declarations to the top of their scope.
+3. **Hoisting** – JS moves variable/function declarations to the top of their scope.
 
-4. Closure – A function that “remembers” variables from its outer scope.
+4. **Closure** – A function that “remembers” variables from its outer scope.
 
-5. Lexical Scope – Scope determined by **where code is written**, not where it's executed.
+5. **Lexical Scope** – Scope determined by **where code is written**, not where it's executed.
 
-6. Execution Context – The environment in which code is evaluated (this, variables, functions).
+6. **Execution Context** – The environment in which code is evaluated (this, variables, functions).
 
-7. Call Stack – Stack structure that tracks function calls.
+7. **Call Stack** – Stack structure that tracks function calls.
 
-8. Event Loop – JS mechanism that handles async tasks (callbacks, promises).
+8. **Event Loop** – JS mechanism that handles async tasks (callbacks, promises).
 
-9. Garbage Collection – Automatic memory management by JS engine.
+9. **Garbage Collection** – Automatic memory management by JS engine.
 
-10. Strict Mode ('use strict') – Enables stricter parsing & error handling.
-
--------------------------------------------------------
-
-# 10 One-Liners on "Data Types & Structures" every JS developer should know?
-
-11. 7 Primitive Types – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
-
-12. Reference Types – `Object`, `Array`, `Function`, etc.
-
-13. NaN (Not a Number) – Special value for invalid number operations.
-
-14. Falsy Values – `false`, `0`, `""`, `null`, `undefined`, `NaN`.
-
-15. JSON (JavaScript Object Notation) – Lightweight data format.
-
-16. Spread Operator (...) – Expands elements (arrays, objects).
-
-17. Rest Parameters (...args) – Collects arguments into an array.
-
-18. Destructuring – Extracting values from arrays/objects.
-
-19. Map / Set – Modern collections with unique keys/values.
-
-20. Prototype – Mechanism for inheritance in JS objects.
+10. **Strict Mode** ('use strict') – Enables stricter parsing & error handling.
 
 -------------------------------------------------------
 
-# 10 One-Liners on "Functions & OOP" every JS developer should know?
+# JS Data Types & Structures - 10 One-Liners Every Dev Should Know
 
-21. First-class Functions – Functions treated like values.
+11. **7 Primitive Types** – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
 
-22. Higher-order Functions – Functions that take/return functions.
+12. **Reference Types** – `Object`, `Array`, `Function`, etc.
 
-23. Arrow Functions (()=>) – Shorter syntax, no this binding.
+13. **NaN** (Not a Number) – Special value for invalid number operations.
 
-24. Callback – A function passed as an argument.
+14. **Falsy Values** – `false`, `0`, `""`, `null`, `undefined`, `NaN`.
 
-25. Constructor Function – Function used with new to create objects.
+15. **JSON** (JavaScript Object Notation) – Lightweight data format.
 
-26. Class – ES6 syntax sugar for object-oriented programming.
+16. **Spread Operator** (...) – Expands elements (arrays, objects).
 
-27. This Keyword – Refers to the current execution context.
+17. **Rest Parameters** (...args) – Collects arguments into an array.
 
-28. Bind / Call / Apply – Methods to control this context.
+18. **Destructuring** – Extracting values from arrays/objects.
 
-29. Encapsulation – Grouping related state and behavior.
+19. **Map** / **Set** – Modern collections with unique keys/values.
 
-30. Polymorphism – Different forms of the same method in inheritance.
+20. **Prototype** – Mechanism for inheritance in JS objects.
 
 -------------------------------------------------------
 
-# 10 One-Liners on "Asynchronous & Events" every JS developer should know?
+# JS Functions & OOP - 10 One-Liners Every Dev Should Know
 
-31. Callback Hell – Nested callbacks, making code messy.
+21. **First-class Functions** – Functions treated like values.
 
-32. Promise – Object representing async completion/failure.
+22. **Higher-order Functions** – Functions that take/return functions - Wrapper / Transformator / Decorator / Intersector.
 
-33. Async / Await – Syntactic sugar for promises.
+23. **Arrow Functions** `()=>` – Shorter syntax, no `this` binding.
 
-34. Microtask Queue – Where promises are queued (faster than macrotasks).
+24. **Callback** – A `function` passed as an `argument`.
 
-35. Macrotask Queue – Queue for setTimeout, setInterval, etc.
+25. **Constructor Function** – `Function used with new` to create objects.
 
-36. Event Bubbling – Events propagate from child → parent.
+26. **Class** – `ES6 syntax sugar` for object-oriented programming.
 
-37. Event Capturing – Events propagate from parent → child.
+27. **"This" Keyword** – Refers to the `current execution context`.
 
-38. Event Delegation – Handling events at a higher level for efficiency.
+28. **Bind / Call / Apply** – Methods to control `this` context.
 
-39. Debouncing – Delays execution until after a pause.
+29. **Encapsulation** – Grouping related state and behavior.
 
-40. Throttling – Limits execution to once per interval.
+30. **Polymorphism** – Different forms of the same method in inheritance.
+
+-------------------------------------------------------
+
+# JS Asynchronous & Events - 10 One-Liners Every Dev Should Know
+
+31. **Callback Hell** – `Nested callbacks`, making code messy.
+
+32. **Promise** – Object representing `async completion/failure`.
+
+33. **Async / Await** – Syntactic sugar for `promises`.
+
+34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
+
+35. **Macrotask Queue** – Queue for `setTimeout`, `setInterval`, etc.
+
+36. **Event Bubbling** – Events propagate from `child` → `parent`.
+
+37. **Event Capturing** – Events propagate from `parent` → `child`.
+
+38. **Event Delegation** – Handling events at a `higher level` for efficiency.
+
+39. **Debouncing** – `Delays` execution until after a `pause`.
+
+40. **Throttling** – `Limits` execution to once per `interval`.
 
 -------------------------------------------------------
 
