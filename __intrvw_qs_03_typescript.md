@@ -22,7 +22,7 @@ It can be accessed from within the class and its subclasses.
 
 # What creates a new type with all the properties optional?
 
-```
+```javascript
   interface Table {
       legs: number;
       height: number;
@@ -61,7 +61,7 @@ Abstract classes cannot be instantiated directly
 
 Abstract classes cannot have implementations
 
-```
+```javascript
 abstract class Animal {
     abstract makeSound(): void;
     walk(): void {
@@ -117,7 +117,7 @@ It is a placeholder for a type that must be specified when the function is calle
 
 This is a common pattern in TypeScript for creating generic functions that can work with different types and having type flexibility without sacrificing type safety.
 
-```
+```javascript
  function makeCopy<T>(input: T): T[] {
   return [input, input];
  }

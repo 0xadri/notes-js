@@ -1,11 +1,8 @@
 
-
-Ultra Short Answer Without Typical AI Words: INSERTQUESTION
-
 -------------------------------------------------------
 
 
-# Which type of memory is generally preferred for storing temporary data  in a program, such as local variables within a function?
+# Which type of memory is generally preferred for storing temporary data in a program, such as local variables within a function?
 
 Stack
 
@@ -27,6 +24,8 @@ Garbage collection does NOT:
 
 8 bits
 
+-------------------------------------------------------
+
 # In the memory hierarchy, which type of memory typically has the fastest access time?
 
 Fastest to slowest:
@@ -39,6 +38,7 @@ Fastest to slowest:
 
 4. HDD - Traditional HDDs are the slowest.
 
+-------------------------------------------------------
 
 # Steps a CPU follows to interpret code in a CPU Cycle?
 

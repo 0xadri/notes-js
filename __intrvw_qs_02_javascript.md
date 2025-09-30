@@ -3,6 +3,8 @@
 
 # TODO
 
+JS interpreter vs compiler
+
 What/Why/When(realusecases)/How(code): ES6 modules .mjs or with "type": "module" in package.json
 
 What/Why/When(realusecases)/How(code): Classes
@@ -13,7 +15,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# 10 lingo/terms of Core Concepts every JS developer should know?
+# 10 One-Liners on "Core Concepts" every JS developer should know?
 
 1. Variable – Named storage (let, const, var).
 
@@ -37,7 +39,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# 10 lingo/terms of Data Types & Structures every JS developer should know?
+# 10 One-Liners on "Data Types & Structures" every JS developer should know?
 
 11. 7 Primitive Types – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
 
@@ -61,7 +63,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# 10 lingo/terms of Functions & OOP every JS developer should know?
+# 10 One-Liners on "Functions & OOP" every JS developer should know?
 
 21. First-class Functions – Functions treated like values.
 
@@ -85,7 +87,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# 10 lingo/terms of Asynchronous & Events every JS developer should know?
+# 10 One-Liners on "Asynchronous & Events" every JS developer should know?
 
 31. Callback Hell – Nested callbacks, making code messy.
 
@@ -172,7 +174,7 @@ console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId
 
 # Declared vs Created in JS ?
 
-```
+```javascript
 let x;       // declared
 x = 5;       // created in memory with value 5
 var y;       // declared
@@ -202,7 +204,7 @@ Creation:
 
 JavaScript allocates memory for it, i.e., the function object is created in memory and assigned to a reference (the function name).
 
-```
+```javascript
 function greet() {
   return "Hello!";
 }
@@ -218,7 +220,7 @@ Any local variables inside the function are created in the stack.
 
 When execution finishes, local variables are popped from the stack.
 
-```
+```javascript
 greet(); // calling the function
 ```
 
@@ -830,6 +832,13 @@ The process whereby the interpreter appears to move the declaration of `function
 
 Functions and Variables are hoisted.
 
+| Feature              | Hoisted?                            | Initialization? | TDZ                   | Can use before declaration? |
+| -------------------- | ----------------------------------- | --------------- | --------------------- | --------------------------- |
+| `var`                | Yes                                 | No              | No                    | Yes, value = undefined      |
+| `let` / `const`      | Yes                                 | No              | Yes                   | No (ReferenceError)         |
+| Function declaration | Yes                                 | Yes             | No                    | Yes                         |
+| Function expression  | Variable only (`var`/`let`/`const`) | No              | Yes for `let`/`const` | No (depends on type)        |
+
 -------------------------------------------------------
 
 # What's variable hoisting?
@@ -842,7 +851,7 @@ TODO
 
 Function hoisting means that functions are moved to the top of their scope. That is,
 
-```
+```javascript
  function b() {  
    a = 10;  
    return;  
@@ -852,7 +861,7 @@ Function hoisting means that functions are moved to the top of their scope. That
 
 will be rewritten by the interpeter to this
 
-```
+```javascript
  function b() {
   function a() {}
   a = 10;
@@ -880,7 +889,7 @@ It uses the `Function.prototype.apply()` method to call a function (`func`) with
 
  - `args` → an array (or array-like object) of arguments to pass to func
 
-```
+```javascript
  function greet(greeting, name) {
   console.log(greeting + ', ' + name);
  }
@@ -894,7 +903,7 @@ It uses the `Function.prototype.apply()` method to call a function (`func`) with
 
 If you want to control what `this` points to inside the function.
 
-```
+```javascript
  // Example without .apply()
  function showName() { console.log(this.name); }
  const person1 = { name: "Alice" };
@@ -906,7 +915,7 @@ If you want to control what `this` points to inside the function.
  showName();    // undefined (or window/global in non-strict mode)
 ```
 
-```
+```javascript
  // Example with .apply()
  function showName() {
   console.log(this.name);
@@ -954,7 +963,7 @@ Order of execution:
 
 1. Use the `for let key in` syntax
 
-```
+```javascript
  for (let key in myObject){
   const propVal = myObject[key]
  }
@@ -962,22 +971,27 @@ Order of execution:
 
 2. `Object.keys` method - keys only
 
+```javascript
 const keysArray = Object.keys(objectOne)
 ...
+```
 
 3. `Object.values` method - values only
 
+```javascript
 const valsArray = Object.keys(objectOne)
 ...
+```
 
 4. `Object.entries` method - keys and values
 
+```javascript
 const obj = { a: 1, b: 2, c: 3 };
 
 Object.entries(obj).forEach(([key, value]) => {
   console.log(key, value);
 });
-
+```
 
 -------------------------------------------------------
 
@@ -1007,7 +1021,7 @@ A piece of code that calls another piece of code once it has finished executing.
 
 # What will the following function return?
 
-```
+```javascript
  async function getData(url) {
   const response = await fetch(url);
   const data = await response.json();
@@ -1066,7 +1080,6 @@ Promise: an object that represents a value that may be available now, later, or 
 | Multiple tasks | Hard to manage       | Promise helpers (`all`, `race`, etc.) |
 | Modern usage   | Legacy / still used in Node APIs | Standard in modern JS     |
 
-
 -------------------------------------------------------
 
 # In which order are will the following be printed to the console?
@@ -1095,7 +1108,7 @@ In this case, the code will be executed in the following order:
 
 # What javascript pattern is used in the following code snippet?
 
-```
+```javascript
  (function (module) {
   const someVariable = "someVar";
 
@@ -1115,7 +1128,7 @@ An IIFE (Immediately Invoked Function Expression) used as a module declaration.
 
 # What will the following code print to the console?
 
-```
+```javascript
  const firstPromise = Promise.resolve(1);
  const secondPromise = Promise.resolve(2);
  const thirdPromise = Promise.reject("A bug occurred");
@@ -1217,7 +1230,7 @@ A class can `inherit` from another class by using `extends`.
 
 # What is wrong with the subclass declaration below?
 
-```
+```javascript
  class Vehicle {   // superclass
   constructor() {
    this.type = "Vehicle";
@@ -1568,7 +1581,7 @@ When to use what?
 
 # Practical example with setTimeout: Normal Function and Arrow Function
 
-```
+```javascript
 class Timer {
   constructor() {
     this.seconds = 0;
@@ -1610,11 +1623,7 @@ This is a classic case where `arrow functions` save you from this headaches.
 
 # Class methods with Normal Function using self and bind: what is the output ?
 
-
-
-
-
-
+TODO
 
 -------------------------------------------------------
 

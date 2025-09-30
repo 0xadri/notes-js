@@ -1,18 +1,13 @@
 
-
 -------------------------------------------------------
 
 # TODO
 
-
 Handling form submission with preventDefault
-
-Inline vs external styling in React
 useRef for DOM access vs persistent values
 Custom hooks – when and why to create them
 useReducer vs useState
 useLayoutEffect vs useEffect
-Higher-order components (HOCs) basics
 
 -------------------------------------------------------
 
@@ -477,35 +472,9 @@ Unlike text inputs, `<input type="file">` is **uncontrolled** in React:
 
 -------------------------------------------------------
 
-# Differences between Debouncing and Throttling ?
-
-Debounce: Think of it like waiting for someone to stop talking before you reply.
-
-Throttle: Think of it like a speed limiter.
-
-Debounce: ensures that a function runs only after a certain amount of inactivity. Useful when the final action matters.
-
-Throttle: ensures that a function is called at most once per interval, no matter how many times the event fires. Useful when regular updates matter.
-
-Debounce:
- - The function executes only after the event has stopped firing for a given delay.
- - If events keep coming in before the delay ends, the timer resets.
-
-Throttle:
- - The function executes immediately (or at fixed intervals) but never more than once per X ms.
- - Events that happen faster than the interval are ignored until the next interval.
-
-Debounce Example: fire an API request only once the user stops typing for, say, 500ms. Timeline (keystrokes at |):
-  User types:  |   |   |           (pause)
-  Debounce:                  X (fires once, after 500ms pause)
-
-Throttle Example: scroll listener updates position regularly, but not on every single pixel scrolled (it would kill perf):
-  User scrolls: | | | | | | | | | | | | | 
-  Throttle:     X     X     X     X
-
--------------------------------------------------------
-
 # How do you debounce/throttle input in React ?
+
+TODO
 
 What ?
 
@@ -513,25 +482,77 @@ Limit how often an expensive operation (like an API call, input handler, or scro
 
 -------------------------------------------------------
  
-# 
+# Pros and Cons of Inline vs External Styling in React? 
 
+Inline-Styling in React are written as JavaScript `objects` and applied directly to elements using the `style prop`.
 
+Inline-Styling Pros:
+- Scoped by default – no risk of style leaks.
+- Dynamic styling – can use JS variables and state easily.
+- Quick & simple for small components or one-off styles.
+
+Inline-Styling Cons:
+- `Partial` CSS Support - No pseudo-classes (:hover, :focus) or media queries.
+- `Partial` CSS Support - Can’t leverage CSS features like keyframe animations or complex selectors.
+- Verbose – not ideal for large components.
+- Harder to maintain and re-use styles.
+
+External styling refers to using `CSS files`, `CSS Modules`, or `CSS-in-JS` libraries.
+
+External-Styling Pros:
+- `Full` CSS support (pseudo-classes, media queries, animations).
+- Cleaner & reusable – easier to manage across large apps.
+- Separation of concerns – keeps JSX less cluttered.
+- Works well for team projects.
+
+External-StylingCons:
+- Might need build setup (CSS Modules, CSS-in-JS).
+- Slightly more overhead than inline styles.
+- Scoped CSS (with CSS Modules) requires different syntax.
+
+TLDR:
+ - Inline styles → Quick fixes, dynamic per-element styling, or when styles depend heavily on props/state.
+ - External styles (CSS/CSS-Modules/CSS-in-JS) → Larger projects, reusable styles, complex UI with pseudo-classes and media queries.
 
 -------------------------------------------------------
  
-# 
+# What are CSS Modules ?
 
+Regular CSS files, but class names are locally scoped by default using unique hashes.
 
+Prevents naming conflicts without extra setup.
 
+Pros:
+- Full CSS support.
+- Scoped CSS by default → no global pollution.
+- Familiar CSS syntax.
 
+Cons:
+- Styling is separate from component logic (JSX) → potential context change inefficiency.
+- Dynamic styles (based on props) can be tricky → usually require multiple classes or inline styles.
 
 -------------------------------------------------------
  
-# 
+# What's CSS-in-JS ?
 
+CSS-in-JS = Styled Components.
 
+Uses JavaScript to create styled React components with template literals.
 
+Styles are scoped automatically.
 
+Pros:
+- Full CSS support.
+- Scoped CSS by default → no global pollution.
+- Familiar CSS syntax.
+- Styles live with the component → easy to manage per-component styles.
+- Dynamic styling is straightforward using `props`.
+- Encourages component-driven styling → aligns with React philosophy.
+
+Cons:
+- Slight runtime overhead (injecting styles in JS).
+- CSS syntax inside JS → may feel less familiar.
+- Can increase bundle size if heavily used.
 
 -------------------------------------------------------
  

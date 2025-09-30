@@ -299,7 +299,44 @@ https://www.patterns.dev/vanilla/mediator-pattern/
 
 # Function Debouncing pattern
 
-TODO
+Think of it like waiting for someone to stop talking before you reply.
+
+Ensures that a function runs only after a certain amount of inactivity. Useful when the final action matters.
+
+ - The function executes only after the event has stopped firing for a given delay.
+ - If events keep coming in before the delay ends, the timer resets.
+
+Debounce Example: fire an API request only once the user stops typing for, say, 500ms. Timeline (keystrokes at |):
+  User types:  |   |   |           (pause)
+  Debounce:                  X (fires once, after 500ms pause)
+
+-------------------------------------------------------
+
+# Differences between Debouncing and Throttling ?
+
+Debounce: Think of it like waiting for someone to stop talking before you reply.
+
+Throttle: Think of it like a speed limiter.
+
+Debounce: ensures that a function runs only after a certain amount of inactivity. Useful when the final action matters.
+
+Throttle: ensures that a function is called at most once per interval, no matter how many times the event fires. Useful when regular updates matter.
+
+Debounce:
+ - The function executes only after the event has stopped firing for a given delay.
+ - If events keep coming in before the delay ends, the timer resets.
+
+Throttle:
+ - The function executes immediately (or at fixed intervals) but never more than once per X ms.
+ - Events that happen faster than the interval are ignored until the next interval.
+
+Debounce Example: fire an API request only once the user stops typing for, say, 500ms. Timeline (keystrokes at |):
+  User types:  |   |   |           (pause)
+  Debounce:                  X (fires once, after 500ms pause)
+
+Throttle Example: scroll listener updates position regularly, but not on every single pixel scrolled (it would kill perf):
+  User scrolls: | | | | | | | | | | | | | 
+  Throttle:     X     X     X     X
 
 -------------------------------------------------------
 
