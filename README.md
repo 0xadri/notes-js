@@ -1,7 +1,9 @@
 
-These are notes I take along months and years. The file namings are self-explanatory so there is no index.
+These are notes I take along months and years, migration is still in progress, more to come.
 
-## Topics Covered
+Check out the navigation bar for all the topics covered.
+
+## Topics Covered Include
 
 `JavaScript` · `Typescript` · `React`
 
@@ -17,4 +19,3 @@ These are notes I take along months and years. The file namings are self-explana
 
 `Tech Interview Questions` · `LeetCode`
 
-More in the navigation bar.
