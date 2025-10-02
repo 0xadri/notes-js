@@ -1,21 +1,12 @@
 
-These are notes I took during months and years. Migration is still in progress, more on the way.
+These are notes I took during months and years. 
 
-Check out the navigation bar for all the topics covered.
+Migration still in progress... more on the way.
 
-## Topics Covered Include
+Built with passion 💜 
 
-`JavaScript` · `Typescript` · `React`
+Adrien
 
-`Testing (Jest, RTL)` · `RESTful APIs` · `Redux (RTK, ImmerJS)`
+[My Github](https://github.com/0xadri)
 
-`NodeJS` · `MongoDB` · `Mongoose` · `Vercel` · `Vite`
-
-`React Native` · `NextJS` · `NextAuth (GoogleAuth)`
-
-`Microfrontends` · `NodeJS` 
-
-`AWS` · `AWS Cloud Practictioner Exam` · `Docker` · `GitLab`
-
-`Tech Interview Questions` · `LeetCode`
 
