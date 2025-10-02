@@ -145,3 +145,28 @@ Abstract classes are classes that cannot be instantiated directly and are used a
 They can have abstract methods (methods without implementation) and concrete methods (methods with implementation).
 
 Derived classes(from the abstract class) must implement all abstract methods of the abstract class.
+
+-------------------------------------------------------
+
+## What creates a new type with all the properties optional?
+
+```javascript
+ interface Table {
+  legs: number;
+  height: number;
+  width: number;
+  material: string;
+ }
+```
+
+`Partial<Table>`.
+
+https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
+
+-------------------------------------------------------
+
+## What happens when typescript finds two interfaces with the same name in a codebase?
+
+Typescript will merge the interfaces
+
+

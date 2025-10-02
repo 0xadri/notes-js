@@ -1,20 +1,32 @@
 
 -------------------------------------------------------
 
-# TODO
+**TODO**
 
-Note: This doc is alive, hence this section :)
+This doc is alive, hence this TODO section :)
 
 For each topic: What / Why / When(realusecases) / How(code) / Analogy / Mental Model / Memory Tip
 
 Classes
+- Classes
 - Classes vs Objects
+- Objects
 - Classes Accessibility
 - Classes Constructor
+- Functions vs Objects
+
+Primitives
+
+Reference Types
 
 interpreter vs compiler
 
 ES6 modules .mjs or with "type": "module" in package.json
+
+
+
+
+
 
 -------------------------------------------------------
 
@@ -70,7 +82,7 @@ ES6 modules .mjs or with "type": "module" in package.json
 
 -------------------------------------------------------
 
-# JS Functions & OOP
+## JS Functions & OOP
 
 21. **First-class Functions** – Functions treated like values.
 
@@ -94,7 +106,7 @@ ES6 modules .mjs or with "type": "module" in package.json
 
 -------------------------------------------------------
 
-# JS Asynchronous & Events
+## JS Asynchronous & Events
 
 31. **Callback Hell** – `Nested callbacks`, making code messy.
 
@@ -116,74 +128,101 @@ ES6 modules .mjs or with "type": "module" in package.json
 
 40. **Throttling** – `Limits` execution to once per `interval`.
 
--------------------------------------------------------
--------------------------------------------------------
 
 
 
-
-# What is a Symbol?
-
-Primitive data types introduced in ES6.
-
-A Symbol is a `unique` and `immutable` identifier.
-
-Even if two symbols have the same description, they are always different values.
 
 -------------------------------------------------------
 
-# Why use Symbol?
-
-Often used as object property keys to:
-- avoid naming conflicts
-- create hidden properties
-
-Symbol is often used to define unique constants.
-
-JavaScript also uses some well-known symbols internally (Symbol.iterator, Symbol.toStringTag, etc.).
+# Getting Started
 
 -------------------------------------------------------
 
-# How to use Symbol with code examples?
+## What's ES5, ES6, ES7 about?
 
-Example 1 – Uniqueness
+`ES` stands for `ECMAScript`.
 
-```javascript
-const a = Symbol("id");
-const b = Symbol("id");
-console.log(a === b);    // false (even if descriptions are the same)
-```
+JavaScript is standardized by `ECMAScript`.
 
-Example 2 – Using as Object Keys
+Each new version adds features, fixes, and improvements.
 
-```javascript
-// Define a symbol for private/hidden data
-const secretId = Symbol("secretId");
-const user = {
-  name: "Alice",
-  age: 25,
-  [secretId]: 98765  // hidden property
-};
-
-// Normal access
-console.log(user.name);       // Output: "Alice"
-console.log(user.age);        // Output: 25
-console.log(user.secretId);   // Output: undefined
-
-// Access using the symbol
-console.log(user[secretId]);  // Output: 98765
-
-// Iterating over keys/properties
-for (let key in user) {       // Output: name, age
-  console.log(key);
-}
-
-console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId) ]
-```
+ - ES5 (2009): Strict mode, array methods, JSON.
+ - ES6 (2015): Big upgrade (let/const, arrow functions, classes, modules, promises).
+ - ES7+ (2016 onward): Smaller yearly updates (async/await, optional chaining, BigInt, etc.).
 
 -------------------------------------------------------
 
-# Declared vs Created in JS ?
+## How are ECMAScript versions decided?
+
+The TC39 group is responsible for evolving JavaScript (officially, ECMAScript).
+
+TC39 = Technical Committee 39.
+
+TC39 is part of Ecma International, the standards organization that manages the ECMAScript specification.
+
+Members are representatives from big tech companies (Google, Microsoft, Apple, Mozilla, Intel, etc.) and independent experts.
+
+-------------------------------------------------------
+
+## What's "use strict" ?
+
+It is a directive that enables `strict mode`.
+
+`Strict mode` changes the way JavaScript executes by enforcing **stricter parsing and error handling**. 
+
+Introduced with ES5 (2009).
+
+-------------------------------------------------------
+
+## Why "use strict" ?
+
+It helps catch common coding mistakes and prevents potentially unsafe actions.
+
+Makes the code: safer, more predictable, and easier to debug.
+
+ - `this` is not automatically bound to window - NO implicit global `this`
+
+ - Variables must be declared
+
+ - Assignment to read-only properties throws errors
+ 
+ - No duplicate parameter names in functions
+ 
+ - Reserved keywords are protected i.e. implements, interface, let, package, private
+
+-------------------------------------------------------
+
+## When "use strict" in real-life use-cases? 
+
+Most of the time, "use strict"; is recommended because it makes your code safer.
+
+Few rare cases where you might avoid it:
+
+ 1. Old JavaScript Libraries - some were written assuming `sloppy mode` (especially those pre-`ES5`, pre-2009) 
+ 
+ 2. Legacy Codebases
+
+-------------------------------------------------------
+
+## What is "sloppy mode" ?
+
+`sloppy mode` = `non-strict mode` = opposite of `strict mode`
+
+This means:
+
+ - `this` is automatically bound to window - implicit global `this`
+
+ - Variables do not have to be declared
+ 
+ - Assignment to read-only properties does NOT throw errors - it fails silently
+
+ - Duplicate parameter names are allowed in functions
+
+ - Not reserved keywords i.e. you can call your variable `public`
+
+-------------------------------------------------------
+
+## Declared vs Created in JS ?
 
 ```javascript
 let x;       // declared
@@ -209,7 +248,7 @@ Creation:
 
 -------------------------------------------------------
 
-# Created vs Called in JS Functions ?
+## Created vs Called in JS Functions ?
 
 1. Created (Function Creation / Definition)
 
@@ -235,104 +274,118 @@ When execution finishes, local variables are popped from the stack.
 greet(); // calling the function
 ```
 
+-------------------------------------------------------
+
+## What's hoisting?
+
+The process whereby the interpreter appears to move the declaration of `functions`, `variables`, `classes`, or `imports` to the top of their scope, prior to execution of the code.
+
+Functions and Variables are hoisted.
+
+| Feature              | Hoisted?                            | Initialization? | TDZ                   | Can use before declaration? |
+| -------------------- | ----------------------------------- | --------------- | --------------------- | --------------------------- |
+| `var`                | Yes                                 | No              | No                    | Yes, value = undefined      |
+| `let` / `const`      | Yes                                 | No              | Yes                   | No (ReferenceError)         |
+| Function declaration | Yes                                 | Yes             | No                    | Yes                         |
+| Function expression  | Variable only (`var`/`let`/`const`) | No              | Yes for `let`/`const` | No (depends on type)        |
 
 -------------------------------------------------------
 
-# What's ES5, ES6, ES7 about?
+## What's variable hoisting?
 
-`ES` stands for `ECMAScript`.
-
-JavaScript is standardized by `ECMAScript`.
-
-Each new version adds features, fixes, and improvements.
-
- - ES5 (2009): Strict mode, array methods, JSON.
- - ES6 (2015): Big upgrade (let/const, arrow functions, classes, modules, promises).
- - ES7+ (2016 onward): Smaller yearly updates (async/await, optional chaining, BigInt, etc.).
+TODO
 
 -------------------------------------------------------
 
-# How are ECMAScript versions decided?
+## What's function hoisting?
 
-The TC39 group is responsible for evolving JavaScript (officially, ECMAScript).
+Function hoisting means that functions are moved to the top of their scope. That is,
 
-TC39 = Technical Committee 39.
+```javascript
+ function b() {  
+   a = 10;  
+   return;  
+   function a() {} 
+ } 
+```
 
-TC39 is part of Ecma International, the standards organization that manages the ECMAScript specification.
+will be rewritten by the interpeter to this
 
-Members are representatives from big tech companies (Google, Microsoft, Apple, Mozilla, Intel, etc.) and independent experts.
+```javascript
+ function b() {
+  function a() {}
+  a = 10;
+  return;
+ }
+```
 
 -------------------------------------------------------
 
-# What's "use strict" ?
+## Can you do multithreading in JavaScript?
 
-It is a directive that enables `strict mode`.
+No. Not natively.
 
-`Strict mode` changes the way JavaScript executes by enforcing **stricter parsing and error handling**. 
+JS in majority of browsers run on `V8`.
 
-Introduced with ES5 (2009).
+HTML5 Web Workers define a way to run script in the background. You can then execute some tasks in threads living outside the main page and thus non-impacting the drawing performance.
+
+https://learn.microsoft.com/en-us/previous-versions/msdn10/hh549259(v=msdn.10)
+
+NODE.JS SPECIFIC
+
+JS in majority of browsers run on V8, which is essentially same engine used by Node.js
+
+The very foundation of Node.js and the way it works is it has Event Loop on single thread - which is intentional. It removes any issues with synchronizations between threads and any overhead with creating/deleting threads. That is very important concept for backend as it often handles tens or hundreds of concurrent requests at once.
+
+It makes also code very deterministic (you know that the synchronous part of the code taken by Event Loop will be executed fully before another event in Event Loop will be taken and processed)
+
+However from the beginning - Node.js HAS thread pool. Another threads are used for I/O operations in background (like requests or handling files). You can create workers which does have their own threads if you like to.
+
+Does the core of Node.js change? Most likely not, it would be breaking change and it would be actually against the main idea of Node.js. Also not bringing much benefits (as you can use more threads if you really want to already)
 
 -------------------------------------------------------
 
-# Why "use strict" ?
+## How Do You Improve Code Quality?
 
-It helps catch common coding mistakes and prevents potentially unsafe actions.
+Stick to best practices and industry standards:
 
-Makes the code: safer, more predictable, and easier to debug.
+ - use `ESLint` and `Prettier`.
 
- - `this` is not automatically bound to window - NO implicit global `this`
-
- - Variables must be declared
-
- - Assignment to read-only properties throws errors
+ - automated testing with `Jest` and `Cypress`.
  
- - No duplicate parameter names in functions
+ - considering `SonarQube` for static code analysis (automated code reviews) - to detect bugs, code smells, vulnerabilities, duplications, and security hotspots.
+
+ - `code reviews` (manual code reviews) - points above reduce time required for "manual work"
  
- - Reserved keywords are protected i.e. implements, interface, let, package, private
+ - `CI/CD`
+
+This increases code maintainability, reduces in-production issues, and reduces rollbacks.
 
 -------------------------------------------------------
 
-# When "use strict" in real-life use-cases? 
+## How do you find unused dependencies?
 
-Most of the time, "use strict"; is recommended because it makes your code safer.
+1. Use tools like `depcheck` to see if you have any unused library in your package.json
 
-Few rare cases where you might avoid it:
+In general, webpack should be removing those with tree shaking anyhow, and dead code remove but still you want to keep it clean.
 
- 1. Old JavaScript Libraries - some were written assuming `sloppy mode` (especially those pre-`ES5`, pre-2009) 
- 
- 2. Legacy Codebases
+2. Use the `webpack bundle analyser` to see the JavaScript cost of adding each library to evaluate if any library should be replaced with a lighter implementation
 
--------------------------------------------------------
+Some libraries you will be able to easily remove, some others are harder to replace (if the codebase use them heavily).
 
-# What is "sloppy mode" ?
+The important thing is you make those decisions (adding a new library to the codebase for example) with performance in mind, rather than keep adding dependencies to a project (pretty common in the JS world).
 
-`sloppy mode` = `non-strict mode` = opposite of `strict mode`
 
-This means:
 
- - `this` is automatically bound to window - implicit global `this`
 
- - Variables do not have to be declared
- 
- - Assignment to read-only properties does NOT throw errors - it fails silently
-
- - Duplicate parameter names are allowed in functions
-
- - Not reserved keywords i.e. you can call your variable `public`
 
 -------------------------------------------------------
 
-# What are Object Methods?
-
-A method is just a function stored as a property of an object.
-
-Any property whose value is a function is essentially a method.
-
-Access it using dot notation `obj.key` or bracket notation `obj["key"]`.
+# Scope, Context and "this"
 
 -------------------------------------------------------
 
-# What's the difference between Context vs Scope in Javascript?
+## What's the difference between Context vs Scope in Javascript?
 
 Context and scope are related but very different concepts. People often confuse them.
 
@@ -394,7 +447,7 @@ Context = what `this` refers to when running a function.
 
 -------------------------------------------------------
 
-# What Are The 5 Different Scopes In JavaScript?
+## What Are The 5 Different Scopes In JavaScript?
 
 1. Global Scope → Variables accessible everywhere – variables declared outside any function/block.
 
@@ -408,7 +461,7 @@ Context = what `this` refers to when running a function.
 
 -------------------------------------------------------
 
-# What's Lexical Scope?
+## What's Lexical Scope?
 
 Lexical scoping = how closures work.
 
@@ -418,7 +471,7 @@ Functions remember the scope in which they were defined, no matter where they’
 
 -------------------------------------------------------
 
-# Was `Lexical Scope` introduced by `arrow functions` with ES6 (2015) ?
+## Was `Lexical Scope` introduced by `arrow functions` with ES6 (2015) ?
 
 No. Lexical scoping is in JavaScript since its very first version in 1995. But it improved `lexical scoping` for arguments and closures.
 
@@ -432,7 +485,7 @@ ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that a
 
 -------------------------------------------------------
 
-# Use Cases for Lexical Scope
+## Use Cases for Lexical Scope
 
  1. Closures (data privacy) - private variables - "remember" variables from their defining scope, even after that scope is gone
  
@@ -454,7 +507,7 @@ ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that a
  
 -------------------------------------------------------
 
-# What's the informal "Object Scope" about?
+## What's the informal "Object Scope" about?
 
  - `Object Scope` isn’t a formal type of scope like `global`, `function`, or `block` scope.
 
@@ -472,7 +525,7 @@ ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that a
 
 -------------------------------------------------------
 
-# Function Scope And The Informal Object Scope
+## Function Scope And The Informal Object Scope
 
 Explain these points:
 
@@ -484,19 +537,26 @@ Explain these points:
  
  - The informal `object scope`, and how `arrow functions` and `regular functions` relate to it
 
+
+
+
 -------------------------------------------------------
 
-# What are the difference between `rest` and `spread` syntaxes ?
+# Args, Rest, Spread
+
+-------------------------------------------------------
+
+## What are the difference between `rest` and `spread` syntaxes ?
 
 `Rest` and `Spread` look the same (...) but they are kind of the opposite:
 
- - `Rest` = Pack = collects values into an array.
+ - `Rest` = Pack = Collects values into an array.
 
- - `Spread` = Unpack = expands an array or object into individual values.
+ - `Spread` = Unpack = Expands an array or object into individual values.
 
 -------------------------------------------------------
 
-# Why use `rest` or `spread` syntaxes ?
+## Why use `rest` or `spread` syntaxes ?
 
 1. `Rest` syntax usage: in `function parameters`, `object destructuring`, or `array destructuring`.
 
@@ -504,7 +564,7 @@ Explain these points:
  
 -------------------------------------------------------
 
-# How to use `rest` or `spread` syntaxes together ?
+## How to use `rest` or `spread` syntaxes together ?
 
 ```javascript
  function logAndCall(fn, ...args) {   // rest syntax
@@ -524,7 +584,7 @@ This pattern allows you to write generic wrappers for any function (c.f. HOFs)
 
 -------------------------------------------------------
 
-# What is ...args about ?
+## What is ...args about ?
 
 `...args` = `rest` syntax = argument collector.
 
@@ -539,7 +599,7 @@ Collects all arguments passed to a `function` into a single `array`.
 
 -------------------------------------------------------
 
-# Why use ...args ?
+## Why use ...args ?
 
 Makes functions flexible, concise, and future-proof.
 
@@ -553,17 +613,19 @@ Makes functions flexible, concise, and future-proof.
 
 -------------------------------------------------------
 
-# When, in which real-life use-case
+## When, in which real-life use-case
+
+TODO
 
 -------------------------------------------------------
 
-# How to use ...args ?
+## How to use ...args ?
 
 `...args` must be the last parameter in the function.
 
 -------------------------------------------------------
 
-# Advanced usage of ...args ? 
+## Advanced usage of ...args ? 
 
 Example with nested functions with each its own ...args
 
@@ -571,7 +633,7 @@ In nested function, `args` is different and local. They don’t overwrite each o
 
 -------------------------------------------------------
 
-# Can you use ...args in regular functions?
+## Can you use ...args in regular functions?
 
 Yes — you can use rest parameters `...args` with regular functions (not just arrow functions).
 
@@ -579,7 +641,7 @@ Yes — you can use rest parameters `...args` with regular functions (not just a
 
 -------------------------------------------------------
 
-# Before ES6, what did you use instead of ...args?
+## Before ES6, what did you use instead of ...args?
 
 We could use the special `arguments` object.
 
@@ -593,7 +655,7 @@ We could use the special `arguments` object.
 
 -------------------------------------------------------
 
-# Why were arrow functions introduced?
+## Why were arrow functions introduced?
 
 Arrow functions were introduced in ES6 (ECMAScript 2015) primarily to:
 
@@ -607,7 +669,7 @@ Arrow functions were introduced in ES6 (ECMAScript 2015) primarily to:
 
  - Prevent misuse as constructors.
 
-## Fix the common `this` binding problem
+### Fix the common `this` binding problem
 
 One of the most common pitfalls in JavaScript was that `this` was inconsistent/dynamic. It changed depending on how a function was called:
 
@@ -647,109 +709,16 @@ Arrow functions capture `this` from their surrounding scope, so you don’t need
  }
 ```
 
--------------------------------------------------------
 
-# Can you do multithreading in JavaScript?
 
-No. Not natively.
-
-JS in majority of browsers run on V8.
-
-HTML5 Web Workers define a way to run script in the background. You can then execute some tasks in threads living outside the main page and thus non-impacting the drawing performance.
-
-https://learn.microsoft.com/en-us/previous-versions/msdn10/hh549259(v=msdn.10)
-
-NODE.JS SPECIFIC
-
-JS in majority of browsers run on V8, which is essentially same engine used by Node.js
-
-The very foundation of Node.js and the way it works is it has Event Loop on single thread - which is intentional. It removes any issues with synchronizations between threads and any overhead with creating/deleting threads. That is very important concept for backend as it often handles tens or hundreds of concurrent requests at once.
-
-It makes also code very deterministic (you know that the synchronous part of the code taken by Event Loop will be executed fully before another event in Event Loop will be taken and processed)
-
-However from the beginning - Node.js HAS thread pool. Another threads are used for I/O operations in background (like requests or handling files). You can create workers which does have their own threads if you like to.
-
-Does the core of Node.js change? Most likely not, it would be breaking change and it would be actually against the main idea of Node.js. Also not bringing much benefits (as you can use more threads if you really want to already)
 
 -------------------------------------------------------
 
-# How do you improve code quality?
-
-Stick to best practices and industry standards:
-
- - use ESLint and Prettier.
-
- - automated testing with Jest and Cypress.
- 
- - considering SonarQube for static code analysis (automated code reviews) - to detect bugs, code smells, vulnerabilities, duplications, and security hotspots.
-
- - code reviews (manual code reviews) - points above reduce time required for "manual work"
- 
- - CI/CD
-
-This increases code maintainability, reduces in-production issues, and reduces rollbacks.
+# Memory, Reference Types and Primitives
 
 -------------------------------------------------------
 
-# Which are JavaScript primitive type 
-
-Primitive type is data that is not an object.
-
-7 primitive types:
-- number
-- string
-- boolean
-- null
-- undefined
-- symbol
-- bigint
-
--------------------------------------------------------
-
-# What are Reference Types?
-
-All non-primitive types in JavaScript are reference types, with Object being the root.
-
-All objects are reference types.
-
-And all reference types are objects.
-
-Main Reference Types:
-
-| Category | Example         | Notes                                     |
-| -------- | --------------- | ----------------------------------------- |
-| Object   | `{}`            | Base for most structures                  |
-| Array    | `[]`            | Ordered list                              |
-| Function | `function(){}`  | Callable object                           |
-| Date     | `new Date()`    | Date/time                                 |
-| RegExp   | `/pattern/`     | String matching                           |
-| Map      | `new Map()`     | Key–value pairs, keys can be any type     |
-| Set      | `new Set()`     | Unique values                             |
-| WeakMap  | `new WeakMap()` | Keys must be objects, garbage-collectable |
-| WeakSet  | `new WeakSet()` | Stores objects only, garbage-collectable  |
-| Error    | `new Error()`   | Error handling                            |
-
--------------------------------------------------------
-
-# JavaScript is pass by value or reference language?
-
-JavaScript is a **pass by value** language. 
-
-When a `function` is called, a **copy** of the `value` of each `argument` is passed to the `function`, NOT the original `argument`. 
-
-This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
-
-1. `Primitives` → Passed by `Value` → stored in Stack
-
-2. `Objects` → Passed by Reference to Value (reference itself is copied) → Object stored in Heap, Reference stored in Stack.
-
-JavaScript always passes function arguments by `value`.
-
-But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the reference itself is copied, so both variables point to the **same** underlying object.
-
--------------------------------------------------------
-
-# How does the memory work in JavaScript ?
+## How does the memory work in JavaScript ?
 
 JavaScript uses two main memory regions:
 
@@ -763,8 +732,7 @@ That’s why when you copy a reference type, you don’t copy the value itself, 
 
 -------------------------------------------------------
 
-# Code example illustrating how the memory work in JavaScript ?
-
+## Code example illustrating how the memory work in JavaScript ?
 
 ```javascript
 let num = 42;                   // primitive → stack
@@ -788,7 +756,7 @@ Heap:
 
 -------------------------------------------------------
 
-# Are Stack and Heap are different type of hardware ?
+## Are Stack and Heap are different type of hardware ?
 
 This is a very common confusion.
 
@@ -820,79 +788,160 @@ Heap:
 
 -------------------------------------------------------
 
-# 
+## Which Data Is Of Primitive Types?
+
+Primitive type is data that is not an object.
+
+SEVEN primitive types:
+- `number`
+- `string`
+- `boolean`
+- `null`
+- `undefined`
+- `symbol`
+- `bigint`
+
+-------------------------------------------------------
+
+## What are Reference Types?
+
+`All non-primitive types` are reference types, with `Object being the root` -> All objects are reference types -> And all reference types are objects.
+
+Main Reference Types:
+
+| Category | Example         | Notes                                     |
+| -------- | --------------- | ----------------------------------------- |
+| Object   | `{}`            | Base for most structures                  |
+| Array    | `[]`            | Ordered list                              |
+| Function | `function(){}`  | Callable object                           |
+| Date     | `new Date()`    | Date/time                                 |
+| RegExp   | `/pattern/`     | String matching                           |
+| Map      | `new Map()`     | Key–value pairs, keys can be any type     |
+| Set      | `new Set()`     | Unique values                             |
+| WeakMap  | `new WeakMap()` | Keys must be objects, garbage-collectable |
+| WeakSet  | `new WeakSet()` | Stores objects only, garbage-collectable  |
+| Error    | `new Error()`   | Error handling                            |
+
+-------------------------------------------------------
+
+## JavaScript Language Is Pass-By-Value Or Pass-By-Reference ?
+
+JavaScript is a **Pass-By-Value** for primitives, and **Pass-By-Reference** for reference types.
+
+When a `function` is called, a **copy** of the `value` of each `argument` is passed to the `function`, NOT the original `argument`. 
+
+This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
+
+1. `Primitives` → Passed by `Value` → stored in Stack
+
+2. `Objects` → Passed by Reference to Value (reference itself is copied) → Object stored in Heap, Reference stored in Stack.
+
+JavaScript always passes function arguments by `value`.
+
+But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the reference itself is copied, so both variables point to the **same** underlying object.
+
+-------------------------------------------------------
+
+## What is a Symbol?
+
+Primitive data types introduced in ES6.
+
+A Symbol is a `unique` and `immutable` identifier.
+
+Even if two symbols have the same description, they are always different values.
+
+-------------------------------------------------------
+
+## Why use Symbol?
+
+Often used as object property keys to:
+- avoid naming conflicts
+- create hidden properties
+
+Symbol is often used to define unique constants.
+
+JavaScript also uses some well-known symbols internally (Symbol.iterator, Symbol.toStringTag, etc.).
+
+-------------------------------------------------------
+
+## How to use Symbol with code examples?
+
+Example 1 – Uniqueness
+
+```javascript
+const a = Symbol("id");
+const b = Symbol("id");
+console.log(a === b);    // false (even if descriptions are the same)
+```
+
+Example 2 – Using as Object Keys
+
+```javascript
+// Define a symbol for private/hidden data
+const secretId = Symbol("secretId");
+const user = {
+  name: "Alice",
+  age: 25,
+  [secretId]: 98765  // hidden property
+};
+
+// Normal access
+console.log(user.name);       // Output: "Alice"
+console.log(user.age);        // Output: 25
+console.log(user.secretId);   // Output: undefined
+
+// Access using the symbol
+console.log(user[secretId]);  // Output: 98765
+
+// Iterating over keys/properties
+for (let key in user) {       // Output: name, age
+  console.log(key);
+}
+
+console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId) ]
+```
+
+
 
 
 -------------------------------------------------------
 
-# Browser API: familiar with different authentication and storage mechanisms present in the browser?
+# Browser API
+
+-------------------------------------------------------
+
+## Browser API: familiar with different authentication and storage mechanisms present in the browser?
 
 Cookies, local storage, and session storage.
 
 -------------------------------------------------------
 
-# Browser API: familiar with the History API?
+## Browser API: familiar with the History API?
 
 Yes, used by all modern frameworks to mimic HTTP-like routing in SPAs (Single Page Applications). 
 
--------------------------------------------------------
 
-# What's hoisting?
 
-The process whereby the interpreter appears to move the declaration of `functions`, `variables`, `classes`, or `imports` to the top of their scope, prior to execution of the code.
 
-Functions and Variables are hoisted.
 
-| Feature              | Hoisted?                            | Initialization? | TDZ                   | Can use before declaration? |
-| -------------------- | ----------------------------------- | --------------- | --------------------- | --------------------------- |
-| `var`                | Yes                                 | No              | No                    | Yes, value = undefined      |
-| `let` / `const`      | Yes                                 | No              | Yes                   | No (ReferenceError)         |
-| Function declaration | Yes                                 | Yes             | No                    | Yes                         |
-| Function expression  | Variable only (`var`/`let`/`const`) | No              | Yes for `let`/`const` | No (depends on type)        |
+
+
 
 -------------------------------------------------------
 
-# What's variable hoisting?
-
-TODO
+# Functions
 
 -------------------------------------------------------
 
-# What's function hoisting?
+## What does "functions are first class objects" mean?
 
-Function hoisting means that functions are moved to the top of their scope. That is,
+All the function declarations are eventually `assigned to a variable`.
 
-```javascript
- function b() {  
-   a = 10;  
-   return;  
-   function a() {} 
- } 
-```
-
-will be rewritten by the interpeter to this
-
-```javascript
- function b() {
-  function a() {}
-  a = 10;
-  return;
- }
-```
+That means they can be `passed to other functions`, be `stored in arrays`, and so on.
 
 -------------------------------------------------------
 
-# What does "functions are first class objects" mean?
-
-All the function declarations are eventually assigned to a variable.
-
-In Javascript, functions are first class objects, just like strings and numbers. 
-
-That means they are defined as variables and can be passed to other functions, be stored in arrays, and so on.
-
--------------------------------------------------------
-
-# What is `func.apply(this, args)` ?
+## What is `func.apply(this, args)` ?
 
 It uses the `Function.prototype.apply()` method to call a function (`func`) with:
 
@@ -910,7 +959,7 @@ It uses the `Function.prototype.apply()` method to call a function (`func`) with
 
 -------------------------------------------------------
 
-# When to use `Function.prototype.apply()` method?
+## When to use `Function.prototype.apply()` method?
 
 If you want to control what `this` points to inside the function.
 
@@ -941,7 +990,7 @@ If you want to control what `this` points to inside the function.
 
 -------------------------------------------------------
 
-# Difference between `Function.prototype.apply()` and `Function.prototype.call()` methods?
+## Difference between `Function.prototype.apply()` and `Function.prototype.call()` methods?
 
 `.apply(thisArg, argsArray)` → calls the function with a chosen `this` and arguments.
 
@@ -949,7 +998,7 @@ If you want to control what `this` points to inside the function.
 
 -------------------------------------------------------
 
-# Difference between `Function.prototype.bind()` and `call()` and `apply()` methods?
+## Difference between `Function.prototype.bind()` and `call()` and `apply()` methods?
 
 `call` / `apply` → when you want to invoke the function right now with a specific `this`.
 
@@ -957,7 +1006,7 @@ If you want to control what `this` points to inside the function.
 
 -------------------------------------------------------
 
-# What and How to use `Function.prototype.bind` ?
+## What and How to use `Function.prototype.bind` ?
 
 `bind` → used to `create a new function` with a `fixed this value`.
 
@@ -971,72 +1020,7 @@ boundFn();    // output: 10
 
 -------------------------------------------------------
 
-# Macrotask vs Microtask and how the event loop interacts with them?
-
-Macrotask: Timer Functions: setTimeout, setInterval, setImmediate, I/O: I/O, UI rendering: UI rendering
-
-Microtask: Promise, MutationObserver, process.nextTick
-
-Order of execution:
-1. call stack
-2. once the call stack is empty, the event loop will execute the microtask queue.
-3. once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue
-
--------------------------------------------------------
-
-# How do you iterate over properties of an object?
-
-1. Use the `for let key in` syntax
-
-```javascript
- for (let key in myObject){
-  const propVal = myObject[key]
- }
-```
-
-2. `Object.keys` method - keys only
-
-```javascript
-const keysArray = Object.keys(objectOne)
-...
-```
-
-3. `Object.values` method - values only
-
-```javascript
-const valsArray = Object.keys(objectOne)
-...
-```
-
-4. `Object.entries` method - keys and values
-
-```javascript
-const obj = { a: 1, b: 2, c: 3 };
-
-Object.entries(obj).forEach(([key, value]) => {
-  console.log(key, value);
-});
-```
-
--------------------------------------------------------
-
-# How can we make sure that nobody can edit the properties of an object?
-
-Using `Object.freeze()`. 
-
-It freezes an object, so it cannot be modified in any way.
-
--------------------------------------------------------
-
-# How can we make sure that nobody can add or delete properties to an object?
-
-Using `Object.seal()`.
-
-It protects the properties of an object from being added or deleted but existing ones can be modified.
-
--------------------------------------------------------
-
-# What javascript pattern is used in the following code snippet?
+## What javascript pattern is used in the following code snippet?
 
 ```javascript
  (function (module) {
@@ -1054,9 +1038,122 @@ It protects the properties of an object from being added or deleted but existing
 
 An IIFE (Immediately Invoked Function Expression) used as a module declaration.
 
+
+
+
+
+
+
+
 -------------------------------------------------------
 
-# What is a class in javascript?
+# Classes, Prototypes, Objects
+
+-------------------------------------------------------
+
+## What are prototypes in javascript?
+
+Every JavaScript object has an internal link to another object called its prototype.
+
+That prototype object can have its own prototype, and so on, forming a prototype chain.
+
+When you try to access a property on an object, JavaScript looks for it:
+
+ 1. On the object itself.
+
+ 2. If not found, it looks up the prototype chain until it reaches Object.prototype.
+
+
+ - `ES6` `class` is syntactic sugar over prototype-based inheritance.
+
+ - Objects inherit from other objects via prototypes.
+
+ - Constructor functions use `prototype` for shared methods.
+
+ - `Object.create(proto)` creates a new object with the given prototype.
+ 
+ - An object’s internal Prototype is accessible via `__proto__`
+
+-------------------------------------------------------
+
+## How: Code Example for a Basic Prototype
+
+```javascript
+ const person = {
+  greet() {
+    console.log("Hello!");
+  }
+ };
+
+ const user = Object.create(person);   // user’s prototype is person
+ user.greet();   // Inherited from person → "Hello!"
+```
+
+Here, `user` doesn’t have `greet`, but it inherits it from its `prototype` (`person`).
+
+-------------------------------------------------------
+
+## Why Use Function.prototype?
+
+Because we want all objects created by the same constructor to share methods instead of duplicating them.
+
+```javascript
+ Person.prototype.sayHello = function() {
+  console.log("Hi, I'm " + this.name);
+ };
+
+ const alice = new Person("Alice");
+ const bob = new Person("Bob");
+
+ alice.sayHello(); // "Hi, I'm Alice"
+ bob.sayHello();   // "Hi, I'm Bob"
+```
+
+Both alice and bob share the same `sayHello` function on `Person.prototype`.
+
+This saves memory and allows consistent behavior across instances.
+
+Prototype chain for an object like alice created from Person:
+
+- alice → inherits from `Person.prototype`
+
+- `Person.prototype` → inherits from `Object.prototype`
+
+- `Object.prototype` → ends with `null`
+
+-------------------------------------------------------
+
+## Constructor Functions and Prototypes
+
+A constructor function in JavaScript is just a normal function.
+
+```javascript
+ function Person(name) {
+  this.name = name;
+ }
+```
+
+`const alice = new Person("Alice");` - But when you call it with new, special things happen.
+
+JavaScript does these steps under the hood:
+
+1. Create a new empty object
+
+2. Set the prototype of that object to the function’s prototype property.
+
+`obj.__proto__ = Person.prototype;`
+
+3. Call the constructor function with this bound to the new object:
+
+`Person.call(obj, "Alice");`
+
+4. Return the object unless the function explicitly returns something else.
+
+`return obj;`
+
+-------------------------------------------------------
+
+## What is a class in javascript?
 
 Think of it as a template for objects.
 
@@ -1072,7 +1169,7 @@ Before ES6, JavaScript used functions and prototypes for object creation.
 
 -------------------------------------------------------
 
-# Code example for classes in javascript ?
+## Code example for classes in javascript ?
 
 ```javascript
 class Person {
@@ -1098,7 +1195,7 @@ person1.greet(); // Hello, my name is Alice and I am 25 years old.
 
 -------------------------------------------------------
 
-# What about class inheritance in javascript?
+## What about class inheritance in javascript?
 
 A class can `inherit` from another class by using `extends`.
 
@@ -1136,7 +1233,7 @@ A class can `inherit` from another class by using `extends`.
 
 -------------------------------------------------------
 
-# What is wrong with the subclass declaration below?
+## What is wrong with the subclass declaration below?
 
 ```javascript
  class Vehicle {   // superclass
@@ -1159,109 +1256,69 @@ The subclass should call the constructor of the `superclass(parent)` using the `
 
 -------------------------------------------------------
 
-# What are prototypes in javascript?
+## What are Object Methods?
 
-Every JavaScript object has an internal link to another object called its prototype.
+A method is just a function stored as a property of an object.
 
-That prototype object can have its own prototype, and so on, forming a prototype chain.
+Any property whose value is a function is essentially a method.
 
-When you try to access a property on an object, JavaScript looks for it:
-
- 1. On the object itself.
-
- 2. If not found, it looks up the prototype chain until it reaches Object.prototype.
-
-
- - `ES6` `class` is syntactic sugar over prototype-based inheritance.
-
- - Objects inherit from other objects via prototypes.
-
- - Constructor functions use `prototype` for shared methods.
-
- - `Object.create(proto)` creates a new object with the given prototype.
- 
- - An object’s internal Prototype is accessible via `__proto__`
+Access it using dot notation `obj.key` or bracket notation `obj["key"]`.
 
 -------------------------------------------------------
 
-# How: Code Example for a Basic Prototype
+## How do you iterate over properties of an object?
+
+1. Use the `for let key in` syntax
 
 ```javascript
- const person = {
-  greet() {
-    console.log("Hello!");
-  }
- };
-
- const user = Object.create(person);   // user’s prototype is person
- user.greet();   // Inherited from person → "Hello!"
-```
-
-Here, `user` doesn’t have `greet`, but it inherits it from its `prototype` (`person`).
-
--------------------------------------------------------
-
-# Why Use Function.prototype?
-
-Because we want all objects created by the same constructor to share methods instead of duplicating them.
-
-```javascript
- Person.prototype.sayHello = function() {
-  console.log("Hi, I'm " + this.name);
- };
-
- const alice = new Person("Alice");
- const bob = new Person("Bob");
-
- alice.sayHello(); // "Hi, I'm Alice"
- bob.sayHello();   // "Hi, I'm Bob"
-```
-
-Both alice and bob share the same `sayHello` function on `Person.prototype`.
-
-This saves memory and allows consistent behavior across instances.
-
-Prototype chain for an object like alice created from Person:
-
-- alice → inherits from `Person.prototype`
-
-- `Person.prototype` → inherits from `Object.prototype`
-
-- `Object.prototype` → ends with `null`
-
--------------------------------------------------------
-
-# Constructor Functions and Prototypes
-
-A constructor function in JavaScript is just a normal function.
-
-```javascript
- function Person(name) {
-  this.name = name;
+ for (let key in myObject){
+  const propVal = myObject[key]
  }
 ```
 
-`const alice = new Person("Alice");` - But when you call it with new, special things happen.
+2. `Object.keys` method - keys only
 
-JavaScript does these steps under the hood:
+```javascript
+const keysArray = Object.keys(objectOne)
+...
+```
 
-1. Create a new empty object
+3. `Object.values` method - values only
 
-2. Set the prototype of that object to the function’s prototype property.
+```javascript
+const valsArray = Object.keys(objectOne)
+...
+```
 
-`obj.__proto__ = Person.prototype;`
+4. `Object.entries` method - keys and values
 
-3. Call the constructor function with this bound to the new object:
+```javascript
+const obj = { a: 1, b: 2, c: 3 };
 
-`Person.call(obj, "Alice");`
-
-4. Return the object unless the function explicitly returns something else.
-
-`return obj;`
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(key, value);
+});
+```
 
 -------------------------------------------------------
 
-# How can we make sure that nobody can edit the properties of an object?
+## How can we make sure that nobody can edit the properties of an object?
+
+Using `Object.freeze()`. 
+
+It freezes an object, so it cannot be modified in any way.
+
+-------------------------------------------------------
+
+## How can we make sure that nobody can add or delete properties to an object?
+
+Using `Object.seal()`.
+
+It protects the properties of an object from being added or deleted but existing ones can be modified.
+
+-------------------------------------------------------
+
+## How can we make sure that nobody can edit the properties of an object?
 
 ```javascript
  const person = {
@@ -1281,32 +1338,16 @@ Common Mistakes:
 
 - `const` means that the variable cannot be redeclared or redefined, but it does not prevent the modification of the object it points to.
 
--------------------------------------------------------
 
-# What creates a new type with all the properties optional?
 
-```javascript
- interface Table {
-  legs: number;
-  height: number;
-  width: number;
-  material: string;
- }
-```
-
-`Partial<Table>`.
-
-https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
 
 -------------------------------------------------------
 
-# What happens when typescript finds two interfaces with the same name in a codebase?
-
-Typescript will merge the interfaces
+# "this", Regular Functions, Arrow Functions
 
 -------------------------------------------------------
 
-# How different type of functions handle the "this" object?
+## How different type of functions handle the "this" object?
 
 The behavior of `this` in JavaScript is very tricky bc it depends on how a function is called, not just where it’s defined.
 
@@ -1324,7 +1365,7 @@ Arrow functions:
 
 -------------------------------------------------------
 
-# The global "this", what is the output to the console of the following snippet?
+## The global "this", what is the output to the console of the following snippet?
 
 ```javascript
  console.log(this); 
@@ -1340,7 +1381,7 @@ Output:
 
 -------------------------------------------------------
 
-# Normal functions and the "this" object?
+## Normal functions and the "this" object?
 
 Function declaration / function expression:
 
@@ -1357,7 +1398,7 @@ Output:
 
 -------------------------------------------------------
 
-# Normal functions with `new` (constructor), the "this" object?
+## Normal functions with `new` (constructor), the "this" object?
 
 A constructor function in JavaScript is just a normal function.
 
@@ -1373,7 +1414,7 @@ Output: "Alice".
 
 -------------------------------------------------------
 
-# Normal Function with Object method: what is the output to the console?
+## Normal Function with Object method: what is the output to the console?
 
 ```javascript
 const obj = {
@@ -1391,7 +1432,7 @@ Output: "John".
 
 -------------------------------------------------------
 
-# Object method with Arrow Function and "this": what is the output to the console?
+## Object method with Arrow Function and "this": what is the output to the console?
 
 ```javascript
 const person = {
@@ -1411,7 +1452,7 @@ Output:
 
 -------------------------------------------------------
 
-# Object methods with Normal Function and Arrow Function: what is the output to the console?
+## Object methods with Normal Function and Arrow Function: what is the output to the console?
 
 ```javascript
 const obj = {
@@ -1438,7 +1479,7 @@ When to use what?
 
 -------------------------------------------------------
 
-# Class methods with Normal Function and Arrow Function: what is the output to the console?
+## Class methods with Normal Function and Arrow Function: what is the output to the console?
 
 ```javascript
  class User {
@@ -1487,7 +1528,7 @@ When to use what?
 
 -------------------------------------------------------
 
-# Practical example with setTimeout: Normal Function and Arrow Function
+## Practical example with setTimeout: Normal Function and Arrow Function
 
 ```javascript
 class Timer {
@@ -1529,35 +1570,57 @@ This is a classic case where `arrow functions` save you from this headaches.
 
 -------------------------------------------------------
 
-# Class methods with Normal Function using self and bind: what is the output ?
+## Class methods with Normal Function using self and bind: what is the output ?
 
 TODO
 
 -------------------------------------------------------
 
-# How do you find unused dependencies?
-
-1. Use tools like `depcheck` to see if you have any unused library in your package.json
-
-In general, webpack should be removing those with tree shaking anyhow, and dead code remove but still you want to keep it clean.
-
-2. Use the `webpack bundle analyser` to see the JavaScript cost of adding each library to evaluate if any library should be replaced with a lighter implementation
-
-Some libraries you will be able to easily remove, some others are harder to replace (if the codebase use them heavily).
-
-The important thing is you make those decisions (adding a new library to the codebase for example) with performance in mind, rather than keep adding dependencies to a project (pretty common in the JS world).
-
--------------------------------------------------------
-
 
 
 
 
 -------------------------------------------------------
-           JS Asynchronous & Events
+
+# Asynchronous & Events: Callbacks & Promises
+
 -------------------------------------------------------
 
-# Can you explain callbacks in human language?
+## TODO
+
+34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
+only promises ???
+
+35. **Macrotask Queue** – Queue for `setTimeout`, `setInterval`, etc.
+only callbacks???
+
+36. **Event Bubbling** – Events propagate from `child` → `parent`.
+only callbacks???
+
+37. **Event Capturing** – Events propagate from `parent` → `child`.
+only callbacks???
+
+38. **Event Delegation** – Handling events at a `higher level` for efficiency.
+only callbacks???
+
+try/catch/finally
+throw
+
+.then() and .catch() chaining instead of nesting
+
+Promises
+
+32. **Promise** – Object representing `async completion/failure`.
+
+js : promise, syntax for handling resolve / reject
+
+33. **Async / Await** – Syntactic sugar for `promises`.
+
+34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
+
+-------------------------------------------------------
+
+## Can you explain callbacks in human language?
 
 A **callback** is just a function passed into another function, so it can call it later when it’s ready.
 
@@ -1565,7 +1628,7 @@ A piece of code that calls another piece of code once it has finished executing.
 
 -------------------------------------------------------
 
-# What's Callback Hell?
+## What's Callback Hell?
 
 TLDR: `Nested callbacks`, making code messy.
 
@@ -1573,7 +1636,7 @@ Example???
 
 -------------------------------------------------------
 
-# Can you use try/catch/finally on callbacks?
+## Can you use try/catch/finally on callbacks?
 
 No.
 
@@ -1592,7 +1655,7 @@ try {
 
 -------------------------------------------------------
 
-# How Do You Use `try/catch/finally block` ?
+## How Do You Use `try/catch/finally block` ?
 
 `try{}` → risky operation handling - `may throw error` - code blocks executes fully or partially - partially if error thrown
 
@@ -1602,7 +1665,7 @@ try {
 
 -------------------------------------------------------
 
-# Differences And Connection Between Promise vs Callback?
+## Differences And Connection Between Promise vs Callback?
 
 Callback is connected to Promise because **callback is legacy js**, it is the old way of handling asynchronous code.
 
@@ -1627,7 +1690,7 @@ Improvement List:
 
 -------------------------------------------------------
 
-# What Is A Promise?
+## What Is A Promise?
 
 An **object** that represents the **eventual result of an asynchronous operation**.
 
@@ -1635,7 +1698,7 @@ It acts like a placeholder for a value that will be available now, later, or nev
 
 -------------------------------------------------------
 
-# What Are Promise States?
+## What Are Promise States?
 
 3 states:
 
@@ -1649,7 +1712,7 @@ Once `resolved` or `rejected` it won’t change again.
 
 -------------------------------------------------------
 
-# What's The Code To Create A Promise With `new()` Syntax ?
+## What's The Code To Create A Promise With `new()` Syntax ?
 
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
@@ -1669,7 +1732,7 @@ TLDR:
 
 -------------------------------------------------------
 
-# What Are The Two Ways To Handle A Promise?
+## What Are The Two Ways To Handle A Promise?
 
 4 ways to handle a Promise:
 - Method Chaining → `.then()/.catch()/.finally()` (classic way?? )
@@ -1685,7 +1748,7 @@ TODO: break down each in separate question ???
 
 -------------------------------------------------------
 
-# `Promise Handling` With `Method Chaining` Syntax: Code Example ?
+## `Promise Handling` With `Method Chaining` Syntax: Code Example ?
 
 TLDR:
 - `.then()` → for success
@@ -1707,7 +1770,7 @@ myPromise
 
 -------------------------------------------------------
 
-# `Promise Handling` With `Method Chaining`: Code Example Handling 2 Promises ?
+## `Promise Handling` With `Method Chaining`: Code Example Handling 2 Promises ?
 
 TLDR:
 - `.then()` → for success
@@ -1724,7 +1787,7 @@ fetch("/api/data")
 
 -------------------------------------------------------
 
-# `Promise Handling` With `async/await`: Code Example ?
+## `Promise Handling` With `async/await`: Code Example ?
 
 TLDR:
 - we still use `try/catch/finally block`
@@ -1747,7 +1810,7 @@ handlePromise();
 
 -------------------------------------------------------
 
-# `Promise Handling` With `async/await`: Code Example Handling 2 Promises ?
+## `Promise Handling` With `async/await`: Code Example Handling 2 Promises ?
 
 TLDR:
 - we still use `try/catch/finally block`
@@ -1767,7 +1830,7 @@ try {
 
 -------------------------------------------------------
 
-# Is This OK To Use `async/await` Syntax Without `try/catch/finally block` ?
+## Is This OK To Use `async/await` Syntax Without `try/catch/finally block` ?
 
 TLDR:
  - No. You can, but not ok for error handling.
@@ -1787,30 +1850,7 @@ Good Practice:
 
 -------------------------------------------------------
 
-
-
-
-
-
--------------------------------------------------------
-
-# When was try/catch/finally introduced?
-
-1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
-
-2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
-
-Method Chaining ??
-
--------------------------------------------------------
-
-
-
-
-
--------------------------------------------------------
-
-# What's the difference between `Promise Chaining` and `try/catch/finally block` ?
+## What's the difference between `Promise Chaining` and `try/catch/finally block` ?
 
 - Promise **Chaining** → method-based style - uses .then(), .catch(), .finally()
 
@@ -1818,56 +1858,9 @@ Method Chaining ??
 
 Pro and Cons ???
 
+-------------------------------------------------------
 
-
-
-
-
-
-34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
-only promises ???
-
-35. **Macrotask Queue** – Queue for `setTimeout`, `setInterval`, etc.
-only callbacks???
-
-36. **Event Bubbling** – Events propagate from `child` → `parent`.
-only callbacks???
-
-37. **Event Capturing** – Events propagate from `parent` → `child`.
-only callbacks???
-
-38. **Event Delegation** – Handling events at a `higher level` for efficiency.
-only callbacks???
-
-try/catch/finally
-throw
-
-.then() and .catch() chaining instead of nesting
-
-
-
-
-
-
-
-
-
-Promises
-
-32. **Promise** – Object representing `async completion/failure`.
-
-js : promise, syntax for handling resolve / reject
-
-33. **Async / Await** – Syntactic sugar for `promises`.
-
-34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
-
-
-
-
-
-
-# What will the following function return?
+## What will the following function return?
 
 ```javascript
  async function getData(url) {
@@ -1883,7 +1876,7 @@ Important: **async functions always return a Promise** that resolves to the valu
 
 -------------------------------------------------------
 
-# What will the following code print to the console?
+## What will the following code print to the console?
 
 ```javascript
  const firstPromise = Promise.resolve(1);
@@ -1905,12 +1898,30 @@ A bug occurred.
 
 -------------------------------------------------------
 
+## Macrotask vs Microtask and how the `event loop` interacts with them?
 
+Macrotask: Timer Functions: `setTimeout`, `setInterval`, `setImmediate`, I/O: `I/O`, UI rendering: `UI rendering`
+
+Microtask: `Promise`, `MutationObserver`, `process.nextTick`
+
+Order of execution:
+1. call stack
+2. once the call stack is empty, the event loop will execute the microtask queue.
+3. once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue
 
 -------------------------------------------------------
 
+## When was try/catch/finally introduced?
 
-# In which order will the following be printed to the console?
+1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
+
+2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
+
+Method Chaining ??
+
+-------------------------------------------------------
+
+## In which order will the following be printed to the console?
 
 frequent interview question! ⚠️
 
