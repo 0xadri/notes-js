@@ -14,32 +14,34 @@ What/Why/When(realusecases)/How(code): Classes Accessibility
 What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
+        One-Liners Every JS Dev Should Know
+-------------------------------------------------------
 
-# JS Core Concepts - 10 One-Liners Every Dev Should Know
+# JS Core Concepts
 
-1. **Variable** – Named storage (let, const, var).
+1. **Variable** – Named storage - `let`, `const`, `var`.
 
-2. **Scope** – Defines where `variables`/`functions` are accessible (block, function, global).
+2. **Scope** – Defines where `variables`/`functions` are accessible - `block`, `function`, `global`.
 
-3. **Hoisting** – JS moves variable/function declarations to the top of their scope.
+3. **Hoisting** – JS moves `variable`/`function` **declarations** to the top of their scope.
 
-4. **Closure** – A function that “remembers” variables from its outer scope.
+4. **Closure** – A function that “remembers” variables from its **outer scope**.
 
-5. **Lexical Scope** – Scope determined by **where code is written**, not where it's executed.
+5. **Lexical Scope** – `Scope` determined by **where code is written**, not where it's executed.
 
-6. **Execution Context** – The environment in which code is evaluated (this, variables, functions).
+6. **Execution Context** – The environment in which code is evaluated (`this`, `variables`, `functions`).
 
-7. **Call Stack** – Stack structure that tracks function calls.
+7. **Call Stack** – Stack structure that tracks `function calls`.
 
-8. **Event Loop** – JS mechanism that handles async tasks (callbacks, promises).
+8. **Event Loop** – JS mechanism that handles `async` tasks - `callbacks`, `promises`.
 
-9. **Garbage Collection** – Automatic memory management by JS engine.
+9. **Garbage Collection** – `Automatic memory management` by JS engine.
 
 10. **Strict Mode** ('use strict') – Enables stricter parsing & error handling.
 
 -------------------------------------------------------
 
-# JS Data Types & Structures - 10 One-Liners Every Dev Should Know
+# JS Data Types & Structures
 
 11. **7 Primitive Types** – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
 
@@ -51,11 +53,11 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 15. **JSON** (JavaScript Object Notation) – Lightweight data format.
 
-16. **Spread Operator** (...) – Expands elements (arrays, objects).
+16. **Spread Operator** (`...`) – `Expands` elements `from` `arrays`, `objects`.
 
-17. **Rest Parameters** (...args) – Collects arguments into an array.
+17. **Rest Parameters** (`...args`) – `Collects` arguments `into` an `array`.
 
-18. **Destructuring** – Extracting values from arrays/objects.
+18. **Destructuring** – `Extract` values from `arrays`/`objects`.
 
 19. **Map** / **Set** – Modern collections with unique keys/values.
 
@@ -63,19 +65,19 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# JS Functions & OOP - 10 One-Liners Every Dev Should Know
+# JS Functions & OOP
 
 21. **First-class Functions** – Functions treated like values.
 
 22. **Higher-order Functions** – Functions that take/return functions - Wrapper / Transformator / Decorator / Intersector.
 
-23. **Arrow Functions** `()=>` – Shorter syntax, no `this` binding.
+23. **Arrow Functions** `()=>` – Shorter syntax, no `this` binding - no need for `self=this` hack in closures.
 
 24. **Callback** – A `function` passed as an `argument`.
 
 25. **Constructor Function** – `Function used with new` to create objects.
 
-26. **Class** – `ES6 syntax sugar` for object-oriented programming.
+26. **Class** – `ES6 syntax sugar` for OOP.
 
 27. **"This" Keyword** – Refers to the `current execution context`.
 
@@ -87,7 +89,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# JS Asynchronous & Events - 10 One-Liners Every Dev Should Know
+# JS Asynchronous & Events
 
 31. **Callback Hell** – `Nested callbacks`, making code messy.
 
@@ -110,6 +112,10 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 40. **Throttling** – `Limits` execution to once per `interval`.
 
 -------------------------------------------------------
+-------------------------------------------------------
+
+
+
 
 # What is a Symbol?
 
@@ -325,13 +331,13 @@ Access it using dot notation `obj.key` or bracket notation `obj["key"]`.
 
 Context and scope are related but very different concepts. People often confuse them.
 
-1. Scope (Lexical)
+**1. Scope (Lexical)**
 
-Definition: Scope refers to the current set of variables that are available at a specific point in your code.
+TLDR: Scope = variable access.
 
-Determined by: it is set at write time (lexical structure) - how and where your code is written (lexical environment) - it cannot be changed at runtime.
+Definition: Scope refers to the `current set of variables available` at a specific point in your code.
 
-Key idea: Scope is about variable access.
+Determined by: set at write time (lexical structure) - how and where code is written (lexical environment) - cannot be changed at runtime.
 
 ```javascript
 function outer() {
@@ -345,13 +351,13 @@ function outer() {
 outer();
 ```
 
-2. Context (this)
+**2. Context (this)**
+
+TLDR: Context = object owning the current execution (`this`).
 
 Definition: Context refers to the value of `this` within a piece of code.
 
-Determined by: How a function is invoked (called).
-
-Key idea: Context is about the object that **owns the current execution** (`this`).
+Determined by: set at runtime by how a function is invoked/called - it can be changed at runtime with `.call()`, `.apply()`, `.bind()`.
 
 ```javascript
  const obj = {
@@ -383,13 +389,13 @@ Context = what `this` refers to when running a function.
 
 -------------------------------------------------------
 
-# What are the different scope in JavaScript?
+# What Are The 5 Different Scopes In JavaScript?
 
-1. Global Scope → Accessible everywhere – variables declared outside any function/block.
+1. Global Scope → Variables accessible everywhere – variables declared outside any function/block.
 
-2. Function Scope → Created inside functions (var).
+2. Function Scope → Variables created inside functions (var).
 
-3. Block Scope (let and const) → Created by `{}` with `let` and `const`.
+3. Block Scope → Variables created by `{}` with `let` and `const`.
 
 4. `Lexical Scope` (Static Scope) → how closures work - Inner functions access variables of Outer Function.
 
@@ -1011,101 +1017,6 @@ It protects the properties of an object from being added or deleted but existing
 
 -------------------------------------------------------
 
-# Explain javascript callbacks in human language
-
-A callback is just a function passed into another function, so it can call it later when it’s ready.
-
-A piece of code that calls another piece of code once it has finished executing.
-
--------------------------------------------------------
-
-# What will the following function return?
-
-```javascript
- async function getData(url) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
- }
-```
-
-A Promise object that resolves to the data from the URL.
-
-The function will return a Promise object. When the promise object resolves, the data will be returned.
-
-Note: async functions always return a Promise that resolves to the value of the return statement.
-
--------------------------------------------------------
-
-# What is a Promise?
-
-A Promise in JavaScript is an object that represents the eventual result of an asynchronous operation.
-
-It acts like a placeholder for a value that will be available now, later, or never.
-
--------------------------------------------------------
-
-# What are Promise States?
-
-A Promise has three states:
-
- 1. `pending` → initial state (still waiting).
-
- 2. `resolved` aka `fulfilled` → operation completed successfully → resolve(value).
-
- 3. `rejected` → operation failed → reject(error).
-
-Once `resolved` or `rejected` it won’t change again.
-
--------------------------------------------------------
-
-# JS Promise vs callback?
-
-Callback: legacy js, it is the old way of handling asynchronous code in JavaScript.
-
-Promise: an object that represents a value that may be available now, later, or never.
-
- - Provides chaining - `.then().then().catch()`, making sequences of async calls cleaner.
-
- - Cleaner error handling, centralized with `.catch()`.
-
- - Works seamlessly with `async`/`await` (making `async` code look synchronous).
-
-| Feature  | Callback       | Promise          |
-| -------------- | -------------------------------- | ------------------------------------- |
-| Syntax   | Function passed into another  | Object with `.then()`, `.catch()`  |
-| Readability | Can lead to "callback hell"   | More structured & chainable     |
-| Error handling | Must be handled manually   | Built-in via `.catch()`      |
-| Async flow  | Nested functions     | Chaining or `async/await`    |
-| Multiple tasks | Hard to manage       | Promise helpers (`all`, `race`, etc.) |
-| Modern usage   | Legacy / still used in Node APIs | Standard in modern JS     |
-
--------------------------------------------------------
-
-# In which order are will the following be printed to the console?
-
-frequent interview question! ⚠️
-
-To answer correctly, you need to understand the difference between macrotask and microtask and how the event loop interacts with them.
-
-- Macrotask: Timer Functions: setTimeout, setInterval, setImmediate, I/O: I/O, UI rendering: UI rendering
-
-- Microtask: Promise, MutationObserver, process.nextTick
-
-In this case, the code will be executed in the following order:
-
-1. logger("Lunch Cooked ...") is called first and is synchronous, so it will be printed to the console first.
-
-2. setTimeout(() => { logger("Dishes Washed ...") }, 0) is called second and will push the callback to the macrotask queue.
-
-3. myFutureValue.then(() => { logger("Water Boiled ...") }) is called third and will push the callback to the microtask queue.
-
-4. Once the call stack is empty, the event loop will execute the microtask queue, so logger("Water Boiled ...") will be printed to the console second.
-
-5. Finally, once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue, so logger("Dishes Washed ...") will be printed to the console third.
-
--------------------------------------------------------
-
 # What javascript pattern is used in the following code snippet?
 
 ```javascript
@@ -1123,28 +1034,6 @@ In this case, the code will be executed in the following order:
 ```
 
 An IIFE (Immediately Invoked Function Expression) used as a module declaration.
-
--------------------------------------------------------
-
-# What will the following code print to the console?
-
-```javascript
- const firstPromise = Promise.resolve(1);
- const secondPromise = Promise.resolve(2);
- const thirdPromise = Promise.reject("A bug occurred");
- 
- Promise.all([firstPromise, secondPromise, thirdPromise])
-  .then((values) => {
-   console.log(values);
- })
- .catch((error) => {
-  console.log(error);
- });
-```
-
-A bug occurred.
-
-Promise.all is a method that takes an Array of promises and returns a new promise that resolves when all of the promises in the array have resolved. However, if any of the promises is rejected, the promise returned will also reject, return the reason why it was rejected.
 
 -------------------------------------------------------
 
@@ -1640,4 +1529,238 @@ Some libraries you will be able to easily remove, some others are harder to repl
 The important thing is you make those decisions (adding a new library to the codebase for example) with performance in mind, rather than keep adding dependencies to a project (pretty common in the JS world).
 
 -------------------------------------------------------
+
+
+
+
+
+-------------------------------------------------------
+           JS Asynchronous & Events
+-------------------------------------------------------
+
+# Can you explain callbacks in human language?
+
+A callback is just a function passed into another function, so it can call it later when it’s ready.
+
+A piece of code that calls another piece of code once it has finished executing.
+
+-------------------------------------------------------
+
+# What's Callback Hell?
+
+TLDR: `Nested callbacks`, making code messy.
+
+Example???
+
+
+
+-------------------------------------------------------
+
+# Differences between Promise vs Callback?
+
+Callback: legacy js, it is the old way of handling asynchronous code in JavaScript.
+
+Promise: an object that represents a value that may be available now, later, or never.
+
+ - Provides chaining - `.then().then().catch()`, making sequences of async calls cleaner.
+
+ - Cleaner error handling, centralized with `.catch()`.
+
+ - Works seamlessly with `async`/`await` (making `async` code look synchronous).
+
+| Feature        | Callback                         | Promise                               |
+| -------------- | -------------------------------- | ------------------------------------- |
+| Syntax         | Function passed into another     | Object with `.then()`, `.catch()`     |
+| Readability    | Can lead to "callback hell"      | More structured & chainable           |
+| Error handling | Must be handled manually         | Built-in via `.catch()`               |
+| Async flow     | Nested functions                 | Chaining or `async/await`             |
+| Multiple tasks | Hard to manage                   | Promise helpers (`all`, `race`, etc.) |
+| Modern usage   | Legacy / still used in Node APIs | Standard in modern JS                 |
+
+-------------------------------------------------------
+
+
+
+# Can you use try/catch/finally on callbacks?
+
+No.
+
+Why? Because by the time the callback runs, the try/catch block has already finished executing.
+
+```javascript
+try {
+  setTimeout(() => {
+    throw new Error("Oops");
+  }, 100);
+} catch (err) {
+  // This won't catch the error
+  console.error("Caught:", err);
+}
+```
+
+-------------------------------------------------------
+
+# When was try/catch/finally introduced?
+
+1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
+
+2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
+
+
+
+# What's the difference between Promise Chaining and try/catch/finally block ?
+
+Promise chaining → method-based style (uses .then(), .catch(), .finally()).
+
+try/catch/finally block → language syntax (keywords, not methods).
+
+-------------------------------------------------------
+
+# How do you typically use try/catch/finally ?
+
+try → risky operation that can throw error - code blocks only partially executed if error thrown
+
+catch → handle error if any - code block executing if and only if an error is thrown
+
+finally → handle any additional tasks i.e. cleanup - code block always executes
+
+double check the above ???
+
+
+
+
+
+
+34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
+only promises ???
+
+35. **Macrotask Queue** – Queue for `setTimeout`, `setInterval`, etc.
+only callbacks???
+
+36. **Event Bubbling** – Events propagate from `child` → `parent`.
+only callbacks???
+
+37. **Event Capturing** – Events propagate from `parent` → `child`.
+only callbacks???
+
+38. **Event Delegation** – Handling events at a `higher level` for efficiency.
+only callbacks???
+
+try/catch/finally
+throw
+
+.then() and .catch() chaining instead of nesting
+
+
+
+# What is a Promise?
+
+An object that represents the eventual result of an asynchronous operation.
+
+It acts like a placeholder for a value that will be available now, later, or never.
+
+-------------------------------------------------------
+
+# What are Promise States?
+
+A Promise has three states:
+
+ 1. `pending` → initial state (still waiting).
+
+ 2. `resolved` aka `fulfilled` → operation completed successfully → resolve(value).
+
+ 3. `rejected` → operation failed → reject(error).
+
+Once `resolved` or `rejected` it won’t change again.
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+Promises
+
+32. **Promise** – Object representing `async completion/failure`.
+
+js : promise, syntax for handling resolve / reject
+
+33. **Async / Await** – Syntactic sugar for `promises`.
+
+34. **Microtask Queue** – Where `promises` are queued - faster than `macrotasks`.
+
+
+
+
+
+
+# What will the following function return?
+
+```javascript
+ async function getData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+ }
+```
+
+The function will return a Promise object. When the promise object resolves, the data will be returned.
+
+Important: **async functions always return a Promise** that resolves to the value of the return statement.
+
+-------------------------------------------------------
+
+# What will the following code print to the console?
+
+```javascript
+ const firstPromise = Promise.resolve(1);
+ const secondPromise = Promise.resolve(2);
+ const thirdPromise = Promise.reject("A bug occurred");
+ 
+ Promise.all([firstPromise, secondPromise, thirdPromise])
+  .then((values) => {
+   console.log(values);
+  })
+  .catch((error) => {
+   console.log(error);
+  });
+```
+
+A bug occurred.
+
+`Promise.all` is a method that takes an Array of promises and returns a new promise that resolves when all of the promises in the array have resolved. However, if any of the promises is rejected, the promise returned will also reject, return the reason why it was rejected.
+
+-------------------------------------------------------
+
+
+
+-------------------------------------------------------
+
+
+# In which order will the following be printed to the console?
+
+frequent interview question! ⚠️
+
+TODO : MISSING CODE
+
+To answer correctly, you need to understand the difference between `macrotask` and `microtask` and how the event loop interacts with them.
+
+- Macrotask: Timer Functions: `setTimeout`, `setInterval`, `setImmediate`, I/O: `I/O`, UI rendering: `UI rendering`
+
+- Microtask: `Promise`, `MutationObserver`, `process.nextTick`
+
+In this case, the code will be executed in the following order:
+
+1. `logger("Lunch Cooked ...")` is called first and is synchronous, so it will be printed to the console first.
+
+2. `setTimeout(() => { logger("Dishes Washed ...") }, 0)` is called second and will push the callback to the `macrotask queue`.
+
+3. `myFutureValue.then(() => { logger("Water Boiled ...") })` is called third and will push the callback to the `microtask queue`.
+
+4. Once the call stack is empty, the event loop will execute the microtask queue, so `logger("Water Boiled ...")` will be printed to the console second.
+
+5. Finally, once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue, so logger("Dishes Washed ...") will be printed to the console third.
+
 

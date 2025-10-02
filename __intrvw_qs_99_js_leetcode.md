@@ -61,6 +61,78 @@ Array.prototype.myReduce = function (fn, init){
 
 -------------------------------------------------------
 
+# Remove HTML Tags From String
+
+Write a method that will remove all html tags from any given string.
+
+For example, the input string:
+
+"The quick brown fox jumps over the <b>lazy</b> dog"
+should return:
+
+"The quick brown fox jumps over the lazy dog"
+
+```javascript
+'use strict';
+
+module.exports = {
+  removeTags
+};
+
+function removeTags(input) {
+    // let skipCurrChar = false;
+    // let output = "";
+    // for chars in input
+        // if currChar === "<"
+            // skipCurrChar = true
+        // if currChar === ">"
+            // skipCurrChar = false
+        // if skipCurrChar === false && currChar === ">"
+            // add to output
+
+    let skipCurrChar = false;
+    let output = "";
+    for (let currChar of input){   // for let ... of ...  -> can be written: for (let i = 0; i < input.length; i++) {
+        if (currChar === "<") {
+            skipCurrChar = true;
+        }
+        else if (currChar === ">") {
+            skipCurrChar = false;
+        }
+        else if (skipCurrChar === false && currChar === ">"){
+            output = output + currChar;
+        }
+    }
+    return output;
+}
+```
+
+-------------------------------------------------------
+
+# Call Once Function
+
+Given a function fn, return a new function that is identical to the original function except that it ensures that fn can be called at most once.
+
+The first time the returned function is called, it should return the same result as the original fn.
+
+Every subsequent time it is called, it should return undefined.
+
+```javascript
+export default function callOnce(fn) {
+    let wasAlreadyCalled = false;
+
+    return (...args) => {    // Rest Parameters - Collects arguments into an array
+        if(wasAlreadyCalled){
+            return undefined;
+        }
+        wasAlreadyCalled = true;        
+        return fn(...args);   // Spread Operator - Expands elements of arrays and objects
+    }
+};
+```
+
+-------------------------------------------------------
+
 # Wrap A Function In A Timeout
 
 ```javascript
