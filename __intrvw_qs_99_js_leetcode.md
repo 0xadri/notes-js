@@ -133,6 +133,39 @@ export default function callOnce(fn) {
 
 -------------------------------------------------------
 
+# Bind Polyfill
+
+Add a `bindPolyfill method` to all functions. When the bindPolyfill method is called with an object obj, it should set obj as the this context for the function.
+
+Requirements:
+- the `bindPolyfill` method should always receive a non-null object
+- you should not use the built-in `Function.bind` or `Function.apply` methods
+- the `bindPolyfill` method should return a new function
+
+```javascript
+Function.prototype.bindPolyfill = function(obj) {
+    obj["__binding__"] = this;     // add function as property/method to passed object - "this" is the current function object
+    return (...args) => obj["__binding__"](...args);    // return the wrapped obj method as a new function
+}
+```
+
+The above version has one major issue though:
+- collisions are guaranteed if you bind more than one function to the same object.
+- Every time you call .bindPolyfill, it assigns the function to the same property ("__binding__") on the target object.
+- That means the previous binding is overwritten.
+
+```javascript
+Function.prototype.bindPolyfill = function(obj) {
+    // add the function as a method to an object
+    obj[this.name] = this;
+
+    // return the wrapped obj method as a new function
+    return (...args) => obj[this.name](...args); // call as obj method
+}
+```
+
+-------------------------------------------------------
+
 # Wrap A Function In A Timeout
 
 ```javascript

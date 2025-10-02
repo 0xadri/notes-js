@@ -190,6 +190,20 @@ A potential violation of the SOLID principles.
 
 
 -------------------------------------------------------
+                   ANALOGIES
+-------------------------------------------------------
+
+# Patterns Analogies
+
+Debounce: Think of it like waiting for someone to stop talking before you reply.
+
+Throttle: Think of it like a speed limiter.
+
+
+
+
+
+-------------------------------------------------------
                    PATTERNS
 -------------------------------------------------------
 

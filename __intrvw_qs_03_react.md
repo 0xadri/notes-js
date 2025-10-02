@@ -335,26 +335,42 @@ Class Components:
 
 -------------------------------------------------------
  
-# What's the difference between useMemo vs useCallback ?
+# What's the difference between `useMemo()` vs `useCallback()` ?
 
-React hooks for performance optimization, but they serve slightly different purposes.
+Both are hooks for caching, for performance optimization, but they serve slightly different purposes.
 
-**1. useMemo**
+- `useMemo()` → caches the **result** of a function
 
-Memoizes/caches the **result** of a function.
+- `useCallback()` → caches the **function itself** (not the result).
+
+HOF / wrapper ???
+
+-------------------------------------------------------
+ 
+# `useMemo()` Use Case and Basic Example?
+
+Memoizes/Caches the **result** of a function.
 
 Use case: When you have an expensive calculation and don’t want to recompute it unless dependencies change.
 
 ```javascript
  const expensiveValue = useMemo(() => {
   console.log("Calculating...");
-  return count * 2; // imagine a heavy computation here
+  return count * 2;     // imagine a heavy computation here
  }, [count]);        // calculation only runs when count changes
 ```
 
-**2. useCallback**
+HOF / wrapper ???
 
-Memoizes/caches a **function itself** (not the result).
+for the result of a function to be memoized with `useMemo()`, it should be:
+- deterministic: the same inputs always produce the same outputs ???
+- pure: it should not have side effects ???
+
+-------------------------------------------------------
+ 
+# `useCallback()` Use Case and Basic Example?
+
+Memoizes/Caches the **function itself** (not the result).
 
 Use case: When you pass callbacks to child components.
 
@@ -364,21 +380,45 @@ CoolDisplay component will be re-rendered whenever `increment` is re-created, ty
 
 We can avoid that by caching `increment` since it's not a changing value.
 
+HOF / wrapper ???
+
+for a function to be memoized with `useCallback()`, it should be BOTH:
+- deterministic: the same inputs always produce the same outputs ???
+- pure: it should not have side effects ???
+
 -------------------------------------------------------
 
-# What's React.memo ?
+# What's the difference between `React.memo()` vs `useCallback()` ?
 
-`React.memo` is a HOC: it's a wrapper / intersector.
+Both are hooks for caching, for performance optimization, but they serve slightly different purposes.
 
-Prevents unnecessary `re-renders` of functional components: **performance optimization**.
+- `useCallback()` → caches a **regular function**
 
-Memoizes the rendered output, meaning:
+- `React.memo()` → caches a **react function component**
+
+HOF vs HOC / wrappers ???
+
+-------------------------------------------------------
+
+# What's `React.memo()` ?
+
+Memoizes/Caches the rendered output of a react function component, meaning:
  - React skips re-rendering the component if its `props` are the same as the previous render.
  - If `props` change, it will re-render normally.
 
+Performance optimization.
+
+Prevents unnecessary `re-renders` of functional components.
+
+`React.memo()` is a HOC: it's a wrapper / intersector.
+
+for a react function component to be memoized with `useCallback()`, it should be BOTH:
+- deterministic: the same inputs always produce the same outputs ???
+- pure: it should not have side effects ???
+
 -------------------------------------------------------
 
-# How: Code example for React.memo ?
+# How: Code example for `React.memo()` ?
 
 ```javascript
  import React from 'react';
@@ -391,22 +431,24 @@ Memoizes the rendered output, meaning:
 
 -------------------------------------------------------
  
-# Why React.memo is useful ?
-
-Prevents unnecessary `re-renders` of functional components: **performance optimization**.
+# Why: Real-Life Use Cases For `React.memo()` ?
 
 Components re-renders can hurt performance, especially for:
  - Large component trees
  - Components with expensive rendering logic (e.g., heavy calculations, complex UI)
  - Lists of items that rarely change
 
+These are common examples where `React.memo()` is especially useful.
+
 -------------------------------------------------------
  
-# How does React.memo compare the props?
+# How does `React.memo()` compare the `props`?
 
-By default, `React.memo` does a **shallow comparison** of props.
+By default, `React.memo()` does a **shallow comparison** of props.
 
-Is it possible to change that default behavior?
+-------------------------------------------------------
+ 
+# `React.memo()` comparing `props`: Is it possible to change the default behavior?
 
 Yes, via a custom **comparison function**.
 

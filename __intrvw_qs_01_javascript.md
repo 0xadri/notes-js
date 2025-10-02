@@ -952,6 +952,20 @@ If you want to control what `this` points to inside the function.
 
 -------------------------------------------------------
 
+# What and How to use `Function.prototype.bind` ?
+
+`bind` → used to `create a new function` with a `fixed this value`.
+
+```javascript
+const obj = { x: 10 };
+function printX() { console.log(this.x); }   // function definition
+
+const boundFn = printX.bind(obj);    // bind "obj" to the "this" of "printX" function (hence object)
+boundFn();    // output: 10
+```
+
+-------------------------------------------------------
+
 # Macrotask vs Microtask and how the event loop interacts with them?
 
 Macrotask: Timer Functions: setTimeout, setInterval, setImmediate, I/O: I/O, UI rendering: UI rendering
@@ -1540,7 +1554,7 @@ The important thing is you make those decisions (adding a new library to the cod
 
 # Can you explain callbacks in human language?
 
-A callback is just a function passed into another function, so it can call it later when it’s ready.
+A **callback** is just a function passed into another function, so it can call it later when it’s ready.
 
 A piece of code that calls another piece of code once it has finished executing.
 
@@ -1552,34 +1566,7 @@ TLDR: `Nested callbacks`, making code messy.
 
 Example???
 
-
-
 -------------------------------------------------------
-
-# Differences between Promise vs Callback?
-
-Callback: legacy js, it is the old way of handling asynchronous code in JavaScript.
-
-Promise: an object that represents a value that may be available now, later, or never.
-
- - Provides chaining - `.then().then().catch()`, making sequences of async calls cleaner.
-
- - Cleaner error handling, centralized with `.catch()`.
-
- - Works seamlessly with `async`/`await` (making `async` code look synchronous).
-
-| Feature        | Callback                         | Promise                               |
-| -------------- | -------------------------------- | ------------------------------------- |
-| Syntax         | Function passed into another     | Object with `.then()`, `.catch()`     |
-| Readability    | Can lead to "callback hell"      | More structured & chainable           |
-| Error handling | Must be handled manually         | Built-in via `.catch()`               |
-| Async flow     | Nested functions                 | Chaining or `async/await`             |
-| Multiple tasks | Hard to manage                   | Promise helpers (`all`, `race`, etc.) |
-| Modern usage   | Legacy / still used in Node APIs | Standard in modern JS                 |
-
--------------------------------------------------------
-
-
 
 # Can you use try/catch/finally on callbacks?
 
@@ -1600,31 +1587,232 @@ try {
 
 -------------------------------------------------------
 
+# How Do You Use `try/catch/finally block` ?
+
+`try{}` → risky operation handling - `may throw error` - code blocks executes fully or partially - partially if error thrown
+
+`catch(){}` → error handling - i.e. log error - code block may execute, if and only if an error is thrown
+
+`finally{}` → cleanup handling - any additional tasks - code block always executes
+
+-------------------------------------------------------
+
+# Differences And Connection Between Promise vs Callback?
+
+Callback is connected to Promise because **callback is legacy js**, it is the old way of handling asynchronous code.
+
+Promise: an object that represents a value that may be available now, later, or never.
+
+ - Provides chaining - `.then().then().catch()`, making sequences of async calls cleaner.
+
+ - Cleaner error handling, centralized with `.catch()`.
+
+ - Works seamlessly with `async`/`await`, making `async` code look synchronous.
+
+Improvement List:
+
+| Feature        | Callback                         | Promise                               |
+| -------------- | -------------------------------- | ------------------------------------- |
+| Syntax         | Function passed into another     | Object with `.then()`, `.catch()`     |
+| Readability    | Can lead to "callback hell"      | More structured & chainable           |
+| Error handling | Must be handled manually         | Built-in via `.catch()`               |
+| Async flow     | Nested functions                 | Chaining or `async/await`             |
+| Multiple tasks | Hard to manage                   | Promise helpers (`all`, `race`, etc.) |
+| Modern usage   | Legacy / still used in Node APIs | Standard in modern JS                 |
+
+-------------------------------------------------------
+
+# What Is A Promise?
+
+An **object** that represents the **eventual result of an asynchronous operation**.
+
+It acts like a placeholder for a value that will be available now, later, or never.
+
+-------------------------------------------------------
+
+# What Are Promise States?
+
+3 states:
+
+ 1. `pending` → initial state (still waiting).
+
+ 2. `resolved` aka `fulfilled` → operation completed successfully → `resolve(value)`.
+
+ 3. `rejected` → operation failed → `reject(error)`.
+
+Once `resolved` or `rejected` it won’t change again.
+
+-------------------------------------------------------
+
+# What's The Code To Create A Promise With `new()` Syntax ?
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  const success = true;   // Do some async work, set to boolean depending on condition
+  if (success) {
+    resolve("Operation was successful!");    // resolve(value) → sends a success value
+  } else {
+    reject("Something went wrong.");        // reject(error) → sends an error value
+  }
+});
+```
+
+TLDR:
+- `new Promise((resolve, reject) => { ... }` → creates Promise object with `resolve` and `reject` as callbacks
+- resolve(value) → sends a success value
+- reject(error) → sends an error value
+
+-------------------------------------------------------
+
+# What Are The Two Ways To Handle A Promise?
+
+4 ways to handle a Promise:
+- Method Chaining → `.then()/.catch()/.finally()` (classic way?? )
+- `async/await` syntax + `try/catch/finally` block (modern way?? )
+- Attaching `.catch()` on the `async function call`
+- `Top-level await` (ES2022+) → `await without async`, without wrapping in a function
+
+
+5th way to handle multiple Promises:
+- Promise utilities → `Promise.all`, `Promise.race`, etc.
+
+TODO: break down each in separate question ???
+
+-------------------------------------------------------
+
+# `Promise Handling` With `Method Chaining` Syntax: Code Example ?
+
+TLDR:
+- `.then()` → for success
+- `.catch()` → for errors
+- `.finally()` → for cleanup
+
+```javascript
+myPromise
+  .then(result => {
+    console.log("Resolved:", result); // runs if resolve() is called
+  })
+  .catch(error => {
+    console.error("Rejected:", error); // runs if reject() is called
+  })
+  .finally(() => {
+    console.log("Always runs, success or failure");
+  });
+```
+
+-------------------------------------------------------
+
+# `Promise Handling` With `Method Chaining`: Code Example Handling 2 Promises ?
+
+TLDR:
+- `.then()` → for success
+- `.catch()` → for errors
+- `.finally()` → for cleanup
+
+```javascript
+fetch("/api/data")
+  .then(res => res.json())     // 1st promise
+  .then(data => console.log(data))     // 2nd promise
+  .catch(err => console.error("Error handled here:", err))    // one error handler
+  .finally(() => console.log("Always runs"));    // one finally handler
+```
+
+-------------------------------------------------------
+
+# `Promise Handling` With `async/await`: Code Example ?
+
+TLDR:
+- we still use `try/catch/finally block`
+- `async/await` with `try/catch/finally` for cleaner, synchronous-looking code.
+
+```javascript
+async function handlePromise() {
+  try {
+    const result = await myPromise; // waits until resolved
+    console.log("Resolved:", result);
+  } catch (error) {
+    console.error("Rejected:", error);
+  } finally {
+    console.log("Always runs");
+  }
+}
+
+handlePromise();
+```
+
+-------------------------------------------------------
+
+# `Promise Handling` With `async/await`: Code Example Handling 2 Promises ?
+
+TLDR:
+- we still use `try/catch/finally block`
+- `async/await` with `try/catch/finally` for cleaner, synchronous-looking code.
+
+```javascript
+try {
+  const res = await fetch("/api/data");
+  const data = await res.json();
+  console.log(data);
+} catch (err) {
+  console.error("Caught error:", err);
+} finally {
+  console.log("Always runs");
+}
+```
+
+-------------------------------------------------------
+
+# Is This OK To Use `async/await` Syntax Without `try/catch/finally block` ?
+
+TLDR:
+ - No. You can, but not ok for error handling.
+ - You’ll get an unhandled rejection.
+ - **This may crash your program** in modern runtimes.
+
+```javascript
+async function run() {
+  const result = await Promise.reject("Oops!");   // Rejects
+  console.log(result);      // This will never run !
+}
+run();          // UnhandledPromiseRejectionWarning (in Node.js) !
+```
+
+Good Practice:
+ - Always wrap your await in a try/catch/finally block
+
+-------------------------------------------------------
+
+
+
+
+
+
+-------------------------------------------------------
+
 # When was try/catch/finally introduced?
 
 1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
 
 2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
 
-
-
-# What's the difference between Promise Chaining and try/catch/finally block ?
-
-Promise chaining → method-based style (uses .then(), .catch(), .finally()).
-
-try/catch/finally block → language syntax (keywords, not methods).
+Method Chaining ??
 
 -------------------------------------------------------
 
-# How do you typically use try/catch/finally ?
 
-try → risky operation that can throw error - code blocks only partially executed if error thrown
 
-catch → handle error if any - code block executing if and only if an error is thrown
 
-finally → handle any additional tasks i.e. cleanup - code block always executes
 
-double check the above ???
+-------------------------------------------------------
+
+# What's the difference between `Promise Chaining` and `try/catch/finally block` ?
+
+- Promise **Chaining** → method-based style - uses .then(), .catch(), .finally()
+
+- try/catch/finally **Block** → language syntax - keywords, not methods
+
+Pro and Cons ???
+
 
 
 
@@ -1652,28 +1840,6 @@ throw
 .then() and .catch() chaining instead of nesting
 
 
-
-# What is a Promise?
-
-An object that represents the eventual result of an asynchronous operation.
-
-It acts like a placeholder for a value that will be available now, later, or never.
-
--------------------------------------------------------
-
-# What are Promise States?
-
-A Promise has three states:
-
- 1. `pending` → initial state (still waiting).
-
- 2. `resolved` aka `fulfilled` → operation completed successfully → resolve(value).
-
- 3. `rejected` → operation failed → reject(error).
-
-Once `resolved` or `rejected` it won’t change again.
-
--------------------------------------------------------
 
 
 
