@@ -3,21 +3,26 @@
 
 # TODO
 
-JS interpreter vs compiler
+Note: This doc is alive, hence this section :)
 
-What/Why/When(realusecases)/How(code): ES6 modules .mjs or with "type": "module" in package.json
+For each topic: What / Why / When(realusecases) / How(code) / Analogy / Mental Model / Memory Tip
 
-What/Why/When(realusecases)/How(code): Classes
+Classes
+- Classes vs Objects
+- Classes Accessibility
+- Classes Constructor
 
-What/Why/When(realusecases)/How(code): Classes Accessibility
+interpreter vs compiler
 
-What/Why/When(realusecases)/How(code): Classes Constructor
+ES6 modules .mjs or with "type": "module" in package.json
 
 -------------------------------------------------------
-        One-Liners Every JS Dev Should Know
+
+# One-Liners Every JS Dev Should Know
+
 -------------------------------------------------------
 
-# JS Core Concepts
+## JS Core Concepts
 
 1. **Variable** – Named storage - `let`, `const`, `var`.
 
@@ -41,7 +46,7 @@ What/Why/When(realusecases)/How(code): Classes Constructor
 
 -------------------------------------------------------
 
-# JS Data Types & Structures
+## JS Data Types & Structures
 
 11. **7 Primitive Types** – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
 
