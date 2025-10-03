@@ -30,6 +30,12 @@ Why it matters
 
 -------------------------------------------------------
 
+## If you want to include the padding in the width calculation of an HTML element using CSS, which CSS property should you adjust?
+
+Set the `box-sizing` property to `border-box`.
+
+-------------------------------------------------------
+
 # For fonts, what's the difference between em, rem, %, px ?
 
 Rule of thumb: use `rem` (predictable).
@@ -71,6 +77,12 @@ Rule of thumb: use `rem` (predictable).
  - 1vw = 1% of the viewport width.
 
 Use %/vw/vh for layouts (responsive).
+
+-------------------------------------------------------
+
+# CSS: Flex Box vs Box Model
+
+TODO
 
 -------------------------------------------------------
 

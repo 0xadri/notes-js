@@ -1,135 +1,217 @@
 
 -------------------------------------------------------
 
-# TODO
+**TODO**
 
 Handling form submission with preventDefault
+
 useRef for DOM access vs persistent values
+
 Custom hooks – when and why to create them
+
 useReducer vs useState
+
 useLayoutEffect vs useEffect
+
+
+
+
+
+
+
+
+
+
 
 -------------------------------------------------------
 
-# Why React So Fast?
+# Getting Started
+
+-------------------------------------------------------
+
+## What are the pros of using Component-Based Architecture?
+
+If we split the UI into isolated and reusable pieces we can build it just like we do with Lego pieces. 
+
+That makes development a lot faster and more reliable - we can unit test our components and we eliminate undesired side effects.
+
+-------------------------------------------------------
+
+## What are the key concepts of a component framework?
+
+Component frameworks, aka component-based frameworks.
+
+- OOP - Components as the main abstraction 
+
+- Declarative Programming for simpler/readable component structures (JSX)
+
+- The State Machine pattern - to model and manage data in a deterministic way
+
+- Virtual DOM to make UI reconciliation fast
+
+-------------------------------------------------------
+
+## Why is React So Fast?
 
 Virtual DOM, Diffing, etc
 
 -------------------------------------------------------
 
-# Does order matter for React Hooks?
+## What's Declarative Programming?
 
-Yes.
+In react, it is done with JSX.
 
-React doesn’t track hooks by their variable names.
-
-Instead, it keeps an internal array of hook states for each component in the order they’re called.
-
-So if hooks are called in a different order between renders, React’s mapping breaks.
+Simplifies UI construction by allowing developers to declare what the UI should look like, rather than manually manipulating the DOM.
 
 -------------------------------------------------------
 
-# What Are The Rules of Hooks?
+## What is the result of transpiling JSX code to JavaScript?
 
-1. Always call them in the same order for every render.
-
-2. Call hooks only at the top level — never inside conditionals, loops, or nested functions.
-
-Calling hooks inside conditionals could change the order, so point 2 refers to the same goal as point 1.
+JSX compiles to `React.createElement()` calls that build the Virtual Dom.
 
 -------------------------------------------------------
 
-# Do "infinite loops in hooks" happen often ?
+## What are Code Transpilers?
 
-Yes. Infinite loops in React hooks are a common pitfall.
+Code Transpilers are frontend tools that can make code transformations like JSX to JS and TS to JS.
 
-Especially with `useEffect`, `useMemo`, and `useCallback`.
-
--------------------------------------------------------
-
-# Why do infinite loops happen in hooks?
-
-React components re-render when `state` or `props` change.
-
-If a hook (like useEffect) updates state without proper dependency control, it keeps triggering re-renders → infinite loop.
-
-```javascript
- function BadComponent() {          // Infinite Loops Example
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    setCount(count + 1);   // Infinite loop: setCount triggers re-render every time
-  }, [count]);
-
-  return <p>{count}</p>;
- }
-```
+They also add polyfills depending on the source code and what the target environments(users’ browsers) support.
 
 -------------------------------------------------------
 
-# How to avoid infinite loops in hooks?
+## What are Pure Components in React?
 
-1. Use Correct Dependencies
-   - Always list only what’s necessary in the dependency array.
-   - If you leave it out, it may run every `render`.
-   - If you put too much, it may loop unnecessarily.
+TLDR: a special component type that avoids unnecesarry re-renders by checking if the props and state really changed.
 
-2. Use Functional State Updates
-   - sets state based on the previous state, `setCount(prev => prev + 1);`
+Pure Components are legacy React components written with classes, with React.PureComponent and React.Component.
 
-3. Don’t Derive State From State Inside Effects
-   - use `useMemo` instead
+PureComponent does a shallow comparison on state change: when comparing scalar values it compares their values, but when comparing objects it compares only references.
 
-4. Be Careful With Asynchronous Calls
-   - If an effect triggers an `async` call that updates state, you may loop.
-   - Solution: use guards (conditions) or cancelation
-   - Why: prevent state updates or side effects from running after a component unmounts (removed from the DOM) 
+Use React.PureComponent when you can satisfy any of the below conditions.
 
-```javascript
- useEffect(() => {
-  let isMounted = true;    // guard flag
+ - State/Props should be an immutable object
+ - State/Props should not have a hierarchy
+ - You should call forceUpdate when data changes
 
-  async function loadData() {
-    const data = await fetchSomething();
-    if (isMounted) setValue(data);     // condition, only update if component is "still" mounted
-  }
+https://legacy.reactjs.org/docs/react-api.html#reactpurecomponent
 
-  loadData();
-  return () => { isMounted = false };
- }, []); // condition, only runs once
-```
+https://stackoverflow.com/questions/41340697/react-component-vs-react-purecomponent
 
-5. Memoize Functions Passed as Dependencies
-   - If a function is defined inside component (inline), it'll be re-created on every render
-   - `useEffect` sees a "new" dependency → runs again → re-renders (if state updates inside) → infinite loop.
-   - Fix with `useCallback`.
+-------------------------------------------------------
 
-```javascript
- function MyComponent() {
-  // const fetchData = async () => {
-  //  const res = await fetch("/api/data");
-  //  return res.json();
-  // };
-  // below is the correct way - above is the former version that creats the infinite loop
-  const fetchData = useCallback(async () => {
-    const res = await fetch("/api/data");
-    return res.json();
-  }, []);
+##  Can React components inherit from each other? 
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]); // 🚨 redefined each render
- }
-```
+No, React favours composition over inheritance - components can assemble in different ways but do not inherit from each other.
 
-   - Rule of Thumb
-     - If fetchData is external (defined outside component) and stable → [fetchData] or [] is fine.
-     - If fetchData is inside component → wrap in `useCallback`, then use it in deps.
-     - If fetchData has no dependencies → prefer [].
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Inline Styling, External Styling 
 
 -------------------------------------------------------
  
-# What are Default Props in React Components ?
+## Pros and Cons of Inline vs External Styling in React? 
+
+Inline-Styling in React are written as JavaScript `objects` and applied directly to elements using the `style prop`.
+
+Inline-Styling Pros:
+- Scoped by default – no risk of style leaks.
+- Dynamic styling – can use JS variables and state easily.
+- Quick & simple for small components or one-off styles.
+
+Inline-Styling Cons:
+- `Partial` CSS Support - No pseudo-classes (:hover, :focus) or media queries.
+- `Partial` CSS Support - Can’t leverage CSS features like keyframe animations or complex selectors.
+- Verbose – not ideal for large components.
+- Harder to maintain and re-use styles.
+
+External styling refers to using `CSS files`, `CSS Modules`, or `CSS-in-JS` libraries.
+
+External-Styling Pros:
+- `Full` CSS support (pseudo-classes, media queries, animations).
+- Cleaner & reusable – easier to manage across large apps.
+- Separation of concerns – keeps JSX less cluttered.
+- Works well for team projects.
+
+External-StylingCons:
+- Might need build setup (CSS Modules, CSS-in-JS).
+- Slightly more overhead than inline styles.
+- Scoped CSS (with CSS Modules) requires different syntax.
+
+TLDR:
+ - Inline styles → Quick fixes, dynamic per-element styling, or when styles depend heavily on props/state.
+ - External styles (CSS/CSS-Modules/CSS-in-JS) → Larger projects, reusable styles, complex UI with pseudo-classes and media queries.
+
+-------------------------------------------------------
+ 
+## What are CSS Modules ?
+
+Regular CSS files, but class names are locally scoped by default using unique hashes.
+
+Prevents naming conflicts without extra setup.
+
+Pros:
+- Full CSS support.
+- Scoped CSS by default → no global pollution.
+- Familiar CSS syntax.
+
+Cons:
+- Styling is separate from component logic (JSX) → potential context change inefficiency.
+- Dynamic styles (based on props) can be tricky → usually require multiple classes or inline styles.
+
+-------------------------------------------------------
+ 
+## What's CSS-in-JS ?
+
+CSS-in-JS = Styled Components.
+
+Uses JavaScript to create styled React components with template literals.
+
+Styles are scoped automatically.
+
+Pros:
+- Full CSS support.
+- Scoped CSS by default → no global pollution.
+- Familiar CSS syntax.
+- Styles live with the component → easy to manage per-component styles.
+- Dynamic styling is straightforward using `props`.
+- Encourages component-driven styling → aligns with React philosophy.
+
+Cons:
+- Slight runtime overhead (injecting styles in JS).
+- CSS syntax inside JS → may feel less familiar.
+- Can increase bundle size if heavily used.
+
+-------------------------------------------------------
+
+## You are working on a big front-end code base. In the last releases, you had several bugs due conflicts between CSS classes with the same name. Some CSS classes were used and extended in different parts of the code leading to unpredictable element styles. Which of the following would solve the problem?
+
+Adding JSS (CSS in JS) which eliminates conflicts by generating unique class names(using the component/file name).
+
+JSS (CSS in JS) automatically prefixes the CSS classes with a unique hash generated at build time.
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Components 
+
+-------------------------------------------------------
+ 
+## What are Default Props in React Components ?
 
 `Default props` allow you to specify fallback values for props if none are provided.
 
@@ -144,7 +226,7 @@ If a hook (like useEffect) updates state without proper dependency control, it k
 
 -------------------------------------------------------
  
-# What's PropTypes in React ?
+## What's PropTypes in React ?
 
 `prop-types` is a package for runtime type checking of props. 
 
@@ -152,7 +234,7 @@ It helps catch bugs by warning if props are the wrong type.
 
 -------------------------------------------------------
  
-# What are Controlled vs Uncontrolled components ?
+## What are Controlled vs Uncontrolled components ?
 
 Refers to how **form inputs** are managed and where their state lives.
 
@@ -194,13 +276,13 @@ Use uncontrolled components for quick forms or when you don’t need real-time v
 
 -------------------------------------------------------
 
-# What's a "pure function" in React ?
+## What's a "pure function" in React ?
 
 TLDR: deterministic + no side effect.
 
 A function that, given the same inputs, always returns the same output and does not produce side effects.
 
-In React, this means:
+In React, we use function components so this means:
 
  - A component should return the same `JSX` for the same `props` and `state`.
 
@@ -208,7 +290,19 @@ In React, this means:
 
 -------------------------------------------------------
 
-# Can you give examples of "impure functions" in React ?
+## Why React prefers purity
+
+React’s rendering model relies on being able to re-render components predictably.
+
+If components are pure:
+
+ - React can **optimize rendering** with tools like memoization (React.memo) and concurrent rendering.
+
+ - **Debugging and testing** are easier, since the UI is just a predictable function of state + props.
+ 
+-------------------------------------------------------
+
+## Can you give examples of "impure functions" in React ?
 
 Some operations are inherently impure:
  - data fetching
@@ -248,20 +342,8 @@ So the best way to phrase it:
  - Side effects should be moved into hooks (or lifecycle methods).
 
 -------------------------------------------------------
-
-# Why React prefers purity
-
-React’s rendering model relies on being able to re-render components predictably.
-
-If components are pure:
-
- - React can **optimize rendering** with tools like memoization (React.memo) and concurrent rendering.
-
- - **Debugging and testing** are easier, since the UI is just a predictable function of state + props.
  
--------------------------------------------------------
- 
-# Difference between functional and class components
+## Difference between functional and class components
 
 These are the two main ways to define components.
 
@@ -334,8 +416,274 @@ Class Components:
  - Can get harder to manage in large projects.
 
 -------------------------------------------------------
+
+## When optimizing React code by decreasing "re-rendering time"", what should you focus on?
+
+ - Components at the bottom of the component tree - they will most likely re-render the most
  
-# What's the difference between `useMemo()` vs `useCallback()` ?
+ - Components that contain Context - they trigger the re-render of all the components connected to that context
+
+Decrease re-rendering time with `useCallback` and `useMemo`
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# State Management 
+
+-------------------------------------------------------
+
+## The relationship between state and the UI is said to be deterministic. What does that mean?
+
+1. for each version of the state, there is a unique version of the UI(User Interface)
+
+2. the state is the source of truth and the UI is a function of that state
+
+Modern JS frameworks circle around the idea of "the UI as a function of state". 
+
+This simplifies development and testing because is easy to predict how the application will look like, if we know the state. 
+
+The opposite is having arbitrary UI changes and heavily imperative code (e.g. jQuery) which result in unpredictable UIs and bloated spaghetti code.
+
+-------------------------------------------------------
+
+## What's the Best Practice for Sate Management?
+
+Focus on Essential State: Identify and manage only the essential state.
+
+Optimal State Placement: Instead of lifting state too high, place state in the lowest common ancestor component.
+
+Leveraging Native Framework Features: Before turning to third-party libraries, fully utilize the native state management features of your framework. For React: useState, useReducer, and Context API.
+
+Multiple Context Providers: Use multiple context providers to manage different pieces of global state, i.e. one for language, one for auth, one for theme. This approach reduces unnecessary re-renders and keeps your application more performant.
+
+Use Reducers for Complexity: For complex state logic, especially when dealing with nested state or multiple state transitions, employ reducer patterns (like useReducer in React) to simplify state management and enhance readability.
+
+-------------------------------------------------------
+
+## What are some State Management Anti-Patterns?
+
+Overstoring State: Storing both essential and derived state variables in your state management system, leading to redundancy, unnecessary complexity, and potential performance issues
+
+Lifting State Too High
+
+Premature Use of State Libraries
+
+Overloading a Single Context Provider: Consolidating all global states into a single provider, causing unnecessary re-renders across multiple components.
+
+Neglecting Reducer for Complex State: not using the reducer pattern for complex state transitions, leading to convoluted state management by abusing simpler state hooks like useState or useEffect.
+
+-------------------------------------------------------
+
+## What's the difference between essential state vs derived state?
+
+essential state = independent state
+
+derived state = calculated from other state variables
+
+Redundant state is a derived state that is treated as essential state. 
+
+Redundant state will result in convoluted components that re-render too many times due to unecesarry state updates.
+
+-------------------------------------------------------
+
+## What does "Lifting State Up" mean?
+
+When multiple components need access to the same state, the state is 'lifted up' to their `common ancestor` and `passed down as props`.
+
+-------------------------------------------------------
+
+## What's Prop Drilling?
+
+When state is passed down from a parent component through various levels of nested child components as props. 
+
+This can lead to scenarios where intermediate components, which do not directly need the state for their own purposes, still have to pass it down to their children. 
+
+It can result in bloated components making the code more coupled, less testable, and more brittle.
+
+-------------------------------------------------------
+
+## What's the Best Practice when using Context API?
+
+Use of Context and Providers for distributing global state (like authentication data or translation settings) across multiple components.
+
+These can be placed at different points in the component tree, not just at the top level.
+
+-------------------------------------------------------
+
+## Our application requires users to authenticate for them to see our premium content. We want an easy way to show/hide certain components depending on if the user is logged in or not. What do you think is the cleanest(least coupled) way to do that?
+
+Add our auth state to `React.Context` (`useContext()`)and subscribe our components to it.
+
+-------------------------------------------------------
+
+## What's useReducer() ?
+
+`useReducer` is a React Hook that provides an alternative way to manage component state, particularly useful for more complex state logic. 
+
+It allows you to manage state using a reducer function, similar to how Redux manages state. The useReducer hook returns the current state and a dispatch function that triggers state updates based on actions
+
+-------------------------------------------------------
+
+## What are 3rd-Party State Management Libraries?
+
+These libraries offer pre-built solutions for managing complex application state and/or complex state transitions.
+
+They often implement the Observer Pattern.
+
+- Known libraries: Redux, XState, Recoil, Zustand.
+
+- Cons: adds another dependency.
+
+TLDR: shiny thing you might not need.
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# React Hooks
+
+-------------------------------------------------------
+
+## Does order matter for React Hooks?
+
+Yes.
+
+React doesn’t track hooks by their variable names.
+
+Instead, it keeps an internal array of hook states for each component in the order they’re called.
+
+So if hooks are called in a different order between renders, React’s mapping breaks.
+
+-------------------------------------------------------
+
+## What Are The Rules of Hooks?
+
+1. Always call them in the same order for every render.
+
+2. Call hooks only at the top level — never inside conditionals, loops, or nested functions.
+
+Calling hooks inside conditionals could change the order, so point 2 refers to the same goal as point 1.
+
+-------------------------------------------------------
+
+## Do "infinite loops in hooks" happen often ?
+
+Yes. Infinite loops in React hooks are a common pitfall.
+
+Especially with `useEffect`, `useMemo`, and `useCallback`.
+
+-------------------------------------------------------
+
+## Why do infinite loops happen in hooks?
+
+React components re-render when `state` or `props` change.
+
+If a hook (like useEffect) updates state without proper dependency control, it keeps triggering re-renders → infinite loop.
+
+```javascript
+ function BadComponent() {          // Infinite Loops Example
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(count + 1);   // Infinite loop: setCount triggers re-render every time
+  }, [count]);
+
+  return <p>{count}</p>;
+ }
+```
+
+-------------------------------------------------------
+
+## How to avoid infinite loops in hooks?
+
+1. Use Correct Dependencies
+   - Always list only what’s necessary in the dependency array.
+   - If you leave it out, it may run every `render`.
+   - If you put too much, it may loop unnecessarily.
+
+2. Use Functional State Updates
+   - sets state based on the previous state, `setCount(prev => prev + 1);`
+
+3. Don’t Derive State From State Inside Effects
+   - use `useMemo` instead
+
+4. Be Careful With Asynchronous Calls
+   - If an effect triggers an `async` call that updates state, you may loop.
+   - Solution: use guards (conditions) or cancelation
+   - Why: prevent state updates or side effects from running after a component unmounts (removed from the DOM) 
+
+```javascript
+ useEffect(() => {
+  let isMounted = true;    // guard flag
+
+  async function loadData() {
+    const data = await fetchSomething();
+    if (isMounted) setValue(data);     // condition, only update if component is "still" mounted
+  }
+
+  loadData();
+  return () => { isMounted = false };
+ }, []); // condition, only runs once
+```
+
+5. Memoize Functions Passed as Dependencies
+   - If a function is defined inside component (inline), it'll be re-created on every render
+   - `useEffect` sees a "new" dependency → runs again → re-renders (if state updates inside) → infinite loop.
+   - Fix with `useCallback`.
+
+```javascript
+ function MyComponent() {
+  // const fetchData = async () => {
+  //  const res = await fetch("/api/data");
+  //  return res.json();
+  // };
+  // below is the correct way - above is the former version that creats the infinite loop
+  const fetchData = useCallback(async () => {
+    const res = await fetch("/api/data");
+    return res.json();
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]); // 🚨 redefined each render
+ }
+```
+
+   - Rule of Thumb
+     - If fetchData is external (defined outside component) and stable → [fetchData] or [] is fine.
+     - If fetchData is inside component → wrap in `useCallback`, then use it in deps.
+     - If fetchData has no dependencies → prefer [].
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Performance Opimization
+
+-------------------------------------------------------
+ 
+## What's the difference between `useMemo()` vs `useCallback()` ?
 
 Both are hooks for caching, for performance optimization, but they serve slightly different purposes.
 
@@ -347,7 +695,7 @@ HOF / wrapper ???
 
 -------------------------------------------------------
  
-# `useMemo()` Use Case and Basic Example?
+## `useMemo()` Use Case and Basic Example?
 
 Memoizes/Caches the **result** of a function.
 
@@ -368,7 +716,7 @@ for the result of a function to be memoized with `useMemo()`, it should be:
 
 -------------------------------------------------------
  
-# `useCallback()` Use Case and Basic Example?
+## `useCallback()` Use Case and Basic Example?
 
 Memoizes/Caches the **function itself** (not the result).
 
@@ -388,7 +736,7 @@ for a function to be memoized with `useCallback()`, it should be BOTH:
 
 -------------------------------------------------------
 
-# What's the difference between `React.memo()` vs `useCallback()` ?
+## What's the difference between `React.memo()` vs `useCallback()` ?
 
 Both are hooks for caching, for performance optimization, but they serve slightly different purposes.
 
@@ -400,7 +748,7 @@ HOF vs HOC / wrappers ???
 
 -------------------------------------------------------
 
-# What's `React.memo()` ?
+## What's `React.memo()` ?
 
 Memoizes/Caches the rendered output of a react function component, meaning:
  - React skips re-rendering the component if its `props` are the same as the previous render.
@@ -418,7 +766,7 @@ for a react function component to be memoized with `useCallback()`, it should be
 
 -------------------------------------------------------
 
-# How: Code example for `React.memo()` ?
+## How: Code example for `React.memo()` ?
 
 ```javascript
  import React from 'react';
@@ -431,7 +779,7 @@ for a react function component to be memoized with `useCallback()`, it should be
 
 -------------------------------------------------------
  
-# Why: Real-Life Use Cases For `React.memo()` ?
+## Why: Real-Life Use Cases For `React.memo()` ?
 
 Components re-renders can hurt performance, especially for:
  - Large component trees
@@ -442,13 +790,13 @@ These are common examples where `React.memo()` is especially useful.
 
 -------------------------------------------------------
  
-# How does `React.memo()` compare the `props`?
+## How does `React.memo()` compare the `props`?
 
 By default, `React.memo()` does a **shallow comparison** of props.
 
 -------------------------------------------------------
  
-# `React.memo()` comparing `props`: Is it possible to change the default behavior?
+## `React.memo()` comparing `props`: Is it possible to change the default behavior?
 
 Yes, via a custom **comparison function**.
 
@@ -464,9 +812,60 @@ Yes, via a custom **comparison function**.
  );
 ```
 
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Testing
+
+-------------------------------------------------------
+
+## In a react app, what are some easiest components to Unit Test? What does it imply?
+
+Components located at the bottom of the component tree are generally easier to Unit Test. 
+
+They tend to be stateless, simply rendering props, which makes them straightforward for testing. 
+
+This implies we test these first and then gradually move up the tree to test more components.
+
+-------------------------------------------------------
+
+## What happens when as you move up the component tree when Unit Testing?
+
+Testing complexity increases due to dependencies on child components.
+
+In such cases, Unit Tests may become cumbersome, and it's better to switch to End-To-End Testing.
+
+-------------------------------------------------------
+
+## To make components easier to test we should:
+
+1. Keep component dependencies minimal
+
+2. Avoid using global state (unless necessary)
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Common Patterns
+
 -------------------------------------------------------
  
-# How do you handle file uploads in React forms ?
+## How do you handle file uploads in React forms ?
 
 TLDR: React just helps you access the `file` object. Uploading is handled by the browser via `FormData` and a request to the server.
 
@@ -514,7 +913,7 @@ Unlike text inputs, `<input type="file">` is **uncontrolled** in React:
 
 -------------------------------------------------------
 
-# How do you debounce/throttle input in React ?
+## How do you debounce/throttle input in React ?
 
 TODO
 
@@ -524,81 +923,7 @@ Limit how often an expensive operation (like an API call, input handler, or scro
 
 -------------------------------------------------------
  
-# Pros and Cons of Inline vs External Styling in React? 
-
-Inline-Styling in React are written as JavaScript `objects` and applied directly to elements using the `style prop`.
-
-Inline-Styling Pros:
-- Scoped by default – no risk of style leaks.
-- Dynamic styling – can use JS variables and state easily.
-- Quick & simple for small components or one-off styles.
-
-Inline-Styling Cons:
-- `Partial` CSS Support - No pseudo-classes (:hover, :focus) or media queries.
-- `Partial` CSS Support - Can’t leverage CSS features like keyframe animations or complex selectors.
-- Verbose – not ideal for large components.
-- Harder to maintain and re-use styles.
-
-External styling refers to using `CSS files`, `CSS Modules`, or `CSS-in-JS` libraries.
-
-External-Styling Pros:
-- `Full` CSS support (pseudo-classes, media queries, animations).
-- Cleaner & reusable – easier to manage across large apps.
-- Separation of concerns – keeps JSX less cluttered.
-- Works well for team projects.
-
-External-StylingCons:
-- Might need build setup (CSS Modules, CSS-in-JS).
-- Slightly more overhead than inline styles.
-- Scoped CSS (with CSS Modules) requires different syntax.
-
-TLDR:
- - Inline styles → Quick fixes, dynamic per-element styling, or when styles depend heavily on props/state.
- - External styles (CSS/CSS-Modules/CSS-in-JS) → Larger projects, reusable styles, complex UI with pseudo-classes and media queries.
-
--------------------------------------------------------
- 
-# What are CSS Modules ?
-
-Regular CSS files, but class names are locally scoped by default using unique hashes.
-
-Prevents naming conflicts without extra setup.
-
-Pros:
-- Full CSS support.
-- Scoped CSS by default → no global pollution.
-- Familiar CSS syntax.
-
-Cons:
-- Styling is separate from component logic (JSX) → potential context change inefficiency.
-- Dynamic styles (based on props) can be tricky → usually require multiple classes or inline styles.
-
--------------------------------------------------------
- 
-# What's CSS-in-JS ?
-
-CSS-in-JS = Styled Components.
-
-Uses JavaScript to create styled React components with template literals.
-
-Styles are scoped automatically.
-
-Pros:
-- Full CSS support.
-- Scoped CSS by default → no global pollution.
-- Familiar CSS syntax.
-- Styles live with the component → easy to manage per-component styles.
-- Dynamic styling is straightforward using `props`.
-- Encourages component-driven styling → aligns with React philosophy.
-
-Cons:
-- Slight runtime overhead (injecting styles in JS).
-- CSS syntax inside JS → may feel less familiar.
-- Can increase bundle size if heavily used.
-
--------------------------------------------------------
- 
-# 
+## 
 
 
 
@@ -606,21 +931,13 @@ Cons:
 
 -------------------------------------------------------
  
-# 
+## 
 
 
 
 -------------------------------------------------------
  
-# 
-
-
-
-
-
--------------------------------------------------------
- 
-# 
+## 
 
 
 
@@ -628,7 +945,7 @@ Cons:
 
 -------------------------------------------------------
  
-# 
+## 
 
 
 
@@ -636,7 +953,15 @@ Cons:
 
 -------------------------------------------------------
  
-# 
+## 
+
+
+
+
+
+-------------------------------------------------------
+ 
+## 
 
 
 

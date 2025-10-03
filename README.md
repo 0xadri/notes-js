@@ -3,10 +3,6 @@ These are notes I took during months and years.
 
 Migration still in progress... more on the way.
 
-Built with passion 💜 
+Built with passion 💜  by Adrien.
 
-Adrien
-
-[My Github](https://github.com/0xadri)
-
-
+[Adrien on Github](https://github.com/0xadri)

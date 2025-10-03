@@ -164,6 +164,16 @@ Members are representatives from big tech companies (Google, Microsoft, Apple, M
 
 -------------------------------------------------------
 
+# What does ESM stand for?
+
+ESM = ECMAScript Modules = ECMAScript 2015 (ES6) Modules
+
+Since ECMAScript 2015 (ES6), javascript supports built-in modules through the new syntax.
+
+JavaScript did not have built-in support for modules prior to 2015. We had to use other module systems, i.e. AMD and CommonJS
+
+-------------------------------------------------------
+
 ## What's "use strict" ?
 
 It is a directive that enables `strict mode`.
@@ -360,6 +370,20 @@ Stick to best practices and industry standards:
  - `CI/CD`
 
 This increases code maintainability, reduces in-production issues, and reduces rollbacks.
+
+-------------------------------------------------------
+
+# What is ESLint?
+
+ESLint is a configurable JavaScript linter. It helps you find and fix problems in your JavaScript code. 
+
+Problems can be anything from potential runtime bugs, to not following best practices, to styling issues.
+
+-------------------------------------------------------
+
+# What is Prettier?
+
+TODO
 
 -------------------------------------------------------
 
