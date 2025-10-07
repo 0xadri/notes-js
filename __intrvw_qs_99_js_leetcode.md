@@ -22,6 +22,32 @@ Array.prototype.last = function() {
 
 -------------------------------------------------------
 
+# Function Adding-Up Elements In Array And Returns With Delay
+
+Write a function in Javascript or Typescript that simulates asynchronous behavior using Promises. The function should take an array of numbers as input and return a Promise that resolves with the sum of all the numbers after a 1-second delay.
+Example:
+ - Input: [1, 2, 3, 4, 5]
+ - Output: Promise resolved with 15 after a 1-second delay
+
+```javascript
+async function arrowAdd(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(total), 1000);
+  });
+}
+
+arrowAdd([1, 2, 3, 4, 5]).then((out) => {
+  console.log(out);
+});
+```
+
+-------------------------------------------------------
+
 # Add Method To Array Object: Pollyfill Reduce
 
 Implement your own version of the `Array.reduce` method. Let's call it `Array.myReduce`.
@@ -138,12 +164,31 @@ export default function callOnce(fn) {
 
 # Bind Polyfill
 
-Add a `bindPolyfill method` to all functions. When the bindPolyfill method is called with an object obj, it should set obj as the this context for the function.
+Add a simplified `bindPolyfill method` to all functions.
+
+`bindPolyfill` takes an object obj and returns a new function.
+
+When this new function is invoked, it should call the original function with its this value set to obj.
+
+When the `bindPolyfill method` is called with `obj argument`, it should `return a function` that has `obj` as its `"this" context`.
 
 Requirements:
 - the `bindPolyfill` method should always receive a non-null object
 - you should not use the built-in `Function.bind` or `Function.apply` methods
 - the `bindPolyfill` method should return a new function
+
+Examples
+
+```javascript
+const obj = { message: 'Hello' };
+const f = function () { return this.message; };
+const g = f.bindPolyfill(obj);         // g is a new object, the same as 
+
+console.log(g()); // Hello
+console.log(g.call({ message: 'Bye' })); // Hello
+```
+
+Solution
 
 ```javascript
 Function.prototype.bindPolyfill = function(obj) {
@@ -246,26 +291,27 @@ SOLUTION 1: ITERATIVE
 SOLUTION 2: RECURSIVE
 
 ```
- function curry(fn) {
-  return function helper(...args) {
-   if (args.length === fn.length){
-    return fn.apply(this,args);
-   }
-   else {
-    return (...nextArgs) => helper(...args,...nextArgs)  
-   }
-  }
- }
- export default curry;
+export default function curry(fn){
+    return function helper (...args) {     // 1st function definition, this one is NOT anonymous
+        if (args.length === fn.length){        // Condition to break out of recursion
+            return fn(...args);
+        }
+        else {
+            return (...nextArgs) => {      // 2nd function definition
+              return helper(...args, ...nextArgs)
+            } 
+        }
+    }
+}
 ```
 
 EXPLANATION
 
  - `if (args.length === fn.length)`   Condition to break out of recursion
- - `return (...nextArgs) => helper(...args,...nextArgs)`   Creates and returns a new function that expects additional arguments
+ - `return (...nextArgs) => { return helper(...args,...nextArgs) }`   Creates and returns a new function that expects additional arguments
  - `(...nextArgs)`   Accepts additional arguments 
  - `nextArgs` is not coming from anywhere "magical." It’s just the `rest` parameter of the arrow function you return inside helper.
- - `(...args, ...moreArgs)`   Combines them with the previously collected ones 
+ - `(...args, ...nextArgs)`   Combines them with the previously collected ones 
  - helper is a recursive call curried with the combined arguments
 
 EXAMPLES

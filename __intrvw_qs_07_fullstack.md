@@ -20,9 +20,11 @@ End-to-End
 
 ## What's Server Side Optimization?
 
+Misleading jargon because includes Client/Browser/HTTP Caching which happens on client side.
+
 FOUR things:
 
-1. **HTTP Caching**: reduce sent files - allows users to store assets like images, JavaScript files, and CSS files on their computer.
+1. **HTTP Caching**: reduce sent files - aka Client Caching aka Browser Caching - allows users to store assets like images, JavaScript files, and CSS files on their computer.
 
 2. **HTTP Compression**: reduce size of sent files - send compressed assets (images, fonts, JS and CSS files) that are significantly smaller, typically around 75% smaller.
 
@@ -32,7 +34,7 @@ FOUR things:
 
 -------------------------------------------------------
 
-## What are the headers for caching?
+## What are the headers for http/client/browser caching?
 
 Both `ETag` and `Last-Modified` headers are used for caching and validation.
 
@@ -386,7 +388,8 @@ Other types of vulnerabilities include XSS (in certain API response)
 
 Validation and sanitization is required.
 
--------------------------------------------------------
+
+
 
 
 
@@ -530,15 +533,3 @@ Round-Robin is a rather naive algo.
 
 
 
-
--------------------------------------------------------
-
-## Which GIT flow would you recommend when starting a new project with a small team?
-
-Feature branch
-
--------------------------------------------------------
-
-## What does git squash do?
-
-Combine multiple commits into a single commit

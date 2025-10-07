@@ -7,6 +7,9 @@ This doc is alive, hence this TODO section :)
 
 For each topic: What / Why / When(realusecases) / How(code) / Analogy / Mental Model / Memory Tip
 
+- diff between undefined and null
+- let vs const vs var
+
 Classes
 - Classes
 - Classes vs Objects
@@ -564,6 +567,10 @@ Explain these points:
 
 
 
+
+
+
+
 -------------------------------------------------------
 
 # Args, Rest, Spread
@@ -580,12 +587,81 @@ Explain these points:
 
 -------------------------------------------------------
 
-## Why use `rest` or `spread` syntaxes ?
+## Why Use `rest` vs `spread` Syntaxes ?
 
 1. `Rest` syntax usage: in `function parameters`, `object destructuring`, or `array destructuring`.
 
 2. `Spread` syntax usage: in `function calls`, `array literals`, or `object literals`.
- 
+
+-------------------------------------------------------
+
+## Why Use `rest` vs `spread` Syntaxes get confusing when used on functions ?
+
+Because one is for function definitions and the other is for functions calls.
+
+Rest syntax -> function definitions (it has "{...}"), that's when we call it `rest parameter`.
+
+Spread syntax -> function call, that's when we call it `spread syntax`.
+
+| Feature            | Syntax                   | Used in                                       | Purpose                                             |
+| ------------------ | ------------------------ | --------------------------------------------- | --------------------------------------------------- |
+| **Rest parameter** | `function f(...args) {}` | Function parameter list (function definition) | Collects remaining arguments into an array          |
+| **Spread syntax**  | `f(...array)`            | Function call, array/object literal           | Expands an array or object into individual elements |
+
+
+| 4 function definitions    | Code Example                   | What it does                            |
+| ------------------------- | ------------------------------ | --------------------------------------- |
+| **Function Declaration**  | `function greet() {}`          | Declares how a function works           |
+| **Function Expression**   | `const greet = function() {};` | Defines a function inside an expression |
+| **Arrow Function**        | `const greet = () => {};`      | Defines a shorter function              |
+| **Function Call**         | `greet();`                     | Executes a function                     |
+
+-------------------------------------------------------
+
+## Why Use `rest` Syntax ?
+
+| Feature            | Example                       | What it does                                                 |
+| ------------------ | ----------------------------- | ------------------------------------------------------------ |
+| **Rest parameter** | `function f(...args) {}`      | Collects remaining arguments (function inputs) into an array |
+| **Object rest**    | `const { a, ...rest } = obj;` | Collects remaining object properties into a new object       |
+| **Array rest**     | `const [x, ...rest] = arr;`   | Collects remaining array elements into a new array           |
+
+-------------------------------------------------------
+
+## Examples For `rest` Parameters Usage ?
+
+Only and only if:
+ - in function parameter lists
+ - in function definition (not when it's called)
+
+```javascript
+function logAll(...args) {}      // Function declaration
+
+const logAll = function(...args) {};     // Function expression
+
+const logAll = (...args) => {};    // Arrow function
+
+class Logger {  log(...messages) {}  }   // Class method
+```
+
+```javascript
+function greet(greeting, ...names) {     // Combine Named and Rest Parameters
+   names.forEach(name => console.log(`${greeting}, ${name}!`))
+}
+greet("Hello", "Alice", "Bob", "Charlie");     // will print 3 lines: "Hello, Alice!" then "Hello, Bob!" then "Hello, Charlie!"
+```
+
+```javascript
+function multiply(a, b) {   return a * b;    }
+function logAndMultiply(...args) {      // function definition so: rest syntax, rest parameters
+  console.log("Multiplying:", args);
+  return multiply(...args);         // function call so: spread syntax
+}
+console.log(logAndMultiply(3, 5)); // 15
+```
+
+
+
 -------------------------------------------------------
 
 ## How to use `rest` or `spread` syntaxes together ?
@@ -659,7 +735,7 @@ In nested function, `args` is different and local. They don’t overwrite each o
 
 ## Can you use ...args in regular functions?
 
-Yes — you can use rest parameters `...args` with regular functions (not just arrow functions).
+Yes — you can use rest parameters `...args` with regular functions AND arrow functions.
 
 `...args` was introduced in ES6 (2015).
 
@@ -669,11 +745,15 @@ Yes — you can use rest parameters `...args` with regular functions (not just a
 
 We could use the special `arguments` object.
 
- - arguments is not a real array (just array-like), so you can’t directly use .map, .reduce, etc. without converting it.
+ - `arguments` is NOT a real array (just array-like) -> you CANNOT DIRECTLY use array methods such as `.map`, `.reduce` - prior conversion required.
+
+ - `arguments` does NOT work in arrow functions - ONLY in regular functions.
+
+For the history:
+
+ - `...args` came in ES6 and replaces the older `arguments` object:
 
  - `...args` is a real array, so you can use array methods right away.
-
- - arguments works only in regular functions, not arrow functions.
 
  - `...args` works in both regular and arrow functions.
 
@@ -732,6 +812,58 @@ Arrow functions capture `this` from their surrounding scope, so you don’t need
   }, 1000);
  }
 ```
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Implicit Objects and Variables
+
+-------------------------------------------------------
+
+# What are Implicit Objects and Variables ?
+
+This refers to the automatically available objects and variables that the JavaScript runtime provides, without the programmer explicitly declaring or importing them.
+
+These come from the execution context (`global`, `function`, or `block` scope), and they depend on where and how the code is executed.
+
+Examples:
+
+| Category         | Implicit Object / Variable         | Scope / Purpose                       |
+| ---------------- | ---------------------------------- | ------------------------------------- |
+| Global Object    | `window` / `global` / `globalThis` | Global environment container          |
+| Function Context | `this`                             | Refers to current execution context   |
+| Function Context | `arguments`                        | Holds passed arguments (non-arrow)    |
+| Variable         | Undeclared variables               | Implicitly global (discouraged)       |
+| Return Value     | `undefined`                        | Default return when none is specified |
+
+-------------------------------------------------------
+
+# Implicit (Automatically Available) Objects
+
+1. `window` / `global` / `globalThis` : global objects that act as containers for all global variables and functions.
+
+ - In browsers: The global object is `window`. `console.log(window === this);` // true in global scope
+
+ - In Node.js: The global object is `global`. `console.log(global === this);` // false in Node's module scope
+
+ - Universal (ES2020+): `globalThis` works in any JS environment.
+
+2. `this`: implicit object reference automatically available inside `functions` and `objects`.
+
+3. `arguments`: inside any `non-arrow function`, contains all passed parameters. Note that `args` is preferred in modern js bc cleaner, safer, and works everywhere.
+
+
+
+
+
 
 
 
@@ -1756,7 +1888,7 @@ TLDR:
 
 -------------------------------------------------------
 
-## What Are The Two Ways To Handle A Promise?
+## What Are The Different Ways To Handle A Promise?
 
 4 ways to handle a Promise:
 - Method Chaining → `.then()/.catch()/.finally()` (classic way?? )
@@ -1764,8 +1896,7 @@ TLDR:
 - Attaching `.catch()` on the `async function call`
 - `Top-level await` (ES2022+) → `await without async`, without wrapping in a function
 
-
-5th way to handle multiple Promises:
+5th way...to handle **multiple Promises at once**:
 - Promise utilities → `Promise.all`, `Promise.race`, etc.
 
 TODO: break down each in separate question ???
@@ -1813,14 +1944,13 @@ fetch("/api/data")
 
 ## `Promise Handling` With `async/await`: Code Example ?
 
-TLDR:
-- we still use `try/catch/finally block`
-- `async/await` with `try/catch/finally` for cleaner, synchronous-looking code.
+Good Practice:
+ - Always wrap your await in a try/catch/finally block
 
 ```javascript
 async function handlePromise() {
   try {
-    const result = await myPromise; // waits until resolved
+    const result = await myPromise;     // waits until resolved
     console.log("Resolved:", result);
   } catch (error) {
     console.error("Rejected:", error);
@@ -1836,20 +1966,22 @@ handlePromise();
 
 ## `Promise Handling` With `async/await`: Code Example Handling 2 Promises ?
 
-TLDR:
-- we still use `try/catch/finally block`
-- `async/await` with `try/catch/finally` for cleaner, synchronous-looking code.
+Good Practice:
+ - Always wrap your await in a try/catch/finally block
 
 ```javascript
-try {
-  const res = await fetch("/api/data");
-  const data = await res.json();
-  console.log(data);
-} catch (err) {
-  console.error("Caught error:", err);
-} finally {
-  console.log("Always runs");
+async function getData() {
+  try {
+    const res = await fetch("/api/data");     // typical fetch api call
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error("Caught error:", err);
+  } finally {
+    console.log("Always runs");
+  }
 }
+getData();
 ```
 
 -------------------------------------------------------
@@ -1863,7 +1995,7 @@ TLDR:
 
 ```javascript
 async function run() {
-  const result = await Promise.reject("Oops!");   // Rejects
+  const result = await Promise.reject("Oops!");     // Rejects
   console.log(result);      // This will never run !
 }
 run();          // UnhandledPromiseRejectionWarning (in Node.js) !
@@ -1876,9 +2008,9 @@ Good Practice:
 
 ## What's the difference between `Promise Chaining` and `try/catch/finally block` ?
 
-- Promise **Chaining** → method-based style - uses .then(), .catch(), .finally()
+- Promise **Chaining** → method-based style - uses methods `.then()`, `.catch()`, `.finally()`
 
-- try/catch/finally **Block** → language syntax - keywords, not methods
+- try/catch/finally **Block** → language syntax - uses keywords, not methods
 
 Pro and Cons ???
 
@@ -1897,6 +2029,8 @@ Pro and Cons ???
 The function will return a Promise object. When the promise object resolves, the data will be returned.
 
 Important: **async functions always return a Promise** that resolves to the value of the return statement.
+
+Note: you'll have to add a try/catch block for error handling outside the function.
 
 -------------------------------------------------------
 
@@ -1918,7 +2052,9 @@ Important: **async functions always return a Promise** that resolves to the valu
 
 A bug occurred.
 
-`Promise.all` is a method that takes an Array of promises and returns a new promise that resolves when all of the promises in the array have resolved. However, if any of the promises is rejected, the promise returned will also reject, return the reason why it was rejected.
+`Promise.all` is a method that takes an Array of promises and returns a new promise that resolves when all of the promises in the array have resolved. 
+
+However, if any of the promises is rejected, the promise returned will also reject, return the reason why it was rejected.
 
 -------------------------------------------------------
 
@@ -1935,13 +2071,15 @@ Order of execution:
 
 -------------------------------------------------------
 
-## When was try/catch/finally introduced?
+## When were try/catch/finally block and promise chaining introduced?
 
 1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
 
+2015 (ES6) → Promise method chaining v1, for `.then().catch()`
+
 2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
 
-Method Chaining ??
+ES2018 → Promise method chaining v2, for `.finally()`
 
 -------------------------------------------------------
 

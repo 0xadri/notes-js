@@ -1,9 +1,11 @@
 
-# Docs
 
-https://www.patterns.dev/vanilla/
 
-https://www.patterns.dev/react
+
+**TODO**
+
+ - Early Return Pattern
+
 
 -------------------------------------------------------
 
@@ -15,21 +17,179 @@ Think in **trade-offs** - BALANCE - developers know the benefits of everything, 
 
 An excellent coder - an architect is before everything an excellent coder. She excelled at coding and loves the craft. Architecture is being decided, implemented, and reviewed with every line of code written.
 
+-------------------------------------------------------
+
+# Docs
+
+https://www.patterns.dev/vanilla/
+
+https://www.patterns.dev/react
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+                  ARCHITECTURE
+-------------------------------------------------------
+
+# TODO
+
+DDD, Clean Architecture o Hexagonal.
+
+-------------------------------------------------------
+
+# What's Modular Monolith Architecture ?
+
+A single service device in separated modules with clear boundaries.
+
+TODO
+
+-------------------------------------------------------
+
+# Difference between Layer vs Tier ?
+
+ - `Tier` != `Layer`
+ - `tier` is NOT a `layer`. 
+
+A `tier` is an independent component deployed at a **specific physical location**.
+
+A `tier` can contain `many layers`. 
+
+-------------------------------------------------------
+
+# The MVC pattern is an example of ...
+
+A Layered Architecture.
+
+It separates the application into three interconnected layers: the Model, the View, and the Controller.
+
+-------------------------------------------------------
+
+# Event-Driven Architecture
+
+TODO
+
+-------------------------------------------------------
+
+# Client-Server Architecture
+
+TODO
+
+-------------------------------------------------------
+
+# What's a Service Oriented Architecture ?
+
+You can think of services as the utilities we share: Internet, Electricity, Water, etc. 
+
+This translates to things like: authentication, email sending, or file upload.
+
+They abstract away complexity and expose a simple interface.
+
+Services can depend on each other following a `Service Dependency Graph`. 
+
+We typically use a `class` to define a Service and use access modifiers (read-only, private) to expose a minimum API to anyone using the service (other service or a Controller).
+
+Services can be used across the different layers.
+
+-------------------------------------------------------
+
+# What's a Microservices Architecture ?
+
+TODO
+
+The Microservices Architecture is a natural evolution of SOA (Service Oriented Architecture).
+
+We can transition to by extracting Services from the **modular monolith** and **run them independently**. 
+
+Benefits:
+
+ - Each microservice runs independently
+
+ - Each microservice can be developed by an autonomous team - and smaller team
+
+ - If one service fails, the system will keep running 
+
+ - Services are also deployed independently
+
+-------------------------------------------------------
+
+# Which of the following Architecture Style achieves the maximum decoupling between services?
+
+Microservices Architectures ?
+
+Event-Driven Architectures ???
+
+Modular Monoliths ?
+
+Client-Server Architecture ?
+
+TODO
+
+-------------------------------------------------------
+
+# What does the "Micro Services Tax" refer to ?
+
+The **additional complexity** of implementing a MicroServices Architecture (v.s a Monolith Architecture)
+
+Microservices architecture requires **more maintenance and development**.
+
+Drawbacks of MicroServices:
+
+ - extra latency - a call into the system usually translates to a cascade of calls(over the network) to several services downstream. Each extra call makes the total response time longer.
+
+ - extra complexity - to get data from another service we need to make a call over the network, handle authentication, caching, and maybe even load balancing. In a modular monolith, it would have been a simple function call.
+
+ - extra resources - although we can rip some scalability benefits from Microservices(see system design) we need extra pieces in our architecture: distributed login and monitoring and distributed analytics just to name a few. This all ads up in our cloud bill at the end of the month.
+
+
+These drawbacks related to the 8 Fallacies of Distributed Computing:
+
+1. The network is reliable.
+2. Latency is zero.
+3. Bandwidth is infinite.
+4. The network is secure.
+5. Topology doesn't change.
+6. There is one administrator.
+7. Transport cost is zero.
+6. The network is homogeneous.
+
+-------------------------------------------------------
+
+# Micro Frontends
+
+Architectural style in frontend web development.
+
+Similar to the microservices approach in backend development.
+
+Breaks big monolithic frontend applications into smaller ones. Into independent, deployable features.
+
+Each micro frontend can be developed, tested, and deployed independently by different teams.
+
+Promotes modularity, scalability, and faster delivery cycles. 
+
+
+
+
+
+
+
 
 
 -------------------------------------------------------
             DEVELOPMENT METHODOLOGIES
 -------------------------------------------------------
 
-# What's Test Driven Development (TDD) ?
-
-Software development practice / methodology.
-
-Write tests first. Code second.
+# What's TDD ?
 
 TDD = Test Driven Development.
 
-TDD = Red–Green–Refactor = write a test → write code → refactor, repeat until done
+Software development practice / methodology.
+
+TDD = Red–Green–Refactor:
 
 1. Red → Write a failing test
  - Define what the code should do.
@@ -185,6 +345,207 @@ No client should be forced to depend on methods it does not use.
 # What does "code smell" refer to in the context of the SOLID principles?
 
 A potential violation of the SOLID principles.
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+                React Patterns
+-------------------------------------------------------
+
+# Does react have a Hierarchy Of States ?
+
+State management topic.
+
+One of the trickiest and most important parts of building apps.
+
+A good way to think about it is in a **hierarchy of states**, from most local (simplest) to most global (complex and powerful):
+ 1. Component State (Local State)
+ 2. Shared State (Lifted State)
+ 3. Global State
+
+Think of state like a pyramid:
+
+```
+           Global State
+          (rare, app-wide)
+        ---------------------
+           Shared State
+        (parent + children)
+        ---------------------
+           Component State
+          (local, isolated)
+```
+
+Guideline:
+ - Start with component state.
+ - If multiple siblings need it → lift to shared state.
+ - If it’s needed everywhere → move to global state.
+
+## 1. Component State (Local State)
+
+Where it lives: Inside a single component (useState, useReducer).
+
+Use case: When only one component cares about the data.
+
+Cheap, simple, and fast. Always prefer it if the state isn’t needed anywhere else.
+
+## 2. Shared State (Lifted State)
+
+Where it lives: In a common parent component, then passed down as props.
+
+Use case: When multiple components need access to the same data, but only within a section of the app.
+
+Rule of thumb: “Lift state up” — put the state in the nearest common ancestor of the components that need it.
+
+## 3. Global State
+
+Where it lives: Outside the component tree, accessible anywhere (Context API, Redux, Zustand, Jotai, Recoil, etc.).
+
+Use case: When many unrelated components across the app need the same data.
+
+Examples: auth, logging, theme, notifications, shopping cart.
+
+Powerful but should be used sparingly, because:
+ - can lead to unnecessary re-renders if mismanaged.
+ - introduces complexity compared to local/shared state.
+
+-------------------------------------------------------
+
+# Container–Presentational Pattern
+
+Splits Components Into
+ 1. Presentational (UI) components → only concerned with layout, markup, and styles.
+ 2. Container (logic) components → handle state, data fetching, and business logic.
+
+Why
+ - Separation of concerns → UI is reusable and testable.
+ - Makes components easier to maintain and swap.
+
+```javascript
+ // Presentational (stateless)
+ const UserList = ({ users }) => (
+  <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>
+ );
+
+ // Container (stateful)
+ const UserListContainer = () => {
+  const [users, setUsers] = React.useState([]);
+  React.useEffect(() => {
+    fetch('/api/users').then(res => res.json()).then(setUsers);
+  }, []);
+  return <UserList users={users} />;
+ };
+```
+
+-------------------------------------------------------
+
+# Higher-Order Components (HOCs)
+
+
+Think of it as:
+ - a wrapper
+ - intersector
+ - decorator
+ - transformator
+
+What it is:
+ - A function that takes a `component` and returns a `new component` with **extra props or behavior**.
+ - Whereas a regular component transforms props into UI, a higher-order component transforms a component into another component.
+ - Wraps existing components without modifying their internals.
+ 
+Use cases:
+ - `logging`, `theming`, `global state mgmt`, or `auth`.
+ - generally for cross-cutting concerns, encourages code reuse.
+
+```javascript
+ function withLoading(Component) {
+  return function WithLoadingComponent({ isLoading, ...props }) {
+    if (isLoading) return <p>Loading...</p>;
+    return <Component {...props} />;
+  };
+ }
+
+ const UserListWithLoading = withLoading(UserList);
+```
+
+-------------------------------------------------------
+
+# Examples of HOC (Higher Order Component) in React ?
+
+`React.memo` is an HOC that adds functionality to another component by using composition.
+
+HOCs are common in third-party React libraries, such as:
+ - `Redux` for `connect`
+ - `Relay` for `createFragmentContainer`.
+
+https://www.patterns.dev/react/hoc-pattern/
+
+-------------------------------------------------------
+
+# Differences between HOFs vs HOCs patterns ?
+
+Both patterns utilize functions to create reusable logic, but they operate in different contexts. 
+
+Higher-order functions are a **general JavaScript concept** where a function takes another function as an argument or returns a function. 
+
+In React, higher-order components are a specific pattern that leverages this concept to create reusable component logic by wrapping existing components with enhanced functionality.
+
+https://www.patterns.dev/react/hoc-pattern/
+
+-------------------------------------------------------
+
+# Custom Hooks
+
+What it is:
+ - Encapsulating reusable stateful logic into a function that starts with use.
+
+Why:
+ - Avoids duplicating logic across components.
+ - Encourages clean, composable, and testable state management.
+
+```javascript
+ function useFetch(url) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch(url).then(res => res.json()).then(data => {
+      setData(data);
+      setLoading(false);
+    });
+  }, [url]);
+
+  return { data, loading };
+ }
+
+ function UserList() {
+  const { data: users, loading } = useFetch('/api/users');
+  if (loading) return <p>Loading...</p>;
+  return <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>;
+ }
+```
+
+-------------------------------------------------------
+
+# Middleware Pattern
+
+Wraps/Decorate functionalities with code running before or after.
+
+Used by:
+ - Express middleware → operates on HTTP request/response lifecycle.
+ - React middleware (Redux or routing) → operates on state management or component rendering lifecycle.
+
+
+
+
+
 
 
 
@@ -1045,141 +1406,11 @@ Example Architecture with GraphQL as BFF
 
 
 
--------------------------------------------------------
-                  ARCHITECTURE
--------------------------------------------------------
-
-# TODO
-
-DDD, Clean Architecture o Hexagonal.
-
--------------------------------------------------------
-
-# What's Modular Monolith Architecture ?
-
-A single service device in separated modules with clear boundaries.
-
-TODO
-
--------------------------------------------------------
-
-# What's the difference between Layer and Tier ?
-
- - `Tier` != `Layer`
- - `tier` is NOT a `layer`. 
-
-A `tier` is an independent component deployed at a **specific physical location**.
-
-A `tier` can contain `many layers`. 
-
--------------------------------------------------------
-
-# The MVC pattern is an example of ...
-
-A Layered Architecture.
-
-It separates the application into three interconnected layers: the Model, the View, and the Controller.
-
--------------------------------------------------------
-
-# Event-Driven Architecture
-
-TODO
-
--------------------------------------------------------
-
-# Client-Server Architecture
-
-TODO
-
--------------------------------------------------------
-
-# What's a Service Oriented Architecture ?
-
-You can think of services as the utilities we share: Internet, Electricity, Water, etc. 
-
-This translates to: Things like authentication, email sending, or file upload.
-
-They abstract away complexity and expose a simple interface.
-
-Services can depend on each other following a `Service Dependency Graph`. 
-
-We typically use a `class` to define a Service and use access modifiers (read-only, private) to expose a minimum API to anyone using the service (other service or a Controller).
-
-Services can be used across the different layers.
-
--------------------------------------------------------
-
-# What's a Microservices Architecture ?
-
-TODO
-
-The Microservices Architecture is a natural evolution of SOA (Service Oriented Architecture).
-
-We can transition to by extracting Services from the **modular monolith** and **run them independently**. 
-
-Benefits:
-
- - Each microservice runs independently
-
- - Each microservice can be developed by an autonomous (and smaller) team
-
- - If one service fails, the system will keep running 
-
- - Services are also deployed independently
-
--------------------------------------------------------
-
-# Which of the following Architecture Style achieves the maximum decoupling between services?
-
-Microservices Architectures ?
-Event-Driven Architectures ???
-Modular Monoliths ?
-Client-Server Architecture ?
-
-TODO
-
--------------------------------------------------------
-
-# What does the "Micro Services Tax" refer to ?
-
-The **additional complexity** of implementing a MicroServices Architecture (v.s a Monolith Architecture)
-
-Microservices architecture requires **more maintenance and development**.
-
-Drawbacks of MicroServices:
-
- - extra latency - a call into the system usually translates to a cascade of calls(over the network) to several services downstream. Each extra call makes the total response time longer.
-
- - extra complexity - to get data from another service we need to make a call over the network, handle authentication, caching, and maybe even load balancing. In a modular monolith, it would have been a simple function call.
-
- - extra resources - although we can rip some scalability benefits from Microservices(see system design) we need extra pieces in our architecture: distributed login and monitoring and distributed analytics just to name a few. This all ads up in our cloud bill at the end of the month.
 
 
-These drawbacks related to the 8 Fallacies of Distributed Computing:
 
-1. The network is reliable.
-2. Latency is zero.
-3. Bandwidth is infinite.
-4. The network is secure.
-5. Topology doesn't change.
-6. There is one administrator.
-7. Transport cost is zero.
-6. The network is homogeneous.
 
--------------------------------------------------------
 
-# Micro Frontends
-
-Architectural style in frontend web development.
-
-Similar to the microservices approach in backend development.
-
-Breaks big monolithic frontend applications into smaller ones. Into independent, deployable features.
-
-Each micro frontend can be developed, tested, and deployed independently by different teams.
-
-Promotes modularity, scalability, and faster delivery cycles. 
 
 
 

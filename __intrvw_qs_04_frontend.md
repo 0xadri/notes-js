@@ -739,6 +739,17 @@ Here's the sequence of events when the "Submit" button is clicked:
 
 The capturing phase occurs from the outermost element down to the target element, and the bubbling phase occurs from the target element up to the outermost element. Since the onContainerClick is explicitly set to capture, it goes first, followed by the button's click handler as the event target, and finally, the event bubbles up to the outer_container.
 
+-------------------------------------------------------
+
+## Which GIT flow would you recommend when starting a new project with a small team?
+
+Feature branch
+
+-------------------------------------------------------
+
+## What does git squash do?
+
+Combine multiple commits into a single commit
 
 
 
