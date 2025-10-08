@@ -1,5 +1,6 @@
 
--------------------------------------------------------
+
+
 
 **TODO**
 
@@ -12,8 +13,6 @@ Custom hooks – when and why to create them
 useReducer vs useState
 
 useLayoutEffect vs useEffect
-
-
 
 
 
@@ -102,6 +101,16 @@ https://stackoverflow.com/questions/41340697/react-component-vs-react-purecompon
 ##  Can React components inherit from each other? 
 
 No, React favours composition over inheritance - components can assemble in different ways but do not inherit from each other.
+
+-------------------------------------------------------
+
+## When optimizing React code by decreasing "re-rendering time"", what should you focus on?
+
+ - Components at the bottom of the component tree - they will most likely re-render the most
+ 
+ - Components that contain Context - they trigger the re-render of all the components connected to that context
+
+Decrease re-rendering time with `useCallback` and `useMemo`
 
 
 
@@ -304,6 +313,8 @@ If components are pure:
 
 ## Can you give examples of "impure functions" in React ?
 
+TLDR: NON-deterministic + HAS side effect.
+
 Some operations are inherently impure:
  - data fetching
  - logging
@@ -316,6 +327,8 @@ React’s approach is to isolate these side effects:
 
 This way, the render phase (component body) stays pure, while effects are handled after rendering.
 
+-------------------------------------------------------
+
 ## Impure component example:
 
 ```javascript
@@ -324,6 +337,8 @@ This way, the render phase (component body) stays pure, while effects are handle
   return <h1>Hello {name}</h1>;
  }
 ```
+
+-------------------------------------------------------
 
 ## Pure render + side effect in useEffect:
 
@@ -343,7 +358,7 @@ So the best way to phrase it:
 
 -------------------------------------------------------
  
-## Difference between functional and class components
+## Difference between functional and class components?
 
 These are the two main ways to define components.
 
@@ -415,15 +430,6 @@ Class Components:
  - Requires this keyword for state and props.
  - Can get harder to manage in large projects.
 
--------------------------------------------------------
-
-## When optimizing React code by decreasing "re-rendering time"", what should you focus on?
-
- - Components at the bottom of the component tree - they will most likely re-render the most
- 
- - Components that contain Context - they trigger the re-render of all the components connected to that context
-
-Decrease re-rendering time with `useCallback` and `useMemo`
 
 
 

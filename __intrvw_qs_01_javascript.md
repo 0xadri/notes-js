@@ -7,6 +7,17 @@ This doc is alive, hence this TODO section :)
 For each topic: What / Why / When(realusecases) / How(code)
 Analogy + Mental Models + Memory Tip
 
+
+- Promise static methods
+- What's a pure function in JavaScript?
+- When do we use apply()?
+- Why?
+- Still relevant?
+- When do we use bind()
+- Why?
+- Still relevant?
+
+
 - diff between undefined and null
 - let vs const vs var
 
@@ -660,7 +671,23 @@ function logAndMultiply(...args) {      // function definition so: rest syntax, 
 console.log(logAndMultiply(3, 5)); // 15
 ```
 
+-------------------------------------------------------
 
+## When using rest parameter (...args in function), what will be the value of `...args` if no parameters is passed?
+
+An empty array.
+
+```javascript
+function demo(...args) {
+  console.log(args);
+  console.log(Array.isArray(args));
+}
+
+demo();           // Output: []  true
+demo(1, 2, 3);    // Output: [1, 2, 3]  true
+```
+
+→ code above shows that `args` is always an array
 
 -------------------------------------------------------
 
@@ -1521,6 +1548,21 @@ Arrow functions:
 
 -------------------------------------------------------
 
+## Ouput for code snippet with apply() ?
+
+
+```javascript
+const numbers = [1, 1, 1];
+
+function sumThis(a, b, c) {
+  return this + a + b + c;
+}
+
+console.log(sumThis.apply(5, numbers));
+```
+
+-------------------------------------------------------
+
 ## The global "this", what is the output to the console of the following snippet?
 
 ```javascript
@@ -1911,6 +1953,26 @@ TODO: break down each in separate question ???
 
 -------------------------------------------------------
 
+## Can you call all of .then(), .catch(), and .finally() handlers ?
+
+Yes, informally, you can.
+
+But the handlers are the callback functions inside these methods.
+
+```javascript
+promise
+  .then(onFulfilled, onRejected)
+  .catch(onRejected)
+  .finally(onFinally);
+```
+
+ - onFulfilled → handles the fulfilled result
+ - onRejected → handles a rejection
+ - onFinally → handles cleanup (runs regardless of outcome)
+
+
+-------------------------------------------------------
+
 ## `Promise Handling` With `Method Chaining` Syntax: Code Example ?
 
 TLDR:
@@ -2056,6 +2118,99 @@ Note: you'll have to add a try/catch block for error handling outside the functi
 
 -------------------------------------------------------
 
+## What Happens When Returning Anything Inside A Promise's .then() or .catch() ?
+
+Warning: WEIRD one. But easy one.
+
+It is passed to the next handler in the chain.
+
+### Returning Simple Value In then()
+
+It’s automatically `wrapped in a resolved Promise` for the next handler:
+
+```javascript
+Promise.resolve(1)
+  .then(x => x + 1)     // returns 2 → next .then receives 2
+  .then(y => console.log(y));     // logs 2
+```
+
+### Returning a Promise In then()
+
+The chain waits for it to settle, and passes along its result:
+
+```javascript
+Promise.resolve(1)
+  .then(x => Promise.resolve(x + 1))       // returns Promise(2)
+  .then(y => console.log(y));        // logs 2
+```
+
+### Returning Simple Value In catch()
+
+```javascript
+Promise.reject(22)
+  .catch((x) => x + 1)     // returns 23 → next .then receives 23
+  .then((y) => console.log(y));     // logs 23
+```
+
+### Returning Simple Values In then() and catch()
+
+Combining the previous cases.
+
+```javascript
+Promise.reject(44)
+  .catch((x) => x + 1) // returns 45 → next .then receives 45
+  .then((y) => y + 1) // returns 46 → next .then receives 46
+  .then((z) => console.log(z)); // logs 46
+```
+
+### Returning Nothing In then()
+
+```javascript
+Promise.resolve(11)
+  .then((x) => {
+    console.log(x);
+    // no return
+  }) // returns undefined → next .then receives undefined
+  .then((y) => console.log(y)); // logs undefined
+```
+
+
+  
+  
+-------------------------------------------------------
+
+## Returning A Value In `catch()`, What Will Be The Output ?
+
+```javascript
+function job(state) {
+  return new Promise(function (resolve, reject) {
+    if (state) resolve("success");
+    else reject("error");
+  });
+}
+
+job(false)
+  .then(function (data) {   // 1st then()
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.log(error);
+    return "yow";
+  })
+  .then(function (data) {   // 2nd then()
+    console.log(data);
+  });
+```
+
+Returns "yow" → this resolves the chain AGAIN (it does NOT rethrow). So it goes into the next then() and passes its argument
+
+Output:
+error
+yow
+
+
+-------------------------------------------------------
+
 ## What's Promise.all ?
 
 TODO
@@ -2100,11 +2255,13 @@ However, if any of the promises is rejected, the promise returned will also reje
 
 ## Macrotask vs Microtask and how the `event loop` interacts with them?
 
+TLDR: call stack -> microtask queue -> microtask queue.
+
 Macrotask: Timer Functions: `setTimeout`, `setInterval`, `setImmediate`, I/O: `I/O`, UI rendering: `UI rendering`
 
 Microtask: `Promise`, `MutationObserver`, `process.nextTick`
 
-Order of execution:
+Order of execution: 
 1. call stack
 2. once the call stack is empty, the event loop will execute the microtask queue.
 3. once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue
@@ -2115,7 +2272,24 @@ Order of execution:
 
 frequent interview question! ⚠️
 
-TODO : MISSING CODE
+```javascript
+function cookLunch() {
+    const myFutureValue = new Promise((resolve, reject) => {
+        resolve(true);
+    });
+
+    myFutureValue.then(() => {
+        logger("Water Boiled ...");
+    });
+
+    setTimeout(() => {
+        logger("Dishes Washed ...");
+    }, 0);
+    
+    logger("Lunch Cooked ...");
+}
+cookLunch();
+```
 
 To answer correctly, you need to understand the difference between `macrotask` and `microtask` and how the event loop interacts with them.
 
@@ -2135,4 +2309,6 @@ In this case, the code will be executed in the following order:
 
 5. Finally, once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue, so logger("Dishes Washed ...") will be printed to the console third.
 
+Answer:
 
+Lunch Cooked ..., Water Boiled ..., Dishes Washed ...

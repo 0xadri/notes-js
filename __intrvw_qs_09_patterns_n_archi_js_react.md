@@ -10,7 +10,7 @@
 
 -------------------------------------------------------
 
-# What's The Architect Mindset?
+## What is "The Architect Mindset"?
 
 Think in **trade-offs** - BALANCE - developers know the benefits of everything, but architects always think in terms of trade-offs.
 
@@ -20,7 +20,7 @@ An excellent coder - an architect is before everything an excellent coder. She e
 
 -------------------------------------------------------
 
-# Docs
+## Docs
 
 https://www.patterns.dev/vanilla/
 
@@ -39,13 +39,13 @@ https://www.patterns.dev/react
 
 -------------------------------------------------------
 
-# TODO
+## TODO
 
 DDD, Clean Architecture o Hexagonal.
 
 -------------------------------------------------------
 
-# What's Modular Monolith Architecture ?
+## What's Modular Monolith Architecture ?
 
 A single service device in separated modules with clear boundaries.
 
@@ -53,7 +53,7 @@ TODO
 
 -------------------------------------------------------
 
-# Difference between Layer vs Tier ?
+## Difference between Layer vs Tier ?
 
  - `Tier` != `Layer`
  - `tier` is NOT a `layer`. 
@@ -64,7 +64,7 @@ A `tier` can contain `many layers`. 
 
 -------------------------------------------------------
 
-# The MVC pattern is an example of ...
+## The MVC pattern is an example of ...
 
 A Layered Architecture.
 
@@ -72,19 +72,19 @@ It separates the application into three interconnected layers: the Model, the Vi
 
 -------------------------------------------------------
 
-# Event-Driven Architecture
+## Event-Driven Architecture
 
 TODO
 
 -------------------------------------------------------
 
-# Client-Server Architecture
+## Client-Server Architecture
 
 TODO
 
 -------------------------------------------------------
 
-# What's a Service Oriented Architecture ?
+## What's a Service Oriented Architecture ?
 
 You can think of services as the utilities we share: Internet, Electricity, Water, etc. 
 
@@ -100,7 +100,7 @@ Services can be used across the different layers.
 
 -------------------------------------------------------
 
-# What's a Microservices Architecture ?
+## What's a Microservices Architecture ?
 
 TODO
 
@@ -120,7 +120,7 @@ Benefits:
 
 -------------------------------------------------------
 
-# Which of the following Architecture Style achieves the maximum decoupling between services?
+## Which of the following Architecture Style achieves the maximum decoupling between services?
 
 Microservices Architectures ?
 
@@ -134,7 +134,7 @@ TODO
 
 -------------------------------------------------------
 
-# What does the "Micro Services Tax" refer to ?
+## What does the "Micro Services Tax" refer to ?
 
 The **additional complexity** of implementing a MicroServices Architecture (v.s a Monolith Architecture)
 
@@ -162,7 +162,7 @@ These drawbacks related to the 8 Fallacies of Distributed Computing:
 
 -------------------------------------------------------
 
-# Micro Frontends
+## Micro Frontends
 
 Architectural style in frontend web development.
 
@@ -183,10 +183,12 @@ Promotes modularity, scalability, and faster delivery cycles.
 
 
 -------------------------------------------------------
-            DEVELOPMENT METHODOLOGIES
+
+# DEVELOPMENT METHODOLOGIES
+
 -------------------------------------------------------
 
-# What's TDD ?
+## What's TDD ?
 
 TDD = Test Driven Development.
 
@@ -210,7 +212,7 @@ Then repeat the Red–Green–Refactor cycle.
 
 -------------------------------------------------------
 
-# Why TDD ?
+## Why TDD ?
 
 Ensures better design and cleaner code.
 
@@ -222,7 +224,7 @@ Produces a safety net of automated tests.
 
 -------------------------------------------------------
 
-# Component Driven Development
+## Component Driven Development
 
 UI development methodology.
 
@@ -238,7 +240,7 @@ Similar in spirit to TDD (small, incremental steps) but applied to UI.
 
 -------------------------------------------------------
 
-# Why Component Driven Development ?
+## Why Component Driven Development ?
 
 Reusability – Build once, use everywhere.
 
@@ -257,7 +259,7 @@ Scalability – Large UIs are easier to maintain when broken into parts.
                 SOLID Principles
 -------------------------------------------------------
 
-# SOLID Principles
+## SOLID Principles
 
 Set of five principles in object-oriented programming (OOP) that make software designs more maintainable, scalable, and flexible.
 
@@ -273,7 +275,7 @@ D — Dependency Inversion Principle (DIP)
 
 -------------------------------------------------------
 
-# What is the Single Responsibility Principle (SRP) ?
+## What is the Single Responsibility Principle (SRP) ?
 
 SOLID principles = S.
 
@@ -285,7 +287,7 @@ For instance, if you have a class that is designed to manage customer records, i
 
 -------------------------------------------------------
 
-# What's the Open-Closed Principle (OCP) ?
+## What's the Open-Closed Principle (OCP) ?
 
 SOLID principles = O.
 
@@ -293,7 +295,7 @@ SOLID principles = O.
 
 -------------------------------------------------------
 
-# What's the Liskov Substitution Principle (LSP) ?
+## What's the Liskov Substitution Principle (LSP) ?
 
 SOLID principles = L.
 
@@ -309,7 +311,7 @@ States that objects of a `superclass` should be replaceable with objects of its 
 
 -------------------------------------------------------
 
-# Which principle in SOLID stands for classes should depend upon abstractions, not concrete implementations?
+## Which principle in SOLID stands for classes should depend upon abstractions, not concrete implementations?
 
 SOLID principles = D.
 
@@ -325,7 +327,7 @@ This makes the code more flexible, reusable, and resistant to changes in the und
 
 -------------------------------------------------------
 
-# What's the Interface Segregation Principle (ISP) ?
+## What's the Interface Segregation Principle (ISP) ?
 
 SOLID principles = I.
 
@@ -335,7 +337,7 @@ No client should be forced to depend on methods it does not use.
 
 -------------------------------------------------------
 
-# Not following SOLID principles will...
+## Not following SOLID principles will...
 
 🧱 Lower Module Cohesion - modules are not focused on a single purpose
 
@@ -345,7 +347,7 @@ No client should be forced to depend on methods it does not use.
 
 -------------------------------------------------------
 
-# What does "code smell" refer to in the context of the SOLID principles?
+## What does "code smell" refer to in the context of the SOLID principles?
 
 A potential violation of the SOLID principles.
 
@@ -359,10 +361,12 @@ A potential violation of the SOLID principles.
 
 
 -------------------------------------------------------
-                React Patterns
+
+# React Patterns
+
 -------------------------------------------------------
 
-# Does react have a Hierarchy Of States ?
+## Does react have a Hierarchy Of States ?
 
 State management topic.
 
@@ -421,7 +425,7 @@ Powerful but should be used sparingly, because:
 
 -------------------------------------------------------
 
-# Container–Presentational Pattern
+## Container–Presentational Pattern
 
 Splits Components Into
  1. Presentational (UI) components → only concerned with layout, markup, and styles.
@@ -449,7 +453,7 @@ Why
 
 -------------------------------------------------------
 
-# Higher-Order Components (HOCs)
+## Higher-Order Components (HOCs)
 
 
 Think of it as:
@@ -480,7 +484,7 @@ Use cases:
 
 -------------------------------------------------------
 
-# Examples of HOC (Higher Order Component) in React ?
+## Examples of HOC (Higher Order Component) in React ?
 
 `React.memo` is an HOC that adds functionality to another component by using composition.
 
@@ -492,7 +496,7 @@ https://www.patterns.dev/react/hoc-pattern/
 
 -------------------------------------------------------
 
-# Differences between HOFs vs HOCs patterns ?
+## Differences between HOFs vs HOCs patterns ?
 
 Both patterns utilize functions to create reusable logic, but they operate in different contexts. 
 
@@ -504,7 +508,7 @@ https://www.patterns.dev/react/hoc-pattern/
 
 -------------------------------------------------------
 
-# Custom Hooks
+## Custom Hooks
 
 What it is:
  - Encapsulating reusable stateful logic into a function that starts with use.
@@ -537,7 +541,7 @@ Why:
 
 -------------------------------------------------------
 
-# Middleware Pattern
+## Middleware Pattern
 
 Wraps/Decorate functionalities with code running before or after.
 
@@ -554,10 +558,12 @@ Used by:
 
 
 -------------------------------------------------------
-                   ANALOGIES
+
+# ANALOGIES
+
 -------------------------------------------------------
 
-# Patterns Analogies
+## Patterns Analogies
 
 Debounce: Think of it like waiting for someone to stop talking before you reply.
 
@@ -567,11 +573,16 @@ Throttle: Think of it like a speed limiter.
 
 
 
--------------------------------------------------------
-                   PATTERNS
+
+
+
 -------------------------------------------------------
 
-# Composition Over Inheritance
+# PATTERNS
+
+-------------------------------------------------------
+
+## Composition Over Inheritance
 
 "Has-a" vs "Is-a" relationship.
 
@@ -585,7 +596,7 @@ Benefits:
 
 -------------------------------------------------------
 
-# What's state machine pattern?
+## What's state machine pattern?
 
 It is a **behavioral design pattern** that allows an object to alter its behavior based on its internal state. 
 
@@ -601,7 +612,7 @@ Changes in state lead to updates in the UI, making the relationship between stat
 
 -------------------------------------------------------
 
-# Observer pattern
+## Observer pattern
 
 The Observer pattern:
  - is a behavioral design pattern.
@@ -620,7 +631,7 @@ https://www.patterns.dev/vanilla/observer-pattern/
 
 -------------------------------------------------------
 
-# Observer vs Subscriber pattern ?
+## Observer vs Subscriber pattern ?
 
 `Observer pattern` is mostly implemented in a **synchronous** way
  - i.e. the Subject calls the appropriate method of all its Observers when some event occurs. 
@@ -630,7 +641,7 @@ The `Publisher/Subscriber pattern` is mostly implemented in an **asynchronous** 
 
 -------------------------------------------------------
 
-# Observer vs Mediator pattern ?
+## Observer vs Mediator pattern ?
 
 Mediator pattern is usually more complex than the Observer pattern.
 
@@ -656,7 +667,7 @@ Mediator (more complex):
 
 -------------------------------------------------------
 
-# What's the difference between Mediator and Middleware Patterns ?
+## What's the difference between Mediator and Middleware Patterns ?
 
 Mediator → **central hub** that manages communication.
 
@@ -675,7 +686,7 @@ https://www.patterns.dev/vanilla/mediator-pattern/
 
 -------------------------------------------------------
 
-# Function Debouncing pattern
+## Function Debouncing pattern
 
 Think of it like waiting for someone to stop talking before you reply.
 
@@ -690,7 +701,7 @@ Debounce Example: fire an API request only once the user stops typing for, say, 
 
 -------------------------------------------------------
 
-# Differences between Debouncing and Throttling ?
+## Differences between Debouncing and Throttling ?
 
 Debounce: Think of it like waiting for someone to stop talking before you reply.
 
@@ -718,7 +729,7 @@ Throttle Example: scroll listener updates position regularly, but not on every s
 
 -------------------------------------------------------
 
-# PRPL pattern
+## PRPL pattern
 
 PRPL Pattern -> Push, Render, Pre-cache, Lazy-load
 
@@ -738,13 +749,13 @@ https://www.patterns.dev/vanilla/prpl/
 
 -------------------------------------------------------
 
-# Factory pattern
+## Factory pattern
 
 TODO
 
 -------------------------------------------------------
 
-# Singleton Pattern
+## Singleton Pattern
 
 TODO
 
@@ -752,7 +763,7 @@ https://www.patterns.dev/vanilla/singleton-pattern/
 
 -------------------------------------------------------
 
-# Which data structure is used to implement the undo operation in text editors?
+## Which data structure is used to implement the undo operation in text editors?
 
 Queue?
 Stack?
@@ -761,7 +772,7 @@ Graph?
 
 -------------------------------------------------------
 
-# What's Higher Order Function (HOF) pattern ?
+## What's Higher Order Function (HOF) pattern ?
 
 Think of it as:
  - a wrapper
@@ -786,7 +797,7 @@ Core concept in functional programming and very common in JavaScript.
 
 -------------------------------------------------------
 
-# Code examples of Higher-Order Functions (HOFs) ?
+## Code examples of Higher-Order Functions (HOFs) ?
 
 1. HOF taking a function as an argument
 
@@ -813,7 +824,7 @@ Core concept in functional programming and very common in JavaScript.
 
 -------------------------------------------------------
 
-# Why: High-Level Use-Cases for Higher-Order Functions (HOFs) ?
+## Why: High-Level Use-Cases for Higher-Order Functions (HOFs) ?
 
 They’re great at **wrapping** (decorating/intersecting-with) other functions.
 
@@ -829,7 +840,7 @@ Essential for:
 
 -------------------------------------------------------
 
-# Why: Real-Life Use-Cases for Higher-Order Functions (HOFs) ?
+## Why: Real-Life Use-Cases for Higher-Order Functions (HOFs) ?
 
 Use cases:
  - `logging`, `theming`, `global state mgmt`, or `auth`.
@@ -852,7 +863,7 @@ TODO: - used by Express middleware
 
 -------------------------------------------------------
 
-# How: Can you give some Code Examples of HOFs?
+## How: Can you give some Code Examples of HOFs?
 
 1. **Abstraction & Reusability**
 
@@ -935,7 +946,7 @@ One HOF → many custom comparators.
 
 -------------------------------------------------------
 
-# What pattern is used in the following code snippet?
+## What pattern is used in the following code snippet?
 
 ```javascript
  // Initial function
@@ -969,7 +980,7 @@ Function Currying.
 
 -------------------------------------------------------
 
-# What is Currying?
+## What is Currying?
 
 TLDR: Currying turns f(a, b, c) into f(a)(b)(c)
 
@@ -994,7 +1005,7 @@ Currying is a concept from `functional programming`.
 
 -------------------------------------------------------
 
-# Why currying is useful?
+## Why currying is useful?
 
 Enables more **flexible** and **reusable** function calls.
 
@@ -1011,7 +1022,7 @@ Enables more **flexible** and **reusable** function calls.
 
 -------------------------------------------------------
 
-# How: Use Cases for Currying?
+## How: Use Cases for Currying?
 
 We use currying to create different versions of a function that takes multiple arguments into several derived functions that take less arguments.
 
@@ -1087,7 +1098,7 @@ Easily create "predicate factories".
 
 -------------------------------------------------------
 
-# How Do Currying Pattern Relate To HOF ?
+## How Do Currying Pattern Relate To HOF ?
 
 A `curried function` is by definition a `higher-order function` because it `returns a function`.
 
@@ -1097,7 +1108,7 @@ Currying always produces a function.
 
 -------------------------------------------------------
 
-# How does currying pattern relate to closure?
+## How does currying pattern relate to closure?
 
 Currying relies on closures to work - to pass along and remember previous arguments.
 
@@ -1107,7 +1118,7 @@ Closures = inner functions “remember” variables from outer functions.
 
 -------------------------------------------------------
 
-# What is the essence of closures?
+## What is the essence of closures?
 
 The essence of closures is all about `scope`.
 
@@ -1119,7 +1130,7 @@ The essence of closures is all about `scope`.
 
 -------------------------------------------------------
 
-# What's a closure in JavaScript ?
+## What's a closure in JavaScript ?
 
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the "lexical environment"). 
 
@@ -1137,7 +1148,7 @@ https://stackoverflow.com/questions/111102/how-do-javascript-closures-work
 
 -------------------------------------------------------
 
-# Why: use-cases top-5 for closure?
+## Why: use-cases top-5 for closure?
 
 1. Data Privacy / Encapsulation : “hide” variables so they can’t be accessed directly from outside.
 
@@ -1151,7 +1162,7 @@ https://stackoverflow.com/questions/111102/how-do-javascript-closures-work
 
 -------------------------------------------------------
 
-# Closures makes Javascript consume more ...
+## Closures makes Javascript consume more ...
 
 Memory.
 
@@ -1162,10 +1173,12 @@ Because it keeps the scope where a function is defined in memory even after the 
 
 
 -------------------------------------------------------
-                  JS SPECIFIC
+
+# JS SPECIFIC
+
 -------------------------------------------------------
 
-# Static Rendering (SSR)
+## Static Rendering (SSR)
 
 Static rendering or static generation (SSG) delivers pre-rendered HTML content to the client that was generated when the site was built.
 
@@ -1179,7 +1192,7 @@ https://www.patterns.dev/react/static-rendering/
 
 -------------------------------------------------------
 
-# Server Side Rendering (SSR)
+## Server Side Rendering (SSR)
 
 Architectural style in frontend web development.
 
@@ -1204,7 +1217,7 @@ https://www.patterns.dev/react/server-side-rendering/
 
 -------------------------------------------------------
 
-# What's the Module Pattern ?
+## What's the Module Pattern ?
 
 ### Problem Statement
 
@@ -1230,7 +1243,7 @@ https://www.patterns.dev/vanilla/module-pattern/
 
 -------------------------------------------------------
 
-# Design Pattern : Module Pattern Implementations
+## Design Pattern : Module Pattern Implementations
 
 JavaScript did not have built-in support for modules.
 
@@ -1256,7 +1269,7 @@ http://jargon.js.org/_glossary/COMMONJS.md
 
 -------------------------------------------------------
 
-# CommonJS Modules vs ES6 Modules
+## CommonJS Modules vs ES6 Modules
 
 >     module.exports = askQuestionSet;
 
@@ -1274,13 +1287,13 @@ Becomes
 
 -------------------------------------------------------
 
-# Design Pattern : Module Pattern In Practice
+## Design Pattern : Module Pattern In Practice
 
 When you have a file called axios.js, we say call it the axios module.
 
 -------------------------------------------------------
 
-# IIFE used as a module declaration
+## IIFE used as a module declaration
 
 IIFE (Immediately Invoked Function Expression)
 
@@ -1300,7 +1313,7 @@ IIFE (Immediately Invoked Function Expression)
 
 -------------------------------------------------------
 
-# Module Federation Pattern
+## Module Federation Pattern
 
 TODO
 
@@ -1308,10 +1321,12 @@ TODO
 
 
 -------------------------------------------------------
-                API TOPICS
+
+# API TOPICS
+
 -------------------------------------------------------
 
-# Can you give common API patterns?
+## Can you give common API patterns?
 
 1. Resource-Oriented Design (RESTful Pattern)
 2. Request-Response with Filtering and Pagination
@@ -1324,7 +1339,7 @@ TODO
 
 -------------------------------------------------------
 
-# What's Resource-Oriented Design (RESTful Pattern) ?
+## What's Resource-Oriented Design (RESTful Pattern) ?
 
 Treats everything as a resource (users, orders, products) identified by URLs, manipulated using standard HTTP verbs (GET, POST, PUT, DELETE).
 
@@ -1336,7 +1351,7 @@ Cons: Can get complex for highly relational or real-time scenarios.
 
 -------------------------------------------------------
 
-# What's Request-Response with Filtering and Pagination ?
+## What's Request-Response with Filtering and Pagination ?
 
 Instead of returning huge payloads, APIs provide query parameters for filtering, sorting, and paginating results.
 
@@ -1348,7 +1363,7 @@ Cons: More complexity in query parsing and validation.
 
 -------------------------------------------------------
 
-# What's Backend-For-Frontend Pattern (BFF) ?
+## What's Backend-For-Frontend Pattern (BFF) ?
 
 Separate backend services tailored to the needs of a specific frontend application (web, mobile, smart TV, etc.).
 
@@ -1356,7 +1371,7 @@ Acts as a middle layer between the frontend and the underlying microservices, AP
 
 -------------------------------------------------------
 
-# Why BFF?
+## Why BFF?
 
 Different frontends often have different needs:
  - A mobile app may need smaller payloads (limited bandwidth, lower processing power).
@@ -1379,7 +1394,7 @@ Key Benefits
 
 -------------------------------------------------------
 
-# BFF vs GraphQL: Can GraphQL solve the same issues as BFF ?
+## BFF vs GraphQL: Can GraphQL solve the same issues as BFF ?
 
 Yes, GraphQL can solve many of the same problems that the BFF pattern addresses, but the two approaches are not identical. 
 
@@ -1419,10 +1434,12 @@ Example Architecture with GraphQL as BFF
 
 
 -------------------------------------------------------
-                  DEVOPS
+
+# DEVOPS
+
 -------------------------------------------------------
 
-# Server Optimisation: Caching
+## Server Optimisation: Caching
 
 Caching is at its core saving a copy of the data/files that your users require most often and serving them that copy, instead of making a trip to the database and back.
 
@@ -1430,13 +1447,13 @@ You could cache(save) that copy at different levels. You could save it on the br
 
 -------------------------------------------------------
 
-# Round Robin for load balancing
+## Round Robin for load balancing
 
 TODO
 
 -------------------------------------------------------
 
-# Reverse Proxy vs. Forward Proxy
+## Reverse Proxy vs. Forward Proxy
 
 Forward and reverse proxies are both intermediaries in network communication, but they act on different sides of the communication flow. 
 
@@ -1446,13 +1463,13 @@ While a reverse proxy acts on behalf of servers, managing incoming traffic from 
 
 -----------------------------------------------------
 
-# Reverse Proxy vs. API Gateway
+## Reverse Proxy vs. API Gateway
 
 An API gateway is a specialized form of a reverse proxy, primarily focused on API traffic management rather than general load balancing or data caching.
 
 -------------------------------------------------------
 
-# Proxy Pattern
+## Proxy Pattern
 
 TODO
 
@@ -1460,7 +1477,7 @@ https://www.patterns.dev/vanilla/proxy-pattern/
 
 -------------------------------------------------------
 
-# API Gateway Pattern
+## API Gateway Pattern
 
 A common pattern used in the Microservices Architecture and it works like the gate to your cluster of services.
 
@@ -1494,7 +1511,7 @@ https://aws.amazon.com/api-gateway/
 
 -------------------------------------------------------
 
-# Monorepo vs Polyrepo
+## Monorepo vs Polyrepo
 
 Monorepo = Monolithic Repository = multiple projects/packages in a single Git repository
 

@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [How To Learn](___learn-how-to-learn.md)
 
 ## Interview Questions
 
@@ -16,9 +17,10 @@
 * [Qs: System Design](__intrvw_qs_10_system_design.md)
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
-* [Qs: Code Review](__intrvw_qs_97_code_review.md)
-* [Qs: Live Coding in React](__intrvw_qs_98_livecoding_react.md)
-* [Qs: LeetCode in JS](__intrvw_qs_99_js_leetcode.md)
+* [Qs: Code Review](__intrvw_qs_96_code_review.md)
+* [Qs: Live Coding in React](__intrvw_qs_97_livecoding_react.md)
+* [Qs: LeetCode in JS](__intrvw_qs_98_js_leetcode.md)
+* [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 ## JavaScript & TypeScript
 

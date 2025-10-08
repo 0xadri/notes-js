@@ -42,7 +42,7 @@ Very similar process to when learning to juggle.
 
 ## Bainstorm Questions
 
-Ton of questions is totally ok. For each topic: 
+Ton of questions is totally ok. For each topic:
 - What
 - Why - technical reason
 - When - real-life use-cases
@@ -52,13 +52,14 @@ Ton of questions is totally ok. For each topic:
 - Unpair - this never goes with that
 - Trade Offs - balancing act
 - History - when introduced to language
-- corner cases
+- Vocab - informal jargon, formal, vocab hierarchy
+- Corner Cases
 
 Always try to improve memorisation by using:
+- One Liners
 - Analogies
 - Mental Models
-- Shocking and/or weird facts
-
+- Shocking, Weird or Funny facts
 
 
 

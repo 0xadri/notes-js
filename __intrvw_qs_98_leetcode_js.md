@@ -49,6 +49,8 @@ arrowAdd([1, 2, 3, 4, 5]).then((out) => {
 
 # Promises: Guess The Output
 
+Impossible to get this right. Focus on explaining what you know and keep a good attitude while failing.
+
 https://codesandbox.io/p/sandbox/promises-forked-pkf2sd
 
 -------------------------------------------------------

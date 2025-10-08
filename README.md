@@ -1,8 +1,10 @@
 
-These are notes I took during months and years. 
+Welcome to Adri Tech Notes !
 
-Migration still in progress... more on the way.
+Notes taken during years. Topics mostly FrontEnd but also BackEnd and DevOps.
 
-Built with 💜  by Adrien.
+More on the way. Migration still in progress...
 
-[Adrien on Github](https://github.com/0xadri)
+<br/><br/><br/><br/>
+
+Built with 💜  by Adri [Adri on Github](https://github.com/0xadri)
