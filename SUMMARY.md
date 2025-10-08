@@ -1,6 +1,10 @@
 # Summary
 
 * [Introduction](README.md)
+
+## Interview Questions
+
+* [Interview Qs 01: JavaScript](__intrvw_qs_01_javascript.md)
 * [Interview Qs 01: JavaScript](__intrvw_qs_01_javascript.md)
 * [Interview Qs 02: TypeScript](__intrvw_qs_02_typescript.md)
 * [Interview Qs 03: React](__intrvw_qs_03_react.md)
@@ -8,14 +12,17 @@
 * [Interview Qs 05: Testing](__intrvw_qs_05_testing.md)
 * [Interview Qs 06: CSS](__intrvw_qs_06_css.md)
 * [Interview Qs 07: FullStack](__intrvw_qs_07_fullstack.md)
-* [Interview Qs 08: Algo & Data Structure](__intrvw_qs_08_algo_n_data_structure.md)
-* [Interview Qs 09: Patterns & Archi in JS & React](__intrvw_qs_09_patterns_n_archi_js_react.md)
+* [Interview Qs 08: Algo & Data Struct](__intrvw_qs_08_algo_n_data_structure.md)
+* [Interview Qs 09: Patterns & Archi](__intrvw_qs_09_patterns_n_archi_js_react.md)
 * [Interview Qs 10: System Design](__intrvw_qs_10_system_design.md)
 * [Interview Qs 11: Project Mgmt](__intrvw_qs_11_project_mgmt.md)
 * [Interview Qs 12: Memory](__intrvw_qs_12_memory.md)
 * [Interview Qs 97: Code Review](__intrvw_qs_97_code_review.md)
 * [Interview Qs 98: Live Coding in React](__intrvw_qs_98_livecoding_react.md)
 * [Interview Qs 99: LeetCode in JS](__intrvw_qs_99_js_leetcode.md)
+
+## JavaScript & TypeScript
+
 * [TypeScript](__typescript.md)
 * [JavaScript 01: Vanilla JavaScript](__js_01_vanilla.md)
 * [JavaScript 02: APIs, Build & Consume](__js_03_api_build_n_consume.md)
@@ -23,6 +30,9 @@
 * [JavaScript 04: MicroFrontEnds](__js_microfrontends.md)
 * [JavaScript 05: MongoDB](__js_mongodb.md)
 * [JavaScript 06: Mongoose](__mongoose.md)
+
+## React
+
 * [React.js 01: Cheatsheet](_reactjs_01_cheatsheet.md)
 * [React.js 02: JSX](_reactjs_02_jsx.md)
 * [React.js 03: States & Effects](_reactjs_03_states-n-effects.md)
@@ -36,6 +46,9 @@
 * [React.js 11: Testing: Jest](_reactjs_testing_jest.md)
 * [React.js 12: Testing: Mocha Chai](_reactjs_testing_mocha_chai.md)
 * [React.js 13: Testing: RTL](_reactjs_testing_rtl.md)
+
+## Node, Next, Bundler, More
+
 * [Node.js: Environment Variables](__nodejs_environment_variables.md)
 * [Node.js: Express API Microservices](__nodejs_express_api_microservices.md)
 * [Next.js](__nextjs.md)
