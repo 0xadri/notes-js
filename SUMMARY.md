@@ -4,22 +4,21 @@
 
 ## Interview Questions
 
-* [Interview Qs 01: JavaScript](__intrvw_qs_01_javascript.md)
-* [Interview Qs 01: JavaScript](__intrvw_qs_01_javascript.md)
-* [Interview Qs 02: TypeScript](__intrvw_qs_02_typescript.md)
-* [Interview Qs 03: React](__intrvw_qs_03_react.md)
-* [Interview Qs 04: FrontEnd](__intrvw_qs_04_frontend.md)
-* [Interview Qs 05: Testing](__intrvw_qs_05_testing.md)
-* [Interview Qs 06: CSS](__intrvw_qs_06_css.md)
-* [Interview Qs 07: FullStack](__intrvw_qs_07_fullstack.md)
-* [Interview Qs 08: Algo & Data Struct](__intrvw_qs_08_algo_n_data_structure.md)
-* [Interview Qs 09: Patterns & Archi](__intrvw_qs_09_patterns_n_archi_js_react.md)
-* [Interview Qs 10: System Design](__intrvw_qs_10_system_design.md)
-* [Interview Qs 11: Project Mgmt](__intrvw_qs_11_project_mgmt.md)
-* [Interview Qs 12: Memory](__intrvw_qs_12_memory.md)
-* [Interview Qs 97: Code Review](__intrvw_qs_97_code_review.md)
-* [Interview Qs 98: Live Coding in React](__intrvw_qs_98_livecoding_react.md)
-* [Interview Qs 99: LeetCode in JS](__intrvw_qs_99_js_leetcode.md)
+* [Qs: JavaScript](__intrvw_qs_01_javascript.md)
+* [Qs: TypeScript](__intrvw_qs_02_typescript.md)
+* [Qs: React](__intrvw_qs_03_react.md)
+* [Qs: FrontEnd](__intrvw_qs_04_frontend.md)
+* [Qs: Testing](__intrvw_qs_05_testing.md)
+* [Qs: CSS](__intrvw_qs_06_css.md)
+* [Qs: FullStack](__intrvw_qs_07_fullstack.md)
+* [Qs: Algo & Data Struct](__intrvw_qs_08_algo_n_data_structure.md)
+* [Qs: Patterns & Archi](__intrvw_qs_09_patterns_n_archi_js_react.md)
+* [Qs: System Design](__intrvw_qs_10_system_design.md)
+* [Qs: Project Mgmt](__intrvw_qs_11_project_mgmt.md)
+* [Qs: Memory](__intrvw_qs_12_memory.md)
+* [Qs: Code Review](__intrvw_qs_97_code_review.md)
+* [Qs: Live Coding in React](__intrvw_qs_98_livecoding_react.md)
+* [Qs: LeetCode in JS](__intrvw_qs_99_js_leetcode.md)
 
 ## JavaScript & TypeScript
 
