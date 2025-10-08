@@ -1,11 +1,11 @@
 
--------------------------------------------------------
 
 **TODO**
 
 This doc is alive, hence this TODO section :)
 
-For each topic: What / Why / When(realusecases) / How(code) / Analogy / Mental Model / Memory Tip
+For each topic: What / Why / When(realusecases) / How(code)
+Analogy + Mental Models + Memory Tip
 
 - diff between undefined and null
 - let vs const vs var
@@ -1866,9 +1866,17 @@ It acts like a placeholder for a value that will be available now, later, or nev
 
 Once `resolved` or `rejected` it won’t change again.
 
+
+-------------
+
+## What are the two key moments of a promise lifecycle?
+
+1. Creation
+2. Handling
+
 -------------------------------------------------------
 
-## What's The Code To Create A Promise With `new()` Syntax ?
+## Creation: What's The Code To Create A Promise With `new()` Syntax ?
 
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
@@ -1888,7 +1896,7 @@ TLDR:
 
 -------------------------------------------------------
 
-## What Are The Different Ways To Handle A Promise?
+## Handling: What Are The Different Ways To Handle A Promise?
 
 4 ways to handle a Promise:
 - Method Chaining → `.then()/.catch()/.finally()` (classic way?? )
@@ -2006,6 +2014,18 @@ Good Practice:
 
 -------------------------------------------------------
 
+## When were `try/catch/finally block` and `promise chaining` and `async/await` introduced?
+
+1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
+
+2015 (ES6) → Promise method chaining (v1) → `.then().catch()`
+
+2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
+
+ES2018 → Promise method chaining (v2) → `.finally()`
+
+-------------------------------------------------------
+
 ## What's the difference between `Promise Chaining` and `try/catch/finally block` ?
 
 - Promise **Chaining** → method-based style - uses methods `.then()`, `.catch()`, `.finally()`
@@ -2013,6 +2033,8 @@ Good Practice:
 - try/catch/finally **Block** → language syntax - uses keywords, not methods
 
 Pro and Cons ???
+
+how do `Promise Chaining` and `try/catch/finally block` and `async/await` relate to one another?
 
 -------------------------------------------------------
 
@@ -2034,7 +2056,25 @@ Note: you'll have to add a try/catch block for error handling outside the functi
 
 -------------------------------------------------------
 
-## What will the following code print to the console?
+## What's Promise.all ?
+
+TODO
+
+-------------------------------------------------------
+
+## Why Promise.all ?
+
+TODO
+
+-------------------------------------------------------
+
+## Real-Life Use-Cases Promise.all ?
+
+TODO
+
+-------------------------------------------------------
+
+## `Promise.all`: What will be the console output?
 
 ```javascript
  const firstPromise = Promise.resolve(1);
@@ -2068,18 +2108,6 @@ Order of execution:
 1. call stack
 2. once the call stack is empty, the event loop will execute the microtask queue.
 3. once the microtask queue is empty, the event loop will move on to the next "tick" by picking the first task from the macrotask queue
-
--------------------------------------------------------
-
-## When were try/catch/finally block and promise chaining introduced?
-
-1999 (ES3) → `try/catch/finally block` → `try{...} catch(e){...} finally{...}` for **synchronous code** only.
-
-2015 (ES6) → Promise method chaining v1, for `.then().catch()`
-
-2017 (ES8) → `async/await` intro'd → `try/catch/finally block` and `async/await` combined allow for **asynchronous code** (in `await expressions`).
-
-ES2018 → Promise method chaining v2, for `.finally()`
 
 -------------------------------------------------------
 
