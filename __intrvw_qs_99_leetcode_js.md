@@ -45,6 +45,11 @@ arrowAdd([1, 2, 3, 4, 5]).then((out) => {
   console.log(out);
 });
 ```
+-------------------------------------------------------
+
+# Promises: Guess The Output
+
+https://codesandbox.io/p/sandbox/promises-forked-pkf2sd
 
 -------------------------------------------------------
 

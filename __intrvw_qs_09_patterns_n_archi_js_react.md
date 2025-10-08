@@ -4,7 +4,8 @@
 
 **TODO**
 
- - Early Return Pattern
+ - React: Early Return Pattern
+ - React: Custom Hook Pattern
 
 
 -------------------------------------------------------
