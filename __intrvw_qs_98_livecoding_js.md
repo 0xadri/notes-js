@@ -1,13 +1,18 @@
 
+
+# What's Live Coding in JavaScript ?
+
+It's a technical interviewing style. Your interviewer(s) watches while you code. In JavaScript.
+
+It often degenerates into LeetCode style interviews.
+
+-------------------------------------------------------
+
 # What's LeetCode ?
 
 Think of it as going to gym: given two athletes of let's say, a football team, if both have equally talented, then the one who's trained to the gym will outcompete the other.
 
 And as going to the gym, it may be really tough at first, but it'll get easier, and even become like a treat.
-
-
-
-
 
 -------------------------------------------------------
 

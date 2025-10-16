@@ -1,7 +1,16 @@
 
-# What's React Live Coding ?
+
+# What's Live Coding in React ?
+
+It's a technical interviewing style. Your interviewer(s) watches while you code. In React.
 
 Small projects for you to try to solve. Typically in less than 60min.
+
+There is a average chance that it drifts into code quality questions.
+
+There is a small chance that it will drift into system design interview.
+
+There is a tiny chance that it degenerates into LeetCode style interviews.
 
 -------------------------------------------------------
 
