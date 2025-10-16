@@ -18,8 +18,8 @@
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
 * [Qs: Code Review](__intrvw_qs_96_code_review.md)
-* [Qs: React Live Coding](__intrvw_qs_97_livecoding_react.md)
-* [Qs: JavaScript Live Coding](__intrvw_qs_98_livecoding_js.md)
+* [Qs: React [Live Coding]](__intrvw_qs_97_livecoding_react.md)
+* [Qs: JavaScript [Live Coding]](__intrvw_qs_98_livecoding_js.md)
 * [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 ## JavaScript & TypeScript
