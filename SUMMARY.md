@@ -3,28 +3,6 @@
 * [Introduction](README.md)
 * [How To Learn](___learn-how-to-learn.md)
 
-## Interview Questions
-
-* [Qs: JavaScript](__intrvw_qs_01_javascript.md)
-* [Qs: TypeScript](__intrvw_qs_02_typescript.md)
-* [Qs: React](__intrvw_qs_03_react.md)
-* [Qs: FrontEnd](__intrvw_qs_04_frontend.md)
-* [Qs: Testing](__intrvw_qs_05_testing.md)
-* [Qs: CSS](__intrvw_qs_06_css.md)
-* [Qs: FullStack](__intrvw_qs_07_fullstack.md)
-* [Qs: Algo & Data Structure](__intrvw_qs_08_algo_n_data_structure.md)
-* [Qs: Patterns & Architecture](__intrvw_qs_09_patterns_n_archi_js_react.md)
-* [Qs: System Design](__intrvw_qs_10_system_design.md)
-* [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
-* [Qs: Memory](__intrvw_qs_12_memory.md)
-
-## Live Coding
-
-* [Qs: Code Review [Live Coding]](__intrvw_qs_96_livecoding_codereview.md)
-* [Qs: React [Live Coding]](__intrvw_qs_97_livecoding_react.md)
-* [Qs: JavaScript [Live Coding]](__intrvw_qs_98_livecoding_js.md)
-* [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
-
 ## JavaScript & TypeScript
 
 * [TypeScript](__typescript.md)
@@ -66,6 +44,28 @@
 * [HTML](__html.md)
 * [Artificial Intelligence](__ai.md)
 * [AWS Cloud Practitioner](__aws-cloud-practitioner.md)
+
+## Interview Questions
+
+* [Qs: JavaScript](__intrvw_qs_01_javascript.md)
+* [Qs: TypeScript](__intrvw_qs_02_typescript.md)
+* [Qs: React](__intrvw_qs_03_react.md)
+* [Qs: FrontEnd](__intrvw_qs_04_frontend.md)
+* [Qs: Testing](__intrvw_qs_05_testing.md)
+* [Qs: CSS](__intrvw_qs_06_css.md)
+* [Qs: FullStack](__intrvw_qs_07_fullstack.md)
+* [Qs: Algo & Data Structure](__intrvw_qs_08_algo_n_data_structure.md)
+* [Qs: Patterns & Architecture](__intrvw_qs_09_patterns_n_archi_js_react.md)
+* [Qs: System Design](__intrvw_qs_10_system_design.md)
+* [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
+* [Qs: Memory](__intrvw_qs_12_memory.md)
+
+## Live Coding Interviews
+
+* [Qs: Code Review [Live Coding]](__intrvw_qs_96_livecoding_codereview.md)
+* [Qs: React [Live Coding]](__intrvw_qs_97_livecoding_react.md)
+* [Qs: JavaScript [Live Coding]](__intrvw_qs_98_livecoding_js.md)
+* [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 reactjs_code_cmixtape.md
 speech-notes_codecademy.md
