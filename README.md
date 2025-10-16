@@ -7,4 +7,4 @@ More on the way. Migration still in progress...
 
 <br/><br/><br/><br/>
 
-Built with 💜  by Adri [Adri on Github](https://github.com/0xadri)
+Built with 💜  by Adri → [Adri on Github](https://github.com/0xadri)

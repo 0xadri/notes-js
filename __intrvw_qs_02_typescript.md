@@ -169,4 +169,16 @@ https://www.typescriptlang.org/docs/handbook/utility-types.html#partialtype
 
 Typescript will merge the interfaces
 
+-------------------------------------------------------
+
+**TODO**
+
+- private
+- protected - protected properties can be accessed from within the class and its subclasses.
+- abstract classes
+- constructor
+- inheritance
+- 
+
+
 

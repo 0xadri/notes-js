@@ -45,5 +45,41 @@ e. Testing
 
 -------------------------------------------------------
 
+## What don't you like about the code here?
+
+```javascript
+import React, { useState } from 'react';
+
+export const Component = () => {
+  const [items, setItems] = useState([
+    { id: 1, name: 'item 1', category: 'category A' },
+    { id: 2, name: 'item 2', category: 'category B' },
+    { id: 3, name: 'item 3', category: 'category A' },
+    { id: 4, name: 'item 4', category: 'category C' },
+    { id: 5, name: 'item 5', category: 'category B' },
+  ]);
+
+  const removeItem = (index: number) => {
+    items.splice(index, 1);
+    setItems([...items]);
+  };
+
+  return (
+    <section>
+      ...
+    </section>
+  );
+};
+```
+
+a. Arrow functions should never be used as React components
+
+b. The splice method mutates the items array
+
+c. The map method negatively impacts performance
+
+Solution:
+
+b
 
 

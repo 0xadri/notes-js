@@ -1,27 +1,4 @@
 
-
-
-
-**TODO**
-
-Handling form submission with preventDefault
-
-useRef for DOM access vs persistent values
-
-Custom hooks – when and why to create them
-
-useReducer vs useState
-
-useLayoutEffect vs useEffect
-
-
-
-
-
-
-
-
-
 -------------------------------------------------------
 
 # Getting Started
@@ -78,6 +55,19 @@ They also add polyfills depending on the source code and what the target environ
 
 -------------------------------------------------------
 
+## Explain the term stateless components ?
+
+Pure functions that render DOM-based solely on the properties provided to them.
+
+-------------------------------------------------------
+
+## Can You Name two types of React components?
+
+- Function component
+- Class component
+
+-------------------------------------------------------
+
 ## What are Pure Components in React?
 
 TLDR: a special component type that avoids unnecesarry re-renders by checking if the props and state really changed.
@@ -98,9 +88,37 @@ https://stackoverflow.com/questions/41340697/react-component-vs-react-purecompon
 
 -------------------------------------------------------
 
-##  Can React components inherit from each other? 
+## Can React components inherit from each other? 
 
 No, React favours composition over inheritance - components can assemble in different ways but do not inherit from each other.
+
+-------------------------------------------------------
+
+## What's the main difference between Props and State?
+
+The main difference is that the `State is mutable` and `Props are immutable`.
+
+-------------------------------------------------------
+
+## Explain the use of 'key' in react list ?
+
+Keys allow you to provide each list element with a stable identity.
+
+Keys should be unique.
+
+-------------------------------------------------------
+
+## Explain error boundaries?
+
+Error boundaries help you to catch Javascript error anywhere in the child components.
+
+They are most used to log the error and show a fallback UI.
+
+-------------------------------------------------------
+
+## What are react portals?
+
+Portal allows you to render children into a DOM node. CreatePortal method is used for it.
 
 -------------------------------------------------------
 
@@ -110,7 +128,92 @@ No, React favours composition over inheritance - components can assemble in diff
  
  - Components that contain Context - they trigger the re-render of all the components connected to that context
 
-Decrease re-rendering time with `useCallback` and `useMemo`
+ - Decrease re-rendering time with `useCallback` and `useMemo`
+
+-------------------------------------------------------
+
+## Explain React Router ?
+
+Routing library allowing you to add new screen flows to your application.
+
+It also keeps URL in sync with what’s being shown on the page.
+
+-------------------------------------------------------
+
+## What is Context?
+
+React context helps you to pass data using the tree of react components.
+
+It helps you to share data globally between various react components.
+
+-------------------------------------------------------
+
+## What is a reduction?
+
+In programming, especially in state management (like in React, Redux, or functional programming), 
+
+The process of taking a `current state` and an `action`, and returning a `new state`.
+
+Reduction → The process of applying a reducer to state + action.
+
+Reducer → The function that defines how the reduction happens.
+
+Result → A new, updated state.
+
+```javascript
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+// Applying a reduction:
+const currentState = { count: 0 };
+const newState = reducer(currentState, { type: "increment" });
+// newState = { count: 1 }
+```
+
+-------------------------------------------------------
+
+## Define the term Redux in React ?
+
+Redux is a library used for front end development. It is a state container for JavaScript
+applications which should be used for the applications state management. You can test
+and run an application developed with Redux in different environments.
+
+-------------------------------------------------------
+
+## What is the 'Store' feature in Redux?
+
+Redux has a feature called 'Store' which allows you to save the application's entire State
+at one place. Therefore all it's component's State are stored in the Store so that you will
+get regular updates directly from the Store. The single state tree helps you to keep track
+of changes over time and debug or inspect the application.
+
+-------------------------------------------------------
+
+## What is an action in Redux?
+
+It is a function which returns an action object. The action-type and the action data are
+always stored in the action object. Actions can send data between the Store and the
+software application. All information retrieved by the Store is produced by the actions.
+
+-------------------------------------------------------
+
+## Explain synthetic event in React ?
+
+Synthetic event is a kind of object which acts as a cross-browser wrapper around the
+browser’s native event. It also helps us to combine the behaviors of various browser into
+signal API.
+
+
+
+
 
 
 
@@ -929,45 +1032,24 @@ Limit how often an expensive operation (like an API call, input handler, or scro
 
 -------------------------------------------------------
  
-## 
 
 
 
 
 
--------------------------------------------------------
- 
-## 
 
 
+**TODO**
 
--------------------------------------------------------
- 
-## 
+Handling form submission with preventDefault
 
+useRef for DOM access vs persistent values
 
+Custom hooks – when and why to create them
 
+useReducer vs useState
 
-
--------------------------------------------------------
- 
-## 
-
-
-
-
-
--------------------------------------------------------
- 
-## 
-
-
-
-
-
--------------------------------------------------------
- 
-## 
+useLayoutEffect vs useEffect
 
 
 

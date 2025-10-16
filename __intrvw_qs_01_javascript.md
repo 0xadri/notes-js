@@ -1,43 +1,5 @@
 
 
-**TODO**
-
-This doc is alive, hence this TODO section :)
-
-For each topic: What / Why / When(realusecases) / How(code)
-Analogy + Mental Models + Memory Tip
-
-
-- Promise static methods
-- What's a pure function in JavaScript?
-- When do we use apply()?
-- Why?
-- Still relevant?
-- When do we use bind()
-- Why?
-- Still relevant?
-
-
-- diff between undefined and null
-- let vs const vs var
-
-Classes
-- Classes
-- Classes vs Objects
-- Objects
-- Classes Accessibility
-- Classes Constructor
-- Functions vs Objects
-
-Primitives
-
-Reference Types
-
-interpreter vs compiler
-
-ES6 modules .mjs or with "type": "module" in package.json
-
-
 
 
 
@@ -74,49 +36,51 @@ ES6 modules .mjs or with "type": "module" in package.json
 
 ## JS Data Types & Structures
 
-11. **7 Primitive Types** – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
+1. **7 Primitive Types** – `string`, `number`, `bigint`, `boolean`, `null`, `undefined`,`symbol`.
 
-12. **Reference Types** – `Object`, `Array`, `Function`, etc.
+2. **Reference Types** – `Object`, `Array`, `Function`, etc.
 
-13. **NaN** (Not a Number) – Special value for invalid number operations.
+3. **NaN** (Not a Number) – Special value for invalid number operations.
 
-14. **Falsy Values** – `false`, `0`, `""`, `null`, `undefined`, `NaN`.
+4. **6 Falsy Values** – `false`, `0`, `""`, `null`, `undefined`, `NaN`.
 
-15. **JSON** (JavaScript Object Notation) – Lightweight data format.
+5. **JSON** (JavaScript Object Notation) – Lightweight data format.
 
-16. **Spread Operator** (`...`) – `Expands` elements `from` `arrays`, `objects`.
+6. **Spread Operator** (`...`) – `Expands` elements `from` `arrays`, `objects`.
 
-17. **Rest Parameters** (`...args`) – `Collects` arguments `into` an `array`.
+7. **Rest Parameters** (`...args`) – `Collects` arguments `into` an `array`.
 
-18. **Destructuring** – `Extract` values from `arrays`/`objects`.
+8. **Destructuring** – `Extract` values from `arrays`/`objects`.
 
-19. **Map** / **Set** – Modern collections with unique keys/values.
+9. **Map** / **Set** – Modern collections with unique keys/values.
 
-20. **Prototype** – Mechanism for inheritance in JS objects.
+10. **Prototype** – Mechanism for inheritance in JS objects.
+
+11. **Array Instance Methods** - `push()`, `pop()`, `slice()`, `filter()`, `map()`, `flatMap()`, `reduce()`
 
 -------------------------------------------------------
 
 ## JS Functions & OOP
 
-21. **First-class Functions** – Functions treated like values.
+1. **First-class Functions** – Functions treated like values.
 
-22. **Higher-order Functions** – Functions that take/return functions - Wrapper / Transformator / Decorator / Intersector.
+2. **Higher-order Functions** – Functions that take/return functions - Wrapper / Transformator / Decorator / Intersector.
 
-23. **Arrow Functions** `()=>` – Shorter syntax, no `this` binding - no need for `self=this` hack in closures.
+3. **Arrow Functions** `()=>` – Shorter syntax, no `this` binding - no need for `self=this` hack in closures.
 
-24. **Callback** – A `function` passed as an `argument`.
+4. **Callback** – A `function` passed as an `argument`.
 
-25. **Constructor Function** – `Function used with new` to create objects.
+5. **Constructor Function** – `Function used with new` to create objects.
 
-26. **Class** – `ES6 syntax sugar` for OOP.
+6. **Class** – `ES6 syntax sugar` for OOP.
 
-27. **"This" Keyword** – Refers to the `current execution context`.
+7. **"This" Keyword** – Refers to the `current execution context`.
 
-28. **Bind / Call / Apply** – Methods to control `this` context.
+8. **Bind / Call / Apply** – Methods to control `this` context.
 
-29. **Encapsulation** – Grouping related state and behavior.
+9. **Encapsulation** – Grouping related state and behavior.
 
-30. **Polymorphism** – Different forms of the same method in inheritance.
+10. **Polymorphism** – Different forms of the same method in inheritance.
 
 -------------------------------------------------------
 
@@ -141,6 +105,8 @@ ES6 modules .mjs or with "type": "module" in package.json
 39. **Debouncing** – `Delays` execution until after a `pause`.
 
 40. **Throttling** – `Limits` execution to once per `interval`.
+
+
 
 
 
@@ -315,12 +281,6 @@ Functions and Variables are hoisted.
 
 -------------------------------------------------------
 
-## What's variable hoisting?
-
-TODO
-
--------------------------------------------------------
-
 ## What's function hoisting?
 
 Function hoisting means that functions are moved to the top of their scope. That is,
@@ -412,6 +372,362 @@ In general, webpack should be removing those with tree shaking anyhow, and dead 
 Some libraries you will be able to easily remove, some others are harder to replace (if the codebase use them heavily).
 
 The important thing is you make those decisions (adding a new library to the codebase for example) with performance in mind, rather than keep adding dependencies to a project (pretty common in the JS world).
+
+
+
+
+
+-------------------------------------------------------
+
+# Objects and Variables
+
+-------------------------------------------------------
+
+## Differences between var vs let vs const ?
+
+TLDR:
+- `var` (pre-ES6) = `function-scoped`, no block-level safety, can be re-declared, initialized to undefined
+- `let` and `const` (ES6) = `block-scoped` (anything inside `{ }`), has block-level safety, cannot be re-declared, not initialized (TDZ)
+- `const` is read-only
+ 
+Explained:
+- `let` and `const` cannot be re-declared in the same block
+ 
+-------------------------------------------------------
+
+## Typical issues with var ?
+
+- `function-scoped` potential unexpected behavior if used in loops or blocks - could make closures trickier.
+
+- Hoisting can cause confusing undefined errors.
+ 
+-------------------------------------------------------
+
+## Benefits with let and const ?
+
+Made closures more intuitive in certain cases bc `block-scoped`.
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Implicit Objects and Variables
+
+-------------------------------------------------------
+
+## What are Implicit Objects and Variables ?
+
+This refers to the automatically available objects and variables that the JavaScript runtime provides, without the programmer explicitly declaring or importing them.
+
+These come from the execution context (`global`, `function`, or `block` scope), and they depend on where and how the code is executed.
+
+Examples:
+
+| Category         | Implicit Object / Variable         | Scope / Purpose                       |
+| ---------------- | ---------------------------------- | ------------------------------------- |
+| Global Object    | `window` / `global` / `globalThis` | Global environment container          |
+| Function Context | `this`                             | Refers to current execution context   |
+| Function Context | `arguments`                        | Holds passed arguments (non-arrow)    |
+| Variable         | Undeclared variables               | Implicitly global (discouraged)       |
+| Return Value     | `undefined`                        | Default return when none is specified |
+
+-------------------------------------------------------
+
+## Implicit (Automatically Available) Objects
+
+1. `window` / `global` / `globalThis` : global objects that act as containers for all global variables and functions.
+
+ - In browsers: The global object is `window`. `console.log(window === this);` // true in global scope
+
+ - In Node.js: The global object is `global`. `console.log(global === this);` // false in Node's module scope
+
+ - Universal (ES2020+): `globalThis` works in any JS environment.
+
+2. `this`: implicit object reference automatically available inside `functions` and `objects`.
+
+3. `arguments`: inside any `non-arrow function`, contains all passed parameters. Note that `args` is preferred in modern js bc cleaner, safer, and works everywhere.
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Memory, Reference Types and Primitives
+
+-------------------------------------------------------
+
+## How does the memory work in JavaScript ?
+
+JavaScript uses two main memory regions:
+
+1. Stack → Fast, small storage for simple data (`primitives`).
+
+2. Heap → Large, flexible storage for complex data (`objects`, `arrays`, `functions`).
+
+Reference types (objects, arrays, functions) live in the `heap`, and variables store a pointer (reference) to them in the `stack`.
+
+That’s why when you copy a reference type, you don’t copy the value itself, but the reference (so changes affect both).
+
+-------------------------------------------------------
+
+## Code example illustrating how the memory work in JavaScript ?
+
+```javascript
+let num = 42;                   // primitive → stack
+let obj1 = { name: "Alice" };   // reference → stack holds pointer, heap stores actual object
+let obj2 = obj1;
+obj2.name = "Bob";
+console.log(obj1.name);      // Output: "Bob"
+```
+
+Memory model:
+
+```javascript
+Stack:
+num → 42
+obj1 → (ref) 0x001
+obj2 → (ref) 0x001
+
+Heap:
+0x001 → { name: "Bob" }
+```
+
+-------------------------------------------------------
+
+## Are Stack and Heap are different type of hardware ?
+
+This is a very common confusion.
+
+The stack and heap in programming are NOT different pieces of physical hardware.
+
+Conceptual differences, not hardware differences.
+
+They are two regions of memory managed differently by the runtime (in our case, the JavaScript engine, like V8 in Chrome).
+
+Stack:
+
+- Think of it as a neat pile of plates — last in, first out.
+
+- Stores simple, fixed-size data (like numbers, booleans, and references to objects).
+
+- Memory is automatically managed — when a function ends, all its local variables are popped off.
+
+- Very fast because it’s just pushing/popping in a known order.
+
+Heap:
+
+- Think of it as a messy storage room — you can put things anywhere, but need to keep track of where.
+
+- Stores complex, dynamic data (like objects, arrays, functions).
+
+- Memory allocation is flexible but slower than stack.
+
+- The JavaScript garbage collector cleans unused objects.
+
+-------------------------------------------------------
+
+## Which Data Is Of Primitive Types?
+
+Primitive type is data that is not an object.
+
+SEVEN primitive types:
+- `number`
+- `string`
+- `boolean`
+- `null`
+- `undefined`
+- `symbol`
+- `bigint`
+
+-------------------------------------------------------
+
+## What are Reference Types?
+
+`All non-primitive types` are reference types, with `Object being the root` -> All objects are reference types -> And all reference types are objects.
+
+Main Reference Types:
+
+| Category | Example         | Notes                                     |
+| -------- | --------------- | ----------------------------------------- |
+| Object   | `{}`            | Base for most structures                  |
+| Array    | `[]`            | Ordered list                              |
+| Function | `function(){}`  | Callable object                           |
+| Date     | `new Date()`    | Date/time                                 |
+| RegExp   | `/pattern/`     | String matching                           |
+| Map      | `new Map()`     | Key–value pairs, keys can be any type     |
+| Set      | `new Set()`     | Unique values                             |
+| WeakMap  | `new WeakMap()` | Keys must be objects, garbage-collectable |
+| WeakSet  | `new WeakSet()` | Stores objects only, garbage-collectable  |
+| Error    | `new Error()`   | Error handling                            |
+
+-------------------------------------------------------
+
+## JavaScript Language Is Pass-By-Value Or Pass-By-Reference ?
+
+JavaScript is a **Pass-By-Value** for primitives, and **Pass-By-Reference** for reference types.
+
+When a `function` is called, a **copy** of the `value` of each `argument` is passed to the `function`, NOT the original `argument`. 
+
+This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
+
+1. `Primitives` → Passed by `Value` → stored in Stack
+
+2. `Objects` → Passed by Reference to Value (reference itself is copied) → Object stored in Heap, Reference stored in Stack.
+
+JavaScript always passes function arguments by `value`.
+
+But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the reference itself is copied, so both variables point to the **same** underlying object.
+
+-------------------------------------------------------
+
+## What is a Symbol?
+
+Primitive data types introduced in ES6.
+
+A Symbol is a `unique` and `immutable` identifier.
+
+Even if two symbols have the same description, they are always different values.
+
+-------------------------------------------------------
+
+## Why use Symbol?
+
+Often used as object property keys to:
+- avoid naming conflicts
+- create hidden properties
+
+Symbol is often used to define unique constants.
+
+JavaScript also uses some well-known symbols internally (Symbol.iterator, Symbol.toStringTag, etc.).
+
+-------------------------------------------------------
+
+## How to use Symbol with code examples?
+
+Example 1 – Uniqueness
+
+```javascript
+const a = Symbol("id");
+const b = Symbol("id");
+console.log(a === b);    // false (even if descriptions are the same)
+```
+
+Example 2 – Using as Object Keys
+
+```javascript
+// Define a symbol for private/hidden data
+const secretId = Symbol("secretId");
+const user = {
+  name: "Alice",
+  age: 25,
+  [secretId]: 98765  // hidden property
+};
+
+// Normal access
+console.log(user.name);       // Output: "Alice"
+console.log(user.age);        // Output: 25
+console.log(user.secretId);   // Output: undefined
+
+// Access using the symbol
+console.log(user[secretId]);  // Output: 98765
+
+// Iterating over keys/properties
+for (let key in user) {       // Output: name, age
+  console.log(key);
+}
+
+console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId) ]
+```
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Array Instance Methods
+
+-------------------------------------------------------
+
+## 1. Adding, Removing & Reordering Elements
+
+| Method                                 | Description                             | Example                                         |
+| -------------------------------------- | --------------------------------------- | ----------------------------------------------- |
+| `push()`                               | Add elements to the **end**             | `[1,2].push(3)` → `[1,2,3]`                     |
+| `pop()`                                | Remove last element                     | `[1,2,3].pop()` → `[1,2]`                       |
+| `unshift()`                            | Add elements to the **start**           | `[2,3].unshift(1)` → `[1,2,3]`                  |
+| `shift()`                              | Remove first element                    | `[1,2,3].shift()` → `[2,3]`                     |
+| `splice(start, deleteCount, ...items)` | Add/remove items at a position          | `arr.splice(1,1,'x')`                           |
+| `slice(start, end)`                    | Return a shallow copy                   | `[1,2,3].slice(1,2)` → `[2]`                    |
+| `concat()`                             | Combine arrays                          | `[1,2].concat([3,4])` → `[1,2,3,4]`             |
+| `flat(depth)`                          | Flatten nested arrays                   | `[1,[2,[3]]].flat(2)` → `[1,2,3]`               |
+| `flatMap(fn)`                          | Map + flatten (1 level)                 | `[1,2,3].flatMap(x => [x,x])` → `[1,1,2,2,3,3]` |
+| `toSpliced()` *(ES2023)*               | Non-mutating `splice()`                 | `[1,2,3].toSpliced(1,1)` → `[1,3]`              |
+| `with(index, value)` *(ES2023)*        | Returns a copy with one element changed | `[1,2,3].with(1,9)` → `[1,9,3]`                 |
+
+-------------------------------------------------------
+
+## 2. Transforming & Iterating
+
+| Method                    | Description                        | Example                                           |
+| ------------------------- | ---------------------------------- | ------------------------------------------------- |
+| `forEach(fn)`             | Loop through each element          | `[1,2,3].forEach(console.log)`                    |
+| `map(fn)`                 | Transform each element             | `[1,2,3].map(x=>x*2)` → `[2,4,6]`                 |
+| `filter(fn)`              | Keep elements that match condition | `[1,2,3].filter(x=>x>1)` → `[2,3]`                |
+| `reduce(fn, init)`        | Reduce array to single value       | `[1,2,3].reduce((a,b)=>a+b,0)` → `6`              |
+| `reduceRight(fn, init)`   | Reduce from right to left          | `['a','b','c'].reduceRight((a,b)=>a+b)` → `"cba"` |
+| `reverse()`               | Reverse in place                   | `[1,2,3].reverse()` → `[3,2,1]`                   |
+| `sort(fn)`                | Sort in place                      | `[3,1,2].sort()` → `[1,2,3]`                      |
+| `toSorted(fn)` *(ES2023)* | Non-mutating sort                  | `[3,1,2].toSorted()` → `[1,2,3]`                  |
+| `toReversed()` *(ES2023)* | Non-mutating reverse               | `[1,2,3].toReversed()` → `[3,2,1]`                |
+
+-------------------------------------------------------
+
+## 3. Searching & Checking Elements
+
+| Method                         | Description                      | Example                               |
+| ------------------------------ | -------------------------------- | ------------------------------------- |
+| `includes(value)`              | Check if value exists            | `[1,2,3].includes(2)` → `true`        |
+| `indexOf(value)`               | First index of value             | `[1,2,3,2].indexOf(2)` → `1`          |
+| `lastIndexOf(value)`           | Last index of value              | `[1,2,3,2].lastIndexOf(2)` → `3`      |
+| `find(fn)`                     | First element matching condition | `[1,2,3].find(x=>x>1)` → `2`          |
+| `findIndex(fn)`                | Index of first matching element  | `[1,2,3].findIndex(x=>x>1)` → `1`     |
+| `findLast(fn)` *(ES2023)*      | Last element matching condition  | `[1,2,3].findLast(x=>x>1)` → `3`      |
+| `findLastIndex(fn)` *(ES2023)* | Index of last matching element   | `[1,2,3].findLastIndex(x=>x>1)` → `2` |
+| `every(fn)`                    | Check if all elements pass       | `[2,4,6].every(x=>x%2==0)` → `true`   |
+| `some(fn)`                     | Check if any element passes      | `[1,2,3].some(x=>x>2)` → `true`       |
+
+-------------------------------------------------------
+
+## Explain reduce() ?
+
+Array instance method executing a reducer function on each element of the array — resulting in a single output value.
+
+`array.reduce((accumulator, currentValue, index, array) => {   /* return updated accumulator */    }, initialValue);`
+
+Parameters:
+ - accumulator → collects results
+ - currentValue → current element
+ - index (optional) → index current element
+ - array (optional) → original array
+ - initialValue (optional) → value to start with (if omitted, the first element is used)
+
+
 
 
 
@@ -531,7 +847,7 @@ ES6 (2015) introduced new ways of declaring variables (`let` and `const`) that a
  
  3. Arrow Functions Preserving `this` - fixes the `this` binding problem.
  
- 4. Functional Programming (map, filter, reduce) - keeps variables accessible in inline functions
+ 4. Functional Programming (`map`, `filter`, `reduce`) - keeps variables accessible in inline functions
  
  5. Event Handlers - reference outside variables safely
 
@@ -849,242 +1165,6 @@ Arrow functions capture `this` from their surrounding scope, so you don’t need
 
 
 
--------------------------------------------------------
-
-# Implicit Objects and Variables
-
--------------------------------------------------------
-
-# What are Implicit Objects and Variables ?
-
-This refers to the automatically available objects and variables that the JavaScript runtime provides, without the programmer explicitly declaring or importing them.
-
-These come from the execution context (`global`, `function`, or `block` scope), and they depend on where and how the code is executed.
-
-Examples:
-
-| Category         | Implicit Object / Variable         | Scope / Purpose                       |
-| ---------------- | ---------------------------------- | ------------------------------------- |
-| Global Object    | `window` / `global` / `globalThis` | Global environment container          |
-| Function Context | `this`                             | Refers to current execution context   |
-| Function Context | `arguments`                        | Holds passed arguments (non-arrow)    |
-| Variable         | Undeclared variables               | Implicitly global (discouraged)       |
-| Return Value     | `undefined`                        | Default return when none is specified |
-
--------------------------------------------------------
-
-# Implicit (Automatically Available) Objects
-
-1. `window` / `global` / `globalThis` : global objects that act as containers for all global variables and functions.
-
- - In browsers: The global object is `window`. `console.log(window === this);` // true in global scope
-
- - In Node.js: The global object is `global`. `console.log(global === this);` // false in Node's module scope
-
- - Universal (ES2020+): `globalThis` works in any JS environment.
-
-2. `this`: implicit object reference automatically available inside `functions` and `objects`.
-
-3. `arguments`: inside any `non-arrow function`, contains all passed parameters. Note that `args` is preferred in modern js bc cleaner, safer, and works everywhere.
-
-
-
-
-
-
-
-
-
--------------------------------------------------------
-
-# Memory, Reference Types and Primitives
-
--------------------------------------------------------
-
-## How does the memory work in JavaScript ?
-
-JavaScript uses two main memory regions:
-
-1. Stack → Fast, small storage for simple data (`primitives`).
-
-2. Heap → Large, flexible storage for complex data (`objects`, `arrays`, `functions`).
-
-Reference types (objects, arrays, functions) live in the `heap`, and variables store a pointer (reference) to them in the `stack`.
-
-That’s why when you copy a reference type, you don’t copy the value itself, but the reference (so changes affect both).
-
--------------------------------------------------------
-
-## Code example illustrating how the memory work in JavaScript ?
-
-```javascript
-let num = 42;                   // primitive → stack
-let obj1 = { name: "Alice" };   // reference → stack holds pointer, heap stores actual object
-let obj2 = obj1;
-obj2.name = "Bob";
-console.log(obj1.name);      // Output: "Bob"
-```
-
-Memory model:
-
-```javascript
-Stack:
-num → 42
-obj1 → (ref) 0x001
-obj2 → (ref) 0x001
-
-Heap:
-0x001 → { name: "Bob" }
-```
-
--------------------------------------------------------
-
-## Are Stack and Heap are different type of hardware ?
-
-This is a very common confusion.
-
-The stack and heap in programming are NOT different pieces of physical hardware.
-
-Conceptual differences, not hardware differences.
-
-They are two regions of memory managed differently by the runtime (in our case, the JavaScript engine, like V8 in Chrome).
-
-Stack:
-
-- Think of it as a neat pile of plates — last in, first out.
-
-- Stores simple, fixed-size data (like numbers, booleans, and references to objects).
-
-- Memory is automatically managed — when a function ends, all its local variables are popped off.
-
-- Very fast because it’s just pushing/popping in a known order.
-
-Heap:
-
-- Think of it as a messy storage room — you can put things anywhere, but need to keep track of where.
-
-- Stores complex, dynamic data (like objects, arrays, functions).
-
-- Memory allocation is flexible but slower than stack.
-
-- The JavaScript garbage collector cleans unused objects.
-
--------------------------------------------------------
-
-## Which Data Is Of Primitive Types?
-
-Primitive type is data that is not an object.
-
-SEVEN primitive types:
-- `number`
-- `string`
-- `boolean`
-- `null`
-- `undefined`
-- `symbol`
-- `bigint`
-
--------------------------------------------------------
-
-## What are Reference Types?
-
-`All non-primitive types` are reference types, with `Object being the root` -> All objects are reference types -> And all reference types are objects.
-
-Main Reference Types:
-
-| Category | Example         | Notes                                     |
-| -------- | --------------- | ----------------------------------------- |
-| Object   | `{}`            | Base for most structures                  |
-| Array    | `[]`            | Ordered list                              |
-| Function | `function(){}`  | Callable object                           |
-| Date     | `new Date()`    | Date/time                                 |
-| RegExp   | `/pattern/`     | String matching                           |
-| Map      | `new Map()`     | Key–value pairs, keys can be any type     |
-| Set      | `new Set()`     | Unique values                             |
-| WeakMap  | `new WeakMap()` | Keys must be objects, garbage-collectable |
-| WeakSet  | `new WeakSet()` | Stores objects only, garbage-collectable  |
-| Error    | `new Error()`   | Error handling                            |
-
--------------------------------------------------------
-
-## JavaScript Language Is Pass-By-Value Or Pass-By-Reference ?
-
-JavaScript is a **Pass-By-Value** for primitives, and **Pass-By-Reference** for reference types.
-
-When a `function` is called, a **copy** of the `value` of each `argument` is passed to the `function`, NOT the original `argument`. 
-
-This means that the `function` **cannot** modify the original arguments. Modifications done to any `argument` the `function` received only have effect inside the `function`.
-
-1. `Primitives` → Passed by `Value` → stored in Stack
-
-2. `Objects` → Passed by Reference to Value (reference itself is copied) → Object stored in Heap, Reference stored in Stack.
-
-JavaScript always passes function arguments by `value`.
-
-But when that `value` is a `reference` (for `objects`/`arrays`/`functions`), the reference itself is copied, so both variables point to the **same** underlying object.
-
--------------------------------------------------------
-
-## What is a Symbol?
-
-Primitive data types introduced in ES6.
-
-A Symbol is a `unique` and `immutable` identifier.
-
-Even if two symbols have the same description, they are always different values.
-
--------------------------------------------------------
-
-## Why use Symbol?
-
-Often used as object property keys to:
-- avoid naming conflicts
-- create hidden properties
-
-Symbol is often used to define unique constants.
-
-JavaScript also uses some well-known symbols internally (Symbol.iterator, Symbol.toStringTag, etc.).
-
--------------------------------------------------------
-
-## How to use Symbol with code examples?
-
-Example 1 – Uniqueness
-
-```javascript
-const a = Symbol("id");
-const b = Symbol("id");
-console.log(a === b);    // false (even if descriptions are the same)
-```
-
-Example 2 – Using as Object Keys
-
-```javascript
-// Define a symbol for private/hidden data
-const secretId = Symbol("secretId");
-const user = {
-  name: "Alice",
-  age: 25,
-  [secretId]: 98765  // hidden property
-};
-
-// Normal access
-console.log(user.name);       // Output: "Alice"
-console.log(user.age);        // Output: 25
-console.log(user.secretId);   // Output: undefined
-
-// Access using the symbol
-console.log(user[secretId]);  // Output: 98765
-
-// Iterating over keys/properties
-for (let key in user) {       // Output: name, age
-  console.log(key);
-}
-
-console.log(Object.getOwnPropertySymbols(user));    // Output: [ Symbol(secretId) ]
-```
-
-
 
 
 -------------------------------------------------------
@@ -1102,6 +1182,9 @@ Cookies, local storage, and session storage.
 ## Browser API: familiar with the History API?
 
 Yes, used by all modern frameworks to mimic HTTP-like routing in SPAs (Single Page Applications). 
+
+
+
 
 
 
@@ -2015,7 +2098,7 @@ fetch("/api/data")
 ## `Promise Handling` With `async/await`: Code Example ?
 
 Good Practice:
- - Always wrap your await in a try/catch/finally block
+ - Always wrap your await in a try/catch/finally block - this can be done in outer function tho
 
 ```javascript
 async function handlePromise() {
@@ -2037,7 +2120,7 @@ handlePromise();
 ## `Promise Handling` With `async/await`: Code Example Handling 2 Promises ?
 
 Good Practice:
- - Always wrap your await in a try/catch/finally block
+ - Always wrap your await in a try/catch/finally block - this can be done in outer function tho
 
 ```javascript
 async function getData() {
@@ -2062,6 +2145,7 @@ TLDR:
  - No. You can, but not ok for error handling.
  - You’ll get an unhandled rejection.
  - **This may crash your program** in modern runtimes.
+ - This can be done, and often is done, in outer function tho
 
 ```javascript
 async function run() {
@@ -2173,9 +2257,6 @@ Promise.resolve(11)
   }) // returns undefined → next .then receives undefined
   .then((y) => console.log(y)); // logs undefined
 ```
-
-
-  
   
 -------------------------------------------------------
 
@@ -2208,6 +2289,24 @@ Output:
 error
 yow
 
+-------------------------------------------------------
+
+## `Promise.race()`` vs `Promise.all()`` vs `Promise.any()`` vs `Promise.allSettled` ?
+
+`Promise.all` : waits for all promises to `resolve`. If any rejects, it `rejects immediately`.
+
+`Promise.any` : waits for the first promise to `resolve`. **Ignores rejections** unless all promises reject, then it rejects with an AggregateError.
+
+`Promise.race` : settles as soon as any promise `resolves or rejects` — whichever comes first.
+
+`Promise.allSettled` : waits for all promises to settle, regardless of resolve or reject.
+
+| Static Method        | Waits for all?  | Rejects if any fail?   | Returns first result?  | Use case                        |
+| -------------------- | --------------- | ---------------------- | ---------------------- | ------------------------------- |
+| `Promise.all`        | ✅ Yes          | ✅ Yes                  | ❌ No                  | Need all results together       |
+| `Promise.any`        | ❌ No           | ❌ Only if all fail     | ✅ First fulfilled     | Any successful result is enough |
+| `Promise.race`       | ❌ No           | ❌ Yes if first rejects | ✅ First settled       | Fastest result or timeout       |
+| `Promise.allSettled` | ✅ Yes          | ❌ No                   | ❌ No                  | Report on all, even failures    |
 
 -------------------------------------------------------
 
@@ -2250,6 +2349,95 @@ A bug occurred.
 `Promise.all` is a method that takes an Array of promises and returns a new promise that resolves when all of the promises in the array have resolved. 
 
 However, if any of the promises is rejected, the promise returned will also reject, return the reason why it was rejected.
+
+-------------------------------------------------------
+
+## What's `Promise.race` ?
+
+Runs multiple promises in parallel and `resolves` or `rejects` as soon as any one of them settles
+
+`Promise.race([promise1, promise2, promise3])`
+
+Think of it as a race between multiple promises:
+- Whichever promise finishes first - either `resolves` or `rejects` - wins the race.
+- The returned promise takes on that winner’s result.
+
+`static method` of the Promise class:
+- input: an iterable of promises - i.e. an array of promises
+- output: a single promise that adopts the state (fulfilled/rejected) of the first settled promise.
+
+-------------------------------------------------------
+
+## Why `Promise.race` ?
+
+Common Use cases:
+- picking the fastest response
+- timeout handling
+- early exits 
+- race conditions ??
+- redundancy ??
+- speed optimization ??
+
+
+-------------------------------------------------------
+
+## Real-Life Use-Cases `Promise.race` ?
+
+TODO
+
+-------------------------------------------------------
+
+## Timeout Pattern with `Promise.race` ?
+
+You can use `Promise.race()` to implement a timeout for async operations
+
+```javascript
+const fetchWithTimeout = (url, timeout) => {
+  const timeoutPromise = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error("Timeout")), timeout)
+  );
+
+  return Promise.race([fetch(url), timeoutPromise]);
+};
+
+fetchWithTimeout("https://example.com", 3000)
+  .then(res => console.log("Fetched successfully"))
+  .catch(err => console.error(err.message));
+```
+
+If the fetch takes longer than 3 seconds, the timeout “wins” and the promise rejects.
+
+-------------------------------------------------------
+
+## `Promise.race`: What will be the console output (v1)?
+
+```javascript
+const p1 = new Promise(resolve => setTimeout(resolve, 100, "First"));
+const p2 = new Promise(resolve => setTimeout(resolve, 200, "Second"));
+
+Promise.race([p1, p2]).then(value => {
+  console.log(value);
+});
+```
+
+logs "First" (because p1 resolves first)
+
+-------------------------------------------------------
+
+## `Promise.race`: What will be the console output (v2)?
+
+```javascript
+const p1 = new Promise((_, reject) => setTimeout(reject, 100, "Error!"));
+const p2 = new Promise(resolve => setTimeout(resolve, 200, "Success"));
+
+Promise.race([p1, p2])
+  .then(value => console.log("Resolved:", value))
+  .catch(error => console.error("Rejected:", error));
+```
+
+logs "Rejected: Error!"
+
+The rejection happens first, so the whole race rejects.
 
 -------------------------------------------------------
 
@@ -2312,3 +2500,81 @@ In this case, the code will be executed in the following order:
 Answer:
 
 Lunch Cooked ..., Water Boiled ..., Dishes Washed ...
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+## Difference between `onClick` vs `addEventListener("click",...)` ?
+
+| Feature               | `onClick`                                               | `addEventListener("click", …)`                                                        |
+| --------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Syntax**            | `element.onclick = function() { ... }`                  | `element.addEventListener("click", function() { ... })`                               |
+| **Multiple Handlers** | ❌ Only one handler — assigns new replacing old one     | ✅ Supports multiple listeners for the same event                                      |
+| **Event Removal**     | Overwrite with `null` to remove                         | Can use `removeEventListener("click", fn)`                                            |
+| **Event Options**     | ❌ None                                                 | ✅ Can specify options like `{ once: true }`, `{ capture: true }`, `{ passive: true }` |
+| **Inline HTML Use**   | Can be used directly in HTML (`<button onclick="...">`) | Must be used in JavaScript only                                                       |
+| **Modern Practice**   | Older, simple approach                                  | Recommended modern approach — more flexible and cleaner separation of JS from HTML    |
+
+TLDR:
+- `onClick` for quick, simple cases.
+- `addEventListener` for cleaner, more scalable, and modern code.
+
+https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+**TODO**
+
+-------------------------------------------------------
+
+This doc is alive, hence this TODO section :)
+
+For each topic: What / Why / When(realusecases) / How(code) / ... c.f. "How To Learn Page"
+
+- Promise static methods
+- What's a pure function in JavaScript?
+- When do we use apply()?
+- Why?
+- Still relevant?
+- When do we use bind()
+- Why?
+- Still relevant?
+
+- diff between undefined and null
+- let vs const vs var
+
+Classes
+- Classes
+- Classes vs Objects
+- Objects
+- Classes Accessibility
+- Classes Constructor
+- Functions vs Objects
+
+- interpreter vs compiler
+- ES6 modules .mjs or with "type": "module" in package.json
+
+- browser runtime : event loop, promises
+- browser runtime : concurrency, streaming APIs
+
+

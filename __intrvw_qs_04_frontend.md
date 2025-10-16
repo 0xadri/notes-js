@@ -146,6 +146,20 @@ Incorrect Answers:
 
  - Setting up the a11y linter to catch accessibility issues in the IDE (HTML, JSX, etc)
 
+-------------------------------------------------------
+
+## What is the best way to let screen reader focusing on the principal content of the page?✱
+
+a. Put the principal content directly below the <h1> element
+
+b. Using <main> elements whatever we have important informations
+
+c. Having a single ARIA role main element in the document
+
+Solution:
+
+c. clearly identify that main content area with ONE SINGLE <main> element or an element with role="main".
+
 
 
 

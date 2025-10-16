@@ -39,12 +39,6 @@ https://www.patterns.dev/react
 
 -------------------------------------------------------
 
-## TODO
-
-DDD, Clean Architecture o Hexagonal.
-
--------------------------------------------------------
-
 ## What's Modular Monolith Architecture ?
 
 A single service device in separated modules with clear boundaries.
@@ -1527,5 +1521,22 @@ Polyrepo = Multiple Repositories = Each project/package in its own Git repositor
 
 Turborepo for scaling monorepos of projects in JS/TS https://turborepo.com/docs
 
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+**TODO**
+
+DDD, Clean Architecture o Hexagonal.
+
+Domain-Driven Design (DDD) principles?
 
 

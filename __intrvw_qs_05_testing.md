@@ -109,12 +109,12 @@ To do so, we need to provide a **placeholder** or **replacement**.
 
 # Types of Test Doubles?
 
-| Type            | Purpose             | Behavior                       | Example Use Case         |
-| --------------- | ------------------- | ------------------------------ | ------------------------ |
-| **Dummy**       | Placeholder         | Does nothing                   | Fill unused params       |
-| **Stub**        | Provide test data   | Returns predefined values      | Feed input to SUT        |
-| **Fake**        | Lightweight version | Works but not production-ready | In-memory DB             |
-| **Mock**        | Verify interactions | Checks if calls were made      | Ensure method was called |
+| Type            | Purpose             | Behavior                       | Example Use Case             |
+| --------------- | ------------------- | ------------------------------ | ---------------------------- |
+| **Dummy**       | Placeholder         | Does nothing                   | Fill unused params           |
+| **Stub**        | Provide test data   | Returns predefined values      | Feed input to SUT            |
+| **Fake**        | Lightweight version | Works but not production-ready | External Calls: APIs, DBs... |
+| **Mock**        | Verify interactions | Checks if calls were made      | Ensure method was called     |
 
 Summary:
 
@@ -140,6 +140,18 @@ Provides predefined responses.
 Used when the SUT needs some data.
 
 No verification of interactions.
+
+-------------------------------------------------------	
+
+# Why Stubs? Use Cases?
+
+1. Avoiding External Calls - i.e. APIs, DBs - isolation & speed
+
+2. Controlling Edge Cases - i.e. simulate errors or unusual data
+
+3. Replacing Expensive or Random Behavior
+
+4. Simulating Slow or Complex Logic - skip heavy processing
 
 -------------------------------------------------------	
 

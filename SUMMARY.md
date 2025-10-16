@@ -34,19 +34,19 @@
 
 ## React
 
-* [React.js 01: Cheatsheet](_reactjs_01_cheatsheet.md)
-* [React.js 02: JSX](_reactjs_02_jsx.md)
-* [React.js 03: States & Effects](_reactjs_03_states-n-effects.md)
-* [React.js 04: Context API](_reactjs_04_contextapi.md)
-* [React.js 05: Custom Hooks](_reactjs_customhooks.md)
-* [React.js 06: Errors](_reactjs_errors.md)
-* [React.js 07: Import Export](_reactjs_import-export.md)
-* [React.js 08: Memoize](_reactjs_memoize.md)
-* [React.js 09: Redux](_reactjs_redux.md)
-* [React.js 10: Router](_reactjs_router.md)
-* [React.js 11: Testing: Jest](_reactjs_testing_jest.md)
-* [React.js 12: Testing: Mocha Chai](_reactjs_testing_mocha_chai.md)
-* [React.js 13: Testing: RTL](_reactjs_testing_rtl.md)
+* [React 01: Cheatsheet](_reactjs_01_cheatsheet.md)
+* [React 02: JSX](_reactjs_02_jsx.md)
+* [React 03: States & Effects](_reactjs_03_states_n_effects.md)
+* [React 04: Context API](_reactjs_04_contextapi.md)
+* [React 05: Custom Hooks](_reactjs_customhooks.md)
+* [React 06: Errors](_reactjs_errors.md)
+* [React 07: Import Export](_reactjs_import-export.md)
+* [React 08: Memoize](_reactjs_memoize.md)
+* [React 09: Redux](_reactjs_redux.md)
+* [React 10: Router](_reactjs_router.md)
+* [React 11: Testing: Jest](_reactjs_testing_jest.md)
+* [React 12: Testing: Mocha Chai](_reactjs_testing_mocha_chai.md)
+* [React 13: Testing: RTL](_reactjs_testing_rtl.md)
 
 ## Node, Next, Bundler, More
 

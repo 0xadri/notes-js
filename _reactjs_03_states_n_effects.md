@@ -1,10 +1,4 @@
 
-----------------------
-
-# Debouncing Clicks Actions
-
-TODO
- 
 -------------------------------------------------------
 
 # `Imports`
@@ -594,3 +588,12 @@ Example: Three components updating a counter
  3. Any child can update the counter, causing the parent to re-render.
  4. All children always see the latest state, because the parent passes it down again on each render.
 
+
+----------------------
+
+**TODO**
+
+Debouncing Clicks Actions
+
+
+ 

@@ -1,9 +1,7 @@
 
-TODO
-
 -------------------------------------------------------
 
-# Docs
+## Docs
 
 https://javascript.info/
 
@@ -13,18 +11,7 @@ https://legacy.reactjs.org/ - legacy
 
 -------------------------------------------------------
 
-# Topics I Learned
-
- - `JavaScript ES6+`
- - `TypeScript`
- - `Jest`
- - `RTL`
- - `RouterJS`
- - `JSX` · `Renders` · `Re-Renders` · `Props` · `Children` · `State` · `Ref` · `Context API` · `Hooks` · `Effects` · `Custom Hooks` · `Component Functions` · `memoize` · `Prev` object (implicit) · implicits relationships (not mentioned/explained w that wording) · `callbacks` · `promises` · `async`/`await` · `API` Calls · `DB` Calls (`mongoose`) · `destructuring` (inc. `spread syntax`) · `functions`, `arrow functions` · `objects`, `arrays`, etc · `spread syntax`
-
--------------------------------------------------------
-
-# Best Practices
+## Best Practices
 
 Reusability principles:
  - To reuse JSX markup, create a component
@@ -50,7 +37,7 @@ Effects
 
 -------------------------------------------------------
 
-# React Project Setup: Build Tools
+## React Project Setup: Build Tools
 
  - `Create React App` aka `CRA`
  - `Webpack`
@@ -59,7 +46,7 @@ Effects
  - `Parcel`
  - `Snowpack`
 
-`Create React App` (CRA): default option for developing React applications
+`Create React App` (CRA) - DEPRECATED - was the default option for developing React applications
 
  - `Vite` vs `CRA` : https://www.tatvasoft.com/outsourcing/2024/07/vite-vs-create-react-app.html
 
@@ -67,7 +54,7 @@ Effects
 
 -------------------------------------------------------
 
-# COMPONENTS THE WORLD
+## COMPONENTS THE WORLD
 
 React apps are made out of `components`.
 
@@ -77,13 +64,13 @@ A component can be as small as a `button`, or as large as an entire page.
 
 -------------------------------------------------------
 
-# Component Instances Work In Isolation
+## Component Instances Work In Isolation
 
 They use the same logic, but on their own.
 
 -------------------------------------------------------
 
-# Strict Mode
+## Strict Mode
 
 `Component` to help you catch errors and mistakes during development phase.
 
@@ -91,7 +78,7 @@ Double renders components.
 
 -------------------------------------------------------
 
-# Strict Mode: How To
+## Strict Mode: How To
 
 You can wrap a specific component or your entire app.
 
@@ -105,7 +92,7 @@ You can wrap a specific component or your entire app.
 
 -------------------------------------------------------
 
-# index.js
+## index.js
 
 ```javascript
  import React from 'react';
@@ -116,7 +103,7 @@ You can wrap a specific component or your entire app.
 
 -------------------------------------------------------
 
-# React Component
+## React Component
 
 ```javascript
  import React from 'react';
@@ -129,7 +116,7 @@ export default Component;
 
 -------------------------------------------------------
 
-# React Component: Props
+## React Component: Props
 
 React component functions accept a single argument, a props object
 
@@ -139,7 +126,7 @@ https://react.dev/learn/passing-props-to-a-component
 
 -------------------------------------------------------
 
-# React Component: Props Example
+## React Component: Props Example
 
 ```javascript
  import React from 'react';
@@ -161,7 +148,7 @@ https://react.dev/learn/passing-props-to-a-component
 
 -------------------------------------------------------
 
-# Pass Props To Component When Name Equal Value
+## Pass Props To Component When Name Equal Value
 
 If `boolean`
 
@@ -187,7 +174,7 @@ You can use this alongside other props
 
 -------------------------------------------------------
 
-# React: Inline Styling
+## React: Inline Styling
 
 ```javascript
  <h1 style={{color: "red"}}> Hello, World! </h1>
@@ -199,7 +186,7 @@ You can use this alongside other props
 
 -------------------------------------------------------
 
-# React: Styling
+## React: Styling
 
 ```css
  // in TitleScreen.module.css
@@ -218,7 +205,7 @@ You can use this alongside other props
 
 -------------------------------------------------------
 
-# Functions in Components
+## Functions in Components
 
 ```javascript
  <button onClick={alert('You clicked me!')}>  // alert fires when component renders, not when clicked!
@@ -228,7 +215,7 @@ You can use this alongside other props
 
 -------------------------------------------------------
 
-# Keys Must Have Unique Value [Best Practice] 
+## Keys Must Have Unique Value [Best Practice] 
 
 Prior to iterating on the list, add an id field with a unique value to each item.
 
@@ -247,7 +234,7 @@ Then use that field as key in the iterating code.
 
 -------------------------------------------------------
 
-# Fontawesome in React
+## Fontawesome in React
 
 https://stackoverflow.com/a/55351950/759452
 
