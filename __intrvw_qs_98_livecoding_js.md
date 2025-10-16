@@ -83,9 +83,6 @@ const flat = nested.reduce((accumulator, element) => {
 console.log(flat);   // expected output: [1, 2, 3, 4, 5, 6]
 ```
 
-
-
-
 -------------------------------------------------------
 
 # Add Method `last()` To Array Object
