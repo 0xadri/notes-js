@@ -62,9 +62,9 @@
 
 ## Live Coding Interviews
 
-* [Qs: Code Review [Live Coding]](__intrvw_qs_96_livecoding_codereview.md)
+* [Qs: JavaScript [Live Coding]](__intrvw_qs_96_livecoding_js.md)
 * [Qs: React [Live Coding]](__intrvw_qs_97_livecoding_react.md)
-* [Qs: JavaScript [Live Coding]](__intrvw_qs_98_livecoding_js.md)
+* [Qs: Code Review [Live Coding]](__intrvw_qs_98_livecoding_codereview.md)
 * [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 reactjs_code_cmixtape.md
