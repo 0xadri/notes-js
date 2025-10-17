@@ -10,6 +10,7 @@ TODO: Add:
  	- var -> const or let
  	- let -> const (if possible)
  	- buggy const (i.e. reassigned)
+ 	- use spread/rest operators
  	- method chaining -> async/await
  	- class component -> function component
  - watch out for untestable code: put code always in functions so it can be tested

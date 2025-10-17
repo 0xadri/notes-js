@@ -727,6 +727,25 @@ Parameters:
  - array (optional) → original array
  - initialValue (optional) → value to start with (if omitted, the first element is used)
 
+-------------------------------------------------------
+
+## Why use nested reduce()?
+
+You’d use nested reduce() when you need to aggregate data across multiple levels — for example:
+
+Flattening arrays of arrays
+
+Summarizing nested objects
+
+Merging data from multiple layers (e.g., users → orders → items)
+
+Performing grouped computations
+
+Basically: when you have nested data structures that each need their own accumulation logic.
+
+
+
+
 
 
 

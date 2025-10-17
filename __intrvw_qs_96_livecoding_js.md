@@ -1,6 +1,12 @@
 
 
-# What's Live Coding in JavaScript ?
+-------------------------------------------------------
+
+# Must Knows
+
+-------------------------------------------------------
+
+## What's Live Coding in JavaScript ?
 
 It's a technical interviewing style. Your interviewer(s) watches while you code. In JavaScript.
 
@@ -8,7 +14,7 @@ It often degenerates into LeetCode style interviews.
 
 -------------------------------------------------------
 
-# What's LeetCode ?
+## What's LeetCode ?
 
 Think of it as going to gym: given two athletes of let's say, a football team, if both have equally talented, then the one who's trained to the gym will outcompete the other.
 
@@ -16,7 +22,137 @@ And as going to the gym, it may be really tough at first, but it'll get easier, 
 
 -------------------------------------------------------
 
-# Reduce: Sum Of Numbers In Array
+## What Steps Should You Follow When Live Coding?
+
+1. Write pseudo code for "brute force" solution - if needed, create a diagram on draw.io
+2. Talk over your pseudo code by using mental models and analogies
+3. Write code
+4. Follow up by suggesting improvements - c.f. ideas below
+
+
+### Your Attitude
+
+- Say out loud "Live Coding makes me very anxious", else your interviewer might not realize it
+- Take your time, else they may ask super hard follow-up questions
+- Feel free to suggest CodeSandBox.com, else you might be stuck using a crappy online IDE
+- Keep it VERY simple, else you might not have improvements to suggest
+
+
+### Mental Models and Analogies
+
+Data Structures Involved
+ - Duplicate Data Structures, i.e. One is the original one, the other is for **marking** processed items
+ - Count/Sum Data Structure, i.e. usually just a number
+
+Utility Functions Involved
+ - Transformator/Migrator, i.e. transform a 3D array into a flat array
+
+
+### Potential Improvements
+
+Readability, Testability, Maintainability
+ - 100% of the code must be in functions
+ - self-explanatory namings
+ - easy-to-digest logic
+ - SRP: each function has a tiny responsibility - mention SOLID Principles
+ - Pure Functions: for no side effects
+
+Defensive Programming
+ - handle errors
+ - handle loading state
+ - handle unexpected empty/null/undefined/0 values, provide default
+ - handle unexpected type, i.e. string vs number
+
+Upgrade Syntax
+ - var -> const or let
+ - let -> const (if possible)
+ - buggy const (i.e. reassigned)
+ - spread/rest operators
+ - method chaining -> async/await
+ - class component -> function component
+ - regular function -> arrow functions
+
+Optimize Loops and Data Structures
+ - array -> set, or map
+ - loop -> proper algorithms
+ - loop -> Array Instance Methods such as reduce(), or map()
+
+Optimize Performance
+ - Caching
+ - Lazy Loading
+
+-------------------------------------------------------
+
+## What Defensive Programming?
+
+Software Development Practice.
+ - Focus: anticipate and safely handle unexpected inputs, states, or errors. 
+ - Goal: make code more robust, secure, and maintainable.
+
+| Category        | Details                                                         |
+| --------------- | --------------------------------------------------------------- |
+| Error handling  | Use `try/catch`, custom error messages                          |
+| Defaults        | Handle undefined, null, or missing params: give fallback values |
+| Validate inputs | Validate types, ranges, formats                                 |
+| Logic           | Use guard clauses & early exits                 |
+| Types           | Use TypeScript or runtime checks                |
+| APIs            | Check response validity                         |
+| Security        | Sanitize and validate external inputs           |
+| Mutability      | Avoid modifying shared state                    |
+| Comment         | Add JSDoc for functions + Add relevant comments |
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Gotchas & Common Pitfalls
+
+-------------------------------------------------------
+
+## Most Common Challenges
+
+1. Data structure manipulation using Array Instance Methods
+2. String manipulation using Array Instance Methods
+3. Combine 1 & 2: data structure manipulation combined with String manipulation using Array Instance Methods
+4. Add method to Array Object
+5. Fetch data from API by doing 2 calls
+6. Combine promises and timeout
+7. Given "spaghetti" code snippet, review by adding comments -or- refactor the code
+
+-------------------------------------------------------
+
+## Fetch Data From API: Gotchas & Common Pitfalls
+
+1. fetch() doesn’t reject on HTTP errors - always check `res.ok` and handle status codes explicitly.
+
+i.e. `if (!res.ok) { throw new Error("HTTP error! status: " + res.status); }`
+
+2. You must explicitly parse the response body - always call `.json()`, or `.text()`, or `.blob()`, etc
+
+3. No built-in timeout - always use `AbortController` or a `timeout wrapper`
+
+4. Security - always use `https`
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Challenges & Solutions
+
+-------------------------------------------------------
+
+## Reduce: Sum Of Numbers In Array
 
 Calculate the sum of all numbers in an array with `reduce()`.
 
@@ -28,7 +164,7 @@ const total = numbers.reduce( /* your code here */ );   // Use reduce to get the
 console.log(total);     // expected output: 50
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 const numbers = [5, 10, 15, 20];
@@ -38,7 +174,7 @@ console.log(total);     // expected output: 50
 
 -------------------------------------------------------
 
-# Reduce: Count Occurrences
+## Reduce: Count Occurrences
 
 Count how many times each element appears in an array with `reduce()`.
 
@@ -48,7 +184,7 @@ const counts = fruits.reduce( /* your code here */ , {});
 console.log(counts);   // expected output: { apple: 3, banana: 2, orange: 1 }
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
@@ -63,7 +199,7 @@ console.log(counts);   // expected output: { apple: 3, banana: 2, orange: 1 }
 
 -------------------------------------------------------
 
-# Reduce: Flatten a Nested Array
+## Reduce: Flatten a Nested Array
 
 Turn a nested array into a single-level array with `reduce()`.
 
@@ -73,7 +209,7 @@ const flat = nested.reduce( /* your code here */ );
 console.log(flat);    // expected output: [1, 2, 3, 4, 5, 6]
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 const nested = [[1, 2], [3, 4], [5, 6]];
@@ -85,7 +221,84 @@ console.log(flat);   // expected output: [1, 2, 3, 4, 5, 6]
 
 -------------------------------------------------------
 
-# Add Method `last()` To Array Object
+## Nested reduce() To Calculate Total
+
+Use nested reduce() to calculate the total sum of all numbers across all sub-arrays.
+
+`const numbers = [[1, 2, 3], [4, 5], [6, 7, 8]];`
+
+### SOLUTION
+
+```javascript
+const numbers = [[1, 2, 3], [4, 5], [6, 7, 8]];
+const res = numbers.reduce((acc, curr) => {
+  return (acc + curr.reduce((subacc, curr) => {
+      return subacc + curr;
+    }, 0)
+  );
+}, 0);
+
+console.log(res);
+```
+
+-------------------------------------------------------
+
+## Nested reduce() To Flatten and Count Letters
+
+Use nested reduce() to:
+- Flatten all the words into an array of individual characters.
+- Count how many times each letter appears (return an object like { h: 1, i: 1, t: 1, e: 2, ... }).
+
+`const words = ["hi", "there", "javascriptiscool"];`
+
+
+### SOLUTION
+
+```javascript
+const words = ["hi", "there", "javascriptiscool"];
+
+const letterCount = words.reduce((acc, word) => {
+  // Flatten each word into letters and count them
+  return word.split("").reduce((innerAcc, letter) => {
+    innerAcc[letter] = (innerAcc[letter] || 0) + 1;
+    return innerAcc;
+  }, acc);
+}, {});
+
+console.log(letterCount);
+```
+
+-------------------------------------------------------
+
+## Nested reduce() To Sum All Scores
+
+You have a list of players, each with scores across different games.
+
+Use nested reduce() to compute the total score of all players combined.
+
+`const players = [ { name: "Alice", scores: [10, 20, 15] },  { name: "Bob", scores: [5, 25, 10] },  { name: "Cara", scores: [20, 15, 30] }  ];`
+
+
+### SOLUTION
+
+```javascript
+const players = [
+  { name: "Alice", scores: [10, 20, 15] },
+  { name: "Bob", scores: [5, 25, 10] },
+  { name: "Cara", scores: [20, 15, 30] }
+];
+const totalScore = players.reduce((playerAcc, player) => {
+  // Sum up each player's scores
+  const playerTotal = player.scores.reduce((scoreAcc, score) => scoreAcc + score, 0);
+  // Add to the overall accumulator
+  return playerAcc + playerTotal;
+}, 0);
+console.log(totalScore);
+```
+
+-------------------------------------------------------
+
+## Add Method `last()` To Array Object
 
 Add method `last()` to `Array` so that it returns the last element, if `Array` is empty return `-1`.
 
@@ -100,7 +313,7 @@ Array.prototype.last = function() {
 
 -------------------------------------------------------
 
-# Add Method `multiplyBySelf()` To Array Object
+## Add Method `multiplyBySelf()` To Array Object
 
 Exercise
 
@@ -114,7 +327,7 @@ const a = [1, 2, 3, 4, 5];
 console.log(a);
 ```	
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 Array.prototype.multiplyBySelf = function () {
@@ -128,7 +341,7 @@ Array.prototype.multiplyBySelf = function () {
 
 -------------------------------------------------------
 
-# Promise Method Chaining To Async/Await Code
+## Promise Method Chaining To Async/Await Code
 
 ```javascript
 function fakeFetchData() {
@@ -156,7 +369,7 @@ function getData() {
 getData();
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 async function getData() {
@@ -172,7 +385,7 @@ async function getData() {
 
 -------------------------------------------------------
 
-# Function Adding-Up Elements In Array And Returns With Delay
+## Function Adding-Up Elements In Array And Returns With Delay
 
 Write a function in Javascript or Typescript that simulates asynchronous behavior using Promises. The function should take an array of numbers as input and return a Promise that resolves with the sum of all the numbers after a 1-second delay.
 Example:
@@ -198,15 +411,129 @@ arrowAdd([1, 2, 3, 4, 5]).then((out) => {
 
 -------------------------------------------------------
 
-# Promises: Guess The Output
+## Promises and Timeout: Combined
 
-Impossible to get this right. Focus on explaining what you know and keep a good attitude while failing.
+Implement the function job, so that fun will be exctuted after x seconds (delay).
 
-https://codesandbox.io/p/sandbox/promises-forked-pkf2sd
+```javascript
+const job = (fun, x) => {
+  // your code here
+};
+
+const fun = () => {
+  console.log("Function executed!");
+};
+
+const exec3 = () => {
+  job(fun, 5000).then((fun) => fun());
+};
+const button3 = document.getElementById("button_exercise3");
+button3.onclick = exec3;
+```
 
 -------------------------------------------------------
 
-# Add Method To Array Object: Pollyfill Reduce
+## Promises: then/catch: part 1 
+
+Guess the output.
+
+```javascript
+const exec1 = () => {
+  const job = (state) => {
+    return new Promise(function (resolve, reject) {
+      if (state) {
+        resolve("success");
+      } else {
+        reject("error");
+      }
+    });
+  };
+
+  let promise = job(true);
+
+  promise
+    .then(function (data) {
+      console.log(data);
+      return job(false);
+    })
+    .catch(function (error) {
+      console.log(error);
+      return "Error caught";
+    })
+    .then(function (data) {
+      console.log(data);
+      return job(true);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+exec1()
+```
+
+-------------------------------------------------------
+
+## Promises: then/catch: part 2
+
+Guess the output.
+
+```javascript
+const exec2 = () => {
+  function job(state) {
+    return new Promise(function (resolve, reject) {
+      if (state) {
+        resolve("success");
+      } else {
+        reject("error");
+      }
+    });
+  }
+
+  let promise = job(true);
+
+  promise
+    .then(function (data) {
+      console.log(data);
+      return job(true);
+    })
+    .then(function (data) {
+      if (data !== "victory") {
+        throw "Defeat";
+      }
+      return job(true);
+    })
+    .then(function (data) {
+      console.log(data);
+    })
+    .catch(function (error) {
+      console.log(error);
+      return job(false);
+    })
+    .then(function (data) {
+      console.log(data);
+      return job(true);
+    })
+    .catch(function (error) {
+      console.log(error);
+      return "Error caught";
+    })
+    .then(function (data) {
+      console.log(data);
+      return new Error("test");
+    })
+    .then(function (data) {
+      console.log("Success:", data.message);
+    })
+    .catch(function (data) {
+      console.log("Error:", data.message);
+    });
+};
+exec2()
+```
+
+-------------------------------------------------------
+
+## Add Method To Array Object: Pollyfill Reduce
 
 Implement your own version of the `Array.reduce` method. Let's call it `Array.myReduce`.
 
@@ -248,7 +575,7 @@ Array.prototype.myReduce = function (fn, init){
 
 -------------------------------------------------------
 
-# Remove HTML Tags From String
+## Remove HTML Tags From String
 
 Write a method that will remove all html tags from any given string.
 
@@ -296,7 +623,7 @@ function removeTags(input) {
 
 -------------------------------------------------------
 
-# Call Once Function
+## Call Once Function
 
 Given a function fn, return a new function that is identical to the original function except that it ensures that fn can be called at most once.
 
@@ -320,59 +647,7 @@ export default function callOnce(fn) {
 
 -------------------------------------------------------
 
-# Bind Polyfill
-
-Add a simplified `bindPolyfill method` to all functions.
-
-`bindPolyfill` takes an object obj and returns a new function.
-
-When this new function is invoked, it should call the original function with its this value set to obj.
-
-When the `bindPolyfill method` is called with `obj argument`, it should `return a function` that has `obj` as its `"this" context`.
-
-Requirements:
-- the `bindPolyfill` method should always receive a non-null object
-- you should not use the built-in `Function.bind` or `Function.apply` methods
-- the `bindPolyfill` method should return a new function
-
-Examples
-
-```javascript
-const obj = { message: 'Hello' };
-const f = function () { return this.message; };
-const g = f.bindPolyfill(obj);         // g is a new object, the same as 
-
-console.log(g()); // Hello
-console.log(g.call({ message: 'Bye' })); // Hello
-```
-
-## SOLUTION
-
-```javascript
-Function.prototype.bindPolyfill = function(obj) {
-    obj["__binding__"] = this;     // add function as property/method to passed object - "this" is the current function object
-    return (...args) => obj["__binding__"](...args);    // return the wrapped obj method as a new function
-}
-```
-
-The above version has one major issue though:
-- collisions are guaranteed if you bind more than one function to the same object.
-- Every time you call .bindPolyfill, it assigns the function to the same property ("__binding__") on the target object.
-- That means the previous binding is overwritten.
-
-```javascript
-Function.prototype.bindPolyfill = function(obj) {
-    // add the function as a method to an object
-    obj[this.name] = this;
-
-    // return the wrapped obj method as a new function
-    return (...args) => obj[this.name](...args); // call as obj method
-}
-```
-
--------------------------------------------------------
-
-# Wrap A Function In A Timeout
+## Wrap A Function In A Timeout
 
 ```javascript
 const myDelayedFunction = (fn, timeoutDuration) => {     // Define a HOF (wrapper) that returns a delayed version of a function
@@ -394,185 +669,7 @@ const delayedFunction = myDelayedFunction(myFunc, 2000);    // Assign wrap funct
 
 -------------------------------------------------------
 
-# Curry Function
-
-Requirements:
- - Given a function fn, return a curried version of it
- - The curried function should accept fewer than or equal to the number of parameters as the original function
- - If enough arguments are provided, it should return the final result
- - If not enough arguments are provided, it should return another function waiting for the remaining arguments
-
-Example behavior: If you have an original function `sum(a, b, c)` that takes 3 arguments, after currying it to csum, you can call it in multiple ways:
- 1. `csum(1)(2)(3)` - one argument at a time
- 2. `csum(1)(2, 3)` - one argument, then two arguments
- 3. `csum(1, 2)(3)` - two arguments, then one argument
- 4. `csum(1, 2, 3)` - all three arguments at once
-
-Do you understand the problem? Really?
-
-The above hints to the problem to be solved, turn any of the following:
- 1. `csum(1)(2)(3)` - one argument at a time
- 2. `csum(1)(2, 3)` - one argument, then two arguments
- 3. `csum(1, 2)(3)` - two arguments, then one argument
-Into the last:
- 4. `csum(1, 2, 3)` - all three arguments at once
-
-
-The key insight is that we need to accumulate arguments across multiple function calls until we have enough to execute the original function.
-
-Think of it like filling a bucket - each time the curried function is called, we add more water (arguments) to the bucket. Once the bucket is full (we have all required arguments), we can pour it out (execute the original function).
-
-To achieve this behavior, we need:
- - A way to remember previously passed arguments - This naturally suggests using closures, where inner functions can access variables from outer scopes
- - A way to check if we have enough arguments - JavaScript functions have a length property that tells us how many parameters they expect
- - A recursive structure - If we don't have enough arguments yet, we need to return another function that continues the same pattern
-
-## SOLUTION 1: ITERATIVE
-
-```
- var curry = function (fn) {
-  let nums = [];
-  
-  return function curried (...args) {
-   nums = [...nums, ...args];
-  
-   if (fn. length === nums.length) {
-    const res = fn(...nums);
-    nums = [];
-    return res;
-   } else {
-    return curried;
-   };
- };
-```
-
-## SOLUTION 2: RECURSIVE
-
-```
-export default function curry(fn){
-    return function helper (...args) {     // 1st function definition, this one is NOT anonymous
-        if (args.length === fn.length){        // Condition to break out of recursion
-            return fn(...args);
-        }
-        else {
-            return (...nextArgs) => {      // 2nd function definition
-              return helper(...args, ...nextArgs)
-            } 
-        }
-    }
-}
-```
-
-EXPLANATION
-
- - `if (args.length === fn.length)`   Condition to break out of recursion
- - `return (...nextArgs) => { return helper(...args,...nextArgs) }`   Creates and returns a new function that expects additional arguments
- - `(...nextArgs)`   Accepts additional arguments 
- - `nextArgs` is not coming from anywhere "magical." It’s just the `rest` parameter of the arrow function you return inside helper.
- - `(...args, ...nextArgs)`   Combines them with the previously collected ones 
- - helper is a recursive call curried with the combined arguments
-
-EXAMPLES
-
-How this curry implementation handles arguments one at a time, or in groups.
-
-1. Example 1: **one** arg at the time
-
-```
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1)(2)(3)
- 
- const f1 = curriedAdd3(1);
- // First call: args = [1]
- // f1 is now (...nextArgs) => helper(1, ...nextArgs)
-
- const f2 = f1(2);
- // Second call: args = [1,2]
- // f2 is now (...nextArgs) => helper(1,2, ...nextArgs)
-
- const f3 = f2(3);
- // Third call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-2. Example 2: **multiple** args at once
-
-```
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1,2)(3)
- 
- const f1 = curriedAdd3(1,2);   // 1st call: args = [1,2] - So it returns (...moreArgs) => helper(1,2,...moreArgs)
- // First call: args = [1,2]
- // f1 is now (...nextArgs) => helper(1,2, ...nextArgs)
-
- const f2 = f1(3);   // 2nd call: args[3] - So it returns (...moreArgs) => helper(1,2,3)
- // Second call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-3. Example 3: **multiple** args at once in other brackets
-
-```javascript
- function add3(a, b, c) {
-  return a + b + c;
- }
- const curriedAdd3 = curry(add3);
-
- // below is the step-by-step of curriedAdd3(1)(2,3)
- 
- const f1 = curriedAdd3(1);   // 1st call: args = [1] - So it returns (...moreArgs) => helper(1,...moreArgs)
- // First call: args = [1]
- // f1 is now (...nextArgs) => helper(1, ...nextArgs)
-
- const f2 = f1(2,3);   // 2nd call: args[2,3] - So it returns (...moreArgs) => helper(1,2,3)
- // Second call: args = [1,2,3]
- // Total number of argument condition met
- // So regular function called add3(1,2,3)
-```
-
-Links
- - Leetcode Curry: Explained https://algo.monster/liteproblems/2632
- - Leetcode Curry: Explanation on Iterative and Recursive Solutions https://www.youtube.com/watch?v=pi4kqMWQXxA
-
--------------------------------------------------------
-
-# Throttle Function
-
-1. Implement a simple delay
-
-```javascript
-const throttle = (fn, interval) => {
-  return (...args) => {
-    return setTimeout(() => {
-      fn.apply(this, ...args);  // preserve the context
-    }, interval);
-  };
-};
-
-const myFunc = () => {
-  console.log("hello");
-};
-
-const throttled = throttle(myFunc, 2000);
-
-(() => {
-  throttled();
-})();
-```
-
--------------------------------------------------------
-
-# Random Chuck Norris Images
+## Random Chuck Norris Images
 
 Being given these 2 APIs
 - https://api.chucknorris.io/ - The Internet Chuck Norris Database
@@ -592,7 +689,7 @@ more images on the first load and cache them internally.
 const GIPHY_API_KEY = "2cZkiFTqyiS79UdSapL6LHWlublpl7iy";
 const DEFAULT_GIF = "https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif";
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 <!DOCTYPE html>
@@ -699,7 +796,237 @@ const DEFAULT_GIF = "https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif";
 
 -------------------------------------------------------
 
-# Anagram Challenge 
+## Bind Polyfill
+
+Add a simplified `bindPolyfill method` to all functions.
+
+`bindPolyfill` takes an object obj and returns a new function.
+
+When this new function is invoked, it should call the original function with its this value set to obj.
+
+When the `bindPolyfill method` is called with `obj argument`, it should `return a function` that has `obj` as its `"this" context`.
+
+Requirements:
+- the `bindPolyfill` method should always receive a non-null object
+- you should not use the built-in `Function.bind` or `Function.apply` methods
+- the `bindPolyfill` method should return a new function
+
+Examples
+
+```javascript
+const obj = { message: 'Hello' };
+const f = function () { return this.message; };
+const g = f.bindPolyfill(obj);         // g is a new object, the same as 
+
+console.log(g()); // Hello
+console.log(g.call({ message: 'Bye' })); // Hello
+```
+
+### SOLUTION
+
+```javascript
+Function.prototype.bindPolyfill = function(obj) {
+    obj["__binding__"] = this;     // add function as property/method to passed object - "this" is the current function object
+    return (...args) => obj["__binding__"](...args);    // return the wrapped obj method as a new function
+}
+```
+
+The above version has one major issue though:
+- collisions are guaranteed if you bind more than one function to the same object.
+- Every time you call .bindPolyfill, it assigns the function to the same property ("__binding__") on the target object.
+- That means the previous binding is overwritten.
+
+```javascript
+Function.prototype.bindPolyfill = function(obj) {
+    // add the function as a method to an object
+    obj[this.name] = this;
+
+    // return the wrapped obj method as a new function
+    return (...args) => obj[this.name](...args); // call as obj method
+}
+```
+
+-------------------------------------------------------
+
+## Curry Function
+
+Requirements:
+ - Given a function fn, return a curried version of it
+ - The curried function should accept fewer than or equal to the number of parameters as the original function
+ - If enough arguments are provided, it should return the final result
+ - If not enough arguments are provided, it should return another function waiting for the remaining arguments
+
+Example behavior: If you have an original function `sum(a, b, c)` that takes 3 arguments, after currying it to csum, you can call it in multiple ways:
+ 1. `csum(1)(2)(3)` - one argument at a time
+ 2. `csum(1)(2, 3)` - one argument, then two arguments
+ 3. `csum(1, 2)(3)` - two arguments, then one argument
+ 4. `csum(1, 2, 3)` - all three arguments at once
+
+Do you understand the problem? Really?
+
+The above hints to the problem to be solved, turn any of the following:
+ 1. `csum(1)(2)(3)` - one argument at a time
+ 2. `csum(1)(2, 3)` - one argument, then two arguments
+ 3. `csum(1, 2)(3)` - two arguments, then one argument
+Into the last:
+ 4. `csum(1, 2, 3)` - all three arguments at once
+
+
+The key insight is that we need to accumulate arguments across multiple function calls until we have enough to execute the original function.
+
+Think of it like filling a bucket - each time the curried function is called, we add more water (arguments) to the bucket. Once the bucket is full (we have all required arguments), we can pour it out (execute the original function).
+
+To achieve this behavior, we need:
+ - A way to remember previously passed arguments - This naturally suggests using closures, where inner functions can access variables from outer scopes
+ - A way to check if we have enough arguments - JavaScript functions have a length property that tells us how many parameters they expect
+ - A recursive structure - If we don't have enough arguments yet, we need to return another function that continues the same pattern
+
+### SOLUTION 1: ITERATIVE
+
+```
+ var curry = function (fn) {
+  let nums = [];
+  
+  return function curried (...args) {
+   nums = [...nums, ...args];
+  
+   if (fn. length === nums.length) {
+    const res = fn(...nums);
+    nums = [];
+    return res;
+   } else {
+    return curried;
+   };
+ };
+```
+
+### SOLUTION 2: RECURSIVE
+
+```
+export default function curry(fn){
+    return function helper (...args) {     // 1st function definition, this one is NOT anonymous
+        if (args.length === fn.length){        // Condition to break out of recursion
+            return fn(...args);
+        }
+        else {
+            return (...nextArgs) => {      // 2nd function definition
+              return helper(...args, ...nextArgs)
+            } 
+        }
+    }
+}
+```
+
+EXPLANATION
+
+ - `if (args.length === fn.length)`   Condition to break out of recursion
+ - `return (...nextArgs) => { return helper(...args,...nextArgs) }`   Creates and returns a new function that expects additional arguments
+ - `(...nextArgs)`   Accepts additional arguments 
+ - `nextArgs` is not coming from anywhere "magical." It’s just the `rest` parameter of the arrow function you return inside helper.
+ - `(...args, ...nextArgs)`   Combines them with the previously collected ones 
+ - helper is a recursive call curried with the combined arguments
+
+EXAMPLES
+
+How this curry implementation handles arguments one at a time, or in groups.
+
+1. Example 1: **one** arg at the time
+
+```
+ function add3(a, b, c) {
+  return a + b + c;
+ }
+ const curriedAdd3 = curry(add3);
+
+ // below is the step-by-step of curriedAdd3(1)(2)(3)
+ 
+ const f1 = curriedAdd3(1);
+ // First call: args = [1]
+ // f1 is now (...nextArgs) => helper(1, ...nextArgs)
+
+ const f2 = f1(2);
+ // Second call: args = [1,2]
+ // f2 is now (...nextArgs) => helper(1,2, ...nextArgs)
+
+ const f3 = f2(3);
+ // Third call: args = [1,2,3]
+ // Total number of argument condition met
+ // So regular function called add3(1,2,3)
+```
+
+2. Example 2: **multiple** args at once
+
+```
+ function add3(a, b, c) {
+  return a + b + c;
+ }
+ const curriedAdd3 = curry(add3);
+
+ // below is the step-by-step of curriedAdd3(1,2)(3)
+ 
+ const f1 = curriedAdd3(1,2);   // 1st call: args = [1,2] - So it returns (...moreArgs) => helper(1,2,...moreArgs)
+ // First call: args = [1,2]
+ // f1 is now (...nextArgs) => helper(1,2, ...nextArgs)
+
+ const f2 = f1(3);   // 2nd call: args[3] - So it returns (...moreArgs) => helper(1,2,3)
+ // Second call: args = [1,2,3]
+ // Total number of argument condition met
+ // So regular function called add3(1,2,3)
+```
+
+3. Example 3: **multiple** args at once in other brackets
+
+```javascript
+ function add3(a, b, c) {
+  return a + b + c;
+ }
+ const curriedAdd3 = curry(add3);
+
+ // below is the step-by-step of curriedAdd3(1)(2,3)
+ 
+ const f1 = curriedAdd3(1);   // 1st call: args = [1] - So it returns (...moreArgs) => helper(1,...moreArgs)
+ // First call: args = [1]
+ // f1 is now (...nextArgs) => helper(1, ...nextArgs)
+
+ const f2 = f1(2,3);   // 2nd call: args[2,3] - So it returns (...moreArgs) => helper(1,2,3)
+ // Second call: args = [1,2,3]
+ // Total number of argument condition met
+ // So regular function called add3(1,2,3)
+```
+
+Links
+ - Leetcode Curry: Explained https://algo.monster/liteproblems/2632
+ - Leetcode Curry: Explanation on Iterative and Recursive Solutions https://www.youtube.com/watch?v=pi4kqMWQXxA
+
+-------------------------------------------------------
+
+## Throttle Function
+
+1. Implement a simple delay
+
+```javascript
+const throttle = (fn, interval) => {
+  return (...args) => {
+    return setTimeout(() => {
+      fn.apply(this, ...args);  // preserve the context
+    }, interval);
+  };
+};
+
+const myFunc = () => {
+  console.log("hello");
+};
+
+const throttled = throttle(myFunc, 2000);
+
+(() => {
+  throttled();
+})();
+```
+
+-------------------------------------------------------
+
+## Anagram Challenge 
 
 You are given an array of strings, text. 
 
@@ -722,7 +1049,7 @@ Processing steps:
  - "framer" and "frame" are not anagrams due to the extra "r" in "framer". Keep both strings.
 
 Return: ["code", "frame", "framer"]
- 
+
 
 Function Description:
 
@@ -745,7 +1072,7 @@ Example 12:
 - input: ["poke", "pkoe", "okpe", "ekop"]
 - expected output:["poke"]
 
-## SOLUTION 1
+### SOLUTION 1
 
 ```javascript
 function funWithAnagrams(text) {
@@ -765,7 +1092,7 @@ function funWithAnagrams(text) {
 }
 ```
 
-## SOLUTION 2
+### SOLUTION 2
 
 ```javascript
 function funWithAnagrams(text) {
@@ -793,7 +1120,7 @@ Possible Optimisation: Use `Set` to store `result`, this will give:
 
 -------------------------------------------------------
 
-# Dial Speed Calculator
+## Dial Speed Calculator
 
 Calculate the minimum time needed to type a string of digits on a numeric keypad where the key positions are mixed up.
 
@@ -921,7 +1248,7 @@ Calculate the time it takes to types = "91566165° as follows:
 
 The total time is 0 + 2 + 1 + 2 + 0 + 2 + 2 + 2 = 11.
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 /**
@@ -974,7 +1301,7 @@ function getDistance([x1, y1], [x2, y2]) {
 
 -------------------------------------------------------
 
-# Bucket Fill Challenge
+## Bucket Fill Challenge
 
 Digital graphics tools often make available a "bucket fill" tool that will only paint adjacent cells. 
 
@@ -1056,7 +1383,7 @@ Letters a and b each take / fill and letter c takes 2 fills.
 
 
 
-## SOLUTION
+### SOLUTION
 
 1. Problem Restatement
 
@@ -1143,7 +1470,7 @@ console.log(strokesRequired(["bbba", "abba", "acaa", "aaac"])); // Output: 4
 
 -------------------------------------------------------
 
-# E-Shop Spaghetti Code Refactor
+## E-Shop Spaghetti Code Refactor
 
 The given function retrieves the items in a cart and its shipping costs to calculate the total to pay. 
 
@@ -1180,7 +1507,7 @@ function fetchDataAndProcess() {
 }
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 // --- API Layer (data fetching logic) ---
@@ -1243,7 +1570,7 @@ main();
 
 -------------------------------------------------------
 
-# Code Review This Snippet
+## Code Review This Snippet
 
 Review this code. Leave comments where appropriate.
 

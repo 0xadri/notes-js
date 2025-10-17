@@ -5,13 +5,13 @@
 
 ## JavaScript & TypeScript
 
-* [TypeScript](__typescript.md)
 * [JavaScript 01: Vanilla JavaScript](__js_01_vanilla.md)
 * [JavaScript 02: APIs, Build & Consume](__js_03_api_build_n_consume.md)
 * [JavaScript 03: DevOps: Node, AWS, GitLab, Docker](__js_devops_node_aws_gitlab_docker.md)
 * [JavaScript 04: MicroFrontEnds](__js_microfrontends.md)
 * [JavaScript 05: MongoDB](__js_mongodb.md)
 * [JavaScript 06: Mongoose](__mongoose.md)
+* [TypeScript](__typescript.md)
 
 ## React
 
