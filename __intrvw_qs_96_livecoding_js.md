@@ -32,10 +32,10 @@ And as going to the gym, it may be really tough at first, but it'll get easier, 
 
 ### Your Attitude
 
-- Say out loud "Live Coding makes me very anxious", else your interviewer might not realize it
-- Take your time, else they may ask super hard follow-up questions
-- Feel free to suggest CodeSandBox.com, else you might be stuck using a crappy online IDE
+- Take your time, else with time left they may ask super hard follow-up questions
 - Keep it VERY simple, else you might not have improvements to suggest
+- Say out loud "Live Coding makes me very anxious", else your interviewer might not realize it
+- Feel free to suggest CodeSandBox.com, else you might be stuck using a crappy online IDE
 
 
 ### Mental Models and Analogies
@@ -149,6 +149,22 @@ i.e. `if (!res.ok) { throw new Error("HTTP error! status: " + res.status); }`
 -------------------------------------------------------
 
 # Challenges & Solutions
+
+-------------------------------------------------------
+
+## String Manipulation: Add Numbers In Text
+
+Create the function `addNbInTxt` so that it matches the expected outputs
+
+```javascript
+const textOne = "2,5,3,8";
+const textTwo = "2::9::3::1::5::2";
+const textThree = "3jd4imco5ownen8wbvue2ncknas9"
+
+console.log(addNbInTxt(textOne));  // expected output: 18
+console.log(addNbInTxt(textTwo));  // expected output: 22
+console.log(addNbInTxt(textThree));  // expected output: 31
+```
 
 -------------------------------------------------------
 

@@ -1,14 +1,6 @@
 
 
 
-**TODO**
-
-- Fact Driven Decisions
-- "Dealing with Hard Behaviour" Question: i.e. what do you do if a colleague is aggressive with you? Thinking "gradual": 1. One-to-one casual chat, 2. One-to-one meeting? , 3. Raise issue to manager?
-- How do you deal with giving feedback?
-- Safe (Agile for large teams)
-
-
 
 
 -------------------------------------------------------
@@ -54,3 +46,15 @@ The Four Quadrants:
 
 
 
+
+
+-------------------------------------------------------
+
+**TODO**
+
+- Agile methodology
+- eXtreme Programming
+- Fact Driven Decisions
+- "Dealing with Hard Behaviour" Question: i.e. what do you do if a colleague is aggressive with you? Thinking "gradual": 1. One-to-one casual chat, 2. One-to-one meeting? , 3. Raise issue to manager?
+- How do you deal with giving feedback?
+- Safe (Agile for large teams)
