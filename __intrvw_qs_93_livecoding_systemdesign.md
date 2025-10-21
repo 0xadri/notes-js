@@ -1,26 +1,19 @@
 
 
-You can find everything you need for free on Youtube (Neetcode, Striver, CrackingFAANG, etc).
 
-YouTube: system design interviews.
 
-Discord where to do mock tech interviews - https://discord.gg/nGGvH9KXnm
-
-https://easyclimb.tech/learning
-
-https://www.hellointerview.com/  - has free content
-
-https://neetcode.io/
-
-https://www.codechef.com/
-
-Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech companies.
 
 -------------------------------------------------------
 
-# System Design Process
+# Method Overview
+
+-------------------------------------------------------
+
+## System Design Process
 
  1. Requirements Analysis - ask smart questions
+ 
+ 2. Visualize - keep asking smart questions, refine req. an.
 
  2. Brute Force Design
 
@@ -37,7 +30,7 @@ IMPORTANT
 
 -------------------------------------------------------
 
-# System Design For Real-Life Frontend Project
+## System Design For Real-Life Frontend Project
 
 Note that steps "Clarify Requirements" and "Visualize Requirements" often go hand-in-hand, so there is some back-and-forth
 
@@ -57,31 +50,41 @@ Note that steps "Clarify Requirements" and "Visualize Requirements" often go han
 
 4. Analyze: gather feedback, measure, and monitor
 
-5. Optimize/Improve: prioritise first
+5. Optimize/Improve/Scale: prioritise first
 
 6. Repeat 4+5 as many times as needed
 
+
+
+
+
+
+
 -------------------------------------------------------
 
-# 1. System Design: Requirements Analysis
+# Method In Details
+
+-------------------------------------------------------
+
+## 1. Requirements Analysis
 
 TLDR:
- 1. **FR**: Who, What, When, Where: Action-Oriented: Use Cases
+ 1. **FR**: Who, What, When, Where: Action-Oriented: Use Cases (stories, archetypes).
  2. **NFR**: Demands and Constraints Oriented: Scalability And Availability Challenges: System Performance Metrics
 
-## Functional Requirements
+### Functional Requirements
  i. Who - Do we have different types of users ? - i.e. content editors/admins, end users , etc
  ii. Where - Where do they use the System (Web, Mobile, Desktop ...) ? - i.e. mobile app, web app, api service, physical location
  iii. What - What is the user input and the system output (data, images videos) ? - i.e. pdf files, profile pics, output generated vids
  iv. When - When used the most? - i.e. peak time every day at 6PM CET when people finish work
 
-## Non-Functional Requirements
+### Non-Functional Requirements
  i. Traffic - How many users per day/week/month ? Peak usage ? What does "active users" mean? Where are users located?
  ii. Throughput - Do users mostly read pages? Or also publish data? Do they fetch data? What's the estimated payload size?
- iii. Storage - What kind of data are we storing(if any)? Are relationships important?
+ iii. Storage - What kind of data are we storing (if any)? Are relationships important?
  iv. Read/Write Ratio - Do users mostly consume content? Or often publish too, like everyday? Diff between nb of reads vs nb of writes?
 
-## Main Goals
+### Main Goals
 
  1. Traffic & Throughput
   - Estimated number of users - translate it - into a concrete number of request per secons or requests per minute. 
@@ -92,12 +95,12 @@ TLDR:
   - For very unusual and specific use-cases graph databases of spatial database can makes sense.
 
 Lingo:
- - Throughput - the volume of data we can send over a period of time from point A to point B(100 MB/second).
+ - Throughput - the volume of data we can send over a period of time from point A to point B (100 MB/second).
  - Latency - the time it takes to send data from point A to point B (HTTP request, reading data from memory, reading data from disk).
 
 -------------------------------------------------------
 
-# 2. Brute Force Design (MVD) - aka Minimum Viable Design
+## 2. Brute Force Design (MVD) - aka Minimum Viable Design
 
  a. Fullfill the use-cases with the minimum number of components - base cases, common cases, and corner cases
  b. Get a “top view” of how the System Should look like
@@ -110,7 +113,7 @@ Components:
 
 -------------------------------------------------------
 
-# 3. Scaling the Design
+## 3. Scaling The Design
 
  a. Split backend based on the Read/Write ratio
  b. Split the database according to the Read/Write ratio
@@ -148,7 +151,7 @@ Code Scalability
 
 -------------------------------------------------------
 
-# 4. Scaling Individual Components
+## 4. Scaling Individual Components
 
 a. Change the Architecture towards Microservices (follow traffic patterns)
 b. Add Caching at Service Level
@@ -156,24 +159,90 @@ c. Add load balancing at service level
 d. Use a mixed database strategy (SQL and NoSQL) depending on use case
 e. Consider: Event Driven Architecture & Micro Frontends
 
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------
 
-# Common System Design Interview Mistakes
+# Gotchas
+
+-------------------------------------------------------
+
+## Common System Design Interview Mistakes
 
 1. Running out of things to say - use the questions cheatsheet and follow the process
 2. Not getting “buy in” from the interviewer - a successful interview will feel like working with a team mate on a every day problem
 3. Focusing too much on a specific component
 4. Being “against the wall” and only answering questions fired at you
 5. Trying to memorize a solution
-6. Getting into domains where that are not your strength (i.e. as as frontend developer you dont want to get too deep into database level caching)
-7. Trying to look smarter then the interviewer
+6. Getting into domains where that are not your strength (i.e. as as frontend developer you dont want to get too deep into DB level caching)
+7. Trying to look smarter than the interviewer
 8. Thinking that there is only solution to the problem
-9. Forgetting you are beeing evaluated on your though process
+9. Forgetting you are being evaluated on your thought process
 10. Blaming yourself when things do not go well - do your best but remember, it takes two to tango
 
 -------------------------------------------------------
 
-# Multi-Step Form
+## Smart System Design Questions
+
+1. Estimate Traffic
+- How many users per day do we expect? Per week? Per mont?
+- What is the traffic distribution? Are users more active on the weekends?
+- Are users more active in the evening? What is the traffic at peak usage?
+
+If you get anwer like: “we estimate we will have 4000 active users ... ”
+- What does it mean “active users”? Is it users that log in once a day? Once a week? Once a month?
+- Where are these users based?
+
+2. Estimate Throughput
+- What actions do the users do? Do they read a file?
+- Do they fetch data? How? How much? What is the estimated payload size?
+
+Goal: translate an estimated number of users into a concrete number of request per secons or requests per minute. 
+You can also estimate the throughput in Mb/seconds using back of the envelope numbers (payload size) and requests per second.
+
+3. Extract Read/Write Ratio
+- Do users view data? Do they persist data?
+- Do uses persist data(making a tweet, post on social media)?
+- What is the difference between nr of reads/ vs nr of writes? - for example for every tweet created there are thousands of read operation and only one write operation.
+
+4. Understand the data
+- What kind of data are we storing(if any)? Are relationships important?
+
+Goal: extract the requirements for the kind of database to use. Monsttly the decision would be between MySQL and NoSQL databases. 
+For specific usecase graph databases of spatial database makes sense (very unlikelly you will get those case thought).
+
+REMEMBER: You are looking for rough numbers and you want to involve the interviewer as you “discover” the system. 
+Make them part of the process and get them to help you.
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Challenges
+
+-------------------------------------------------------
+
+## Ask GPT
+
+Prompt "Pls give me 3 mini exercises (without showing solution) for system design interview for frontend devs"
+
+This will give some good examples.
+
+-------------------------------------------------------
+
+## Multi-Step Form
 
 System Design: design an application (FE+BE) with the following requirements:
 
@@ -185,74 +254,99 @@ System Design: design an application (FE+BE) with the following requirements:
 - Acceptable performance (loading of FE app < 3 seconds) 
 - Choose the technologies that you like best!
 
-## SOLUTION
+### SOLUTION
+
+How many screens/steps do we have ?
+Will there be a REST API ? if so, what calls will be made?
+How will you store your states?
+How will state sync up with DB ?
+Can you solution work so that user can close the window and then restart later where he left from?
+
+-------------------------------------------------------
+
+## Design a Live Search Autocomplete
+
+Scenario: design the frontend for a “live search” feature like Google’s — as a user types, suggestions appear instantly.
+
+Key points to consider:
+ - Architecture of components (debouncing, caching, handling API responses).
+ - State management (global vs local).
+ - Accessibility and keyboard navigation.
+ - Performance for large datasets and slow networks.
+ - Handling API rate limits and failures.
+
+### SOLUTION
+
+TODO
+
+-------------------------------------------------------
+
+## Design a Real-Time Collaborative Document Editor
+
+Scenario: Users can edit a shared document simultaneously (like Google Docs). You’re responsible for the frontend design and architecture.
+
+Key points to consider:
+* Managing concurrent edits and syncing UI state.
+* Handling temporary offline edits (optimistic UI).
+* Integrating WebSockets or other real-time tech.
+* Designing data flow and state consistency.
+* Modular UI design for scalability (toolbar, editor area, presence indicators, etc.).
+
+### SOLUTION
+
+TODO
+
+-------------------------------------------------------
+
+## Design a Dashboard for Monitoring Live Metrics**
+
+Scenario: You need to build a real-time metrics dashboard (like Datadog or Grafana) showing system health, user activity, etc.
+
+Key points to consider:
+* Component structure for reusable charts and widgets.
+* Handling streaming data updates efficiently.
+* Responsiveness and performance optimizations.
+* Theming, layout system, and customizability.
+* Error handling and fallbacks for missing data.
+
+### SOLUTION
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 -------------------------------------------------------
 
-# 
-
-
--------------------------------------------------------
-
-# 
-
+# Resources
 
 -------------------------------------------------------
 
-# 
+You can find everything you need for free on Youtube (Neetcode, Striver, CrackingFAANG, etc).
+
+YouTube search "system design interviews".
+
+Discord where to do mock tech interviews - https://discord.gg/nGGvH9KXnm
+
+https://easyclimb.tech/learning
+
+https://www.hellointerview.com/  - has free content
+
+https://neetcode.io/
+
+https://www.codechef.com/
+
+Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech companies.
 
 
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
-
-# 
-
-
--------------------------------------------------------
 
