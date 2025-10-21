@@ -35,18 +35,18 @@ IMPORTANT
 Note that steps "Clarify Requirements" and "Visualize Requirements" often go hand-in-hand, so there is some back-and-forth
 
 1. Clarify Requirements: input, output, base cases, common case and edge cases
-     1.a Input: Get JSON files for different inputs such as base cases and common cases
-     1.b Input Analysis: Answer Questions: "What are the essential data types we have?", "For each data type, what quantity of data would a common case have?"
-     1.c Input: Make sure you understand the JSON files provided - use GPT if needed
+- 1.a Input: Get JSON files for different inputs such as base cases and common cases
+- 1.b Input Analysis: Answer Questions: "What are the essential data types we have?", "For each data type, what quantity of data would a common case have?"
+- 1.c Input: Make sure you understand the JSON files provided - use GPT if needed
 
 2. Visualize Requirements
-     2.a Draw Schemas - identify relationships between data types (one-to-one, one-to-many, many-to-one, many-to-many)
-     2.b Draw Wireframes - identify all the views/pages and components
-     2.c Write Pseudo Code - write pseudo unit tests
+- 2.a Draw Schemas - identify relationships between data types (one-to-one, one-to-many, many-to-one, many-to-many)
+- 2.b Draw Wireframes - identify all the views/pages and components
+- 2.c Write Pseudo Code - write pseudo unit tests
 
 3. Brute Force Solution: implement basic solution
-     3.a Code unit tests for each view/page and component
-     3.b Code basic solution for each view/page and component
+- 3.a Code unit tests for each view/page and component
+- 3.b Code basic solution for each view/page and component
 
 4. Analyze: gather feedback, measure, and monitor
 
@@ -73,26 +73,34 @@ TLDR:
  2. **NFR**: Demands and Constraints Oriented: Scalability And Availability Challenges: System Performance Metrics
 
 ### Functional Requirements
- i. Who - Do we have different types of users ? - i.e. content editors/admins, end users , etc
- ii. Where - Where do they use the System (Web, Mobile, Desktop ...) ? - i.e. mobile app, web app, api service, physical location
- iii. What - What is the user input and the system output (data, images videos) ? - i.e. pdf files, profile pics, output generated vids
- iv. When - When used the most? - i.e. peak time every day at 6PM CET when people finish work
+
+i. Who - Do we have different types of users ? - i.e. content editors/admins, end users , etc
+
+ii. Where - Where do they use the System (Web, Mobile, Desktop ...) ? - i.e. mobile app, web app, api service, physical location
+
+iii. What - What is the user input and the system output (data, images videos) ? - i.e. pdf files, profile pics, output generated vids
+
+iv. When - When used the most? - i.e. peak time every day at 6PM CET when people finish work
 
 ### Non-Functional Requirements
- i. Traffic - How many users per day/week/month ? Peak usage ? What does "active users" mean? Where are users located?
- ii. Throughput - Do users mostly read pages? Or also publish data? Do they fetch data? What's the estimated payload size?
- iii. Storage - What kind of data are we storing (if any)? Are relationships important?
- iv. Read/Write Ratio - Do users mostly consume content? Or often publish too, like everyday? Diff between nb of reads vs nb of writes?
+
+i. Traffic - How many users per day/week/month ? Peak usage ? What does "active users" mean? Where are users located?
+
+ii. Throughput - Do users mostly read pages? Or also publish data? Do they fetch data? What's the estimated payload size?
+
+iii. Storage - What kind of data are we storing (if any)? Are relationships important?
+
+iv. Read/Write Ratio - Do users mostly consume content? Or often publish too, like everyday? Diff between nb of reads vs nb of writes?
 
 ### Main Goals
 
- 1. Traffic & Throughput
-  - Estimated number of users - translate it - into a concrete number of request per secons or requests per minute. 
-  - Estimate the throughput in Mb/seconds using back of the envelope numbers(payload size) and requests per second.
+1. Traffic & Throughput
+ - Estimated number of users - translate it - into a concrete number of request per secons or requests per minute. 
+ - Estimate the throughput in Mb/seconds using back of the envelope numbers(payload size) and requests per second.
 
- 2. Storage & Read/Write Ratio
-  - Extract the requirements for the kind of database to use - MySQL and NoSQL databases.
-  - For very unusual and specific use-cases graph databases of spatial database can makes sense.
+2. Storage & Read/Write Ratio
+ - Extract the requirements for the kind of database to use - MySQL and NoSQL databases.
+ - For very unusual and specific use-cases graph databases of spatial database can makes sense.
 
 Lingo:
  - Throughput - the volume of data we can send over a period of time from point A to point B (100 MB/second).
@@ -107,6 +115,7 @@ Lingo:
  c. Let your interviewer know: you will NOT address Scalability or Availability challenges, you will focus only on the functional requirements
     
 Components:
+
  --> Frontend (web app, mobile app)
  --> Backend
  --> Blobstorage (data, files)
@@ -115,17 +124,27 @@ Components:
 
 ## 3. Scaling The Design
 
- a. Split backend based on the Read/Write ratio
- b. Split the database according to the Read/Write ratio
- c. Add CDNs to Frontend Web Applications and Blob Storage
- d. Add load balancing to (read) backend under pressure
- e. Scale the Database with Read Only Replicas
+Steps:
+
+1. Split backend based on the Read/Write ratio
+
+2. Split the database according to the Read/Write ratio
+
+3. Add CDNs to Frontend Web Applications and Blob Storage
+
+4. Add load balancing to (read) backend under pressure
+
+5. Scale the Database with Read Only Replicas
+
+Explanation:
 
 Scalability is the ability to maintain performance under an increasing workload.
 
 In system design language is the ability to handle high throughput with low latency. 
 
-Vertical Scalability - increase CPU or Memory - Scale Up
+
+### Vertical Scalability - increase CPU or Memory - Scale Up
+
  + simple
  + no code changes
  - expensive and limited - powerful hardware is very expensive and there are physical limitations(max memory, max nr of CPUs per machine)
@@ -133,7 +152,8 @@ Vertical Scalability - increase CPU or Memory - Scale Up
  - downtime - we need to redeploy our application as we change the hardware is running
  - not flexible - we cannot adjust to traffic in real-time, the capacity (and our expense) are constant
 
-Horizontal Scalability - increase instances of the App - Scale-Out
+### Horizontal Scalability - increase instances of the App - Scale-Out
+
  + flexibility - we can adapt to traffic changes quickly and only pay for more machines when we need more
  + no downtime - adding or removing new instances does not result in downtime
  + fault tolerance - if an instance fails (hardware failure, etc) the other ones take over
@@ -141,7 +161,8 @@ Horizontal Scalability - increase instances of the App - Scale-Out
  - needs a load balancer - we need to provision and maintain an extra component that also becomes a unique point of failure
  - code complexity - our servers have to be stateless and if we add any caching or state they have to be shared (for example a shared Redis Instance)
 
-Code Scalability
+### Code Scalability
+
  - preferring functional programming
  - using BigO analysis
  - write loosely coupled code
@@ -247,9 +268,9 @@ This will give some good examples.
 System Design: design an application (FE+BE) with the following requirements:
 
 - Client App to display (dynamic) forms based on parameters: 
-        - Insurance product type 
-        - Carrier
-        - X, Y, Z
+  - Insurance product type 
+  - Carrier
+  - X, Y, Z
 - Data populated in the forms has to be saved (for the sales team)
 - Acceptable performance (loading of FE app < 3 seconds) 
 - Choose the technologies that you like best!
