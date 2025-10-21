@@ -2,7 +2,7 @@
 
 -------------------------------------------------------
 
-# Web App Requirements 
+# KiteClub Web App 
 
 -------------------------------------------------------
 
@@ -23,59 +23,126 @@
 
 ## Purpose & Goals
 
-Helps kitesurfers find and book car sharing rides for day trips.
+A lightweight web app for kitesurfers to share rides — connecting drivers and riders for day trips to kitesurfing spots.
+
+Goal: Make trip coordination effortless while testing interest and core functionality before scaling.
 
 -------------------------------------------------------
 
 ## Target Users
 
-Kitesurfers with cars and Kitesurfers without a car.
+Drivers – kitesurfers with cars who want to share rides & split costs.
+
+Riders – kitesurfers without cars who need transport to kitesurfing locations.
 
 -------------------------------------------------------
 
-## Core features
+## MVP Core features
 
-1. **User registration & authentication** (email, phone, or social login)
-2. **Profile management** (personal info, driver’s license, payment methods)
-3. **Ride search & availability** (map view, price, location)
-4. **Booking & scheduling** (reserve, extend, or cancel trips)
-5. **Payment & billing** (fare calculation, digital receipts)
-6. **Trip history** (past rides, mileage, costs)
-7. **Chat**
-8. **Ratings & feedback** (for cars or experience)
-9. **Support & notifications** (chat/help center, push alerts).
+| Feature       | MVP Scope                                         | Later (Post-MVP)           |
+| ------------- | ------------------------------------------------- | -------------------------- |
+| User auth     | Email or magic link e.g. Supabase Auth            | SMS and Google/Apple login         |
+| Profiles      | Name, pic, kite level, car/driver flag, ratings   | Driver's License, Car Details, payment methods   |
+| Ride listings | Create/view rides w price, location, date, time, comment | Map view, filters          |
+| Booking       | Reserve a seat, cancel, extend (book more seats)  | Payment integration        |
+| Chat          | Basic ride discussion                             | Real-time in-app messaging |
+| Ratings       | Stars 1-5 and comment (for cars or experience)    | Detailed reviews           |
+| Notifications | Email alerts                                      | Push notifications         |
+| Admin panel   | View/manage rides & users                         | Analytics dashboard        |
+
+
+Booking types:
+ - One-click booking
+ - Regular booking, needs manual validation
+ - Could do something in between where the driver has 2H to cancel a one-click booking?
+ - Payment escrow: money sent 24H after trip ended
+
+Verif levels:
+ - phone verif (should be re-done every 6 months)
+ - ID card verif
+ - Driving License verif
+ - Car papers verif
+
+Rides:
+ - departure location & time+date
+ - return location & time+date - time can be indicated with estimated range i.e. ±1.5H
+ - forecast: link to forecast for destination spot? comment by driver?
+ - how many kite bags per person
+ - how many twintip boards per person
+ - how many small bags per person
+ - later: can add stops
+
+Chat:
+ - automatic scan messages to remove sensitive content?
+
+Booking
+ - Fare calculation
+ - digital receipts
+
+Admin panel:
+ - TODO: for website admin?
+ 
+User Dashboard
+ - Trip history - past rides, mileage, costs
+
+Support & notifications
+ - Chat/help center
+ - Push alerts
 
 -------------------------------------------------------
 
 ## Tech Stack
 
-Frontend: React, TypeScript, Tailwind.
+Frontend:
+ - React + TypeScript + Tailwind CSS
+ - Vite (for fast dev builds)
 
-Backend: AWS, NoSQL?Postgres? , Docker, GitLab.
+Backend:
+ - Supabase (Postgres + Auth + Storage + Edge Functions)
+→ simplifies backend + fits $0–$25/month free tier
+
+Hosting:
+ - Frontend → Vercel (free tier)
+
+Backend → Supabase managed hosting
+ - Version control: GitLab or GitHub.
+ 
+Consider: AWS, Docker, NoSQL?Postgres?
 
 -------------------------------------------------------
 
 ## Design & UX
 
-Layout: simple, clean.
+Devices: mobile-first responsive web app.
 
-Accessibility: basic good practice.
+Style: Minimal, surf-inspired color palette (aqua + sand tones).
 
-Responsiveness: mobile first, cross-devices UX.
+Layout: Dashboard with ride cards, “Create Ride” button, and chat overlay.
+
+Accessibility: Color contrast, alt text, semantic HTML.
 
 -------------------------------------------------------
 
 ## Security
 
-Authentication: magic link.
 
-Data protection: encrypt everything.
+Supabase Auth (magic link = passwordless).
+
+Row-level security for user data in Postgres.
+
+HTTPS enforced (Vercel default).
+
+Sensitive data encrypted at rest & in transit.
 
 -------------------------------------------------------
 
 ## Performance
 
-Speed: Lighthouse ratings must be above 90%.
+Lighthouse > 90 on mobile & desktop.
+
+Use React lazy loading & caching (React Query).
+
+Limit heavy libraries; prefer icons via Lucide.
 
 Scalability: MVP initially so only for a few thousand users, must be able to scale later.
 
@@ -83,15 +150,21 @@ Scalability: MVP initially so only for a few thousand users, must be able to sca
 
 ## Integrations
 
-APIs or third-party tools.
+Payments (Phase 2): Stripe Checkout API
 
-Will have to integrate with payments API.
+Geolocation API (optional MVP add-on)
+
+Email via Supabase or Resend API (for booking confirmations).
 
 -------------------------------------------------------
 
 ## Maintenance & Updates
 
 Stays secure, reliable, and aligned with user needs:
+
+- Weekly bug fixes & dependency updates
+- Automated deployment via GitLab CI/CD
+- Use Supabase monitoring dashboard for uptime & errors.
 
 * **System monitoring:** Tracking uptime, errors, and server health.
 * **Bug fixes:** Regularly identifying and resolving issues or errors.
@@ -108,6 +181,12 @@ Short timeline (few weeks) and low budget ($200 max).
 
 This is an MVP and a play project.
 
+| Phase  | Duration       | Tasks                                  | Est. Cost                |
+| ------ | -------------- | -------------------------------------- | ------------------------ |
+| Week 1 | Design + setup | Wireframes, Supabase schema, auth flow | $0                       |
+| Week 2 | Core dev       | Rides CRUD, list & booking             | $0                       |
+| Week 3 | UI polish      | Chat MVP, email alerts, deploy         | $0                       |
+| Week 4 | Testing        | QA, small fixes                        | $0–$50 (optional domain) |
 
 
 

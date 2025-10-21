@@ -35,6 +35,7 @@ And as going to the gym, it may be really tough at first, but it'll get easier, 
 - Take your time, else with time left they may ask super hard follow-up questions
 - Keep it VERY simple, else you might not have improvements to suggest
 - Say out loud "Live Coding makes me very anxious", else your interviewer might not realize it
+- Stay very serious at all time unless your interviewer is very casual
 - Feel free to suggest CodeSandBox.com, else you might be stuck using a crappy online IDE
 
 

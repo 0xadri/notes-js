@@ -20,7 +20,7 @@ Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech compan
 
 # System Design Process
 
- 1. Requirements Analysis
+ 1. Requirements Analysis - ask smart questions
 
  2. Brute Force Design
 
@@ -158,7 +158,7 @@ e. Consider: Event Driven Architecture & Micro Frontends
 
 -------------------------------------------------------
 
-# Common System Design Inteview Mistakes
+# Common System Design Interview Mistakes
 
 1. Running out of things to say - use the questions cheatsheet and follow the process
 2. Not getting “buy in” from the interviewer - a successful interview will feel like working with a team mate on a every day problem

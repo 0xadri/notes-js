@@ -45,7 +45,15 @@
 * [Artificial Intelligence](__ai.md)
 * [AWS Cloud Practitioner](__aws-cloud-practitioner.md)
 
-## Interview Questions
+## Live Coding Interviews
+
+* [Qs: JavaScript [Live Coding]](__intrvw_qs_90_livecoding_js.md)
+* [Qs: React [Live Coding]](__intrvw_qs_91_livecoding_react.md)
+* [Qs: Code Review [Live Coding]](__intrvw_qs_92_livecoding_codereview.md)
+* [Qs: System Design [Live Designing]](__intrvw_qs_93_livecoding_systemdesign.md)
+* [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
+
+## Interview Theory Questions
 
 * [Qs: JavaScript](__intrvw_qs_01_javascript.md)
 * [Qs: TypeScript](__intrvw_qs_02_typescript.md)
@@ -56,16 +64,8 @@
 * [Qs: FullStack](__intrvw_qs_07_fullstack.md)
 * [Qs: Algo & Data Structure](__intrvw_qs_08_algo_n_data_structure.md)
 * [Qs: Patterns & Architecture](__intrvw_qs_09_patterns_n_archi_js_react.md)
-* [Qs: System Design](__intrvw_qs_10_system_design.md)
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
-
-## Live Coding Interviews
-
-* [Qs: JavaScript [Live Coding]](__intrvw_qs_96_livecoding_js.md)
-* [Qs: React [Live Coding]](__intrvw_qs_97_livecoding_react.md)
-* [Qs: Code Review [Live Coding]](__intrvw_qs_98_livecoding_codereview.md)
-* [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 reactjs_code_cmixtape.md
 speech-notes_codecademy.md
