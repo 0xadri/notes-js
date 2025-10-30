@@ -1,5 +1,5 @@
 
-# Hello it's Adrien, Front End Developer
+## Hello it's Adrien, Front End Developer
 
 Welcome to my Tech Notes !
 
