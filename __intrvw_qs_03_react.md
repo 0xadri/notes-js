@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 -------------------------------------------------------
 
 # Getting Started
@@ -223,6 +229,13 @@ signal API.
 
 
 
+
+
+
+
+
+
+
 -------------------------------------------------------
 
 # Inline Styling, External Styling 
@@ -308,6 +321,12 @@ Cons:
 Adding JSS (CSS in JS) which eliminates conflicts by generating unique class names(using the component/file name).
 
 JSS (CSS in JS) automatically prefixes the CSS classes with a unique hash generated at build time.
+
+
+
+
+
+
 
 
 
@@ -660,6 +679,15 @@ TLDR: shiny thing you might not need.
 
 
 
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------
 
 # React Hooks
@@ -847,7 +875,7 @@ for a function to be memoized with `useCallback()`, it should be BOTH:
 
 ## What's the difference between `React.memo()` vs `useCallback()` ?
 
-Both are hooks for caching, for performance optimization, but they serve slightly different purposes.
+Both are hooks for caching functions, for performance optimization, but they serve slightly different purposes.
 
 - `useCallback()` → caches a **regular function**
 
@@ -929,6 +957,10 @@ Yes, via a custom **comparison function**.
 
 
 
+
+
+
+
 -------------------------------------------------------
 
 # Testing
@@ -958,6 +990,10 @@ In such cases, Unit Tests may become cumbersome, and it's better to switch to En
 1. Keep component dependencies minimal
 
 2. Avoid using global state (unless necessary)
+
+
+
+
 
 
 
@@ -1041,6 +1077,10 @@ Limit how often an expensive operation (like an API call, input handler, or scro
 
 **TODO**
 
+redux store vs context api?
+
+can u use hooks in class components?
+
 Handling form submission with preventDefault
 
 useRef for DOM access vs persistent values
@@ -1050,8 +1090,6 @@ Custom hooks – when and why to create them
 useReducer vs useState
 
 useLayoutEffect vs useEffect
-
-
 
 
 

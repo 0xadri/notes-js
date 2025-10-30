@@ -14,6 +14,71 @@ Key aspects:
  3. Guidelines & Principles - rules for how UI should look and behave
  4. Documentation
 
+
+
+
+-------------------------------------------------------
+
+# Top 10 React Optimizations Techniques
+
+-------------------------------------------------------
+
+## Code Splitting (Dynamic Import)
+
+1. Use React.memo and PureComponent
+2. Use useCallback and useMemo Hooks
+3. Code Splitting (Dynamic Import)
+4. Avoid Inline Functions and Objects in JSX
+5. Optimize Lists with key and React.memo
+6. Lazy Load Images and Components
+7. Avoid Reconciliation with Proper State Management
+8. Use Production Build
+9. Debounce or Throttle Expensive Operations
+10. Use React Profiler & DevTools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Page Rendering
+
+-------------------------------------------------------
+
+## What Are The Different Page Rendering Optimization ?
+
+- SSG Static Site Generation
+
+- ISR Incremental Site Regeneration
+
+- SSR
+
 -------------------------------------------------------
 
 ## Pros and Cons Of SSR?
@@ -27,6 +92,64 @@ SSR generally doesn't impact static websites as they do not rely heavily on rend
 SSR can actually increase the TFB (Time To First Byte) as we need to first render the application on the server and then send the rendered response.
 
 Tag(s): Frontend optimization.
+
+-------------------------------------------------------
+
+## SSG 
+
+Static Site Generation
+
+- pages are created during project build
+
+- pros: great for SEO, great for caching (CDN), good if you do not need much interactivity in the frontend.
+
+- cons: you must rebuild and redeploy every time you make a page change.
+
+TLDR: back to the "basic static web 1.0" but with all the modern toolings and frameworks
+
+
+-------------------------------------------------------
+
+## ISR 
+
+Incremental Site Regeneration
+
+- pages are created based on a TTL (time to leave), if user request a page and the TTL is expired then the server regenerate a page and it's stored in the cache (CDN)
+
+- 
+
+
+-------------------------------------------------------
+
+## Hydration
+
+Making static, server-rendered HTML interactive in the browser — by attaching React’s event system and state management.
+
+Typically done after SSR is complete.
+
+
+
+
+-------------------------------------------------------
+
+## What's SWR ?
+
+SWR stands for Stale-While-Revalidate, a data fetching strategy — and also a popular React hook library created by Vercel (the team behind Next.js).
+
+Caching strategy:
+
+1. **Stale:** Return cached (stale) data immediately.
+2. **While Revalidate:** In the background, fetch the latest data and update the cache (and UI) once it arrives.
+
+This gives:
+
+* Instant UI updates (no loading spinners for cached data).
+* Always up-to-date data once revalidated.
+
+
+
+
+
 
 
 
@@ -102,17 +225,17 @@ A11y ESLint plugin - static evaluation of the JSX to spot accessibility issues i
 
 ## What are the Best Practices for Accessibility?
 
-Use Semantic HTML.
+1. Semantic HTML: `input`, `button`, `li`, etc.
 
-Use `role` attribute (ARIA) when needed.
+2. ARIA Labels when neede (on divs), `role` attribute.
 
-Use appropriate contrast for text to ensure readability.
+3. Color Contrast to ensure readability, i.e. on text.
 
-Use the `tabindex` HTML attribute to control the focus order.
+4. Focus Order On `tab` Key - `tabindex` HTML attribute to control the .
 
-Use dev tools to test the quality of the accessibility of your page.
+5. `dev tools` to test the quality of the accessibility of your page.
 
-Use A11 to check you have the right accessibility for your target audience https://www.a11yproject.com/checklist/
+6. A11 to check you have the right accessibility for your target audience https://www.a11yproject.com/checklist/
 
 -------------------------------------------------------
 

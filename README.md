@@ -1,5 +1,5 @@
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&pause=1000&width=435&lines=Hello%2C+it's+Adrien;Frontend+Developer)](https://git.io/typing-svg)
+# Hello it's Adrien, Front End Developer
 
 Welcome to my Tech Notes !
 
@@ -11,4 +11,4 @@ I am a Frontend Engineer with 9 years of experience. Expert in React, Typescript
 
 <br/><br/><br/><br/>
 
-Built with 💜  in Barcelona by Adri → [Adri on Github](https://github.com/0xadri)
+Built with 💜  in Barcelona by Adri → [MY GITHUB](https://github.com/0xadri)

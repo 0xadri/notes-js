@@ -12,6 +12,7 @@ End-to-End
 
 
 
+
 -------------------------------------------------------
 
 # Server Side Optimization
@@ -328,6 +329,8 @@ XSS
 
 
 
+
+
 -------------------------------------------------------
 
 # Databases
@@ -336,7 +339,7 @@ XSS
 
 ## What are some advantages of using an ORM?
 
-ORM (Object-relational mapper) allows us to 
+ORM (Object-Relational Mapper) allows us to 
 
 1. write less code to query the database
 

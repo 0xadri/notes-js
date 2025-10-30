@@ -1,12 +1,20 @@
 
 
-# What's Live Coding in React ?
+
+
+-------------------------------------------------------
+
+# Must Knows
+
+-------------------------------------------------------
+
+## What's Live Coding in React ?
 
 It's a technical interviewing style. Your interviewer(s) watches while you code. In React.
 
 Small projects for you to try to solve. Typically in less than 60min.
 
-There is a average chance that it drifts into code quality questions.
+There is a reasonable chance that it drifts into code quality questions.
 
 There is a small chance that it will drift into system design interview.
 
@@ -14,7 +22,79 @@ There is a tiny chance that it degenerates into LeetCode style interviews.
 
 -------------------------------------------------------
 
-# The Oh-So-Famous Counter App
+## Categories of Live Coding in React
+
+- Fetch and Display Data - with 2 API Calls
+
+- Todo List
+
+- Search & Filter a List
+
+- Form with Validation
+
+- Memoization i.e. optimize existing code
+
+- Theme Switcher
+
+- Debounced Search
+
+-------------------------------------------------------
+
+## Skills Tested in Live Coding in React
+
+Hooks (useState), list rendering, event handling, basic component structure.
+
+useState, useEffect, derived state, efficient rendering.
+
+State updates, controlled components, and React reactivity.
+
+useEffect, async/await, conditional rendering, API error handling.
+
+Component composition, props, conditional rendering.
+
+Controlled inputs, validation logic, dynamic error display.
+
+Global state (Context API or props), conditional classNames, CSS-in-JS or Tailwind logic.
+
+React Router basics, component routing, URL awareness.
+
+useEffect, setTimeout/clearTimeout, API calls, performance-conscious updates.
+
+custom hook (e.g., useLocalStorage or useDebounce)
+
+React.memo or useMemo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+# Challenges
+
+-------------------------------------------------------
+
+## Ask GPT
+
+Prompt "Pls give me 3 mini exercises (without showing solution) for live coding in react"
+
+This will give some good challenges.
+
+-------------------------------------------------------
+
+## The Oh-So-Famous Counter App
 
 Update the code below to get the expected behavior:
 - counter starts from 0.
@@ -35,7 +115,7 @@ export function App() {
 }
 ```
 
-SOLUTION:
+### SOLUTION
 
 ```javascript
 import React from "react";
@@ -67,7 +147,7 @@ export default function App() {
 
 -------------------------------------------------------
 
-# Create a useIsFirstRender() hook
+## Create a useIsFirstRender() hook
 
 Complete the code below by creating a hook to tell if it is the first render.
 
@@ -90,7 +170,7 @@ export default function App() {
 }
 ```
 
-SOLUTION:
+### SOLUTION
 
 ```javascript
 import React from "react";
@@ -102,7 +182,7 @@ export function useIsFirstRender(): boolean {
     isFirst.current = false;
   }, []);
 
-  return isFirst.current;
+  return isFirst.current;   // always runs before update in useEffect above
 }
 
 export default function App() {
@@ -129,7 +209,7 @@ You can do it with useState() instead of useEffect() but
 
 -------------------------------------------------------
 
-# Create a usePrevious() hook
+## Create a usePrevious() hook
 
 Complete the code below by creating a custom hook to return the previous value of a state.
 
@@ -153,23 +233,23 @@ export default function App() {
 }
 ```
 
-SOLUTION:
+### SOLUTION
 
 ```javascript
-import React from "react";
+import {useState,useRef,useEffect} from "react";
 
 export function usePrevious(value) {
-  const storedValue = React.useRef(undefined);
+  const storedValue = useRef(undefined);
 
-  React.useEffect(() => {
+  useEffect(() => {
     storedValue.current = value;
   }, [value]);
 
-  return storedValue.current; // happens before update in useEffect above
+  return storedValue.current;   // always runs before update in useEffect above
 }
 
 export default function App() {
-  const [counter, setCounter] = React.useState(0);
+  const [counter, setCounter] = useState(0);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -189,7 +269,7 @@ export default function App() {
 
 -------------------------------------------------------
 
-# Create a useToggle() hook
+## Create a useToggle() hook
 
 It is quite common to see switches and checkboxes in web apps such as:
 
@@ -215,7 +295,7 @@ Update the code to implement useToggle() custom hook instead to make things easi
 
 `const [on, toggle] = useToggle()`
 
-SOLUTION:
+### SOLUTION
 
 ```javascript
 import React from "react";
@@ -243,7 +323,7 @@ export default function App() {
 
 -------------------------------------------------------
 
-# Create a useDebounce() hook
+## Create a useDebounce() hook
 
 For a frequently changing value like text input you might want to debounce the changes.
 
@@ -286,7 +366,7 @@ export function SearchBox() {
 
 -------------------------------------------------------
 
-# Random Chuck Norris Images
+## Random Chuck Norris Images
 
 Being given these 2 APIs
 - https://api.chucknorris.io/ - The Internet Chuck Norris Database
@@ -383,45 +463,13 @@ export default function ChuckNorrisGifApp() {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -------------------------------------------------------
 
-# Giphy App
+## Giphy App
 
-## End Result
+End Result: should look like [https://ghyphir.pages.dev/](https://ghyphir.pages.dev/)
 
-Should Look Like [https://ghyphir.pages.dev/](https://ghyphir.pages.dev/)
-
-
-##  App Requirements
+App Requirements:
 
 • Show trending gifs (Giphy API) when no search text is applied
 • Search gifs by text (Giphy API)
@@ -430,7 +478,7 @@ Should Look Like [https://ghyphir.pages.dev/](https://ghyphir.pages.dev/)
 • Persist last search in browser
 • Copy gif URL on click
 
-## Technical Requirements
+Technical Requirements:
 
 • You must use React.
 • You may use any JavaScript/CSS libraries (e.g., Tailwind, Axios, etc.).
@@ -438,22 +486,64 @@ Should Look Like [https://ghyphir.pages.dev/](https://ghyphir.pages.dev/)
 • AI tools such as search engines or autocompleters are allowed, but not generative AI; we want to assess your knowledge first.
 • UI design will not be evaluated, but clean code structure and thoughtful logic will be.
 
-## Submission
+Submission:
 
 • A GitHub repo with your code.
 • A README that includes setup instructions.
 • (Optional) A live deployment (e.g., Vercel, Netlify).
 
-## Notes
+Notes:
 
 • You’ll need to sign up for a free Giphy Developer account to get an API key.
-• This challenge is designed to evaluate your practical skills — don’t worry about visual
-polish.
+• This challenge is designed to evaluate your practical skills — don’t worry about visual polish.
 • Creativity and clarity are more important than perfection.
+
+### SOLUTION
+
+TODO
+
+
 
 -------------------------------------------------------
 
+## Displays List Of Users
 
+Build a small React application that displays a list of users fetched from a public API.
+
+Example API: https://jsonplaceholder.typicode.com/users
+
+Functional requirements:
+ 1️⃣ Fetch data from a public API (e.g., https://jsonplaceholder.typicode.com/users)
+ 2️⃣ Display a list of users showing their name and email
+ 3️⃣ When clicking on a user, show detailed information (phone, company, address)
+     → This can be displayed in a side panel, modal, or separate section
+ 4️⃣ Include a real-time search input that filters users by name or email
+ 5️⃣ Show a loading state (loader/spinner) while fetching data
+ 6️⃣ Handle API errors and display a visible error message to the user
+ 7️⃣ Implement a simple cache mechanism to avoid unnecessary API calls
+     → Example: store fetched users in memory or localStorage
+ 8️⃣ Support pagination or lazy loading for large user lists
+ 9️⃣ Add unit tests for 1–2 key components (e.g., UserList, UserDetails)
+
+
+### SOLUTION
+
+TODO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
 
 **TODO**
 
@@ -463,5 +553,9 @@ More React Live Coding Questions:
 
 - https://www.hackerrank.com/domains/react
 
+
+
+
+- Mock JSON data https://jsonplaceholder.typicode.com/
 
 

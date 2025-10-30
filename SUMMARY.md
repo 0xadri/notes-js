@@ -50,7 +50,7 @@
 * [Qs: JavaScript [Live Coding]](__intrvw_qs_90_livecoding_js.md)
 * [Qs: React [Live Coding]](__intrvw_qs_91_livecoding_react.md)
 * [Qs: Code Review [Live Coding]](__intrvw_qs_92_livecoding_codereview.md)
-* [Qs: System Design [Live Designing]](__intrvw_qs_93_livecoding_systemdesign.md)
+* [Qs: System Design [Live]](__intrvw_qs_93_live_system_design.md)
 * [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 ## Interview Theory Questions

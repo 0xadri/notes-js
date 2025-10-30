@@ -153,6 +153,49 @@ i.e. `if (!res.ok) { throw new Error("HTTP error! status: " + res.status); }`
 
 -------------------------------------------------------
 
+## Mock JSON Data And APIs
+
+You can use free services such as :
+
+ - https://jsonplaceholder.typicode.com/
+ 
+ - https://rickandmortyapi.com/
+
+-------------------------------------------------------
+
+## String Manipulation: Check If Char Is Number
+
+How do check if a character is a number?
+
+`!isNaN(char)`
+
+-------------------------------------------------------
+
+## String Manipulation: Default Value Assignment
+
+How do give a default value assignment "hello" when: a string is falsy (empty) ?
+
+`const greeting = myString || "hello";`
+
+How do give a default value assignment when: an array item is falsy (empty string, or 0, or null, or undefined)
+
+`const currItem = myArray[i] || 1;`
+
+-------------------------------------------------------
+
+## String Manipulation: Iterate Over Chars In String
+
+How do you iterate over characters of a string?
+
+```javascript
+for (let i = 0; i < myText.length; i++) {
+  const char = myText[i];
+  // do something
+}
+```
+
+-------------------------------------------------------
+
 ## String Manipulation: Add Numbers In Text
 
 Create the function `addNbInTxt` so that it matches the expected outputs
@@ -165,6 +208,21 @@ const textThree = "3jd4imco5ownen8wbvue2ncknas9"
 console.log(addNbInTxt(textOne));  // expected output: 18
 console.log(addNbInTxt(textTwo));  // expected output: 22
 console.log(addNbInTxt(textThree));  // expected output: 31
+```
+
+### SOLUTION
+
+```javascript
+function addNbInTxt(text) {
+  // extract numbers
+  const nbArr = text.split("").filter((char) => !isNaN(char));
+  // sum up numbers
+  let total = 0;
+  for (let i = 0; i < nbArr.length; i++) {
+    total += Number(nbArr[i]);
+  }
+  return total;
+}
 ```
 
 -------------------------------------------------------
@@ -242,7 +300,11 @@ console.log(flat);   // expected output: [1, 2, 3, 4, 5, 6]
 
 Use nested reduce() to calculate the total sum of all numbers across all sub-arrays.
 
-`const numbers = [[1, 2, 3], [4, 5], [6, 7, 8]];`
+```javascript
+const numbers = [[1, 2, 3], [4, 5], [6, 7, 8]];
+const tot = numbers.reduce( /* todo */ });
+console.log(tot);  // expected ouput: 36
+```
 
 ### SOLUTION
 
@@ -266,8 +328,13 @@ Use nested reduce() to:
 - Flatten all the words into an array of individual characters.
 - Count how many times each letter appears (return an object like { h: 1, i: 1, t: 1, e: 2, ... }).
 
-`const words = ["hi", "there", "javascriptiscool"];`
-
+```javascript
+const words = ["hi", "there", "javascriptiscool"];
+const out = words.reduce((acc, item) => {
+  // TODO
+});
+console.log(out); // expected output: {h: 2, i: 3, t: 2, e: 2, r: 2, …}
+```
 
 ### SOLUTION
 
@@ -293,8 +360,17 @@ You have a list of players, each with scores across different games.
 
 Use nested reduce() to compute the total score of all players combined.
 
-`const players = [ { name: "Alice", scores: [10, 20, 15] },  { name: "Bob", scores: [5, 25, 10] },  { name: "Cara", scores: [20, 15, 30] }  ];`
-
+```javascript
+const players = [
+  { name: "Alice", scores: [10, 20, 15] },
+  { name: "Bob", scores: [5, 25, 10] },
+  { name: "Cara", scores: [20, 15, 30] },
+];
+const tot = players.reduce((acc, item) => {
+  // TODO
+});
+console.log(tot);
+```
 
 ### SOLUTION
 
@@ -317,7 +393,18 @@ console.log(totalScore);
 
 ## Add Method `last()` To Array Object
 
-Add method `last()` to `Array` so that it returns the last element, if `Array` is empty return `-1`.
+Add method `last()` to `Array` so that it matches the expected outputs.
+
+```javascript
+// your code starts here above
+const arrOne = [];
+const arrTwo = [4, 5, 2, 1, 5, 6];
+
+console.log(arrOne.last());  // expected output: -1
+console.log(arrTwo.last());  // expected output: 6
+```
+
+### SOLUTION
 
 ```javascript
 Array.prototype.last = function() {
@@ -332,16 +419,13 @@ Array.prototype.last = function() {
 
 ## Add Method `multiplyBySelf()` To Array Object
 
-Exercise
-
-1. Take a look to the code below
-2. Implement the code that allow us uncomment a.multiplyBySelf();
-3. Console must log: `[1,2,3,4,5,1,4,9,16,25]`
+Add method `multiplyBySelf()` to `Array` so that it matches the expected outputs.
 			
 ```javascript
+// your code starts here above
 const a = [1, 2, 3, 4, 5];
-// a.multiplyBySelf();
-console.log(a);
+a.multiplyBySelf();
+console.log(a); // expected output: [1,2,3,4,5,1,4,9,16,25]
 ```	
 
 ### SOLUTION
@@ -369,11 +453,7 @@ function fakeFetchData() {
     }, 1000); // simulate 1 second delay
   });
 }
-```
 
-Turn this `getData()` function to use async/await syntax.
-
-```javascript
 function getData() {
   fakeFetchData()
     .then(data => {
@@ -385,6 +465,8 @@ function getData() {
 }
 getData();
 ```
+
+Turn the above `getData()` function to use async/await syntax. Do not modify `fakeFetchData()`.
 
 ### SOLUTION
 
@@ -410,18 +492,29 @@ Example:
  - Output: Promise resolved with 15 after a 1-second delay
 
 ```javascript
-async function arrowAdd(arr) {
+const simAsync = (nbArr) => {  //  IMPLEMENT IT
+  let tot = 0;
+  for (let i = 0; i < nbArr.length; i++) {  tot += nbArr[i]; }
+};
+const arr = [4, 5, 8, 2, 6];
+console.log("start");
+console.log(out);    // FIX THIS - expected output after a 1-second delay: 15
+```
+
+### SOLUTION
+
+```javascript
+async function simAsync(arr) {
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
     total += arr[i];
   }
-
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(total), 1000);
   });
 }
 
-arrowAdd([1, 2, 3, 4, 5]).then((out) => {
+simAsync([1, 2, 3, 4, 5]).then((out) => {
   console.log(out);
 });
 ```
@@ -430,11 +523,14 @@ arrowAdd([1, 2, 3, 4, 5]).then((out) => {
 
 ## Promises and Timeout: Combined
 
-Implement the function job, so that fun will be exctuted after x seconds (delay).
-
 ```javascript
-const job = (fun, x) => {
-  // your code here
+document.getElementById("app").innerHTML = `
+<h1>Hello!</h1>
+<button id="button_exercise3">Exo 3</button>
+`;
+
+const job = (fun, x) => {   // IMPLEMENT IT: fun must be executed after x seconds (delay).
+  // your code here 
 };
 
 const fun = () => {
@@ -442,7 +538,35 @@ const fun = () => {
 };
 
 const exec3 = () => {
-  job(fun, 5000).then((fun) => fun());
+  job(fun, 2000).then((fun) => fun());
+};
+const button3 = document.getElementById("button_exercise3");
+button3.onclick = exec3;
+```
+
+### SOLUTION
+
+```javascript
+document.getElementById("app").innerHTML = `
+<h1>Hello!</h1>
+<button id="button_exercise3">Exo 3</button>
+`;
+
+const job = (fun, x) => {
+  console.log("Let's go!");
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(fun);
+    }, x);
+  });
+};
+
+const fun = () => {
+  console.log("Function executed!");
+};
+
+const exec3 = () => {
+  job(fun, 2000).then((fun) => fun());
 };
 const button3 = document.getElementById("button_exercise3");
 button3.onclick = exec3;
@@ -450,7 +574,7 @@ button3.onclick = exec3;
 
 -------------------------------------------------------
 
-## Promises: then/catch: part 1 
+## Promises: then/catch: Part 1
 
 Guess the output.
 
@@ -565,77 +689,73 @@ A reduced value is created by applying the following operation:
 The final value of val is returned. If the length of the array is 0, it should return init.
 
 ```javascript
-Array.prototype.myReduce = function (fn, init){
-    let total = 0;
+// your Array.myReduce implementation here at the top
+const myArr = [4, 7, 4, 1, 9, 3];
+const myFunc = (val1, val2) => {
+  return val1 + val2;
+};
+const out = myArr.myReduce(myFunc, 0);
+console.log(out); // expected output: 28
+```
 
-    if (this.length ===0){
-        return init;
-    }
+### SOLUTION
 
-    for (let i = 0 ; i < this.length ; i++ ){
-        if (i===0){
-            total = fn( init , this[i] );
-        }
-        else {
-            total = fn( total , this[i] );
-        }
+```javascript
+Array.prototype.myReduce = function (fn, init) {
+  if (this.length === 0) return init;
+  let tot = 0;
+  for (let i = 0; i < this.length; i++) {
+    if (i === 0) {
+      tot = fn(init, this[i]);
+    } else {
+      tot = fn(tot, this[i]);
     }
-    // Pseudocode:
-    // for each element in array of args
-        // if 1st item
-            // total = fn(init, element)
-        // else
-            // total = fn(total, element)
-    return total; // return single reduced value
-}
+  }
+  return tot;
+};
+const myArr = [4, 7, 4, 1, 9, 3];
+const myFunc = (val1, val2) => {
+  return val1 + val2;
+};
+const out = myArr.myReduce(myFunc, 0);
+console.log(out); // expected output: 28
 ```
 
 -------------------------------------------------------
 
 ## Remove HTML Tags From String
 
-Write a method that will remove all html tags from any given string.
+```javascript
+const removeHtmlTags = (txt) => {
+  // your code here
+};
+const myTxt = "The quick brown fox jumps over the <b>lazy</b> dog";
+const out = removeHtmlTags(myTxt);
+console.log(out); // expected output: "The quick brown fox jumps over the lazy dog"
+```
 
-For example, the input string:
-
-"The quick brown fox jumps over the <b>lazy</b> dog"
-should return:
-
-"The quick brown fox jumps over the lazy dog"
+### SOLUTION
 
 ```javascript
-'use strict';
-
-module.exports = {
-  removeTags
-};
-
-function removeTags(input) {
-    // let skipCurrChar = false;
-    // let output = "";
-    // for chars in input
-        // if currChar === "<"
-            // skipCurrChar = true
-        // if currChar === ">"
-            // skipCurrChar = false
-        // if skipCurrChar === false && currChar === ">"
-            // add to output
-
-    let skipCurrChar = false;
-    let output = "";
-    for (let currChar of input){   // for let ... of ...  -> can be written: for (let i = 0; i < input.length; i++) {
-        if (currChar === "<") {
-            skipCurrChar = true;
-        }
-        else if (currChar === ">") {
-            skipCurrChar = false;
-        }
-        else if (skipCurrChar === false && currChar === ">"){
-            output = output + currChar;
-        }
+const removeHtmlTags = (txt) => {
+  let out = [];
+  let insideTag = false;
+  const txtArr = txt.split("");
+  for (let i = 0; i < txtArr.length; i++) {
+    const currChar = txtArr[i];
+    if (!insideTag && currChar !== "<") {
+      out.push(currChar);
+    } else if (!insideTag) {
+      insideTag = true;
+    } else if (insideTag && currChar === ">") {
+      insideTag = false;
     }
-    return output;
-}
+  }
+  return out.join("");
+};
+const myTxt = "The quick brown fox jumps over the <b>lazy</b> dog";
+const out = removeHtmlTags(myTxt);
+console.log(out); // expected output: "The quick brown fox jumps over the lazy dog"
 ```
 
 -------------------------------------------------------
@@ -649,39 +769,121 @@ The first time the returned function is called, it should return the same result
 Every subsequent time it is called, it should return undefined.
 
 ```javascript
-export default function callOnce(fn) {
-    let wasAlreadyCalled = false;
-
-    return (...args) => {    // Rest Parameters - Collects arguments into an array
-        if(wasAlreadyCalled){
-            return undefined;
-        }
-        wasAlreadyCalled = true;        
-        return fn(...args);   // Spread Operator - Expands elements of arrays and objects
-    }
+const callOnceWrapper = () => {
+	// your code here
 };
+const myFun = (name, city) => {
+  return "hey " + name + ", do you live in " + city + "?";
+};
+const wrapper = callOnceWrapper(myFun);
+const out = wrapper("joe", "new york");
+console.log(out);   // expected output: hey joe, do you live in new york?
+const out2 = wrapper("joe", "new york");
+console.log(out2);   // expected ouput: undefined
+```
+
+### SOLUTION
+
+```javascript
+const callOnceWrapper = (fn) => {
+  let counter = 0;
+  return (...args) => {    // Rest Parameters - Collects arguments into an array
+    if (counter === 0) {
+      counter++;
+      return fn(...args);   // Spread Operator - Expands elements of arrays and objects
+    }
+    return undefined;
+  };
+};
+const myFun = (name, city) => {
+  return "hey " + name + ", do you live in " + city + "?";
+};
+const wrapper = callOnceWrapper(myFun);
+const out = wrapper("joe", "new york");
+console.log(out); // expected output: hey joe, do you live in new york?
+const out2 = wrapper("joe", "new york");
+console.log(out2); // expected ouput: undefined
 ```
 
 -------------------------------------------------------
 
-## Wrap A Function In A Timeout
+## Wrap A Function In A Timeout - Basic Version
+
 
 ```javascript
-const myDelayedFunction = (fn, timeoutDuration) => {     // Define a HOF (wrapper) that returns a delayed version of a function
+const myDelayedFunction = (fn, x) => {
+   // your code here
+};
+
+const myFunc = (name) => {
+  console.log("hello " + name);  // logs result
+};
+
+const delayedFunction = myDelayedFunction(myFunc, 2000);   // Create delayed version
+
+delayedFunction("James");   // expected output after 2s: James
+```
+
+### SOLUTION
+
+```javascript
+const myDelayedFunction = (fn, x) => {
   return (...args) => {
-    return setTimeout(() => {
-      fn.apply(this, args); // preserve the context
-    }, timeoutDuration);
+    setTimeout(() => {
+      return fn(...args);
+    }, x);
   };
 };
 
-const myFunc = (name) => {  console.log("hello " + name);    };     // Example function
+const myFunc = (name) => {
+  console.log("hello " + name);
+};
 
-const delayedFunction = myDelayedFunction(myFunc, 2000);    // Assign wrap function with relevant function and delay - Create a delayed version
+const delayedFunction = myDelayedFunction(myFunc, 2000); // Assign wrap function with relevant function and delay - Create a delayed version
 
-(() => {
-  delayedFunction("James");   // call wrap function
-})();
+delayedFunction("James"); // expected output
+```
+
+-------------------------------------------------------
+
+## Wrap A Function In A Timeout - Advanced Version
+
+
+```javascript
+const myDelayedFunction = (fn, x) => {
+  // your code here
+};
+
+const myFunc = (name) => "hello " + name;  // returns result
+
+const delayedFunction = myDelayedFunction(myFunc, 2000);   // Create delayed version
+
+delayedFunction("James").then((out) => {
+  console.log(out);  // expected output after 2s: James
+});
+```
+
+### SOLUTION
+
+```javascript
+const myDelayedFunction = (fn, x) => {
+  return (...args) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const res = fn(...args);
+        resolve(res);
+      }, x);
+    });
+  };
+};
+
+const myFunc = (name) => "hello " + name;
+
+const delayedFunction = myDelayedFunction(myFunc, 2000); // Assign wrap function with relevant function and delay - Create a delayed version
+
+delayedFunction("James").then((out) => {
+  console.log(out); // expected output after 2s: James
+});
 ```
 
 -------------------------------------------------------
@@ -692,7 +894,7 @@ Being given these 2 APIs
 - https://api.chucknorris.io/ - The Internet Chuck Norris Database
 - https://developers.giphy.com/docs/ - Giphy API
 
-Select one random Chuck Norris joke and look for a matching gif by using
+Select one random Chuck Norris joke and look for a matching GIF by using
 the first 3 words from the joke. The result should be displayed with the
 image on the left side and the text on the right side, positioned in the
 vertically in the middle.

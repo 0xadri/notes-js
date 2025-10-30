@@ -138,9 +138,25 @@ Essence of flexbox:
 
 -------------------------------------------------------
 
-# 
+# Flex Box: Put Two Divs 
 
+Image on the left side and the text on the right side, positioned in the vertically in the middle.
 
+```css
+.container {
+  display: flex;
+  align-items: center;    /* flex items centered vertically */
+  justify-content: center;
+}
+
+.gif {
+  max-width: 300px;
+}
+
+.joke {
+  max-width: 400px;
+}
+```
 
 -------------------------------------------------------
 
