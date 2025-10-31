@@ -1,7 +1,5 @@
 
-## Hello it's Adrien, Front End Developer
-
-Welcome to my Tech Notes !
+**Hello I am Adrien, welcome to my Tech Notes !**
 
 I am a Frontend Engineer with 9 years of experience. Expert in React, Typescript, Node and cloud on AWS. Passionate about Web Performance, Scalability and Microfrontends.
 

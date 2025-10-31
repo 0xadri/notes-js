@@ -46,7 +46,7 @@ Rule of thumb: use `rem` (predictable).
  - Doesn’t change if parent font-size or viewport changes.
 
 `rem` (root em)
- - Relative to the root element font-size (font-size in <html>) - not the parent.
+ - Relative to the root element font-size (font-size in `<html>`) - not the parent.
  - **More predictable**.
 
 `em`

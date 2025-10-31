@@ -506,7 +506,7 @@ TODO
 
 -------------------------------------------------------
 
-## Displays List Of Users
+## API Call and Displays List Of Users
 
 Build a small React application that displays a list of users fetched from a public API.
 
@@ -532,7 +532,29 @@ TODO
 
 
 
+-------------------------------------------------------
 
+## API Call + List View w Sorting and Dynamic Filtering + Detail View
+
+you have the API, based on the Ricky & Morty API, to perform the challenge. 
+- https://rickandmortyapi.com/
+- i.e. endpoint https://rickandmortyapi.com/api/character
+
+Two main screens in the app:
+1/ Listing View
+• show a list of items coming from the API, with some information. Title
+and image are mandatory.
+• The app will be able to order the items by (at least) the Title.
+• The app will be able to filter the items by some of the fields. It could be a
+property from the items with any select or checkbox or a search field, or all
+of them.
+
+2/ Details View
+• It will show detailed information about the selected element.
+
+## SOLUTION
+
+TODO
 
 
 

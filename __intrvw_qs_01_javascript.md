@@ -2520,6 +2520,16 @@ Answer:
 
 Lunch Cooked ..., Water Boiled ..., Dishes Washed ...
 
+-------------------------------------------------------
+
+## How can you use promises together with settimeout to simulate a slow network
+
+Insert this between the line of your fetch() and your state setters (loading and data states).
+
+`await new Promise((resolve) => setTimeout(resolve, 1000));`
+
+
+
 
 
 
