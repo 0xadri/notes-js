@@ -26,6 +26,12 @@ There is a tiny chance that it degenerates into LeetCode style interviews.
 
 - Fetch and Display Data - with 2 API Calls
 
+- Fetch and Display Data - with 2 API Calls - with TypeScript
+
+- Fetch and Display Data - with 2 API Calls - with Axios
+
+- Fetch and Display Data - with 2 API Calls - with React Query
+
 - Todo List
 
 - Search & Filter a List
@@ -37,6 +43,7 @@ There is a tiny chance that it degenerates into LeetCode style interviews.
 - Theme Switcher
 
 - Debounced Search
+
 
 -------------------------------------------------------
 
@@ -530,8 +537,6 @@ Functional requirements:
 
 TODO
 
-
-
 -------------------------------------------------------
 
 ## API Call + List View w Sorting and Dynamic Filtering + Detail View
@@ -556,14 +561,33 @@ of them.
 
 TODO
 
+-------------------------------------------------------
 
+## API Call + List View + Favorites
 
+The are many Rick and Morty fans out there looking for a web application that will help them look for any character and mark them as favorite.
 
+Rules:
 
+- Use Typescript (The right way, "any" is not the right way!).
+- Create all components from scratch, components libraries are forbidden.
+- Implement good semantic HTML (div is not always the solution).
+- Use best practices.
+- If you know any React pattern, feel free to use it!
+- Adding styles is important! No need to be picasso, make it feel like a real application.
 
+Requirements:
 
+- When a user types into the search field, an autocomplete dropdown should appear, displaying a list of matching characters.
+- Use the Rick and Morty API https://rickandmortyapi.com/
+- The search should be perform after typing the first 2 letters of the characters.
+- Each item in the autocomplete list must show the character's name and image.
+- Each character in the autocomplete results should have a "favorite" icon (e.g., a star ⭐). Clicking this icon adds the character to your favorites list and immediately removes them from the autocomplete results.
+- Characters that are currently in the favorites list should not appear in the autocomplete search results.
 
+## SOLUTION
 
+TODO
 
 -------------------------------------------------------
 

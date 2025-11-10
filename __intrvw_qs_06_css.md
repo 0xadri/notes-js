@@ -1,14 +1,192 @@
 
 -------------------------------------------------------
 
-# TODO
+# How do you use CSS Variables?
 
-The calc() function
-The difference between flex-grow, flex-shrink, flex-basis
-CSS Grid basics (grid-template-columns, grid-template-rows)
-Grid alignment (justify-items, align-content)
-The difference between auto-fit and auto-fill in grid
-Orientation queries (@media (orientation: portrait))
+CSS Variables = Custom Properties
+
+Global variables - let you store reusable values i.e. colors, sizes, or fonts
+Live in the DOM
+Can be read or changed at runtime via JavaScript.
+
+Make your CSS cleaner, easier to maintain, and dynamic (you can even change them with JavaScript).
+
+todo: pros and cons?
+
+Example Definition:
+
+```css
+:root {
+  --main-color: #3498db;
+  --text-color: #333;
+  --padding: 1rem;
+}
+```
+
+Using `:root` so variable are available everywhere. Variables must start with `--`.
+
+Example Usage:
+
+```css
+button {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: var(--padding);
+}
+```
+
+Example Usage If Overriding:
+
+```css
+:root {
+  --main-color: #3498db;
+}
+
+.dark-theme {
+  --main-color: #222;
+}
+
+button {
+  background-color: var(--main-color);
+}
+```
+
+Example Usage If JavaScript Dynamic Change:
+
+`document.documentElement.style.setProperty('--main-color', '#e74c3c');`
+
+-------------------------------------------------------
+
+# How does CSS work in React?
+
+You write CSS inside JavaScript files using libraries or inline style objects:
+
+Flavours: 
+ 1. CSS Modules
+ 2. Styled-Components
+ 3. Emotion
+ 4. Inline Styles
+
+Recommendation:
+- For most modern React apps: → Emotion or Styled-Components
+- For simplicity & performance: → CSS Modules
+- For quick prototypes or inline tweaks: → Inline styles
+
+| Approach              | CSS Features | Dynamic Styles | Build Overhead | Runtime Cost | Theming | Best For                         |
+| --------------------- | ------------ | -------------- | -------------- | ------------ | ------- | -------------------------------- |
+| **Styled-Components** | ✅ Full       | ✅ Yes         | Medium         | Medium       | ✅ Yes   | Design systems                   |
+| **CSS Modules**       | ✅ Full       | ❌ No          | Low            | None         | ❌ No    | Simple/performant apps           |
+| **Emotion**           | ✅ Full       | ✅ Yes         | Medium         | Low-Medium   | ✅ Yes   | Complex apps needing flexibility |
+| **Inline Styles**     | ❌ Limited    | ✅ Yes         | None           | Medium-High  | ❌ No    | Quick prototypes                 |
+
+
+**CSS Modules:**
+
+Type: CSS files with locally scoped class names.
+
+```css
+import styles from './Button.module.css';
+
+function Button() {
+  return <button className={styles.primary}>Click me</button>;
+}
+```
+
+Pros:
+- Simple — still uses real CSS files
+- No runtime cost; compiled at build time
+- Works with preprocessors (SASS/LESS)
+- Easy to extract to separate CSS bundles
+
+Cons:
+- No dynamic or theme-based styling (everything is static)
+- Harder to co-locate logic + styles for complex components
+
+Best for:
+- Performance-sensitive or static-style apps (e.g. marketing sites, simple React apps).
+
+**Styled-Components:**
+
+Type: CSS-in-JS
+
+```javascript
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background: #0070f3;
+  color: white;
+  border-radius: 6px;
+`;
+```
+
+Pros:
+- True CSS syntax (supports nesting, media queries, pseudo-selectors)
+- Automatic unique class names (no conflicts)
+- Theming support via `<ThemeProvider>`
+- Good developer experience (autocompletion, syntax highlighting)
+
+Cons:
+- Slight runtime overhead (though can be mitigated with Babel plugin)
+- Larger bundle size vs CSS Modules
+- Server-side rendering (SSR) adds complexity
+
+Best for: 
+- Medium-to-large apps with dynamic styling or theming (e.g. dashboards, design systems).
+
+**Emotion:**
+
+Type: CSS-in-JS (like styled-components)
+
+```javascript
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+
+const buttonStyle = css({
+  background: '#0070f3',
+  color: 'white',
+  borderRadius: '6px',
+});
+
+function Button() {
+  return <button css={buttonStyle}>Click me</button>;
+}
+```
+
+Pros:
+- Fast and flexible
+- Supports both styled and css prop APIs
+- Great TypeScript support
+- Can extract critical CSS for SSR
+
+Cons:
+- Still adds some runtime cost
+- Slightly more complex configuration for SSR setups
+
+**Inline Styles:**
+
+Type: Directly in JSX via `style={{}}`
+
+`<button style={{ background: '#0070f3', color: 'white' }}>Click</button>`
+
+Pros:
+- Dead simple
+- Dynamic styles (based on props/state)
+- No extra tooling
+
+Cons:
+- No pseudo-classes or media queries
+- No CSS features like keyframes or global selectors
+- Poor performance on frequent rerenders
+
+Best for:
+- Small prototypes or dynamic one-off styles.
+
+-------------------------------------------------------
+
+# CSS Variables vs CSS-in-JS (react css)
+
+
+todo
 
 -------------------------------------------------------
 
@@ -160,23 +338,11 @@ Image on the left side and the text on the right side, positioned in the vertica
 
 -------------------------------------------------------
 
-# 
+**TODO**
 
-
-
--------------------------------------------------------
-
-# 
-
-
-
--------------------------------------------------------
-
-# 
-
-
-
--------------------------------------------------------
-
-# 
-
+- The calc() function
+- The difference between flex-grow, flex-shrink, flex-basis
+- CSS Grid basics (grid-template-columns, grid-template-rows)
+- Grid alignment (justify-items, align-content)
+- The difference between auto-fit and auto-fill in grid
+- Orientation queries (@media (orientation: portrait))
