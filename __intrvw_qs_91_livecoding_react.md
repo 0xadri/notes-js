@@ -12,19 +12,25 @@
 
 It's a technical interviewing style. Your interviewer(s) watches while you code. In React.
 
-Small projects for you to try to solve. Typically in less than 60min.
+Small projects for you to try to solve. Typically in 30 to 60min.
 
-There is a reasonable chance that it drifts into code quality questions.
-
-There is a small chance that it will drift into system design interview.
-
-There is a tiny chance that it degenerates into LeetCode style interviews.
+It then drifts into another type of interview:
+ - Code Review (reasonable chance)
+ - Code Quality (reasonable chance)
+ - System Design (small chance)
+ - LeetCode (tiny chance)
 
 -------------------------------------------------------
 
 ## Categories of Live Coding in React
 
 - Fetch and Display Data - with 2 API Calls
+
+- Fetch and Display Data - with 2 API Calls - with Pagination
+
+- Fetch and Display Data - with 2 API Calls - Mobile-First Responsive w Flexbox
+
+- Fetch and Display Data - with 2 API Calls - Mobile-First Responsive w Grid
 
 - Fetch and Display Data - with 2 API Calls - with TypeScript
 
@@ -49,23 +55,27 @@ There is a tiny chance that it degenerates into LeetCode style interviews.
 
 ## Skills Tested in Live Coding in React
 
-Hooks (useState), list rendering, event handling, basic component structure.
+basic component structure, list rendering, event handling, hooks.
 
-useState, useEffect, derived state, efficient rendering.
+useState, performance-conscious updates, derived state.
 
-State updates, controlled components, and React reactivity.
+useEffect, efficient rendering.
 
-useEffect, async/await, conditional rendering, API error handling.
+setTimeout/clearTimeout.
+
+controlled components, controlled inputs, and React reactivity.
+
+async/await, API error handling, HTTP status check.
+
+validation logic, dynamic error display.
 
 Component composition, props, conditional rendering.
 
-Controlled inputs, validation logic, dynamic error display.
+Global state (Context API or props)
 
-Global state (Context API or props), conditional classNames, CSS-in-JS or Tailwind logic.
+CSS: CSS-in-JS or Tailwind logic, conditional classNames.
 
 React Router basics, component routing, URL awareness.
-
-useEffect, setTimeout/clearTimeout, API calls, performance-conscious updates.
 
 custom hook (e.g., useLocalStorage or useDebounce)
 
@@ -589,18 +599,34 @@ Requirements:
 
 TODO
 
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------
 
 **TODO**
+
+1) Simple Form https://frontendeval.com/questions/mortgage-calculator
+
+2) Complex Form https://frontendeval.com/questions/multi-step-form
+
+3) Pagination and data fetching https://frontendeval.com/questions/job-board
+
 
 More React Live Coding Questions:
 
 - https://bigfrontend.dev/
 
 - https://www.hackerrank.com/domains/react
-
-
-
 
 - Mock JSON data https://jsonplaceholder.typicode.com/
 

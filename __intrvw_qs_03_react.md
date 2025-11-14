@@ -819,7 +819,22 @@ If a hook (like useEffect) updates state without proper dependency control, it k
 # Performance Opimization
 
 -------------------------------------------------------
- 
+
+## Top 10 React Optimizations Techniques
+
+1. Use `React.memo` and `Pure Component`
+2. Use `useCallback` and `useMemo` Hooks
+3. Code Splitting (Dynamic Import)
+4. Avoid Inline Functions and Objects in JSX
+5. Optimize Lists with `key` and `React.memo`
+6. Lazy Load Images and Components
+7. Avoid Reconciliation with Proper State Management
+8. Use Production Build
+9. `Debounce` or `Throttle` Expensive Operations
+10. Use React `Profiler` & `DevTools`
+
+-------------------------------------------------------
+
 ## What's the difference between `useMemo()` vs `useCallback()` ?
 
 Both are hooks for caching, for performance optimization, but they serve slightly different purposes.

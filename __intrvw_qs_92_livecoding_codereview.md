@@ -5,19 +5,62 @@
 
 # Code Review For React.js Project
 
-TODO: Add:
- - watch out for things that should/could be updgraded:
- 	- var -> const or let
- 	- let -> const (if possible)
- 	- buggy const (i.e. reassigned)
- 	- use spread/rest operators
- 	- method chaining -> async/await
- 	- class component -> function component
- - watch out for untestable code: put code always in functions so it can be tested
- - watch out for unreadable and hard-to-maintain code: namings should be self-explanatory, logic should be easy to digest
- - watch out for data structures: you may optimise an array into a set
- - watch out for upgrading basic for-loops into Array Instance Methods - i.e. reduce(), map(), etc
- - watch out for error and loading states handling
+-------------------------------------------------------
+
+## Watch Out For
+
+ - No TypeScript usage. It's not mandatory, but it is a standard to keep in mind
+ - Elaborate organizational proposal at the level of components, CSS, architecture
+ - SEO+ACC: Semantic HTML, use `<main>, <section>, <nav>, <header>, <footer>`.
+ - ACC: Image-based navigation lacks keyboard accessibility (cannot Tab + Enter)
+ - TEST: 65% test coverage
+ - API calls mixed within components instead of isolated in custom hooks or services
+ - HTTP response validation missing (no status code checks)
+ - No URL-based routing (cannot bookmark specific view, browser back button doesn't work)
+ - No pagination implemented, loading too little or too much data at once
+ - untestable code: put code always in functions so it can be tested
+ - unreadable and hard-to-maintain code: namings should be self-explanatory, logic should be easy to digest
+ - data structures: you may optimise an array into a set
+ - upgrading basic for-loops into Array Instance Methods - i.e. reduce(), map(), etc
+ - error and loading states handling
+ - duplicate states: replace by data derived on-the-fly
+ - Not using CSS modules or CSS-in-JS for scoping styles
+ - Lack of defensive programming techniques - i.e. to add fallback values
+ - TS: using any instead of correct types
+ - Components are large, impure, and/or stateful - keep them small, pure, and stateless when possible.
+
+Readability, Testability, Maintainability
+ - 100% of the code must be in functions
+ - self-explanatory namings
+ - easy-to-digest logic
+ - SRP: each function has a tiny responsibility - mention SOLID Principles
+ - Pure Functions: for no side effects
+
+Defensive Programming
+ - handle errors
+ - handle loading state
+ - handle unexpected empty/null/undefined/0 values, provide default
+ - handle unexpected type, i.e. string vs number
+
+Upgrade Syntax
+ - var -> const or let
+ - let -> const (if possible)
+ - buggy const (i.e. reassigned)
+ - spread/rest operators
+ - method chaining -> async/await
+ - class component -> function component
+ - regular function -> arrow functions
+
+Optimize Loops and Data Structures
+ - array -> set, or map
+ - loop -> proper algorithms
+ - loop -> Array Instance Methods such as reduce(), or map()
+
+Optimize Performance
+ - Caching
+ - Lazy Loading
+
+-------------------------------------------------------
 
 ## 1. Initial Inspection
 
@@ -33,11 +76,17 @@ d. Assess the state data-strucuture, is it the optimal one?
    - Use primitives as much as possible for anything else
    - Check for unnecessary re-renders() - use the React debugger here again
 
+
+-------------------------------------------------------
+
 ## 2. React Optimizations
 
 a. Look out for opportunities for using `useMemo`, `useCallback` or `React.memo`.
 
 b. Assess moving state up or down to the component tree.
+
+
+-------------------------------------------------------
 
 ## 3. Code Quality -  here you do a "component code review" 
 
@@ -58,9 +107,27 @@ d. CSS:
 e. Testing
    - Write some component tests before the interview so you are not rusty
 
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------
 
-# What don't you like about the code here?
+# Code Review Challenges
+
+-------------------------------------------------------
+
+## Mini App
+
+What don't you like about the code here?
 
 ```javascript
 import React, { useState } from 'react';
@@ -87,19 +154,21 @@ export const Component = () => {
 };
 ```
 
+Pick one answer:
+
 a. Arrow functions should never be used as React components
 
 b. The splice method mutates the items array
 
 c. The map method negatively impacts performance
 
-Solution:
+### Solution
 
 b
 
 -------------------------------------------------------
 
-# E-Shop Spaghetti Code Refactor
+## E-Shop Spaghetti Code Refactor
 
 The given function retrieves the items in a cart and its shipping costs to calculate the total to pay. 
 
@@ -136,7 +205,7 @@ function fetchDataAndProcess() {
 }
 ```
 
-## SOLUTION
+### SOLUTION
 
 ```javascript
 // --- API Layer (data fetching logic) ---
@@ -199,7 +268,7 @@ main();
 
 -------------------------------------------------------
 
-# Code Review This Snippet
+## Gaming App
 
 Review this code. Leave comments where appropriate.
 

@@ -13,6 +13,177 @@ End-to-End
 
 
 
+
+
+
+-------------------------------------------------------
+
+# Authentication
+
+-------------------------------------------------------
+
+## What Is Authentication ?
+
+Authentication is how a system verifies who you are.
+
+-------------------------------------------------------
+
+## Authentication vs Authorization ?
+
+Authentication = identity.
+
+Authorization = permissions.
+
+-------------------------------------------------------
+
+## Common Types Of Authentication ?
+
+1. Password-Based — simplest, but must be protected via HTTPS, and only on log-in.
+
+2. Token-Based — Stateless Authentication — Server doesn’t need to store session data - token to prove identity e.g. JWT
+
+3. Session Cookies — Stateful Authentication - Server must store session data (hard to scale) - session ID to prove identity
+
+4. OAuth / OpenID Connect — delegated authentication - used by Google, GitHub, etc.
+
+-------------------------------------------------------
+
+## What's Password-Based Authentication?
+
+This is how a user logs in — using a username/password.
+
+But password-based login alone does NOT define how the session is maintained afterward. That’s where sessions or tokens come in.
+
+-------------------------------------------------------
+
+## Session Cookies Authentication vs Token-Based Authentication ?
+
+TLDR: Token-Based better in most modern systems.
+
+Token-Based for:
+- APIs, microservices, cross-domain access.
+- SPAs, mobile apps.
+- Scalability and distributed systems.
+
+Session cookies can still be simpler and safer for:
+- Classic, same-origin web apps
+- When you can rely on built-in browser cookie security (HttpOnly, Secure, SameSite)
+
+-------------------------------------------------------
+
+## What % of cases is Token-based authentication favored ?
+
+Estimations across all modern systems in active development today (web + mobile + API + enterprise):
+
+~75–85% of new applications favor token-based authentication especially those built around APIs, SPAs, or distributed architectures.
+
+| Context / Use Case                                                      | Token-Based Auth (JWT, OAuth2, etc.) | Session Cookies |
+| ----------------------------------------------------------------------- | ------------------------------------ | --------------- |
+| **Public APIs / Microservices**                                         | **~90–95%**                          | ~5–10%          |
+| **Single Page Apps (React, Vue, Angular)**                              | **~80–90%**                          | ~10–20%         |
+| **Mobile Apps (iOS, Android)**                                          | **~95%+**                            | <5%             |
+| **Traditional Server-Rendered Web Apps (e.g., Django, Rails, Laravel)** | ~30–40%                              | **~60–70%**     |
+| **Enterprise / Hybrid Systems**                                         | ~60–70%                              | ~30–40%         |
+
+-------------------------------------------------------
+
+## What's Session Cookies Authentication?
+
+Session cookies fit within the broader token-based authentication family
+
+After a successful login (e.g., via password), the server:
+ - Creates a session in memory or in a database.
+ - Generates a session ID.
+ - Sends that session ID to the client as a cookie.
+ - Server must store sessions
+
+The browser automatically sends this cookie with every future request.
+
+The server uses it to look up the user’s session on each request.
+
+Use Cases:
+ - Traditional web apps: server-rendered, same-origin.
+ 
+Cons:
+- Requires server-side state (sessions stored on the backend).
+- Hard to scale horizontally (needs sticky sessions or shared session store)
+- Doesn’t scale well for stateless or distributed architectures without extra setup (e.g., Redis).
+
+Pros:
+ - Simple and secure (if HTTPS and HttpOnly are used).
+ - Server can easily revoke or expire sessions.
+
+-------------------------------------------------------
+
+## What's Token-Based Authentication?
+
+Server issues a signed token (often JWT) that contains user claims. Client stores and sends it in headers (e.g., `Authorization: Bearer <token>`).
+
+Server does NOT need to store session data → scalable.
+
+Use Cases
+- APIs, microservices, cross-domain access.
+- SPAs, mobile apps.
+- Scalability and distributed systems.
+
+Pros:
+- Stateless — easier scaling.
+
+Cons:
+- Token revocation and expiration are trickier.
+- If compromised, token remains valid until it expires.
+
+-------------------------------------------------------
+
+## What's JWT ?
+
+JWT is a standard used for Token-Based Authentication. 
+
+It’s language-agnostic (supported by libraries in Node.js, Python, Go, Java, etc.)
+
+Structured in 3 parts, separated by dots (.):
+
+1. Header: Specifies the type of token (JWT) and the signing algorithm (e.g., HS256).
+
+3. Payload: Contains the claims or data (like user ID, roles, expiration time, etc.).
+
+4. Signature: A cryptographic signature that verifies the token wasn’t tampered with.
+
+```javascript
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+.
+TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+```
+
+-------------------------------------------------------
+
+## How Related Are OAuth, OIDC, and JWT ?
+
+OAuth 2.0 = Authorization → JWTs may be used as access tokens.
+
+OIDC (OpenID Connect) = Authentication + Authorization (ID layer on top of OAuth 2.0) → JWTs required for ID tokens, and may be used for access tokens.
+
+-------------------------------------------------------
+
+## How Related Are OAuth, OIDC, and Delegated Authentication ?
+
+Delegated Authentication lets one system trust another for authentication (i.e. "Login with Facebook/GitHub/Google/etc")
+
+OAuth/OIDC are common implementations.
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------------------------------------
 
 # Server Side Optimization
@@ -21,7 +192,7 @@ End-to-End
 
 ## What's Server Side Optimization?
 
-Misleading jargon because includes Client/Browser/HTTP Caching which happens on client side.
+Misleading jargon because it includes Client Caching (aka Browser Caching, HTTP Caching) which happens on client side.
 
 FOUR things:
 
@@ -179,13 +350,23 @@ Optimizing CSS, Images and Fonts.
 
 ## Which one is true about the PUT and POST methods in REST?
 
-POST will create the object if it does not exist or update if it does -- FALSE
+`POST` will create the object if it does not exist or update if it does -- FALSE
 
-POST will update the object if it exists -- FALSE
+`POST` will update the object if it exists -- FALSE
 
-PUT will create the object if it does not exist or update it if it does -- TRUE
+`PUT` will create the object if it does not exist or update it if it does -- TRUE
 
-PUT will only create the object -- FALSE
+`PUT` will only create the object -- FALSE
+
+-------------------------------------------------------
+
+## What's the difference between PUT and PATCH ?
+
+Both `PUT` and `PATCH` are HTTP methods used to update resources on a server, but they differ in how they handle the update.
+
+`PUT`: The client sends a **complete representation of the resource**, and the server replaces the existing one.
+
+`PATCH`: The client sends **only the fields to be changed**, and the server updates those fields while keeping the others intact.
 
 -------------------------------------------------------
 
@@ -324,6 +505,8 @@ Later, the attacker uses this session cookie to impersonate the user and gain un
 Question: What type of web security attack does this scenario describe?
 
 XSS
+
+
 
 
 

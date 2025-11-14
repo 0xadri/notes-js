@@ -2,7 +2,7 @@
 
 -------------------------------------------------------
 
-# KiteClub Web App 
+# Kite Clubs
 
 -------------------------------------------------------
 
@@ -89,6 +89,60 @@ Support & notifications
  - Chat/help center
  - Push alerts
 
+Further ideas:
+- Adopt a visual-first UI, prioritizing images and icons over text (spotify style).
+- Use icons and images first - use text only for unique content identifiers (spotify style).
+- Implement a universal tagging system for all content types (spotify style). everything is a tag i.e. driver, rider, same-day trips, multi-day trips, return trips, one-way trip, trip with car, trips without car, trips freshly published, trips near you, and so on
+- Explore a flexible 3-column layout with expandable side panels (spotify style).
+- Favorite - as a user I can favorite a ride, and a driver.
+- Ratings - drivers rating is super important. Featured on trip cards, trips details view, driver details view.
+- Ride - title, driver rating along w nb of rides, 
+- Cancellations - rides must be able to be cancelled, user can choose various reasons for cancellation.
+- **Tags:** "Superhost" or "Guest Favorite" for high-rated drivers.
+- **Booking Type:** `Instant-Book` or `On Approval` 
+- **Visibility:** `Unlisted` offers flexible event visibility
+
+- Driver Details: full name, address, dob, driving license, id/passport, verification level.
+- Car Details: brand, model, color, year, km, number of seats, trunk max capacity kites & boards, stats for rides with car (number, km, since when)
+- Driver Dashboard: stats for all rides (number, km, money saved)
+
+
+-------------------------------------------------------
+
+## Pages
+
+### Homepage
+
+  - **Hero Section:**
+      - **Top Bar:** Logo (left) → Publish a trip → Secondary actions (Become a driver, Language, Burger Menu (Become a driver, Refer a driver, ...)).
+      - **Search Box:** Departure, Trip start date
+  - **Marketing Sections:**
+      - **Stats Section:** number of drivers, rides, etc
+      - **How It Works Section:** search for rides, Book your seat, Hit the water
+      - **Featured Upcoming Rides:** cards of several rides
+
+### Search Results Page (SRP)
+
+  - Consider implementing only 
+  - **Layout:** Split-panel design.
+      - **Right:** Map showing trip start locations with markers containing further info
+      - **Left:** Grid of trip cards.
+  - **Trips Card Details:**
+      - **Images:** Hovering over the main image triggers a slideshow (driver profile pics, car pics)
+      - **Tags:** "Superdriver" or "Riders Favorite" for high-rated drivers.
+      - **Actions:** Favorite button (heart icon).
+      - **Title:** Driver-defined name for the trip.
+      - **Rating:** Star rating *and* the total number of reviews (e.g., 4.8 (123)).
+          - **Significance:** The review count provides social proof, showing the rating's reliability.
+      - **Description:**
+          - Shortened summary.
+          - Seat count.
+      - **Pricing:** Total cost.
+      - **Cancellation:** Explicitly stated policy (e.g., "Free cancellation").
+  - **Navigation:** Uses traditional pagination (numbered pages), or infinite scroll.
+  - **Map showing trip start locations:**
+      - markers containing start date+time, destination, price, driver name, driver rating and trips (e.g., 4.8 (123)).
+
 -------------------------------------------------------
 
 ## Tech Stack
@@ -107,24 +161,24 @@ Hosting:
 Backend → Supabase managed hosting
  - Version control: GitLab or GitHub.
  
-Consider: AWS, Docker, NoSQL?Postgres?
+Consider: 
+ - AWS, Docker, NoSQL?Postgres?
 
 -------------------------------------------------------
 
 ## Design & UX
 
-Devices: mobile-first responsive web app.
+Devices: mobile-first responsive.
 
 Style: Minimal, surf-inspired color palette (aqua + sand tones).
 
-Layout: Dashboard with ride cards, “Create Ride” button, and chat overlay.
+Layout: Dashboard with trip items, “Create Ride” button, and chat overlay.
 
-Accessibility: Color contrast, alt text, semantic HTML.
+Accessibility: Color contrast, alt text, semantic HTML, aria labels and roles.
 
 -------------------------------------------------------
 
 ## Security
-
 
 Supabase Auth (magic link = passwordless).
 
@@ -150,9 +204,9 @@ Scalability: MVP initially so only for a few thousand users, must be able to sca
 
 ## Integrations
 
-Payments (Phase 2): Stripe Checkout API
+Payments (Phase 2): Stripe Checkout API.
 
-Geolocation API (optional MVP add-on)
+Geolocation API (optional MVP add-on).
 
 Email via Supabase or Resend API (for booking confirmations).
 
@@ -188,9 +242,70 @@ This is an MVP and a play project.
 | Week 3 | UI polish      | Chat MVP, email alerts, deploy         | $0                       |
 | Week 4 | Testing        | QA, small fixes                        | $0–$50 (optional domain) |
 
+-------------------------------------------------------
+
+## Inspirations For Features, UX, Views, Components
+
+Blablacar - trips/rides search, ride options, driver profile, etc
+
+VolleyWorld - event creation, automatic and manual approval, group chat
+
+Airbnb - instant bookings, review system, map
+
+Spotify - smooth ux, intuitive navigation
+
+-------------------------------------------------------
+
+## Project Plans
+
+### 1. Pending List Of Your Features
+
+What pages/views do you need?
+
+What will users do on your app?
+
+What data will you work with?
+
+### 2. Build the User Interface
+
+Start with the layout and navigation
+
+Create reusable components (buttons, cards, forms, etc.)
+
+Add styling (you can use CSS, Tailwind, or other frameworks)
+
+### 3. Add Functionality
+
+Connect to APIs or databases if needed
+
+Implement user interactions
+
+Add state management (React hooks, Context API, or libraries like Redux)
+
+### 4. Connect External Services
+
+Authentication - user login/signup
+
+Database - to store data
+
+Payment processing - Stripe integration
+
+APIs - OpenAI, Twilio, etc.
+
+### 5. Test and Polish
+
+Test all features
+
+Fix bugs
+
+Improve design and user experience
 
 
 
+
+
+Trips: 
+- Type: 1 one way vs Return
 
 
 

@@ -3,6 +3,8 @@
 
 ## What's a frontend design system?
 
+Usually done with Figma and StoryBook.
+
 It is a collection of reusable UI components, patterns, and guidelines that ensures consistency, efficiency, and scalability in web or app interfaces.
 
 It’s more than just a component library; it also includes design principles, branding rules, accessibility standards, and often a shared codebase.
@@ -13,52 +15,6 @@ Key aspects:
  2. Design Tokens - single source of truth for style values
  3. Guidelines & Principles - rules for how UI should look and behave
  4. Documentation
-
-
-
-
--------------------------------------------------------
-
-# Top 10 React Optimizations Techniques
-
--------------------------------------------------------
-
-## Code Splitting (Dynamic Import)
-
-1. Use React.memo and PureComponent
-2. Use useCallback and useMemo Hooks
-3. Code Splitting (Dynamic Import)
-4. Avoid Inline Functions and Objects in JSX
-5. Optimize Lists with key and React.memo
-6. Lazy Load Images and Components
-7. Avoid Reconciliation with Proper State Management
-8. Use Production Build
-9. Debounce or Throttle Expensive Operations
-10. Use React Profiler & DevTools
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -597,9 +553,9 @@ FCP (First Contentful Paint) - the time it takes to render the first text, image
 
 Adding a CDN will most likely:
 
-Decrease the download time of the assets(because the assets are geographically distributed which reduces the network latency)
-Decrease the size of the assets(compression, content negotiation)
-Apply the right http caching headers
+- Decrease the download time of the assets(because the assets are geographically distributed which reduces the network latency)
+- Decrease the size of the assets(compression, content negotiation)
+- Apply the right http caching headers
 
 -------------------------------------------------------
 

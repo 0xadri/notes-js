@@ -185,8 +185,9 @@ Best for:
 
 # CSS Variables vs CSS-in-JS (react css)
 
+TODO
 
-todo
+
 
 -------------------------------------------------------
 
@@ -236,6 +237,25 @@ Rule of thumb: use `rem` (predictable).
 
 -------------------------------------------------------
 
+# Where Can You Use rem ?
+
+You can use `rem` for any CSS attribute value that's for a size and it's always relative to the font size on HTML tag.
+
+ - Anywhere CSS expects a length or size value: `padding`, `margin`, `width`, `height`, `font-size`, `border-width`, `border-radius`, `gaps`, `transforms`, `shadows`, etc.
+ 
+ - Always relative to the root element’s (`<html>`) font size
+
+-------------------------------------------------------
+
+# Isn't It Weird To Use rem on layout elements (i.e. padding, margin, width)?
+
+Tying spacing and sizing to a font size may seem odd at first but it has several advantages
+- Predictable Design
+- Consistency Across the Page
+- Accessibility / User Scaling
+
+-------------------------------------------------------
+
 # For width and height, what's the difference between %, vh, vw ?
 
 `px` = pixels
@@ -258,35 +278,41 @@ Use %/vw/vh for layouts (responsive).
 
 -------------------------------------------------------
 
-# CSS: Flex Box vs Box Model
+# CSS: Flexbox vs Box Model
 
 TODO
 
 -------------------------------------------------------
 
-# The display: flex basics
+# What Are The Basics Of Flexbox?
 
-Setting display: flex on a container makes it a flex container.
- - Its direct children become flex items.
+Great for:
+- Centering elements easily (both vertically & horizontally)
+- Making responsive layouts that adapt to different screen sizes
+- Controlling space between items dynamically
+
+Setting `display: flex` on a container makes it a flex container.
+ - Its direct children become flex items - only and exclusively its direct children
  - It gives you powerful control over alignment, spacing, and direction.
 
 Essence of flexbox:
- 1. flex-direction → axis
- 2. justify-content → main axis alignment
- 3. align-items → cross axis alignment
- 4. flex-wrap → multiple lines
-
+| Property          | Description                                                                                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `display: flex;`  | Activates Flexbox for the container.                                                                                                                  |
+| `flex-direction`  | Main Axis: <br>• `row` (default)<br>• `row-reverse`<br>• `column`<br>• `column-reverse`                                  |
+| `justify-content` | Main Axis alignment: <br>• `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, `space-evenly` |
+| `align-items`     | Cross Axis alignment: <br>• `flex-start`, `center`, `flex-end`, `stretch`, `baseline`                            |
+| `flex-wrap`       | Wrap Items on multiple lines: <br>• `nowrap` (default)<br>• `wrap`<br>• `wrap-reverse`                                                    |
+| `align-content`   | Aligns **multiple lines** (only works when wrapping): <br>• `flex-start`, `center`, `flex-end`, `space-between`, `space-around`, `stretch`            |
 
 
 1. `flex-direction`: Controls the direction of items.
-
    - `row` (default) → items go left → right
    - `row-reverse` → right → left
    - `column` → top → bottom
    - `column-reverse` → bottom → top
 
 2. Main Axis vs Cross Axis
-
    - Main axis = along the **flex-direction**
    - Cross axis = **perpendicular** to the **flex-direction**
    👉 Important because alignment properties use these axes.
@@ -316,9 +342,85 @@ Essence of flexbox:
 
 -------------------------------------------------------
 
-# Flex Box: Put Two Divs 
+# Does "display: flex" Have An Effect On Non-Direct Elements?
 
-Image on the left side and the text on the right side, positioned in the vertically in the middle.
+No.
+
+-------------------------------------------------------
+
+# "justify" keyword always targets which axis ?
+
+The main axis.
+
+The `justify-*` properties (like `justify-content`, `justify-items`, and `justify-self`) always target the main axis.
+
+This whether a `flex` or `grid` container.
+
+-------------------------------------------------------
+
+# "align" keyword always targets which axis ?
+
+The cross axis.
+
+The `align-*` properties (like `align-content`, `align-items`, and `align-self`) always target the cross axis.
+
+This whether a `flex` or `grid` container.
+
+
+
+-------------------------------------------------------
+
+# Why Nest Elements With "display: flex" ?
+
+Common practice giving more control over layout at multiple levels, whenever different groups need different flex behaviors.
+
+Example:
+
+A top level element stacks its direct children vertically, and for its direct children: one arranges its own direct children horizontally
+
+```html
+<div class="card">
+  <div class="card-header">
+    <h2>Title</h2>
+    <button>Action</button>
+  </div>
+  <div class="card-body">
+    <p>Some text here.</p>
+    <div class="buttons">
+      <button>Yes</button>
+      <button>No</button>
+    </div>
+  </div>
+</div>
+```
+
+```css
+.card {
+  display: flex;
+  flex-direction: column; /* stack header and body vertically */
+  gap: 1rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between; /* title left, button right */
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem; /* spacing between Yes and No buttons */
+}
+```
+
+-------------------------------------------------------
+
+# Flexbox Challenge: Two Elements On Each Side Of The Screen
+
+Put one Image on the left side and the text on the right side, positioned in the vertically in the middle.
+
+
+## Solution
 
 ```css
 .container {
@@ -335,6 +437,78 @@ Image on the left side and the text on the right side, positioned in the vertica
   max-width: 400px;
 }
 ```
+
+-------------------------------------------------------
+
+# Flexbox Challenge: Center Vertically and Horizontally
+
+Create a layout where a small box is perfectly centered both horizontally and vertically inside the browser window.
+- Use only Flexbox (no absolute positioning).
+- The box should stay centered even if the window is resized.
+
+HTML below. Create the CSS.
+
+```html
+<div class="container">
+  <div class="box">Centered</div>
+</div>
+```
+    
+## Solution
+
+```css
+.container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+.box {
+  width: 150px;
+  height: 80px;
+  background-color: aqua;
+}
+```
+
+-------------------------------------------------------
+
+# Flexbox Challenge: Navigation Bar Layout
+
+Build a navigation bar that includes:
+- A logo on the left
+- Navigation links on the right
+- Links spaced evenly with a small gap
+- Bonus: On smaller screens, stack the logo and links vertically.
+
+HTML below. Create the CSS.
+
+```html
+<nav class="navbar">
+  <div class="logo">MySite</div>
+  <ul class="nav-links">
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+```
+
+## Solution
+
+todo
+
+-------------------------------------------------------
+
+# Flexbox Challenge: Equal-Height Cards
+
+Create a section with three cards in a row.
+- Each card should have a different amount of text.
+- All cards should have equal height, aligned neatly in one row.
+- When the screen gets small, the cards should stack vertically.
+
+## Solution
+
+todo
 
 -------------------------------------------------------
 

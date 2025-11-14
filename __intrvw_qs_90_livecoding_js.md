@@ -10,7 +10,13 @@
 
 It's a technical interviewing style. Your interviewer(s) watches while you code. In JavaScript.
 
-It often degenerates into LeetCode style interviews.
+Small projects for you to try to solve. Typically in 30 to 60min.
+
+It then drifts into another type of interview:
+ - Code Review (reasonable chance)
+ - Code Quality (reasonable chance)
+ - System Design (small chance)
+ - LeetCode (tiny chance)
 
 -------------------------------------------------------
 
