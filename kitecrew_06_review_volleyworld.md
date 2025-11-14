@@ -58,13 +58,14 @@ Reviewing the Volley World mobile app for feature inspiration.
       - Implement description templates to simplify event creation for organizers.
       - Explore an AI assistant for description improvement.
       - Design event pages to display all attendees and link to their profiles.
+
 ## Action Items
 
 - **Add Unlisted visibility option for games**
 - **Implement automated booking option for games**
 - **Add organizer approval option for game joins**
-## Annotations
 
+## Annotations
 
 **HIGHLIGHT**
 - Adrien discusses wanting unlisted feature, automated booking option, and organizer approval option
