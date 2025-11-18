@@ -47,10 +47,11 @@
 
 ## Live Coding Interviews
 
-* [Qs: JavaScript [Live Coding]](__intrvw_qs_90_livecoding_js.md)
-* [Qs: React [Live Coding]](__intrvw_qs_91_livecoding_react.md)
-* [Qs: Code Review [Live Coding]](__intrvw_qs_92_livecoding_codereview.md)
-* [Qs: System Design [Live]](__intrvw_qs_93_live_system_design.md)
+* [Qs: JavaScript [Live Coding]](__intrvw_qs_90_livecoding_javascript_vanilla.md)
+* [Qs: React + JavaScript [Live Coding]](__intrvw_qs_91_livecoding_react_javascript.md)
+* [Qs: React + TypeScript [Live Coding]](__intrvw_qs_92_livecoding_react_typescript.md)
+* [Qs: Code Review [Live Coding]](__intrvw_qs_93_livecoding_code_review.md)
+* [Qs: System Design [Live]](__intrvw_qs_94_live_system_design.md)
 * [Qs: Running An Interview](__intrvw_qs_99_run_interviews.md)
 
 ## Interview Theory Questions

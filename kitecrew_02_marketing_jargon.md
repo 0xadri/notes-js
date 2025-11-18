@@ -10,7 +10,10 @@
 
 Kite Crew(s)
 Kite Team(s)
-
+X Crew
+ManyCrews
+MyCrew
+Kangoroo
 
 -------------------------------------------------------
 
@@ -112,4 +115,9 @@ A
 Alex R.
 ⭐ 4.8
 Book
+
+
+Find Your Next Trip
+Search for kitesurfing trips and connect with fellow riders
+
 

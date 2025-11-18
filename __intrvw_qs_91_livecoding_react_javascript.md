@@ -2,6 +2,7 @@
 
 
 
+
 -------------------------------------------------------
 
 # Must Knows
@@ -24,19 +25,13 @@ It then drifts into another type of interview:
 
 ## Categories of Live Coding in React
 
-- Fetch and Display Data - with 2 API Calls
-
-- Fetch and Display Data - with 2 API Calls - with Pagination
-
-- Fetch and Display Data - with 2 API Calls - Mobile-First Responsive w Flexbox
-
-- Fetch and Display Data - with 2 API Calls - Mobile-First Responsive w Grid
-
-- Fetch and Display Data - with 2 API Calls - with TypeScript
-
-- Fetch and Display Data - with 2 API Calls - with Axios
-
-- Fetch and Display Data - with 2 API Calls - with React Query
+API Integration - Fetch and Display Data with 2 API Calls
+ - basic implementation
+ - with Pagination
+ - Mobile-First Responsive w Flexbox
+ - Mobile-First Responsive w Grid
+ - with Axios
+ - with React Query
 
 - Todo List
 
@@ -54,6 +49,8 @@ It then drifts into another type of interview:
 -------------------------------------------------------
 
 ## Skills Tested in Live Coding in React
+
+typing
 
 basic component structure, list rendering, event handling, hooks.
 
@@ -90,13 +87,6 @@ React.memo or useMemo
 
 
 
-
-
-
-
-
-
-
 -------------------------------------------------------
 
 # Challenges
@@ -105,7 +95,7 @@ React.memo or useMemo
 
 ## Ask GPT
 
-Prompt "Pls give me 3 mini exercises (without showing solution) for live coding in react"
+Prompt "Pls give me 3 mini exercises (without showing solution) for live coding in react and typescript"
 
 This will give some good challenges.
 

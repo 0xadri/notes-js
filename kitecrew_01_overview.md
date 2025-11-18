@@ -42,6 +42,26 @@ Riders – kitesurfers without cars who need transport to kitesurfing locations.
 
 -------------------------------------------------------
 
+## Versions
+
+V1
+
+Super easy going and simple, like an old school version of BlaBlaCar: 
+ - you pay directly to the driver w cash, bizum, transfer, whatever.
+ - driver can add link to his WhatsApp.
+ - luggage capacity in description
+ - the driver sets the rules however he wants
+
+V2 
+
+ - TBD
+
+VX
+
+ - Support one more activity i.e. wingfoiling
+
+-------------------------------------------------------
+
 ## Mental Models & Jargon
 
 Home Page = Landing Page + Basic Search
@@ -299,7 +319,7 @@ Only the essential details.
       - If one way, must be flagged to user (i.e. red text)
   - **Return**
       - Exact Location (full address) - should be same as departure - editable
-      - Start Date & Time - estimated range i.e. ±1H
+      - Date & Time (arrival)
 
 
 ### Manage Trip Page - V1
@@ -307,9 +327,20 @@ Only the essential details.
 The "Manage Trip" page's tabbed UI (Overview, Guests, etc.) is a model for comprehensive organizer control.
 
  - Everything from "Create Trip Page" plus the below
- - **Location Privacy:** hide exact location until booking.
+ - Same Day Return ETA
+     - Estimated range i.e. 9pm - 11:55pm
+ - **Seats:** Set trip capacity
+ - **Publish/Unpublish**
+ - **Delete**
+ - **Pickup Point Neighborhood:** area of pickup point
+ - **Pickup Point Exact Location:** privacy -> hide exact pickup point until booking.
+ - **Regular Tier:** All bookings require organizer approval to join.
+ 
+### Manage Trip Page - V2
+
  - **Access Tiers:** A three-tier system controls event visibility and attendance:
      - **Instant Book:** Open to all; no organizer approval needed.
+     - **Conditional Instant Book:** Open to all IF passing criteria i.e. booked 10+ times; no organizer approval needed.
      - **Regular:** Requires organizer approval to join.
      - **Unlisted:** Not visible in search; accessible only via a direct link.
  - **Luggage Allowance**
@@ -317,14 +348,11 @@ The "Manage Trip" page's tabbed UI (Overview, Guests, etc.) is a model for compr
      - nb twintip boards (1 by default)
      - nb small bags (1 by default)
      - nb board bags (0 by default)
- - **Seats:** Set trip capacity
- - **Publish/Unpublish**
- - **Delete**
 
 
-### Manage Trip Page - V2
+### Manage Trip Page - V3
 
-Possibly coming in V2
+Possibly coming in V3
 
  - Rich-text editor for event descriptions.
  - Pre-made event photo library.
@@ -346,7 +374,20 @@ TODO: fathom it on https://luma.com/signin
 
 ### User Profile Page
 
-TODO
+ - Name
+ - Pic
+ - Rating
+ - Nb Trips Organized
+ - COULD: hover card on the organizer's name shows basic info, guest count, and a "Contact Host" link.
+
+Trips Attended
+ - Completed: xyz 
+ - Cancelled: xyz 
+ 
+Trips Organized
+ - Completed: xyz
+ - Cancelled: xyz
+
 
 ### Car Page
 
@@ -372,8 +413,7 @@ TOODO
       - Primary Actions (center)
           - Empty
       - Secondary Actions (right)
-          - Current time & timezone i.e. 19:06 CET
-          - "Publish a Ride" button - 1ry CTA
+          - "Publish a trip" button - 1ry CTA
           - "Sign In" button - 2ry CTA
           - "Planet" icon - to switch language and/or currency
           - "Burger Menu": "Become a driver", "Refer a friend", ...
@@ -449,7 +489,8 @@ Style:
  - Minimal, surf-inspired color palette (aqua + sand tones).
  - Adopt a visual-first UI, prioritizing images and icons over text (spotify style).
  - Use icons and images first - use text only for unique content identifiers (spotify style).
-
+ - Glassmorphism to be used when needed i.e. top nav, or other overlays
+ 
 Accessibility:
  - Color contrast, alt text, semantic HTML, aria labels and roles.
 
@@ -537,7 +578,15 @@ Spotify - smooth ux, intuitive navigation
 Luma.com - smooth ux, notification features, 
 
 Momondo.es - smooth UX, 
+ 
+-------------------------------------------------------
 
+## Monetisation
+
+Freemium model, only basic features for free, so ppl can try out the platform first.
+
+Premium, maybe simply on a pay-as-you-go basis (fee when paying via platform).
+ 
 -------------------------------------------------------
 
 ## Project Plans

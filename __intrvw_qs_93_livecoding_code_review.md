@@ -1,34 +1,66 @@
 
+-------------------------------------------------------
 
+# Code Review For Project In React.js
 
 -------------------------------------------------------
 
-# Code Review For React.js Project
+## How To On Real Project
+
+1. Initial Inspection
+2. Component Code Review - Following The Categories Below
 
 -------------------------------------------------------
 
-## Watch Out For
+### Initial Inspection
 
- - No TypeScript usage. It's not mandatory, but it is a standard to keep in mind
- - Elaborate organizational proposal at the level of components, CSS, architecture
- - SEO+ACC: Semantic HTML, use `<main>, <section>, <nav>, <header>, <footer>`.
- - ACC: Image-based navigation lacks keyboard accessibility (cannot Tab + Enter)
- - TEST: 65% test coverage
- - API calls mixed within components instead of isolated in custom hooks or services
- - HTTP response validation missing (no status code checks)
- - No URL-based routing (cannot bookmark specific view, browser back button doesn't work)
- - No pagination implemented, loading too little or too much data at once
- - untestable code: put code always in functions so it can be tested
- - unreadable and hard-to-maintain code: namings should be self-explanatory, logic should be easy to digest
- - data structures: you may optimise an array into a set
- - upgrading basic for-loops into Array Instance Methods - i.e. reduce(), map(), etc
- - error and loading states handling
- - duplicate states: replace by data derived on-the-fly
- - Not using CSS modules or CSS-in-JS for scoping styles
- - Lack of defensive programming techniques - i.e. to add fallback values
+a. Do some visual inspection (check the UI, try to infere what should be in state)
+
+b. With the component inspector, figure out the component structure
+
+c. Pay attention to where state is, and figure out if it should be lifted more, moved to context, if a state management library would make sense or not
+
+d. Assess the state data-structure, is it the optimal one?
+   - Array are good for lists
+   - Objects are good for fast access of specific objects (google sheets)
+   - Use primitives as much as possible for anything else
+   - Check for unnecessary re-renders() - use the React debugger here again
+
+-------------------------------------------------------
+
+## Component Code Review - Following The Categories Below
+
+Read below.
+
+-------------------------------------------------------
+
+## Code Review Categories 
+
+1. Code Quality - SOLID, project structure, testing, old syntax, data structures, defensive prog, CSS scoping (CSS modules)
+2. UX - views have url, pagination, 
+3. Accessibility - semantic html, intuitive tabulation, aria roles and labels, color contrast
+4. Performance - image optimization, duplicated states, caching, lazy loading
+
+-------------------------------------------------------
+
+### 1. Code Quality
+
+Common Issues:
+ - TS: No TypeScript usage. It's not mandatory, but it is a standard to keep in mind
  - TS: using any instead of correct types
- - Components are large, impure, and/or stateful - keep them small, pure, and stateless when possible.
-
+ - ARCH: Elaborate organizational proposal at the level of components, CSS, files and directories.
+ - ARCH: Design Patterns - container/presenter pattern, early return pattern
+ - ARCH: API calls mixed within components - instead of isolated in custom hooks or services (SOLID)
+ - ARCH: Components are large, impure, and/or stateful - instead of keeping them small, pure, and stateless when possible.
+ - TEST: 65% test coverage
+ - TEST: untestable code: put code always in functions so it can be tested
+ - TEST: stateless logic in a component - instead of moving it out to a separate function in a util.ts module i.e. an email validation function
+ - DEF: Lack of defensive programming techniques - i.e. to add fallback values
+ - DEF: HTTP response validation missing (no status code checks)
+ - DEF: error and loading states handling
+ - CSS: using inline styles - instead of CSS modules or CSS-in-JS for scoping styles
+ - unreadable and hard-to-maintain code: namings should be self-explanatory, logic should be easy to digest
+   
 Readability, Testability, Maintainability
  - 100% of the code must be in functions
  - self-explanatory namings
@@ -51,10 +83,39 @@ Upgrade Syntax
  - class component -> function component
  - regular function -> arrow functions
 
-Optimize Loops and Data Structures
+-------------------------------------------------------
+
+### 2. UX
+
+Common Issues:
+ - No URL-based routing (cannot bookmark specific view, browser back button doesn't work)
+ - No pagination implemented, loading too little or too much data at once
+
+-------------------------------------------------------
+
+### 3. Accessibility
+
+ - SEO+ACC: Semantic HTML, use `<main>, <section>, <nav>, <header>, <footer>`.
+ - ACC: Image-based navigation lacks keyboard accessibility (cannot Tab + Enter)
+
+-------------------------------------------------------
+
+### 4. Performance
+
+Common Issues:
+ - data structures: you may optimise an array into a set
+ - upgrading basic for-loops into Array Instance Methods - i.e. reduce(), map(), etc
+ - duplicate states: replace by data derived on-the-fly
+ - no use of memoization
+
+Optimize JS/TS Loops and Data Structures
  - array -> set, or map
  - loop -> proper algorithms
  - loop -> Array Instance Methods such as reduce(), or map()
+
+Optimize React:
+ - Look out for opportunities for using `useMemo`, `useCallback` or `React.memo`.
+ - Assess moving state up or down to the component tree.
 
 Optimize Performance
  - Caching
@@ -62,50 +123,9 @@ Optimize Performance
 
 -------------------------------------------------------
 
-## 1. Initial Inspection
-
-a. Do some visual inspection (check the UI, try to infere what should be in state)
-
-b. With the component inspector, figure out the component structure
-
-c. Pay attention to where state is and figure out if it should be lifted more, moved to context, if a state management library would make sense or not
-
-d. Assess the state data-strucuture, is it the optimal one?
-   - Array are good for lists
-   - Objects are good for fast access of specific objects (google sheets)
-   - Use primitives as much as possible for anything else
-   - Check for unnecessary re-renders() - use the React debugger here again
 
 
--------------------------------------------------------
 
-## 2. React Optimizations
-
-a. Look out for opportunities for using `useMemo`, `useCallback` or `React.memo`.
-
-b. Assess moving state up or down to the component tree.
-
-
--------------------------------------------------------
-
-## 3. Code Quality -  here you do a "component code review" 
-
-a. Design Patterns - the Container/Presenter pattern, the Early Return pattern, asses if there is any logic that is worth encapsulating in a custom hook 
-   - Statefull logic - react query
-   - WET before DRY
-
-b. Code Style
-   - Review variable naming following this guide from Google
-
-c. Is there stateless logic in a component that can be moved out?
-   - Example: an email validation function declared inside a component should be moved outside and unit tested
-
-d. CSS:
-   - Avoid inline styles
-   - CSS Modules / CSS Classes
-
-e. Testing
-   - Write some component tests before the interview so you are not rusty
 
 
 
