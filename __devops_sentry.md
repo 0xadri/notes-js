@@ -1,6 +1,14 @@
 
 -------------------------------------------------------
 
+# AI and DevOps: Heads Up
+
+AI can be pretty bad at everything devops related. 
+
+That includes doing project configuration with Vite, Webpack, Linter, Prettier and the likes.
+
+-------------------------------------------------------
+
 # Docs
 
 https://docs.sentry.io/

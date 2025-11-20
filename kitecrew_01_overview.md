@@ -78,9 +78,9 @@ Drivers = Organizers = Host
 
 Riders = Guests = Participants = Attendants
 
-Users = Kitesurfers = Riders + Drivers // Luma Style: a user can be an organizer or a guest
+Users = Kitesurfers = Riders + Drivers = organizer + guest    // Luma Style: a user can be an organizer or a guest
 
-Seats = Capacity
+Seats = Spots = Capacity
 
 Public = Instant Booking + Publicly Listed
 
@@ -98,7 +98,288 @@ Trust & Safety = Profile Verification Status
 
 -------------------------------------------------------
 
-## MVP Core features
+## MVP Core Features
+
+| Feature                 | MVP Scope                                         |
+| ----------------------- | ------------------------------------------------- |
+| Booking                 | Request to reserve a seat + Cancel reservation    |
+| Connect Driver & Riders | Email sent to driver w rider Whatsapp, email      |
+| Email Notifications     | Email sent to driver w rider Whatsapp, email      |
+
+Email Notifications: Sent To Driver:
+- If a rider sends "request to join trip", it has the rider's email & phone number
+- If a driver "confirms a rider trip"
+
+Email Notifications: Sent To Rider:
+- If a driver "confirms a rider trip", it has the driver's email & phone number
+
+Trips: anyone can organize a trip ??
+- maybe ok as a V1
+
+Support
+ - official support email address
+
+-------------------------------------------------------
+
+## Pages
+
+All pages have top nav and footer.
+
+### Homepage
+
+  - **Hero Section:**
+      - **Search Bar:** Departure Location, Departure Date, Destination Location
+  - **Marketing Sections:**
+      - **Stats Section:** number of drivers, rides, etc
+      - **How It Works Section:** search for rides, Book your seat, Hit the water
+      - **Featured Upcoming Rides:** cards of several rides
+  - **Logged In?**
+      - **Top Nav:** Shows the user's profile and location, providing immediate personalization (VolleyWorld style)
+      - **Search Box:** Departure has user's latest departure location ?
+
+
+### Search Results Page (SRP) - V1
+
+Dedicated results page with a persistent, condensed search bar at the top.
+
+  - **Search Bar: Fields:**
+      - Departure Location
+      - Departure Date 
+      - Destination Location
+
+  - **List Of Trips: Trips Card Details:**
+      - **Title:** Driver-defined name for the trip ??
+      - **Driver Name**
+      - **Driver Rating:** Star rating *and* the total number of reviews (e.g., 4.8 (123)).
+      - **Description:** Shortened summary.
+      - **Seats Left** i.e. 2. 
+      - **Price:** Total cost.
+      - **CTA:** Request to join trip.
+
+
+### Search Results Page (SRP) - V2
+
+  - **List Of Trips: Trips Card Details:**
+      - **Tags:** "Superdriver" or "Riders Favorite" for high-rated drivers.
+      - **Images:** Hovering over the main image triggers a slideshow (driver profile pics, car pics)
+      - **Actions:** Favorite button (heart icon).
+      - **Cancellation:** Explicitly stated policy (e.g., "Free cancellation").
+
+
+  - **Navigation:**
+      - **Infinite Scroll:** can be with a "load more" button for the sake of simplicity.
+      - **Prev Day and Next Day Buttons:** in case reaching the end of the list.
+
+  - **Refining Results**
+      - **Sort Options:**
+          - Earliest departure
+          - Lowest price
+          - Distance to departure point
+          - Price ?
+      - **Filter Criteria:**
+          - Pickup Time (range ?)
+          - Profile Verification status
+          - Return
+          - One Way
+          - Rating
+          - Instant booking
+          - Number of people in the back
+          - Luggage Allowance
+
+ - **Layout:** Split-panel design
+      - **Right:** Map showing trip start locations with markers containing further info
+      - **Left:** List of trip cards.
+  - **Map showing trip start locations:**
+      - markers containing start date+time, destination, price, driver name, driver rating and trips (e.g., 4.8 (123)).
+
+
+### Trip Page
+
+  - **Title**
+  - **Description**
+      - rich-text field
+      - "Translate to English" button.
+  - **Departure**
+      - Location (city)
+      - Pick Up Point: approximate location (Neighborood) 
+      - Date & Time
+  - **Destination**
+      - Location (the spot!)
+      - Date & Time - calculated
+  - **Return vs One Way** 
+      - If one way, must be flagged to user (i.e. red text)
+  - **Return**
+      - Location
+      - Start Date & Time - estimated range i.e. ±1H
+  - **Status**
+      - nb of seats left
+      - full -> "Join Waiting List" button // Luma.com style
+  - **Organizer**
+      - Name
+      - Pic
+      - Rating
+      - Nb Trips Organized
+      - COULD: hover card on the organizer's name shows basic info, guest count, and a "Contact Host" link.
+  - **Access Tiers:** A three-tier system controls event visibility and attendance:
+      - **Instant Book:** Open to all; no organizer approval needed.
+      - **Regular:** Requires organizer approval to join.
+      - **Unlisted:** Not visible in search; accessible only via a direct link.
+  - **Luggage Allowance**
+      - nb kite bags (1 by default)
+      - nb twintip boards (1 by default)
+      - nb small bags (1 by default)
+      - nb board bags (0 by default)
+  - **Car**
+      - Name
+      - Pic
+      - Nb Trips Done
+  - **Participants** 
+      - **Riders:** all riders joining this trip - providing social proof and allowing users to view each other's profiles for context.
+      - Clicking a rider's card takes you to their profile page.
+  - **Departure Map:** 
+      - A map showing the exact location is hidden until booking.
+  - **"Book Trip" Button**
+      - **Guest Checkout:** A fast, guest-friendly flow.
+          - **Process:** Click "Book Trip" → an overlay appears for name, email, and card details.
+          - **Rationale:** Reduces friction for new users by eliminating the need to create an account before purchase.
+  - **Share** feature: share icon + "share" text, if clicked then copy a link to the page 
+
+
+### User Profile Page
+
+URL as "/user/[id]" -  **id** - with format such as "4M5NJ8" or "W1KQ4S" similarly to our Trip's ID
+
+Data in page: 
+ - **first name**
+ - **last name**
+ - **Signed Up Month**
+ - **Trips Organized** [x] completed, [y] cancelled
+ - **Trips Joined** [x] completed, [y] cancelled 
+ - **Description**
+ - **Languages** ""[icon] Speaks x, y, z" (Airbnb style)
+ - **HomeBase** "Lives in [city], [country]" (Airbnb style)
+ - **Kitesurfing Skills** Text field with "I can do these tricks: toe side, upwind, back roll, board rescue, self launch, self land, 10+ meter jumps, ..."
+ - **Car Details** brand, model, color, year, km (i.e. 100K+).
+ - **Reviews**
+     - list of reviews from latest to oldest
+     - each review has: a rating from 1 to 5, a comment, a trip vague date (if within month "x weeks ago", else [month] [year]) 
+Overall rating ★5 | From Riders ★ | From Drivers ★5
+1 trips           | 0 trips       | 1 rides
+ - **Email** - as a user I can see this if driver confirmed a future trip with me
+ - **Phone/Whatsapp** - as a user I can see this if driver confirmed a future trip with me
+ - **Pic**
+ - **Tags** i.e. Superhost, Superguest
+ - **Future Trips**: upcoming trips organised by user: departure, destination, cost, driver, etc
+ - **Response rate**: x%
+ - **Responds within** x hours
+ - **Report Button**
+ - **Block Button**
+
+---
+
+CREATE AND UPDATE PAGES --> DB REQUIRED
+
+
+### User Auth: Sign-In Page
+
+Also serves purpose as the sign-up page.
+
+Magic link or code.
+
+TODO: fathom it on https://luma.com/signin
+
+
+### User Dashboard Page
+
+ - Signed up date.
+ - Main Tab (for all users)
+    - User Text fields: full name, address, dob, id/passport.
+    - Kitesurfer Text field: 1 text field with placeholder "I can do these tricks: "toe side", "upwind", "back roll", "board rescue", "self launch", "self land", "10+ meter jumps", ..."
+ - Rider Tab
+     - Future Trips: departure, destination, cost, driver, etc
+     - Past Trips: same details as future trips
+     - CTA Cancellation: as a rider I can cancel, I can add a comment when doing so
+ - Driver Tab
+     - Driver Text fields:  driving license, car details (pre-fill with "brand, model, color, year, km")
+     - Stats For Trips Organized: number, km, total income
+     - Future Trips: departure, destination, cost, riders, etc
+     - Past Trips: same details as future trips
+     - CTA Cancellation: as a driver I can cancel, I can add a comment when doing so
+
+
+### Create Trip Page
+
+Only the essential details.
+
+  - **Title**
+  - **Description**
+  - **Departure**
+      - Exact Location (full address)
+      - Pick Up Point: approximate location (Neighborood) - users only see that until they book - hiding exact trip pickup point until booking to protect organizer privacy
+      - Date & Time
+  - **Destination**
+      - Location (the spot!)
+  - **Return vs One Way** 
+      - If one way, must be flagged to user (i.e. red text)
+  - **Return**
+      - Exact Location (full address) - should be same as departure - editable
+      - Date & Time (arrival)
+
+
+### Manage Trip Page - V1
+
+The "Manage Trip" page's tabbed UI (Overview, Guests, etc.) is a model for comprehensive organizer control.
+
+ - Everything from "Create Trip Page" plus the below
+ - Same Day Return ETA
+     - Estimated range i.e. 9pm - 11:55pm
+ - **Seats:** Set trip capacity
+ - **Publish/Unpublish**
+ - **Delete**
+ - **Pickup Point Neighborhood:** area of pickup point
+ - **Pickup Point Exact Location:** privacy -> hide exact pickup point until booking.
+ - **Regular Tier:** All bookings require organizer approval to join.
+
+
+### Manage Trip Page - V2
+
+ - **Access Tiers:** A three-tier system controls event visibility and attendance:
+     - **Instant Book:** Open to all; no organizer approval needed.
+     - **Conditional Instant Book:** Open to all IF passing criteria i.e. booked 10+ times; no organizer approval needed.
+     - **Regular:** Requires organizer approval to join.
+     - **Unlisted:** Not visible in search; accessible only via a direct link.
+ - **Luggage Allowance**
+     - nb kite bags (1 by default)
+     - nb twintip boards (1 by default)
+     - nb small bags (1 by default)
+     - nb board bags (0 by default)
+
+
+### Manage Trip Page - V3
+
+Possibly coming in V3
+
+ - Rich-text editor for event descriptions.
+ - Pre-made event photo library.
+ - **Seats & Waitlist:** Set trip capacity and enable an overcapacity waitlist to notify users of new openings.
+ - **Image:** picture for trip - optional feature (VolleyWorld style).
+ - **Email Templates:** Pre-written templates for "waitlist", "pending approval", and "confirmation" emails.
+ - **Boost Tools**
+     - **AI Assistant:** helps improve event description - optional feature (VolleyWorld style)
+     - **Description Templates:** Pre-written text snippets are inserted into the description field via buttons, streamlining the addition of common details.
+         - *Example:* "Extranet" button → "If you can bring another Extranet, please write in the chat."
+
+
+# Admin Panel
+
+Manage Trips & Users
+
+
+
+
+-------------------------------------------------------
+
+# Vx Core Features
 
 | Feature       | MVP Scope                                         | Later (Post-MVP)           |
 | ------------- | ------------------------------------------------- | -------------------------- |
@@ -110,7 +391,6 @@ Trust & Safety = Profile Verification Status
 | Ratings       | Stars 1-5 and comment (for cars or experience)    | Detailed reviews           |
 | Notifications | Email alerts                                      | Push notifications         |
 | Admin panel   | View/manage rides & users                         | Analytics dashboard        |
-
 
 Booking types:
  - Instant booking
@@ -178,220 +458,6 @@ Further ideas:
 
  - "Subscribe" feature + notifications for organizers and subscribers - "Kitesurfer xyz subscribed to you" for drivers, and "Kitesurfer xyz published a trip" for subscribers
 
--------------------------------------------------------
-
-## Pages
-
-All pages have top nav and footer.
-
-### Homepage
-
-  - **Hero Section:**
-      - **Search Bar:** Departure Location, Departure Date
-  - **Marketing Sections:**
-      - **Stats Section:** number of drivers, rides, etc
-      - **How It Works Section:** search for rides, Book your seat, Hit the water
-      - **Featured Upcoming Rides:** cards of several rides
-  - **Logged In?**
-      - **Top Nav:** Shows the user's profile and location, providing immediate personalization (VolleyWorld style)
-      - **Search Box:** Departure has user's latest departure location ?
-
-
-### Search Results Page (SRP) - V1
-
-Dedicated results page with a persistent, condensed search bar at the top.
-
-  - **Search Bar**
-      - **Fields:** , 
-          - Departure Location
-          - Departure Date 
-
-  - **Refining Results**
-      - **Sort Options:**
-          - Earliest departure
-          - Lowest price
-          - Distance to departure point
-          - Price ?
-      - **Filter Criteria:**
-          - Pickup Time (range ?)
-          - Profile Verification status
-          - Return
-          - One Way
-          - Rating
-          - Instant booking
-          - Number of people in the back
-          - Luggage Allowance
-              
-  - **List Of Trips:**
-
-      - **Trips Card Details:**
-          - **Images:** Hovering over the main image triggers a slideshow (driver profile pics, car pics)
-          - **Tags:** "Superdriver" or "Riders Favorite" for high-rated drivers.
-          - **Actions:** Favorite button (heart icon).
-          - **Title:** Driver-defined name for the trip ??
-          - **Rating:** Star rating *and* the total number of reviews (e.g., 4.8 (123)).
-              - **Significance:** The review count provides social proof, showing the rating's reliability.
-          - **Description:**
-              - Shortened summary.
-              - Seat count.
-          - **Pricing:** Total cost.
-          - **Cancellation:** Explicitly stated policy (e.g., "Free cancellation").
-      
-  - **Navigation:**
-      - **Infinite Scroll:** can be with a "load more" button for the sake of simplicity
-      - **Prev Day and Next Day Buttons:** in case reaching the end of the list
-
-
-### Search Results Page (SRP) - V2
-
-As a later version.
-
- - **Layout:** Split-panel design
-      - **Right:** Map showing trip start locations with markers containing further info
-      - **Left:** List of trip cards.
-  - **Map showing trip start locations:**
-      - markers containing start date+time, destination, price, driver name, driver rating and trips (e.g., 4.8 (123)).
-
-
-### Trip Page
-
-  - **Title**
-  - **Description**
-      - rich-text field
-      - "Translate to English" button.
-  - **Departure**
-      - Location (city)
-      - Pick Up Point: approximate location (Neighborood) 
-      - Date & Time
-  - **Destination**
-      - Location (the spot!)
-      - Date & Time - calculated
-  - **Return vs One Way** 
-      - If one way, must be flagged to user (i.e. red text)
-  - **Return**
-      - Location
-      - Start Date & Time - estimated range i.e. ±1H
-  - **Status**
-      - nb of seats left
-      - full -> "Join Waiting List" button // Luma.com style
-  - **Organizer**
-      - Name
-      - Pic
-      - Rating
-      - Nb Trips Organized
-      - COULD: hover card on the organizer's name shows basic info, guest count, and a "Contact Host" link.
-  - **Access Tiers:** A three-tier system controls event visibility and attendance:
-      - **Instant Book:** Open to all; no organizer approval needed.
-      - **Regular:** Requires organizer approval to join.
-      - **Unlisted:** Not visible in search; accessible only via a direct link.
-  - **Luggage Allowance**
-      - nb kite bags (1 by default)
-      - nb twintip boards (1 by default)
-      - nb small bags (1 by default)
-      - nb board bags (0 by default)
-  - **Car**
-      - Name
-      - Pic
-      - Nb Trips Done
-  - **Participants** 
-      - **Riders:** all riders joining this trip - providing social proof and allowing users to view each other's profiles for context.
-      - Clicking a rider's card takes you to their profile page.
-  - **Departure Map:** 
-      - A map showing the exact location is hidden until booking.
-  - **"Book Trip" Button**
-      - **Guest Checkout:** A fast, guest-friendly flow.
-          - **Process:** Click "Book Trip" → an overlay appears for name, email, and card details.
-          - **Rationale:** Reduces friction for new users by eliminating the need to create an account before purchase.
-
-### Create Trip Page
-
-Only the essential details.
-
-  - **Title**
-  - **Description**
-  - **Departure**
-      - Exact Location (full address)
-      - Pick Up Point: approximate location (Neighborood) - users only see that until they book - hiding exact trip pickup point until booking to protect organizer privacy
-      - Date & Time
-  - **Destination**
-      - Location (the spot!)
-  - **Return vs One Way** 
-      - If one way, must be flagged to user (i.e. red text)
-  - **Return**
-      - Exact Location (full address) - should be same as departure - editable
-      - Date & Time (arrival)
-
-
-### Manage Trip Page - V1
-
-The "Manage Trip" page's tabbed UI (Overview, Guests, etc.) is a model for comprehensive organizer control.
-
- - Everything from "Create Trip Page" plus the below
- - Same Day Return ETA
-     - Estimated range i.e. 9pm - 11:55pm
- - **Seats:** Set trip capacity
- - **Publish/Unpublish**
- - **Delete**
- - **Pickup Point Neighborhood:** area of pickup point
- - **Pickup Point Exact Location:** privacy -> hide exact pickup point until booking.
- - **Regular Tier:** All bookings require organizer approval to join.
- 
-### Manage Trip Page - V2
-
- - **Access Tiers:** A three-tier system controls event visibility and attendance:
-     - **Instant Book:** Open to all; no organizer approval needed.
-     - **Conditional Instant Book:** Open to all IF passing criteria i.e. booked 10+ times; no organizer approval needed.
-     - **Regular:** Requires organizer approval to join.
-     - **Unlisted:** Not visible in search; accessible only via a direct link.
- - **Luggage Allowance**
-     - nb kite bags (1 by default)
-     - nb twintip boards (1 by default)
-     - nb small bags (1 by default)
-     - nb board bags (0 by default)
-
-
-### Manage Trip Page - V3
-
-Possibly coming in V3
-
- - Rich-text editor for event descriptions.
- - Pre-made event photo library.
- - **Seats & Waitlist:** Set trip capacity and enable an overcapacity waitlist to notify users of new openings.
- - **Image:** picture for trip - optional feature (VolleyWorld style).
- - **Email Templates:** Pre-written templates for "waitlist", "pending approval", and "confirmation" emails.
- - **Boost Tools**
-     - **AI Assistant:** helps improve event description - optional feature (VolleyWorld style)
-     - **Description Templates:** Pre-written text snippets are inserted into the description field via buttons, streamlining the addition of common details.
-         - *Example:* "Extranet" button → "If you can bring another Extranet, please write in the chat."
-
-
-### Sign-In Page
-
-Also serves purpose as the sign-up page.
-
-TODO: fathom it on https://luma.com/signin
-
-
-### User Profile Page
-
- - Name
- - Pic
- - Rating
- - Nb Trips Organized
- - COULD: hover card on the organizer's name shows basic info, guest count, and a "Contact Host" link.
-
-Trips Attended
- - Completed: xyz 
- - Cancelled: xyz 
- 
-Trips Organized
- - Completed: xyz
- - Cancelled: xyz
-
-
-### Car Page
-
-TOODO
 
 -------------------------------------------------------
 
@@ -490,7 +556,8 @@ Style:
  - Adopt a visual-first UI, prioritizing images and icons over text (spotify style).
  - Use icons and images first - use text only for unique content identifiers (spotify style).
  - Glassmorphism to be used when needed i.e. top nav, or other overlays
- 
+ - 3D images (Luma.com style, gft.com style)
+
 Accessibility:
  - Color contrast, alt text, semantic HTML, aria labels and roles.
 
@@ -578,7 +645,7 @@ Spotify - smooth ux, intuitive navigation
 Luma.com - smooth ux, notification features, 
 
 Momondo.es - smooth UX, 
- 
+
 -------------------------------------------------------
 
 ## Monetisation

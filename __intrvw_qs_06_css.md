@@ -1,6 +1,56 @@
 
 -------------------------------------------------------
 
+# Mobile-First Responsive Websites: Best Practices By Category ?
+
+1. Layout & Structure
+2. Media Queries
+3. Typography
+4. Images & Media
+5. Navigation
+6. Performance
+7. Forms and Inputs
+8. Accessibility
+9. Interactions & Animations
+10. Content Strategy
+11. Testing
+12. Progressive Enhancement
+
+**1. Layout & Structure**
+
+Use a mobile-first approach
+- Start with small screens, then progressively enhance with media queries.
+- Base layout should work even without media queries.
+
+Flexible grid systems
+- Use CSS `Grid`/`Flexbox` for adaptive layouts.
+- Avoid `fixed-width` containers; use `percentages`, `fr`, or `minmax()`.
+
+Consistent spacing & modular scale
+- Define spacing tokens (e.g., `4`, `8`, `12`, `16px`).
+- Use responsive units like `rem`, `em`, `vw`, `vh`.
+
+Avoid horizontal scrolling
+- Apply overflow-x:hidden sparingly; fix root cause instead (fixed-width content, large images).
+
+**2. Media Queries**
+
+Use `min-width` (mobile-first)
+
+```css
+@media (min-width: 600px) { ... } 
+@media (min-width: 900px) { ... }
+```
+
+Limit the number of breakpoints
+- Add breakpoints based on design breaking, not device sizes.
+- 3–5 well-chosen breakpoints is typical.
+
+Use container queries when appropriate
+- Style components based on available space—not the screen size.
+
+-------------------------------------------------------
+
 # How do you use CSS Variables?
 
 CSS Variables = Custom Properties
