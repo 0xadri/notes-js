@@ -185,7 +185,7 @@ Anyone who runs `npm ci` or` npm install` with this lockfile will get `lodash@4.
 
 ### How It Works in Practice
 
-1. First install
+**1. First install**
 
 `npm install` reads package.json
 
@@ -193,11 +193,11 @@ Resolves dependencies (using ^ or ~ ranges)
 
 Generates or updates `package-lock.json`
 
-2. Subsequent installs
+**2. Subsequent installs**
 
 `npm ci` or `npm install` will use the exact versions in the lockfile
 
-3. CI/CD
+**3. CI/CD**
 
 Use `npm ci` to ensure that the exact same dependency tree is installed, every time
 
@@ -218,7 +218,7 @@ Differentiate between dependencies environments:
 
 The largest software registry in the world.
 
-More than two million packages. Used by more than 17 million developers.
+More than 2 million packages. Used by more than 17 million developers.
 
 Free Registry. At the center of JavaScript code sharing.
 
@@ -315,7 +315,7 @@ Try solving with different approaches such as:
 
  4. Stackoverflow Search
 
- 5. ChatGPT/DeepSeek - AI has a very hard time solving them also though because of the training data(older versions are over represented and weight more)
+ 5. ChatGPT/DeepSeek - AI has a very hard time solving them also though because of the training data (older versions are over represented and weight more)
 
 If nothing works, fall back to:
 
@@ -542,8 +542,8 @@ Typically, build tools merge all your code and transform it so that:
 # Bundlers: REST APIs vs Frontend Apps
 
 Two categories of JavaScript projects:
- - REST API in Node.js and Express, tl;dr backend projects
- - Web App in Node.js and React/Vue/etc, tl;dr frontend projects
+ - REST API in JS/TS + Node.js + Express - tl;dr backend projects
+ - Web App in JS/TS + React/Vue/etc - tl;dr frontend projects
 
 Similarly, there are **two categories of bundlers**, some for frontend projects and others for backend projects.
 
@@ -723,11 +723,9 @@ IAC examples are Terraform or the Cloud Development Kit
 
 - continuous feedback and improvement
 
-- low cost(time) by leveraging automation
+- low cost (time) by leveraging automation
 
-- happier developers - less live incidents, 
-
-- less overtime to fix bugs, etc
+- happier developers - less live incidents, less overtime to fix bugs, etc
 
 -------------------------------------------------------
 
@@ -753,7 +751,7 @@ Tools involve:
 
 Branches - Git branches where we manage code, depending on the git-flow you can have the main branch, release, and dedicated feature branches. 
 
-Triggers - fire when something meaningful happens - like merging a pull request to a specific branch(main, release)
+Triggers - fire when something meaningful happens - like merging a pull request to a specific branch (main, release)
 
 Artifacts - the output of the build pipeline, an executable version of the application
 
@@ -911,6 +909,31 @@ Additional tips
 
 -------------------------------------------------------
 
+# Deploying a React App on AWS S3 + CloudFront: SM Method
+
+**1. Bucket Creation**
+
+1. Create a bucket
+2. ACL Disabled - leave as is
+3. Block Public Access Settings > untick "Block Public Access"
+4. Block Public Access Settings > tick "I acknowledge..."
+5. Click "create bucket"
+6. Properties tab > static website hosting > select "enable"
+	- Index Document > type "index.html"
+	- Error Document > type "index.html"
+
+**2. Upload Files To Bucket**
+
+1. Go to S3 -> Object Tab -> Click on Upload -> CLick on "Add Files" -> Select files to Upload
+2. If you have a folder to upload, click on "Add Folder"-> Select folder to Upload
+3. IMPORTANT: in same view, go to Permissions section below, tick "Grant Public Access" and "I understand the risk of granting public read access"
+4. click "upload" - it'll upload your files and folders
+5. Go to "Properties" tab, "Static website hosting" section, open the URL -> this should work!
+
+If you have a 403 error, you missed a step related to permissions.
+
+-------------------------------------------------------
+
 # AWS Deployment Automation
 
 Command format: `aws s3 cp /tmp/foo/ s3://bucket/ --recursive`
@@ -920,6 +943,67 @@ Command for my project: `aws s3 cp ./build s3://movie-app-static-adri/ --recursi
 Docs
 
 AWS S3 CLI https://docs.aws.amazon.com/cli/latest/reference/s3/
+
+-------------------------------------------------------
+
+# Set Up CloudFront With an S3 Bucket
+
+1. Go to S3 → Your Bucket → Properties → Copy the bucket website endpoint URL
+
+2. Go to CloudFront → Create distribution
+
+
+Origin domain: manually paste the S3 website endpoint
+
+4. Set Default Cache Behavior - Recommended settings:
+
+    4.a. Viewer protocol policy → Redirect HTTP to HTTPS
+
+    4.b. Allowed HTTP Methods → GET, HEAD
+
+    4.c. Cache policy → “CachingOptimized” (default)
+
+    4.d Compress objects → Enable
+
+5. Add a Custom Domain (Optional)
+
+    5.a. If you want your own domain:
+
+    5.b. Under Settings → Alternate domain name (CNAME) add: www.example.com
+
+    5.c. Choose/create an SSL certificate from AWS Certificate Manager (ACM)
+
+    5.d. Region must be US East (N. Virginia)
+
+6. CloudFront → Distribution → Settings → Default root object
+
+    6.a. Set: index.html
+
+6. Deploy the distribution
+
+    6.a. Click Create distribution
+
+    6.b Wait ~5–15 minutes for status to become Deployed
+
+7. Test your CloudFront URL
+
+CloudFront will provide a domain like: d123abcde.cloudfront.net
+
+Open it in your browser — your S3 content should load through CloudFront with HTTPS.
+
+
+8. Optional: Restrict Bucket Access (Recommended)
+
+To prevent direct S3 access: 
+- Go to S3 → Bucket Policy
+- Block all public access
+- Use the CloudFront-generated OAC policy (from earlier)
+
+This ensures only CloudFront can access S3.
+
+
+
+
 
 -------------------------------------------------------
 
