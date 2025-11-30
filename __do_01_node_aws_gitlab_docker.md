@@ -847,6 +847,8 @@ The downtime risk is still high - although slightly lower than for an in-place d
 
 Source for the below guide: https://www.youtube.com/watch?v=SHN48wTEQ5I
 
+**1. Bucket Creation**
+
 1. Create a bucket
 2. ACL Disabled - leave as is
 3. Block Public Access Settings > untick "Block Public Access"
@@ -856,9 +858,9 @@ Source for the below guide: https://www.youtube.com/watch?v=SHN48wTEQ5I
 	- Index Document > type "index.html"
 	- Error Document > type "index.html"
 
-PATH A
-7. Option B: Change bucket policies
-permissions tab > bucket policies > edit
+**2. Bucket Settings: PATH A: Change bucket policies**
+
+7. permissions tab > bucket policies > edit
 	- add action > type and select "s3"
 	- type "getobj" > select "getobject"
 	- next to "add a resource", click on "add" button
@@ -892,9 +894,9 @@ permissions tab > bucket policies > edit
 8. Objects tab > upload your project files to the bucket
 9. 🎉 Access your project aws url (find it under "Properties" tab) 🎉
 
-PATH B
-7. Option A: Change ACLs
-"Permissions" tab > Object Ownership > ACL Enabled
+**2. Bucket Settings: PATH B: Change ACLs**
+
+7. "Permissions" tab > Object Ownership > ACL Enabled
   "Enabling ACLs turns off the bucket owner enforced setting for Object Ownership" > tick "I acknowledge that ACLs will be restored" > Click "Save"
 "Permissions" tab > Access Control List (ACL) > Edit
    "Everyone (public access)" row > tick "List" > tick "Read" > tick "I understand the effects of these changes on my objects and buckets." > click "save"
@@ -909,20 +911,29 @@ Additional tips
 
 -------------------------------------------------------
 
-# Deploying a React App on AWS S3 + CloudFront: SM Method
+# Deploying a React App on AWS S3 + CloudFront: by SM
+
+Note: https automatically gets turned on.
 
 **1. Bucket Creation**
 
-1. Create a bucket
+1. S3 -> Create a bucket
 2. ACL Disabled - leave as is
 3. Block Public Access Settings > untick "Block Public Access"
 4. Block Public Access Settings > tick "I acknowledge..."
 5. Click "create bucket"
-6. Properties tab > static website hosting > select "enable"
+
+**2. Bucket Settings**
+
+1. Go to "Properties" tab > static website hosting > select "enable"
 	- Index Document > type "index.html"
 	- Error Document > type "index.html"
+2. Check: Go to "Properties" tab, "Static website hosting" section, open the URL -> this should throw a 403 error - bc some permissions are missing.
+3. Go to "Permissions" tab, "Object Ownership" section, click "Edit", tick "ACLs enabled", tick "I acknowledge...", click "save changes"
+4. Go to "Permissions" tab, "ACL" section, click "Edit", on line "Everyone (public access)" tick "list" and "read", tick "I understand...", click "save"
+5. Check: Go to "Properties" tab, "Static website hosting" section, open the URL -> this should throw a 404 error - bc no page was uploaded
 
-**2. Upload Files To Bucket**
+**3. Upload Files To Bucket**
 
 1. Go to S3 -> Object Tab -> Click on Upload -> CLick on "Add Files" -> Select files to Upload
 2. If you have a folder to upload, click on "Add Folder"-> Select folder to Upload
@@ -931,6 +942,19 @@ Additional tips
 5. Go to "Properties" tab, "Static website hosting" section, open the URL -> this should work!
 
 If you have a 403 error, you missed a step related to permissions.
+
+**4. CloudFront Domain Creation**
+
+1. CloudFront -> Create Distribution -> select "Free", click "Next"
+2. Distribution Name: add something, click "next"
+3. "Origin" section, click "Browse S3", select relevant bucket - you can otherwise just paste the URL of the bucket (i.e. mycoolbucket.s3.us-east-1.amazonaws.com) - then, click "next"
+4. "Enable security" screen, click again "next"
+5. "Review and create" screen, click on "Create Distribution"
+6. Main page of the relevant distribution -> "Last modified" section: "Deploying" underneath -> after 5min it'll show a time and date, go to next step below
+7. Check: Main page of the relevant distribution -> under "Distribution domain name", this is the URL to check in your web browser
+8. Error: If you see an XML document instead of your web page -> go to "General" tab -> click "edit" -> Default root object, write "index.html" -> click "Save changes"
+
+If you ever need to clear the cache: Go to "Invalidations" tab -> click "Create Invalidation" -> under "Add object path" type "/*" -> click "create invalidation"
 
 -------------------------------------------------------
 

@@ -581,6 +581,73 @@ Validation and sanitization is required.
 
 
 
+-------------------------------------------------------
+
+# Backend ↔ Frontend
+
+-------------------------------------------------------
+
+## What and why DTOs?
+
+DTOs = Data Transfer Objects
+
+Very simple objects used to move data between layers (e.g., backend ↔ frontend) without exposing your domain models.
+
+They usually contain only fields, no business logic.
+
+-------------------------------------------------------
+
+## What and why domain models ?
+
+Domain models are the core business objects in your application — the classes that represent real-world concepts and contain business rules/behavior.
+
+Characteristics
+- Represent business concepts, not UI or database concerns
+- Usually contain behavior (methods), not just data
+- Enforce invariants and rules (e.g., “cannot cancel a shipped order”)
+- Are part of the domain layer in layered/DDD architectures
+- Designed based on discussions with domain experts
+
+-------------------------------------------------------
+
+## How related are DTOs and domain models?
+
+Domain model = brains = internal, rich business logic
+
+DTO = simple container of fields = external, data-only version for transport
+
+-------------------------------------------------------
+
+## Domain Entities vs Domain models ?
+
+**Domain Model = broad concept → Think: the entire business layer**
+
+The whole set of business concepts, rules, and behaviors in your domain.
+
+It includes entities, value objects, domain services, aggregates, events, etc.
+
+**Entity = specific type of domain object = one building block inside the domain model**
+
+A kind of domain model element that:
+- Has a unique identity (ID)
+- Lives through changes over time
+- Allows state mutations (with rules)
+- Example: User, Order, Account, Invoice
+
+Entities are mutable, and their identity matters more than their data.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -------------------------------------------------------
 

@@ -7,6 +7,15 @@
 
 Implement 6 solutions that allow me to manually switch from one to another by changing a hardcoded value from 1,2,3,4,5, or 6 ?
 
+---
+
+## Solutions Presentation Requiring Approval
+
+Mention 3 other possible solutions inline with best practices, also add trade-offs. Do not do any single code change until I approve
+
+I wonder if there a better way to do this, inline with existing patterns and best practices.
+
+Explain potential solutions, with tradeoffs, and do not implement until I approve.
 
 ---
 
