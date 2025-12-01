@@ -18,11 +18,37 @@ Idempotent = Making the same request multiple times in a row has the same effect
 
 Safe = read-only operation = does not change the server’s state
 
+HTTP verbs = HTTP methods
+
 -------------------------------------------------------
 
 ## What Is The Essence Of A REST API ?
 
-A REST API exposes data as resources and uses standard HTTP methods (GET, POST, PUT, DELETE, etc.) to act on those resources in a consistent, predictable way.
+REST = Resources + Standard HTTP verbs + Statelessness + Uniform rules.
+
+Data exposed as resources.
+
+Uses standard HTTP methods (GET, POST, PUT, DELETE, etc.)
+
+Each request is stateless.
+
+Responses are uniform, predictable.
+
+Aim: act on resources in a consistent, predictable way.
+
+-------------------------------------------------------
+
+## What Is Meant By "REST API Are Stateless" ?
+
+Each request must contain everything needed to process it.
+ - The server keeps no session data about the client.
+ - No hidden "state" between calls.
+
+-------------------------------------------------------
+
+## What Is The Reason Of Making REST API Stateless ?
+
+This makes REST scalable.
 
 -------------------------------------------------------
 
@@ -252,11 +278,126 @@ Different API designs handle updates differently.
 
 -------------------------------------------------------
 
+## What is meant by "The URL identifies the resource, not the action" ?
+
+REST avoids verbs in URLs.
+
+❌ /createUser
+❌ /deleteOrder
+
+✔️ /users
+✔️ /orders/55
+
+The `HTTP method` expresses the action.
+
+-------------------------------------------------------
+
+## What is meant by "Standard HTTP methods have meaning" ?
+
+REST uses the semantics of HTTP instead of inventing new operations.
+
+| Method     | Meaning        | Example           |
+| ---------- | -------------- | ----------------- |
+| **GET**    | Read           | GET /users        |
+| **POST**   | Create         | POST /users       |
+| **PUT**    | Replace        | PUT /users/123    |
+| **PATCH**  | Partial update | PATCH /users/123  |
+| **DELETE** | Remove         | DELETE /users/123 |
+
+-------------------------------------------------------
+
+## What Is Meant By "Uniform, predictable responses" ?
+
+Clients should know what to expect:
+- Standard status codes (200, 201, 404, 400, etc.)
+- Standard error formats
+- Standard representation types (usually JSON)
+
+-------------------------------------------------------
+
+## What Are The Categories Of HTTP Response Codes ?
+
+5 classes:
+
+| Class   | Meaning                                    |
+| ------- | ------------------------------------------ |
+| **1xx** | Informational — rarely used                |
+| **2xx** | Success — the request succeeded            |
+| **3xx** | Redirect — client should go somewhere else |
+| **4xx** | Client error — the request is wrong        |
+| **5xx** | Server error — the server failed           |
+
+-------------------------------------------------------
+
+## Can You Match Common `REST API Endpoints` To `HTTP Response Codes` ?
+
+| Endpoint       | Method | Typical Success | Typical Errors               |
+| -------------- | ------ | --------------- | ---------------------------- |
+| `/users`       | GET    | 200             | 400, 401                     |
+| `/users`       | POST   | 201             | 400, 401, 409, 422           |
+| `/users/:id`   | GET    | 200             | 401, 403, 404                |
+| `/users/:id`   | PUT    | 200 / 204       | 400, 401, 403, 404, 409, 422 |
+| `/users/:id`   | PATCH  | 200 / 204       | 400, 401, 403, 404, 409, 422 |
+| `/users/:id`   | DELETE | 204             | 401, 403, 404                |
+
+In details:
+
+| Endpoint       | Method | Success Codes              | Common Error Codes                                                                                      |
+| -------------- | ------ | -------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `/users`       | GET    | 200 OK, 204 No Content     | 400 Bad Request, 401 Unauthorized                                                                       |
+| `/users`       | POST   | 201 Created                | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 409 Conflict, 422 Unprocessable Entity                |
+| `/users/:id`   | GET    | 200 OK                     | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found                                         |
+| `/users/:id`   | PUT    | 200 OK, 204 No Content     | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable Entity |
+| `/users/:id`   | PATCH  | 200 OK, 204 No Content     | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, 422 Unprocessable Entity |
+| `/users/:id`   | DELETE | 204 No Content             | 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found                                         |
+
+-------------------------------------------------------
+
+## Can You Match `HTTP Response Codes` To Common `REST API Endpoints`?
+
+| Code                          | Name                          | When Used (REST)             |
+| ----------------------------- | ----------------------------- | ---------------------------- |
+| **200 OK**                    | Success                       | GET, PUT, PATCH              |
+| **201 Created**               | Resource created              | POST                         |
+| **202 Accepted**              | Accepted, async processing    | async jobs                   |
+| **204 No Content**            | Success, no body              | PUT, PATCH, DELETE           |
+| **301 Moved Permanently**     | Permanent redirect            | rare in APIs                 |
+| **302 Found**                 | Temporary redirect            | rare in APIs                 |
+| **304 Not Modified**          | Cached resource unchanged     | GET with ETag                |
+| **400 Bad Request**           | Invalid request               | wrong format, missing fields |
+| **401 Unauthorized**          | Not authenticated             | JWT missing/invalid          |
+| **403 Forbidden**             | Authenticated but not allowed | permissions                  |
+| **404 Not Found**             | Resource does not exist       | ID not found                 |
+| **409 Conflict**              | Data conflict                 | duplicate email, versioning  |
+| **422 Unprocessable Entity**  | Validation failed             | semantic errors              |
+| **429 Too Many Requests**     | Rate limit hit                | throttling                   |
+| **500 Internal Server Error** | Server crashed                | unknown failure              |
+| **502 Bad Gateway**           | Upstream error                | microservices                |
+| **503 Service Unavailable**   | Server down/overloaded        | maintenance                  |
+| **504 Gateway Timeout**       | Upstream timeout              | slow microservice            |
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
 **TODO**
 
-- Provide an example REST API design for your project
-- Generate OpenAPI/Swagger documentation
-- Compare REST vs GraphQL vs gRPC
+- OpenAPI/Swagger documentation
+- REST best practices
+- “Pure REST” (HATEOAS) vs practical REST
+- Example REST API design for your project
+- REST vs GraphQL
+- REST vs gRPC
 
 
 
