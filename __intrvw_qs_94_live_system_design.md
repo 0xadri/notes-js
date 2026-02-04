@@ -584,6 +584,18 @@ Real challenges that turned up during interviews
 
 -------------------------------------------------------
 
+## BE REST API
+
+System Design: design a the BE REST API with the following requirements:
+
+### SOLUTION
+
+TODO
+
+https://www.youtube.com/watch?v=DQ57zYedMdQ
+
+-------------------------------------------------------
+
 ## Multi-Step Form (FE)
 
 System Design: design an application (FE+BE) with the following requirements:
@@ -809,5 +821,5 @@ https://www.codechef.com/
 
 Blind 75 or NeetCode 150 is more than enough for FAANG and other big tech companies.
 
-
+https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction
 

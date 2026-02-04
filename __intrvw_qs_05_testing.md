@@ -219,3 +219,95 @@ For instance, to spy on a specific method, and make sure it was called with the 
 
 -------------------------------------------------------	
 
+# When testing with mocks, why use model without relations?
+
+
+"Without relations" means the type includes only the User's scalar fields, not the relation fields.
+
+Scalar Field = stores a single, indivisible value — something that is not another object or record - i.e. string, int, boolean, date, etc
+
+Relation fields = represents a relationship between two entities/models/tables - typically correspond to foreign keys - i.e. relations One-to-one, One-to-many, Many-to-many
+
+-------------------------------------------------------	
+
+# Coverage threshold levels
+
+**Conservative (80% overall, 70% per-file)**
+
+- Pros: Achievable quickly, less friction, focuses on critical paths
+- Cons: May miss edge cases, lower confidence in refactoring
+- Best for: Early projects, rapid iteration, small teams
+
+**Moderate (85% overall, 75% per-file)**
+
+- Pros: Good balance, catches most issues, reasonable maintenance
+- Cons: Some gaps remain, requires consistent discipline
+- Best for: Most production projects, growing codebases
+
+**Strict (90% overall, 80% per-file)**
+
+- Pros: High confidence, safer refactoring, catches edge cases
+- Cons: Higher maintenance, can slow development, may encourage low-value tests
+- Best for: Critical systems, mature codebases, regulated industries
+
+-------------------------------------------------------	
+
+# Coverage metrics
+
+**Lines**
+- Pros: Simple, fast, easy to understand
+- Cons: Misses untested branches/conditions, can be misleading
+
+**Statements**
+- Pros: More accurate than lines, accounts for multi-line statements
+- Cons: Similar to lines, still misses branch coverage
+
+**Functions**
+- Pros: Ensures functions are called, good for API coverage
+- Cons: Doesn't verify behavior, can pass with shallow tests
+
+**Branches**
+- Pros: Catches untested if/else, switch cases, ternaries; most valuable
+- Cons: Harder to achieve, can be noisy with defensive code
+
+**All metrics (recommended)**
+- Pros: Comprehensive, catches different failure modes
+- Cons: Strictest, requires thorough testing
+
+-------------------------------------------------------	
+
+# Per-file vs global thresholds
+
+**Per-file threshold**
+- Pros: Prevents files with 0% coverage, ensures consistent quality
+- Cons: Can be strict for utility files, may need exceptions
+
+**Global threshold only**
+- Pros: Flexible, allows some files to be lower if others are higher
+- Cons: Can hide files with no coverage
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+**TODOs**
+
+- Testing REST APIs
+- Testing REST APIs: Postman?
+- Testing REST APIs: Integration Tests?
+- Testing REST APIs: Unit Tests? SuperTest library?
+- Testing REST APIs: cURL Scripts ?
+
+
+
+
+
+

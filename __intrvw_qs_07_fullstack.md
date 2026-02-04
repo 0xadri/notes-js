@@ -169,13 +169,92 @@ OIDC (OpenID Connect) = Authentication + Authorization (ID layer on top of OAuth
 
 ## How Related Are OAuth, OIDC, and Delegated Authentication ?
 
-Delegated Authentication lets one system trust another for authentication (i.e. "Login with Facebook/GitHub/Google/etc")
+Delegated Authentication lets one system trust another for authentication - i.e. Login with Facebook/GitHub/Google/etc
 
 OAuth/OIDC are common implementations.
 
+-------------------------------------------------------
+
+## Access Tokens vs Refresh Tokens
+
+Complementary tokens.
+- Access token = keycard = opens doors briefly.
+- Refresh token = master key = used to get new keycards (access tokens), rarely touched.
+
+Differences: purposes and security properties.
+
+| Feature         | Access Token          | Refresh Token         |
+| --------------- | --------------------- | --------------------- |
+| Purpose         | Access APIs           | Get new access tokens |
+| Lifetime        | Short (mins to hours) | Long (days to months) |
+| Usage frequency | Every request         | Only on refresh       |
+| Sent to         | Resource server       | Authorization server  |
+| Scope           | Limited               | Typically broad       |
+| Revocable       | Harder (if stateless) | Easier                |
+| Risk if leaked  | Limited               | High                  |
+
+Similarity: both used in modern authentication/authorization systems - like OAuth 2.0
+
+Typical Flow:
+1. User logs in.
+2. Authorization server issues:
+   * **Access token**
+   * **Refresh token**
+3. Client calls APIs using the access token.
+4. Access token expires.
+5. Client sends refresh token to auth server.
+6. Auth server returns a **new access token** - and often a new refresh token.
+
+Security Best Practices:
+* Keep access tokens **short-lived**.
+* Store refresh tokens **securely** (HTTP-only cookies, secure storage).
+* Use **refresh token rotation** (invalidate old refresh tokens).
+* Never send refresh tokens to resource APIs.
+* Use **PKCE** for public clients (mobile, SPA).
+
+-------------------------------------------------------
+
+## Why fragments for access tokens?
+
+TLDR:
+- Security: The token isn't sent to the server, reducing exposure in logs
+- Privacy: Fragments aren't included in HTTP referrer headers
+- Best practice: OAuth 2.0 recommends fragments for access tokens
+
+URL Fragments (#token=abc123), Example: https://kitecrew.com/login#token=abc123
+- Not sent to the server (client-side only)
+- Only accessible via JavaScript in the browser
+- More secure for sensitive data like tokens
+
+Query Parameters (?token=abc123):
+- Sent to the server in the HTTP request
+- Visible in server logs
 
 
 
+-------------------------------------------------------
+
+## Refresh Token Storage: JWT-only vs Database storage ?
+
+Refresh Token Storage: 
+- Database storage = more control
+- JWT-only = simpler
+
+Database storage refresh tokens
+More security, revocation, or multi-device control
+
+JWT-only refresh tokens 
+If you truly want minimal state and accept weaker control.
+
+| Requirement           | DB Refresh Token | JWT-Only Refresh |
+| --------------------- | ---------------- | ---------------- |
+| Logout                | ✅ Real           | ❌ Fake           |
+| Revoke single device  | ✅                | ❌                |
+| Detect token theft    | ✅                | ❌                |
+| Stateless             | ❌                | ✅                |
+| Simple implementation | ❌                | ✅                |
+| Production security   | ✅                | ⚠️               |
+| Compliance            | ✅                | ❌                |
 
 
 
