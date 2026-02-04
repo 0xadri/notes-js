@@ -37,17 +37,21 @@
 * [React Native](__msc_reactnative.md)
 * [Tailwind CSS](__msc_tailwind-css.md)
 * [Vite](__do_03_vite.md)
+* [Linter & Prettier](__do_04_linter_prettier.md)
 * [Babel](__do_05_babel.md)
 * [Webpack](__do_02_webpack.md)
 * [Render](__do_render.md)
 * [Sentry](__do_06_sentry.md)
 * [HTML](__msc_html.md)
+* [AWS Cloud Practitioner](__do_99_aws_cloud_practitioner.md)
+
+## AI: CLIs, IDEs, LLMs, More
+
 * [AI 01: Introduction](__msc_ai_01_intro.md)
 * [AI 02: Cursor](__msc_ai_02_cursor.md)
 * [AI 03: Claude](__msc_ai_03_claude.md)
 * [AI 04: BMAD](__msc_ai_04_bmad.md)
 * [AI 05: Templates & Prompts](__msc_ai_99_templates_prompts.md)
-* [AWS Cloud Practitioner](__do_99_aws_cloud_practitioner.md)
 
 ## Live Coding Interviews
 
@@ -72,7 +76,3 @@
 * [Qs: Patterns & Architecture](__intrvw_qs_10_patterns_n_archi_js_react.md)
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
-
-reactjs_code_cmixtape.md
-___potential-courses-and-topics.md
-
