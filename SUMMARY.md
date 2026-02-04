@@ -7,11 +7,11 @@
 
 * [JavaScript 01: Vanilla JavaScript](__js_01_vanilla.md)
 * [JavaScript 02: APIs, Build & Consume](__js_03_api_build_n_consume.md)
-* [JavaScript 03: DevOps: Node, AWS, GitLab, Docker](__js_devops_node_aws_gitlab_docker.md)
+* [JavaScript 03: DevOps: Node, AWS, GitLab, Docker](__do_01_node_aws_gitlab_docker.md)
 * [JavaScript 04: MicroFrontEnds](__js_microfrontends.md)
 * [JavaScript 05: MongoDB](__js_mongodb.md)
 * [JavaScript 06: Mongoose](__mongoose.md)
-* [TypeScript](__typescript.md)
+* [TypeScript](__msc_typescript.md)
 
 ## React
 
@@ -31,19 +31,23 @@
 
 ## Node, Next, Bundler, More
 
-* [Node.js: Environment Variables](__nodejs_environment_variables.md)
-* [Node.js: Express API Microservices](__nodejs_express_api_microservices.md)
-* [Next.js](__nextjs.md)
-* [React Native](__reactnative.md)
-* [Tailwind CSS](__tailwind-css.md)
-* [Vite](__vite.md)
-* [Babel](__babel.md)
-* [Webpack](__webpack.md)
-* [Render](__render.md)
-* [Sentry](__sentry.md)
-* [HTML](__html.md)
-* [Artificial Intelligence](__ai.md)
-* [AWS Cloud Practitioner](__aws-cloud-practitioner.md)
+* [Node.js: Environment Variables](__msc_node_env_variables.md)
+* [Node.js: Express API Microservices](__msc_node__express_api_microservices.md)
+* [Next.js](__msc_nextjs.md)
+* [React Native](__msc_reactnative.md)
+* [Tailwind CSS](__msc_tailwind-css.md)
+* [Vite](__do_03_vite.md)
+* [Babel](__do_05_babel.md)
+* [Webpack](__do_02_webpack.md)
+* [Render](__do_render.md)
+* [Sentry](__do_06_sentry.md)
+* [HTML](__msc_html.md)
+* [AI 01: Introduction](__msc_ai_01_intro.md)
+* [AI 02: Cursor](__msc_ai_02_cursor.md)
+* [AI 03: Claude](__msc_ai_03_claude.md)
+* [AI 04: BMAD](__msc_ai_04_bmad.md)
+* [AI 05: Templates & Prompts](__msc_ai_99_templates_prompts.md)
+* [AWS Cloud Practitioner](__do_99_aws_cloud_practitioner.md)
 
 ## Live Coding Interviews
 
@@ -63,12 +67,12 @@
 * [Qs: Testing](__intrvw_qs_05_testing.md)
 * [Qs: CSS](__intrvw_qs_06_css.md)
 * [Qs: FullStack](__intrvw_qs_07_fullstack.md)
-* [Qs: Algo & Data Structure](__intrvw_qs_08_algo_n_data_structure.md)
-* [Qs: Patterns & Architecture](__intrvw_qs_09_patterns_n_archi_js_react.md)
+* [Qs: BE REST API](__intrvw_qs_08_be_rest_api.md)
+* [Qs: Algo & Data Structure](__intrvw_qs_09_algo_n_data_structure.md)
+* [Qs: Patterns & Architecture](__intrvw_qs_10_patterns_n_archi_js_react.md)
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
 
 reactjs_code_cmixtape.md
-speech-notes_codecademy.md
 ___potential-courses-and-topics.md
 
