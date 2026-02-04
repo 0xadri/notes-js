@@ -1,6 +1,6 @@
 # Plain Javascript
 
-warning: this page is a work in progress...
+*warning: these notes date from 2017*
 
 ## Getting Started: Crash Course
 
@@ -12,9 +12,9 @@ http://en.wikipedia.org/wiki/Client-side_scripting
 ### JavaScript - where
 
 You can put the javascript code wherever you want in the page.
-However, browsers load the content of a page from top to bottom, including the javascript. Some browsers do postpone the loading of javascript until all the HTML is loaded.
-So to avoid any browser to be slowed down when loading your page, you might want to add your javascript at the end of your page, ie. before the closing `</body>` tag.
-stackoverflow.com/questions/196702/where-to-place-javascript-in-a-html-file
+- However, browsers load the content of a page from top to bottom, including the javascript. Some browsers do postpone the loading of javascript until all the HTML is loaded.
+- So to avoid any browser to be slowed down when loading your page, you might want to add your javascript at the end of your page, ie. before the closing `</body>` tag.
+- stackoverflow.com/questions/196702/where-to-place-javascript-in-a-html-file
 
 ### JavaScript - how
 
@@ -56,17 +56,17 @@ JavaScript uses the window.onload function to check this
 ```
 
 More about this on http://api.jquery.com/ready/
-The CSS sheets are loaded before the javascript only if they are declared before the javascript (above).
-Almost all the javascript code you write must be surrounded by this "document ready" feature.
-Except for the functions triggered by buttons for instance.
+- The CSS sheets are loaded before the javascript only if they are declared before the javascript (above).
+- Almost all the javascript code you write must be surrounded by this "document ready" feature.
+- Except for the functions triggered by buttons for instance.
 
 ### JavaScript - where, how & when: my 2 cents http://stackoverflow.com/a/26115974/759452
 
 ### JavaScript - IE bugs: the console object
 
 console.log() breaks in IE8 unless IE's Dev Tool is open.
-A nice fix for any browser not supporting "console" object is to use a polyfill to fake it, see github.com/paulmillr/consolepolyfill
-See stackoverflow.com/questions/7742781/why-javascript-only-works-after-opening-developer-tools-in-ie-once
+- A nice fix for any browser not supporting "console" object is to use a polyfill to fake it, see github.com/paulmillr/consolepolyfill
+- See stackoverflow.com/questions/7742781/why-javascript-only-works-after-opening-developer-tools-in-ie-once
 
 ### JavaScript - Comments
 
@@ -113,12 +113,12 @@ var myCoolFunction = function(stepRangeInit, onSuccessCallBackFunc){
 ```
 
 Javascript - "use strict"; statement
-Supported by IE10+ caniuse.com/#feat=use-strict
-Browsers that don't support this statement, simply ignore it.
-"places a program, or a function, in a 'strict' operating context. This strict context prevents certain actions from being taken and throws more exceptions."
-It basically tries to help you write better javascript.
-stackoverflow.com/q/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it
-ejohn.org/blog/ecmascript-5-strict-mode-json-and-more
+- Supported by IE10+ caniuse.com/#feat=use-strict
+- Browsers that don't support this statement, simply ignore it.
+- "places a program, or a function, in a 'strict' operating context. This strict context prevents certain actions from being taken and throws more exceptions."
+- It basically tries to help you write better javascript.
+- stackoverflow.com/q/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it
+- ejohn.org/blog/ecmascript-5-strict-mode-json-and-more
 
 ## Getting Started: Essentials
 
@@ -164,14 +164,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMASc
   - TBC: The javascript file structure "could" mirror server-side views - really? why? files are cached anyway!
 
 Javascript - differences with java
-javascript functions/methods can't be overriden
-javascript functions/methods can't be overloaded
-javascript do not have block scope
-javascript only has function scope & global scope (window scope in a browser environment)
-javascript has global variables
-javascript has truthy & falsy values (some kind of default boolean variables interpretations)
-javascript cannot explicitly cast - javascript does type coercion (some kind of implicit casting - more on this below)
-javascript features are NOT supported by all browsers - one must investigate to find work arounds or graceful degradations
+- javascript functions/methods can't be overriden
+- javascript functions/methods can't be overloaded
+- javascript do not have block scope
+- javascript only has function scope & global scope (window scope in a browser environment)
+- javascript has global variables
+- javascript has truthy & falsy values (some kind of default boolean variables interpretations)
+- javascript cannot explicitly cast - javascript does type coercion (some kind of implicit casting - more on this below)
+- javascript features are NOT supported by all browsers - one must investigate to find work arounds or graceful degradations
 
 ### JavaScript - Variable Names
 
@@ -192,19 +192,19 @@ var age = 32;
 ```
 
 Javascript - Variable Scopes:
-javascript does not have block scope
-javascript only has function scope & global scope (window scope in a browser environment)
-Inner functions have access to parameters & variables of the functions they are defined within (except for this & arguments) - from "javascript the good parts"
+- javascript does not have block scope
+- javascript only has function scope & global scope (window scope in a browser environment)
+- Inner functions have access to parameters & variables of the functions they are defined within (except for this & arguments) - from "javascript the good parts"
 
 What does "var" do?
 - If you're in a function then "var" will create a local variable
 - If there is "no var", then the javascript engine looks up the scope chain until it finds the variable definition or hits the global scope (at which point it will create it)
 
-http://stackoverflow.com/questions/1470488/what-is-the-function-of-the-var-keyword-in-ecmascript-262-3rdedition-javascript
-http://stackoverflow.com/questions/500431/what-is-the-scope-of-variables-in-javascript
-http://stackoverflow.com/questions/4363113/jquery-scope-inside-document-ready
-http://stackoverflow.com/questions/11152977/global-javascript-variable-inside-document-ready
-http://stackoverflow.com/questions/11819425/jquery-document-ready-and-function-scope
+- http://stackoverflow.com/questions/1470488/what-is-the-function-of-the-var-keyword-in-ecmascript-262-3rdedition-javascript
+- http://stackoverflow.com/questions/500431/what-is-the-scope-of-variables-in-javascript
+- http://stackoverflow.com/questions/4363113/jquery-scope-inside-document-ready
+- http://stackoverflow.com/questions/11152977/global-javascript-variable-inside-document-ready
+- http://stackoverflow.com/questions/11819425/jquery-document-ready-and-function-scope
 
 Javascript - Defining a global app object:
 ```javascript
@@ -252,32 +252,32 @@ console.log('bar is: ' + bar); // bar is reachable here
 console.log('foo is: ' + foo); // foo is unreachable here (it's undefined)
 ```
 
-The first opening bracket and its relevant closing bracket are used so that we can make a function expression even though the code starts with the word "function" which is the syntax to say we are declaring a function statement. see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#Examples_2
-Note that this function does not have a name, it is then an anonymous function.
-We want a function expression because we want to be able to invoke the anonymous function, and an anonymous function statement cannot be invoked. Without it an error is thrown.
-Then the second pair of bracket to immediately calls (invokes) this anonymous function: that is as soon as the Javascript interpreter reads it.
+- The first opening bracket and its relevant closing bracket are used so that we can make a function expression even though the code starts with the word "function" which is the syntax to say we are declaring a function statement. see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#Examples_2
+- Note that this function does not have a name, it is then an anonymous function.
+- We want a function expression because we want to be able to invoke the anonymous function, and an anonymous function statement cannot be invoked. Without it an error is thrown.
+- Then the second pair of bracket to immediately calls (invokes) this anonymous function: that is as soon as the Javascript interpreter reads it.
 
-http://jsbin.com/vinokafiyore/1/edit?js,console - IIFE: 1st basic example
-http://jsbin.com/vinokafiyore/3/edit?js,console - IIFE: 2nd basic example
-http://stackoverflow.com/questions/2421911/what-is-the-purpose-of-wrapping-whole-javascript-files-inanonymous-functions-li
+- http://jsbin.com/vinokafiyore/1/edit?js,console - IIFE: 1st basic example
+- http://jsbin.com/vinokafiyore/3/edit?js,console - IIFE: 2nd basic example
+- http://stackoverflow.com/questions/2421911/what-is-the-purpose-of-wrapping-whole-javascript-files-inanonymous-functions-li
 
 Javascript - statement vs expression
-toread : http://www.2ality.com/2012/09/expressions-vs-statements.html
-toread: http://stackoverflow.com/questions/1013385/what-is-the-difference-between-a-function-expression-vsdeclaration-in-javascrip
-toread: http://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname
+- toread : http://www.2ality.com/2012/09/expressions-vs-statements.html
+- toread: http://stackoverflow.com/questions/1013385/what-is-the-difference-between-a-function-expression-vsdeclaration-in-javascrip
+- toread: http://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname
 
-Expression: Something which evaluates to a value. Example: 1+2/x
-Statement: Line(s) of code which does something. Does not evaluate to a value. Example: if(){}
-"An expression is any valid unit of code that resolves to a value."
-"Conceptually, there are two types of expressions: those that assign a value to a variable and those that simply have a value."
-"Wherever JavaScript expects a statement, you can also write an expression. Such a statement is called an expression statement. The reverse does not hold: you cannot write a statement where JavaScript expects an expression. For example, an if statement cannot become the argument of a function."
-"Any expression that evaluates to a value can be included in a boolean operation", because every expression evaluates to a boolean value using truthy & falsy values.
+- Expression: Something which evaluates to a value. Example: 1+2/x
+- Statement: Line(s) of code which does something. Does not evaluate to a value. Example: if(){}
+- "An expression is any valid unit of code that resolves to a value."
+- "Conceptually, there are two types of expressions: those that assign a value to a variable and those that simply have a value."
+- "Wherever JavaScript expects a statement, you can also write an expression. Such a statement is called an expression statement. The reverse does not hold: you cannot write a statement where JavaScript expects an expression. For example, an if statement cannot become the argument of a function."
+- "Any expression that evaluates to a value can be included in a boolean operation", because every expression evaluates to a boolean value using truthy & falsy values.
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
-http://stackoverflow.com/questions/12664230/is-boolean-expression-statement-the-same-as-ifboolean-expressionstat/
-http://stackoverflow.com/questions/12703214/in-javascript-what-is-the-difference-between-a-statement-and-anexpression
-http://stackoverflow.com/questions/19132/expression-versus-statement
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements
+- http://stackoverflow.com/questions/12664230/is-boolean-expression-statement-the-same-as-ifboolean-expressionstat/
+- http://stackoverflow.com/questions/12703214/in-javascript-what-is-the-difference-between-a-statement-and-anexpression
+- http://stackoverflow.com/questions/19132/expression-versus-statement
 
 ### JavaScript - Truthy and Falsy variables
 
@@ -292,13 +292,13 @@ undefined
 NaN
 ```
 
-All the rest is truthy.
-http://docs.nodejitsu.com/articles/javascript-conventions/what-are-truthy-and-falsy-values
-http://james.padolsey.com/javascript/truthy-falsey/
+- All the rest is truthy.
+- http://docs.nodejitsu.com/articles/javascript-conventions/what-are-truthy-and-falsy-values
+- http://james.padolsey.com/javascript/truthy-falsey/
 
-Javascript - Variable declaration tips:
-Check if the variable is already defined using javascript falsy values.
-If the var is falsy, then initialize it.
+- Javascript - Variable declaration tips:
+- Check if the variable is already defined using javascript falsy values.
+- If the var is falsy, then initialize it.
 ```javascript
 var myString = undefined || "" || "hello";
 var myNumber = undefined || 0 || 125;
@@ -315,8 +315,8 @@ http://jsbin.com/jutaxehuciza/1/edit?js,console
 ### JavaScript - Variable Types
 
 Use typeof to find out about the type of the variable.
-typeof returns 'number', 'string', 'boolean', 'undefined', 'function', or 'object'.
-Results returned by those variables when we output their type:
+- typeof returns 'number', 'string', 'boolean', 'undefined', 'function', or 'object'.
+- Results returned by those variables when we output their type:
 ```javascript
 var firstVar = {};            // is an object
 var secondVar = [];           // Exception: is an object
@@ -340,28 +340,35 @@ firstVar = true;              // firstVar is now an boolean
 firstVar = undefined;         // firstVar is now an undefined
 ```
 
-http://jsbin.com/jomasoyicalu/4/edit?js,console
-developer.mozilla.org/en/docs/Web/JavaScript/Guide/Values,_variables,_and_literals
-developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+- http://jsbin.com/jomasoyicalu/4/edit?js,console
+- developer.mozilla.org/en/docs/Web/JavaScript/Guide/Values,_variables,_and_literals
+d- eveloper.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
 ### JavaScript - Type Coercion
 
 Type coercion in short means implicit type conversion.
+
 Type casting in short means explicit type conversion.
+
 Coercion happens when 2 variables which are not of the same type are compared using "==" or "!=".
+
 "==" and "!=" operators will compare for (in)equality after doing any necessary type conversions.
+
 Javascript type conversions ~ Java type casting
+
 Performances: === is not quicker if the types are the same. If types are not the same, === will be quicker because it won't try to do the conversion.
 
-http://stackoverflow.com/questions/8857763/what-is-the-difference-between-casting-and-coercing
-http://stackoverflow.com/questions/359494/does-it-matter-which-equals-operator-vs-i-use-in-javascript-comparisons
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+- http://stackoverflow.com/questions/8857763/what-is-the-difference-between-casting-and-coercing
+- http://stackoverflow.com/questions/359494/does-it-matter-which-equals-operator-vs-i-use-in-javascript-comparisons
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
 
 ### JavaScript - Numbers
 
 All numbers are represented as 64-bit floating point (same as Java's double).
+
 There is no separate integer type, so 2 is equal 2.0
+
 The value NaN is the result of an operation that cannot produce a normal result. NaN is not equal to any value, including itself. Use isNaN( myVar) to find out if myVar is NaN.
 
 ### JavaScript - Operators
@@ -369,26 +376,43 @@ The value NaN is the result of an operation that cannot produce a normal result.
 #### + adds or concatenates (make sure operands are numbers)
 
 - subtracts only??
+
 ! logical not
+
 / divide. can produce a non integer result even if both operand are integers
+
 * multiply
+
 % remainder
+
 && logical AND with lazy evaluation
+
 || logical OR with lazy evaluation
+
 |---|
+
 += adds or concatenates
+
 -= subtraction only??
+
 === equal
+
 !== not equal
+
 >= greater or equal
+
 <= less or equal
+
 > greater
+
 < less
+
 #### Table of precedences
 
 ### JavaScript - String
 
 JavaScript does not have a character type. To represent a character, make a string with just one character in it.
+
 JavaScript's Strings are immutable, once created it cannot be modified.
 
 String has a length property
@@ -441,17 +465,21 @@ if ( isEmpty(searchTerm) || isBlank(searchTerm) ){
 }
 ```
 
-stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript
-stackoverflow.com/questions/6623231/remove-all-white-spaces-from-text
+- stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript
+- stackoverflow.com/questions/6623231/remove-all-white-spaces-from-text
 
 Javascript - String comparison
+
 As a first step you might want to:
+
 1. Make sure the type is correct
   * Use a type-safe comparator: === or !==
   * Use typeof
-#### 2. If ignoring case, use .toUpperCase() but not .toLowerCase()
+
+2. If ignoring case, use .toUpperCase() but not .toLowerCase()
 
   * see msdn.microsoft.com/en-us/library/bb386042.aspx
+
 3. If ignoring accents, use the "remove diacritics" solution
 
 In short: use the browsers' built-in .localeCompare() method, such as:
@@ -460,38 +488,38 @@ return myFirstVar.localeCompare(mySecondVar);
 ```
 
 Considering the current level of support provided by the javascript custom implementations I came across, we will probably never see anything getting any close to supporting all the characters & scripts (languages) supported by UTF8 nor by the browsers' native localeCompare() implementations. Hence I would rather use the browsers' native localeCompare() method. Yes, it does have the downside of beeing non-consistent across browsers but basic testing shows it covers a much wider range of characters, allowing solid & meaningful sort orders.
-only remaining question: what UTF8 characters are supported by browsers' localeCompare() implementations ??
-Full explanation stackoverflow.com/a/26295229/759452
-http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
+- only remaining question: what UTF8 characters are supported by browsers' localeCompare() implementations ??
+- Full explanation stackoverflow.com/a/26295229/759452
+- http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/
 
 String comparison UTF8 specification
-http://www.unicode.org/reports/tr10/ - "Unicode Collation Algorithm specification", "which details how to compare two Unicode strings while remaining conformant to the requirements of the Unicode Standard"
-http://www.unicode.org/charts/ - UTF8 encoding charts for each language
-my 2 cents : http://programmers.stackexchange.com/questions/257286/is-there-any-language-agnosticspecification-for-string-natural-sorting-order
+- http://www.unicode.org/reports/tr10/ - "Unicode Collation Algorithm specification", "which details how to compare two Unicode strings while remaining conformant to the requirements of the Unicode Standard"
+- http://www.unicode.org/charts/ - UTF8 encoding charts for each language
+- my 2 cents : http://programmers.stackexchange.com/questions/257286/is-there-any-language-agnosticspecification-for-string-natural-sorting-order
 
 Javascript - Custom String comparisons
-http://www.davekoelle.com/alphanum.html
-https://web.archive.org/web/20130929122019/http://my.opera.com/GreyWyvern/blog/show.dml/1671288
-Alphanum http://www.davekoelle.com/files/alphanum.js , Fails at sorting consistently, see http://jsbin.com/tuminoxifuyo/1/edit?js,console
-Natural Compare Lite https://github.com/litejs/natural-compare-lite : Fails at sorting consistently https://github.com/litejs/natural-compare-lite/issues/1 and http://jsbin.com/bevututodavi/1/edit?js,console , basic latin characters sorting http://jsbin.com/bevututodavi/5/edit?js,console
-Natural Sort https://github.com/javve/natural-sort : Fails at sorting consistently, see issue https://github.com/javve/natural-sort/issues/7 and see basic latin characters sorting http://jsbin.com/cipimosedoqe/3/edit?js,console
-Javascript Natural Sort https://github.com/overset/javascript-natural-sort : seems rather neglected since February 2012, Fails at sorting consistently, see issue https://github.com/overset/javascript-natural-sort/issues/16
+- http://www.davekoelle.com/alphanum.html
+- https://web.archive.org/web/20130929122019/http://my.opera.com/GreyWyvern/blog/show.dml/1671288
+- Alphanum http://www.davekoelle.com/files/alphanum.js , Fails at sorting consistently, see http://jsbin.com/tuminoxifuyo/1/edit?js,console
+- Natural Compare Lite https://github.com/litejs/natural-compare-lite : Fails at sorting consistently https://github.com/litejs/natural-compare-lite/issues/1 and http://jsbin.com/bevututodavi/1/edit?js,console , basic latin characters sorting http://jsbin.com/bevututodavi/5/edit?js,console
+- Natural Sort https://github.com/javve/natural-sort : Fails at sorting consistently, see issue https://github.com/javve/natural-sort/issues/7 and see basic latin characters sorting http://jsbin.com/cipimosedoqe/3/edit?js,console
+- Javascript Natural Sort https://github.com/overset/javascript-natural-sort : seems rather neglected since February 2012, Fails at sorting consistently, see issue https://github.com/overset/javascript-natural-sort/issues/16
 
 Javascript - Browsers' native localeCompare() method
-In the oldest implementations where we do not use the locales and options arguments "the locale and sort order used are entirely implementation dependent".
-In other words, when using localeCompare such as stringOne.localeCompare(stringTwo): Firefox, Safari, Chrome & IE have a different sort order for Strings.
+- In the oldest implementations where we do not use the locales and options arguments "the locale and sort order used are entirely implementation dependent".
+- In other words, when using localeCompare such as stringOne.localeCompare(stringTwo): Firefox, Safari, Chrome & IE have a different sort order for Strings.
 
-http://jsbin.com/beboroyifomu/1/edit?js,console - basic latin characters comparison with localeCompare() - works pretty nicely compare to any custom-made comparator
-http://jsbin.com/viyucavudela/2/ - basic latin characters comparison with localeCompare() for testing on IE8
-http://jsbin.com/beboroyifomu/2/edit?js,console - basic latin characters in string comparison : consistency check in string vs when a character is alone
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare - IE11+ supports the new locales & options arguments
-https://code.google.com/p/v8/issues/detail?id=459 : highlight the sort order inconsistency across browser
-http://msdn.microsoft.com/en-us/library/ie/s4esdbwz(v=vs.94).aspx - scroll down to localeCompare() method - IE6+ supports localeCompare without the locales and options arguments
-http://stackoverflow.com/questions/51165/how-do-you-do-string-comparison-in-javascript
-http://stackoverflow.com/questions/2802341/natural-sort-of-text-and-numbers-javascript
-http://stackoverflow.com/questions/4373018/sort-array-of-numeric-alphabetical-elements-natural-sort/
-http://stackoverflow.com/questions/4340227/sort-mixed-alpha-numeric-array
-toread: http://sugarjs.com/arrays#sorting and also https://github.com/andrewplummer/Sugar
+- http://jsbin.com/beboroyifomu/1/edit?js,console - basic latin characters comparison with localeCompare() - works pretty nicely compare to any custom-made comparator
+- http://jsbin.com/viyucavudela/2/ - basic latin characters comparison with localeCompare() for testing on IE8
+- http://jsbin.com/beboroyifomu/2/edit?js,console - basic latin characters in string comparison : consistency check in string vs when a character is alone
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare - IE11+ supports the new locales & options arguments
+- https://code.google.com/p/v8/issues/detail?id=459 : highlight the sort order inconsistency across browser
+- http://msdn.microsoft.com/en-us/library/ie/s4esdbwz(v=vs.94).aspx - scroll down to localeCompare() method - IE6+ supports localeCompare without the locales and options arguments
+- http://stackoverflow.com/questions/51165/how-do-you-do-string-comparison-in-javascript
+- http://stackoverflow.com/questions/2802341/natural-sort-of-text-and-numbers-javascript
+- http://stackoverflow.com/questions/4373018/sort-array-of-numeric-alphabetical-elements-natural-sort/
+- http://stackoverflow.com/questions/4340227/sort-mixed-alpha-numeric-array
+- toread: http://sugarjs.com/arrays#sorting and also https://github.com/andrewplummer/Sugar
 
 ### JavaScript - if ...else if... else
 
@@ -517,8 +545,8 @@ var myVar=5, output;
 var myCoolVar = ($(.my-selector).hasClass("is-updated")) ? $(.my-selector).val() : 'no up-to-date value, sorry';
 ```
 
-developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
-stackoverflow.com/questions/10323829/javascript-ternary-operator-example-with-functions
+- developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+- stackoverflow.com/questions/10323829/javascript-ternary-operator-example-with-functions
 
 ### JavaScript - switch
 
@@ -676,6 +704,7 @@ setTimeout(function () {
 http://stackoverflow.com/questions/10312963/javascript-settimeout
 
 Javascript - Loop through array with a "pause" in between each element
+
 This is the original loop through array
 ```javascript
 var myArray_length = myArray.length
@@ -704,9 +733,13 @@ var interval = setInterval(function() {
 ### JavaScript - Objects
 
 The simple types of JavaScript are numbers, strings, booleans, null, and undefined. All other values are objects.
+
 JavaScript numbers, strings and booleans are object-like (they have methods) but they are immutable.
+
 JavaScript objects are mutable keyed collections.
+
 JavaScript arrays, functions, regular expressions and objects are objects.
+
 JavaScript objects are containers of properties, each property has a name and a value.
 
 #### Object Literals
@@ -789,6 +822,7 @@ document.myFormName.action = "yourDomain.com/page.jsp";         // assigns actio
 ```
 
 The form will call validateForm JavaScript function before to actually submit itself to the page in "action" attribute.
+
 validateForm function can cancel the submission of the form by returning false
 
 ### JavaScript - get IE version
@@ -848,16 +882,23 @@ for (var i = 0, c = allDivs.length ; i < c ; i++) {
 ### JavaScript - Browsing through nodes (element objects)
 
 parentNode - Property to access an element's parent element
+
 nodeName - Property containing the name of a node (in Upper case, use toLowerCase() to change case)
-#### nodeType - Property containing the node type (a number)
+
+nodeType - Property containing the node type (a number)
 
 firstChild and lastChild - Properties to access the first and last child of an element
+
 childNodes - Properties returning all the children elements of a node
+
 nextSibling and previousSibling - Properties to access next or previous node
+
 nodeValue and data - Properties to access the text contained in an element. Applicable only on text elements
-#### hasChildNodes() - Method returning true if the element has at least one child
+
+hasChildNodes() - Method returning true if the element has at least one child
 
 insertBefore(insertedElement,beforeThatElement) - Method to insert element before another (must be applied on the parent element).
+
 2 parameters: the 1st is the element to insert, the 2nd is the element before which the element will be inserted
 
 #### JavaScript - createElement()
@@ -872,13 +913,15 @@ document.getElementById('myBigDiv').appendChild(newLink);
 ```
 
 JavaScript - appendChild() - Add HTML Elements
-#### appendChild() returns a reference pointing to the inserted object
+#
+appendChild() returns a reference pointing to the inserted object
 
 ```javascript
 document.getElementById('myDiv').appendChild(elementToAdd);
 ```
 
 JavaScript - removeChild() - Remove an element
+
 This methods takes the element to be removed as a parameter
 ```javascript
 var link = document.getElementsByTagName('a')[0];
@@ -912,8 +955,8 @@ newLink.setAttribute('tabindex', '10');
 ```
 
 Exceptions when modifying attributes:
-class, you must use the attribute className
-for, you must use the attribute htmlFor
+- class, you must use the attribute className
+- for, you must use the attribute htmlFor
 
 JavaScript - createTextNode() - Add text nodes
 ```javascript
@@ -939,6 +982,7 @@ Since HTML5, innerHTML is acknoledge by the W3C and can be used
 ```
 
 This returns `"<p>Some text and <a>a link</a></p>"` in the alert box
+
 If tags are present, innerHTML returns them as plain text.
 
 2) Add/Edit HTML content
@@ -954,8 +998,11 @@ document.getElementById('myDiv').innerHTML += ' and <strong>a highlighted sectio
 ```
 
 4) Do NOT use += in a loop !
+
 innerHTML slows down code execution.
+
 A better option is to concatenate the text in a variable and append it after the loop.
+
 ```javascript
 var text = '';
 while( /* condition */ ) {
@@ -1030,6 +1077,7 @@ replaceChild(newElement,elementToReplace)
 ### JavaScript - this
 
 Property pointing to the object currently used.
+
 If you call this property when an event is triggered, the pointed object will be the element which triggered the event.
 
 ### JavaScript - Block the default action of some events
@@ -1072,7 +1120,9 @@ win.focus()
 #### Three parameters:
 
 Event name (without letters "on").
+
 The function to execute
+
 A boolean : use the capture phase (true) or bubbling phase (false).
 
 #### Example
@@ -1094,20 +1144,25 @@ A boolean : use the capture phase (true) or bubbling phase (false).
 ```
 
 capture
-The div's event triggers first and then the span's event will trigger.
+- The div's event triggers first and then the span's event will trigger.
 
 bubbling
-The span's event triggers first and then the div's event will trigger.
+- The span's event triggers first and then the div's event will trigger.
 
 IE<9 as well as event without DOM or with DOM-0 handle ONLY the bubbling phase.
+
 This is why we usually put the addEventListener's last parameter to false
+
 Read more on www.w3.org - event flow
 
 #### JavaScript - removeEventListener()
 
 Any event removal with DOM-2 is done using the same parameters as the one used during its creation.
+
 However, it does not work with anonymous functions.
+
 All DOM-2 events created with an anonymous function cannot be removed.
+
 #### Example
 
 ```javascript
@@ -1115,7 +1170,8 @@ el.removeEventListener('click', myFunction, false);
 ```
 
 JavaScript - addEventListener() & removeEventListener(): for version IE<9
-#### attachEvent() & detachEvent() - same as other standards methods except that the third parameter does not exist and the event must be prefixed by "on"
+
+attachEvent() & detachEvent() - same as other standards methods except that the third parameter does not exist and the event must be prefixed by "on"
 
 #### Example
 
@@ -1176,7 +1232,9 @@ el.addEventListener('click', function(e) {   // e is a reference to the Event ob
 ```
 
 event.target & event.srcElement
+
 event.target: to get a reference to the element for which the event has been triggered (like the "this" for events without the DOM or with DOM-1)
+
 event.srcElement: IE<9 only, does the same as event.target but for IE<9
 
 #### Example
@@ -1202,14 +1260,19 @@ event.srcElement: IE<9 only, does the same as event.target but for IE<9
 ```
 
 Some events applied to a parent element can propagate them-selves to children elements. This is the case for mouseover, mouseout and mousemove.
+
 target always returns the element that triggered the event (which can be a child).
 
 event.currentTarget
+
 Returns the origin element of the event, not its children (in contrast with event.target)
+
 Does not work on IE<9
 
 event.clientX & event.clientY - cursor position
+
 Cursor position according to the top left corner of the web page OR the screen itself
+
 Since the cursor position changes at each move of the mouse, the most relevant event in most of cases is mousemove
 
 ```javascript
@@ -1225,20 +1288,29 @@ Since the cursor position changes at each move of the mouse, the most relevant e
 ```
 
 event.relatedTarget - only use with mouseover and mouseout events
+
 With mouseout event, relatedTarget provides the element object on which the cursor just came
+
 With mouseover event, relatedTarget provides the element object the cursor just left
+
 IE<9 : use fromElement and toElement
 
 event.keyup, event.keydown & event.keypress
+
 These events trigger when a key is pressed or released
 
 event.keyup and event.keydown
+
 have the attributs "keyCode" and "which"
+
 CANNOT detect multiple keys pressed
+
 "which" is NOT supported by IE<9
 
 event.keypress
+
 Has the attribut "which" only
+
 which is NOT supported by IE<9 - "keyCode" must be used instead
 
 ## JavaScript - Manipulate the CSS
@@ -1246,6 +1318,7 @@ which is NOT supported by IE<9 - "keyCode" must be used instead
 ### JavaScript - Modify the style
 
 Inline style (properties of the style attribute) have the priority on any property coming from a style sheet.
+
 Using the style attribute is the simplest and the most popular technic to modify the CSS of an HTML element.
 ```javascript
 el.style.width = '150px';
@@ -1260,7 +1333,8 @@ el.style.backgroundColor = 'blue';      // this is the convention
 ### JavaScript - Access CSS values of an element
 
 el.style only returns the CSS values of the CSS properties applied via the "style" attribute
-#### getComputedStyle() gets the real CSS values of an element
+
+getComputedStyle() gets the real CSS values of an element
 
 ```javascript
 <style type="text/css">
@@ -1300,7 +1374,7 @@ Attributes of type "offset" table:
 
 ### JavaScript - Authentication and Cookies
 
-w3schools.com - js cookies
-thinkvitamin.com - how to create totally secure cookies
-pajhome.org.uk - protecting passwords
-repoze-who-jscrypto - JavaScript Authentication Library
+- w3schools.com - js cookies
+- thinkvitamin.com - how to create totally secure cookies
+- pajhome.org.uk - protecting passwords
+- repoze-who-jscrypto - JavaScript Authentication Library
