@@ -234,7 +234,7 @@ For a specific media type (print for instance), these 2 formats are valid:
 
 ## 2. HTML Include CSS file (External Style Sheet)
 
-Add the following in the <head> element of your HTML page
+Add the following in the `<head>` element of your HTML page
 
 ```
     <link rel="stylesheet" type="text/css" href="classic.css" />
@@ -262,7 +262,9 @@ Read more on including Internal and External style sheets:
 
 ## 4. Include the style directly in the HTML (Inline styling)
 
->     <span style="color:red; font:bold;">my text in bold red</span>
+```
+    <span style="color:red; font:bold;">my text in bold red</span>
+```
 
 This allows you to style directly a specific element. It is recommended to avoid this technique.
 
@@ -1402,7 +1404,7 @@ https://stackoverflow.com/a/13959836/759452
 
 # Links - `<a>` element
 
-Ideally, you want your links to be right clickable (to be able to: open in a new window, copy link, & so on), hence you will you the <a> element. This will also help an easier crawling (SEO) of your website.
+Ideally, you want your links to be right clickable (to be able to: open in a new window, copy link, & so on), hence you will you the `<a>` element. This will also help an easier crawling (SEO) of your website.
 
 For links which are not in the text (ie. a link in a menu), you ideally want your link to take the whole space it is allocated, that is, whether your clic on the text or on the hover-styled part next to it it should open the relevant page. This is usually achieved by making the link a block.
 
@@ -1723,7 +1725,7 @@ Have an additional absolutely positioned child element (in a relatively or absol
 
 # CSS Background properties
 
-Background images are not used to be only in the background. This is because there are things you can only do with background images that you can't do with the usual <img> element.
+Background images are not used to be only in the background. This is because there are things you can only do with background images that you can't do with the usual `<img>` element.
 
 You can use CSS sprites technique if you use many background images on your website.
 
@@ -2243,7 +2245,7 @@ see also:
 
 ### `<label>` tag defines a label for an input element. 
 
-If the user clicks on the text within the label element, it toggles the control. The for attribute of the <label> tag should be equal to the id attribute of the related element to bind them together.
+If the user clicks on the text within the label element, it toggles the control. The for attribute of the `<label>` tag should be equal to the id attribute of the related element to bind them together.
 
 select label `for=”email“` in CSS: 
 
@@ -2321,11 +2323,13 @@ Read more:
  - Checkboxes : read-only https://stackoverflow.com/questions/155291/can-html-checkboxes-be-set-to-readonly 
  - Radio button : read-only https://www.sitepoint.com/forums/showthread.php?963049-Read-only-Radio-Buttons
 
-### <textarea>
+### `<textarea>`
 
 You might want to set the `max-width` & `max-height` (line height?) for this element. Otherwise the user might be able to expend it infinitely & mess up your design.
 
-> <textarea class="long-comment" name="longComment" rows="3" cols="40" placeholder="Write your message here"></textarea>
+```
+<textarea class="long-comment" name="longComment" rows="3" cols="40" placeholder="Write your message here"></textarea>
+```
 
  - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
  - https://reference.sitepoint.com/html/textarea
@@ -2349,7 +2353,7 @@ border-radius: 4px;
 
  - `input` element rounded corners compatible with IE8+. see http://stackoverflow.com/questions/2654745/rounded-corners-of-input-elements-in-ie  and  https://code.google.com/p/curvycorners/
 
-<input> element width filling 100% of remaining space:
+`<input>` element width filling 100% of remaining space:
  - wrap the input field in an element of `display:block;` & `overflow: hidden;`
 
 see http://stackoverflow.com/questions/7189608/how-do-i-make-an-input-element-occupy-all-remaining-horizontal-space/7190310#7190310 and http://stackoverflow.com/questions/4873832/make-a-div-fill-up-the-remaining-width
