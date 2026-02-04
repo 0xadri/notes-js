@@ -1,7 +1,7 @@
 
-Notes taken prior to 2018.
+# Notes taken prior to 2018.
 
-Source: https://sites.google.com/d/1d5qH_2hDXzyEMFW-hlQwrIIAQg8ekpnT/p/1urBHdUkq1ORagINyy9RRAA4zJF7r295p/edit
+*Warning: This file is ultra long.*
 
 -------------------------------------------------------
 

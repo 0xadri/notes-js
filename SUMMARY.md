@@ -6,6 +6,7 @@
 ## JavaScript & TypeScript
 
 * [JavaScript 01: Vanilla JavaScript](__js_01_vanilla.md)
+* [JavaScript 01b: Plain JavaScript](__js_plain_javascript.md)
 * [JavaScript 02: APIs, Build & Consume](__js_03_api_build_n_consume.md)
 * [JavaScript 03: DevOps: Node, AWS, GitLab, Docker](__do_01_node_aws_gitlab_docker.md)
 * [JavaScript 04: MicroFrontEnds](__js_microfrontends.md)
@@ -31,6 +32,7 @@
 
 ## Node, Next, Bundler, More
 
+* [HTML+CSS](__msc_html-css.md)
 * [Node.js: Environment Variables](__msc_node_env_variables.md)
 * [Node.js: Express API Microservices](__msc_node__express_api_microservices.md)
 * [Next.js](__msc_nextjs.md)
@@ -42,7 +44,6 @@
 * [Webpack](__do_02_webpack.md)
 * [Render](__do_render.md)
 * [Sentry](__do_06_sentry.md)
-* [HTML](__msc_html.md)
 * [AWS Cloud Practitioner](__do_99_aws_cloud_practitioner.md)
 
 ## AI: CLIs, IDEs, LLMs, More
