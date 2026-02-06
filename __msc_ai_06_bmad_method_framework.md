@@ -165,4 +165,136 @@ https://www.reddit.com/r/BMAD_Method/comments/1qq6n0x/custom_docs_bmad_directory
 
 ---
 
+# BMAD Meta Prompts
 
+By far the best way to learn how to use BMAD.
+
+---
+
+## BMAD Workflows Broken Down
+
+BMAD workflows seem to always be broken down in steps, then questions. Is that correct ?
+
+Can I use the workflows using “raw LLMs” or do I have to first load personas?
+
+---
+
+## BMAD Workflows Time Estimates
+
+This is a very insightful prompt, you will like to read the detailed answer if you try it (in short, that BMAD workflow takes ~3H to go thru):
+
+*For the all the BMAD workflows (installed in our project):
+1. Indicate how many steps are involved
+3. For each step indicate how many questions are asked to the user (me)
+4. Given the 2 previous points, estimate the time necessary to go thru each entire workflow
+5. Indicate if other crucial parameter(s) is/are to take into account
+Create a matrix table to summarize the findings.*
+
+---
+
+# BMAD Cheatsheet
+
+PRD = product-level planning = product vision, functional requirements, non-functional requirements
+Architecture = system-level design = system design
+Epics+Stories = created AFTER architecture is complete
+
+| Command                     | Agent      | Purpose                               |
+|----------------------------|------------|----------------------------------------|
+| `*workflow-init`           | Analyst    | Initialize a new project              |
+| `*workflow-status`         | Any        | Check progress and next steps         |
+| `*prd`                     | PM         | Create Product Requirements Document  |
+| `*create-architecture`     | Architect  | Create architecture document          |
+| `*create-epics-and-stories`| PM         | Break down PRD into epics             |
+| `*implementation-readiness`| Architect  | Validate planning cohesion            |
+| `*sprint-planning`         | SM         | Initialize sprint tracking            |
+| `*create-story`            | SM         | Create a story file                   |
+| `*dev-story`               | DEV        | Implement a story                     |
+| `*code-review`             | DEV        | Review implemented code               |
+
+| Term                   | Definition                                                                                                                                                     |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Agent                  | Specialized AI persona with specific expertise (PM, Architect, SM, DEV, TEA) that guides users through workflows and creates deliverables.                     |
+| Workflow               | Multi-step guided process that orchestrates AI agent activities to produce specific deliverables. Workflows are interactive and adapt to user context.          |
+| Scale-Adaptive System  | Intelligent workflow orchestration that adjusts planning depth and documentation requirements based on project needs through three planning tracks.            |
+| BMM                    | BMad Method Module — core orchestration system providing comprehensive lifecycle management through specialized agents and workflows.                           |
+| BMad Method            | Complete methodology for AI-assisted software development, encompassing planning, architecture, implementation, and quality assurance workflows that adapt to project complexity. |
+| BMad                   | Breakthrough Method of Agile AI Driven Development — AI-driven agile framework with specialized agents, guided workflows, and scale-adaptive intelligence.     |
+
+| TRACKS - Scale and Complexity                                                                                                        |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Quick Flow Track        | Lightweight planning using a tech spec only. Intended for small changes, fixes, or clearly scoped work (about 1–15 stories). |
+| BMad Method Track       | Full planning with PRD, architecture, and UX. Used for products or complex features that need system-level design (about 10–50+ stories). |
+| Enterprise Method Track | Extended planning for enterprise needs, adding security, DevOps, and test strategy. Used for large or regulated systems (30+ stories). |
+| Planning Track          | The planning approach selected based on complexity and requirements, not just story count.                          |
+
+| Planning Docs                                                                                                                                                            |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PRD               | Product Requirements Document for BMad Method/Enterprise tracks containing vision, goals, functional and non‑functional requirements, and success criteria.           |
+| Product Brief     | Optional strategic document created in Phase 1 to capture product vision, market context, user needs, and high‑level requirements before detailed planning.            |
+
+| Planning Docs                                                                                                                                                             |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Tech‑Spec         | Quick Flow planning document containing the technical plan with problem statement, solution approach, file‑level changes, and testing strategy.                        |
+| Architecture Doc  | System‑wide design document for BMad Method/Enterprise tracks defining structure, components, data models, integration patterns, security, and deployment.            |
+| Epics             | High‑level feature groupings containing multiple related stories. Typically 5–15 stories each and representing cohesive functionality.                                    |
+
+| Workflow and Phases                                                                                                                                                    |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Phase 0: Documentation | Conditional prerequisite phase creating codebase documentation before planning if existing docs are insufficient.                                               |
+| Phase 1: Analysis      | Discovery phase including brainstorming, research, and product brief creation. Optional for Quick Flow and recommended for other tracks.                        |
+| Phase 2: Planning      | Required phase creating formal requirements. Routes to tech‑spec (Quick Flow) or PRD (BMad Method/Enterprise) based on track.                                   |
+| Phase 3: Solutioning   | Architecture design phase including creation, validation, and gate checks. Required for BMad Method and Enterprise tracks.                                      |
+| Phase 4: Implementation| Required sprint‑based development through story‑by‑story iteration using sprint‑planning, create‑story, dev‑story, and code‑review workflows.                   |
+| Quick Spec Flow        | Fast‑track workflow for Quick Flow projects going straight from idea to tech‑spec to implementation.                                                           |
+| Workflow Init          | Initialization workflow that creates `bmm‑workflow‑status.yaml`, detects project type, and determines planning track.                                           |
+| Workflow Status        | Universal entry point checking for existing status file, displaying current progress, and recommending next action.                                           |
+
+More on https://docs.bmad-method.org/reference/glossary/
+
+---
+
+# BMAD Install Annex
+
+? JohnDoe directory: 
+/Users/JohnDoe/workspaceJohnDoe/myapp-monorepo/
+
+Resolved installation path: /Users/JohnDoe/workspaceJohnDoe/myapp-monorepo/
+Directory exists and contains 12 item(s)
+? Install to this directory? Yes
+? Select tools to configure: GitHub Copilot ⭐
+? Will you be installing any official BMad modules (BMad Method, BMad Builder, 
+Creative Innovation Suite)? Yes
+? Select modules to install: 
+BMB: BMad Builder - Agent, Workflow and Module Builder, 
+BMM: BMad Method Agile-AI Driven-Development
+? Would you like to install a local custom module (this includes custom agents 
+and workflows also)? No
+
+? BMad™  Core Configuration
+? What shall the agents call you (TIP: Use a team name if using with a group)? 
+JohnDoe
+? Preferred chat language/style? (English, Mandarin, English Pirate, etc...) 
+English
+? Preferred document output language? English
+? Where should default output files be saved unless specified in other modules?
+_bmad-output
+
+? BMad Optimized Builder (BoMB) Module Configuration
+? Accept Defaults (no to customize)? Yes
+
+? BMad Method™: Breakthrough Method of Agile-Ai Driven-Dev
+? Accept Defaults (no to customize)? Yes
+
+
+✔ Core installed
+✔ Dependencies resolved
+✔ Module installed: bmb
+✔ Module installed: bmm
+✔ Module configurations generated
+✔ Manifests generated: 37 workflows, 13 agents, 4 tasks, 0 tools, 54 files
+✔ Configured: github-copilot
+✔ Module-specific installers completed
+
+✨ BMAD is ready to use!
+Installed to: /Users/JohnDoe/workspaceJohnDoe/workspaceJohnDoe/myapp-monorepo/_bmad
+Modules: bmb, bmm

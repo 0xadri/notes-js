@@ -3,6 +3,18 @@
 
 ---
 
+
+# AI must be configured
+
+AI must be configured - before being used else it goes off rails.
+
+Different possible config points:
+ - in rules (permanent)
+ - in commands/skills (occasional)
+ - in the prompt itself (one off)
+
+---
+
 # Context Engineering: Best Practices
 
 Remember: the AI "has amnesia" between chats. You must "refresh its memory" to make it work well, in Cursor that means using "permanent context" such as rules, and "current context" such as files relevant to the current task.

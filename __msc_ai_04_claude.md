@@ -198,6 +198,17 @@ $ Technical Stack
 
 ---
 
+# Code Indexing
+
+Double Check.
+
+Claude code doesn't index the code at all. You need to do it yourself.
+
+You run your code base through an embedding model to build a vector, graph, or vector graph database. https://github.com/vitali87/code-graph-rag
+
+
+---
+
 ## Claude: Learning Resources
 
 - https://anthropic.skilljar.com/claude-code-in-action/301614

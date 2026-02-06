@@ -86,6 +86,14 @@ When copy/pasting info to an online LLM:
 
 ---
 
+# Learn How To Learn - With AI
+
+Ask AI to create a quiz with questions of varying levels (from 1 to 5) with 10 questions per level. 
+
+To be executed sequentially, where the user have to answer each time before the next one is asked.
+
+---
+
 # Glossary
 
 Reasoning → text shown by the AI when thinking.

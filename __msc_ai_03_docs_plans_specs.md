@@ -3,6 +3,27 @@
 
 ---
 
+
+# SDD Flows
+
+Feature >> User Stories >> Tasks
+
+Feature >> User Stories >> Tests >> Code
+
+FR
+
+NFR
+
+---
+
+# SDD: Docs Setup
+
+By default, put new specs and plans to ‘spec_prog’.
+
+Mark doc as completed. Move it to a separate ‘spec_done’ directory?
+
+---
+
 ## Docs Formatting
 
 Always use format:
@@ -14,8 +35,27 @@ Always use format:
 
 ## Frontmatter
 
+author: ai-generated
+generated_by: adri
+reviewed_by_human: “yes 100%” | “50%” | “20%”
+
+Doc_granularity: epic | feature | story | task
+filesize: i.e. 1k tokens
+Feature_size
+Effort size
+Scope level
+Work item level
+Work granularity
+Granularity level
+
+
+Epic: Broad Objective
+Feature: Specific Functionality
+Story: User Need
+Task: Action Item
+
+
 - what is the right level of granularity? depends on what parameters (doc size, complexity, ...) ?
-- field: filesize in tokens ?
 
 ---
 
