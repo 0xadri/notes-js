@@ -1,6 +1,13 @@
 
 
-Use an explore agent to summarize the docs/ directory. Ignore specs_n_plans/.
+# Common Prompts
+
+---
+
+*This page is ever-evolving, drafty and sometimes messy. But it has some nuggets.* FYI: It's mostly for personal use.
+
+---
+
 
 
 ---
