@@ -46,7 +46,7 @@
 * [Sentry](__do_06_sentry.md)
 * [AWS Cloud Practitioner](__do_99_aws_cloud_practitioner.md)
 
-## AI: CLIs, IDEs, LLMs, More
+## AI: CLI, IDE, FLOWS
 
 * [AI 01: Intro for Laymen](__msc_ai_01_intro_laymen.md)
 * [AI 02: Intro for Techies](__msc_ai_02_intro_tech.md)

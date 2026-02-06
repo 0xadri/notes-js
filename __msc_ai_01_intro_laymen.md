@@ -42,9 +42,11 @@ Impacts your entire software product development lifecycle
 - Large-scale refactor
 - Monitor usage & performance
 
-**What I Used**
+**What I Have Experienced In**
 
-I used it for almost all of the above points.
+I used AI for almost all of the above points and subpoints, except for "4. Deploy" and "5. Support & Scale".
+
+However, I will very soon have experience in all points. If not already by the time you read this.
 
 ---
 
@@ -57,16 +59,16 @@ Using and mastering CLI tools such as git, docker, bq.
 # AI IDEs and CLIs
 
 Most Popular:
-- *Claude Code* by Anthropic (CLI)
-- *Claude Code in VS Studio* by Anthropic (IDE)
-- *Cursor* (IDE)
+- **Claude Code** by Anthropic (CLI)
+- **Claude Code in VS Studio** by Anthropic (IDE)
+- **Cursor** (IDE)
 
 *Claude Code* by Anthropic is definitely the leader in the space. Every competitor copies them and/or follow the open standards they establish.  
  
 Underdogs:
-- *Codex* by OpenAI (IDE)
-- *Antigravity* by Google (IDE)
-- *Github Copilot* by MS (IDE)
+- **Codex** by OpenAI (IDE)
+- **Antigravity** by Google (IDE)
+- **Github Copilot** by MS (IDE)
 
 Antigravity and Codex are more recent ones, less established and potentially more buggy.
 
@@ -86,11 +88,23 @@ When copy/pasting info to an online LLM:
 
 ---
 
+# Learn How To Use AI - With AI
+
+What I call **Meta Questions**.
+
+Stop reading articles, googling and all that nonsense. If anything, your AI will know itself better than anyone else.
+
+So ask it questions about itself. How to use it. Why it answered this way. Could your last prompt be improved. And so on.
+
+---
+
 # Learn How To Learn - With AI
 
-Ask AI to create a quiz with questions of varying levels (from 1 to 5) with 10 questions per level. 
+Ask AI to create a quiz with 10 questions for a level you think appropriate i.e. beginner
 
-To be executed sequentially, where the user have to answer each time before the next one is asked.
+To be executed sequentially and:
+- the answer of each question only shown after the user answer
+- the user has to answer each time before the next one is asked
 
 ---
 
