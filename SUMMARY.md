@@ -48,11 +48,14 @@
 
 ## AI: CLIs, IDEs, LLMs, More
 
-* [AI 01: Introduction](__msc_ai_01_intro.md)
-* [AI 02: Cursor](__msc_ai_02_cursor.md)
-* [AI 03: Claude](__msc_ai_03_claude.md)
-* [AI 04: BMAD](__msc_ai_04_bmad.md)
-* [AI 05: Templates & Prompts](__msc_ai_99_templates_prompts.md)
+* [AI 01: Intro for Laymen](__msc_ai_01_intro_laymen.md)
+* [AI 02: Introdu for Tech](__msc_ai_02_intro_tech.md)
+* [AI 03: Docs, Plans, Specs](__msc_ai_03_docs_plans_specs.md)
+* [AI 04: Claude](__msc_ai_04_claude.md)
+* [AI 05: Cursor](__msc_ai_05_cursor.md)
+* [AI 06: BMAD Method Framework](__msc_ai_06_bmad_method_framework.md)
+* [AI 07: Links](__msc_ai_07_links.md)
+* [AI 99: Templates & Prompts](__msc_ai_99_templates_prompts.md)
 
 ## Live Coding Interviews
 

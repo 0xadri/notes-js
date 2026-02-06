@@ -562,6 +562,21 @@ Examples:
 
 
 
+---
+
+# Meta Prompts
+
+---
+
+# Prompt: Format AI Answers 
+
+Always use format:
+- Raw Markdown
+- Remove all the emojis
+- Do not add bold (double asterisc) in the titles that already start with one or several dashes (#)
+
+Always add UID:
+- add a simple private identifier to each answer you give me - i.e. two digits valid for the current conversation
 
 
 
