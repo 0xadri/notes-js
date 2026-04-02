@@ -1,18 +1,46 @@
 
----
 
-# Claude: Pending Qs
-
-- none
-
----
 
 # Claude: Features
 
-1. Skills (formerly Custom Commands) --> for anything you copy/paste too often in your prompt window
-2. CLAUDE.md
-3. MCP
-4. Rules & Memories
+**Priority order for ROI:**
+
+1. `CLAUDE.md` ← highest leverage, shapes every conversation
+2. `Skills`    ← eliminates repetition for recurring workflows
+3. `Memory`    ← compounds over time as patterns accumulate
+4. `Settings`/`hooks` ← automation and guardrails
+5. `MCP`       ← specialized integrations when needed
+
+## Features Explained
+
+**1. `CLAUDE.md` files**
+
+Instruction files that load automatically into every conversation. Arguably the biggest lever:
+- `.claude/CLAUDE.md` — project-wide rules, conventions, architecture decisions to follow
+- `Nested CLAUDE.md in subdirs` — scoped rules for specific parts of the codebase (e.g. different rules for frontend/ vs backend/)
+
+How permissions work:
+- `deny` list → hard block, no prompt, no override                                                                                                                                    
+- `allow` list → auto-approved, no prompt
+- neither → prompts for approval each time 
+
+**2. Skills**
+
+TODO
+
+**3. `Memory` files**
+
+Your auto-memory directory persists insights across sessions. Unlike CLAUDE.md (static rules), memory accumulates learned patterns, debugging solutions, architectural
+decisions.
+
+**4. `Hooks`**
+
+Shell commands that fire on events (pre/post tool calls). Useful for auto-formatting, validation, logging. Configured in settings.json.
+
+**5. `MCP` servers**
+
+Extend Claude Code with custom tools (database access, external APIs, etc.).
+
 
 ---
 
@@ -24,11 +52,13 @@ Outside session
 
 Inside session
 - `/clear`	          # Clears conversation history and context - equiv to starting a new chat EXCEPT you lose the convo history !
-- `/copy`               # Copy Claude's last response to clipboard as markdown
-- `/rewind`              # Restore the code and/or conversation to a previous point                                                                             
+- `/copy`             # Copy Claude's last response to clipboard as markdown
+- `/rewind`           # Restore the code and/or conversation to a previous point                                                                             
 - `/context`          # Visualize current context usage
-- `/init`            # generate a starter CLAUDE.md file based on your current project structure, then refine over time.
+- `/init`             # generate a starter CLAUDE.md file based on your current project structure, then refine over time.
 - "Undo that"         # Have Claude revert its changes.
+
+https://code.claude.com/docs/en/cli-reference
 
 ---
 
@@ -37,6 +67,9 @@ Inside session
 `AskUserQuestion`	     # Asks multiple-choice questions to gather requirements or clarify ambiguity
 `Skill`	                # Executes a skill within the main conversation
 `Task`	                # Runs a sub-agent to handle complex, multi-step tasks
+
+Tools can be automatically triggered based on context, and users can invoke them manually with a command. 
+The main nuance is that Claude may also suggest or confirm tool use rather than doing it silently.
 
 https://code.claude.com/docs/en/settings#tools-available-to-claude
 
@@ -49,14 +82,18 @@ https://code.claude.com/docs/en/settings#tools-available-to-claude
 - Analyzes codebase to detect build systems, test frameworks, and code patterns, 
 - Gives a solid foundation to refine.
 
-
+  
 https://code.claude.com/docs/en/best-practices#write-an-effective-claude-md
 
 ---
 
-# Claude: Skills (formerly Slash Commmands)
+# Claude: Skills
 
-Must always have frontmatter with name and description:
+Note that what was formerly called `Slash Commmands` got merged into `Skills`:
+- by default, a skill is also a `Slash Commmand` (explicit calls)
+- by default, a skill can be called "automatically" (implicit calls)
+
+Skills must always have frontmatter with name and description:
 ```
 ---
 name: fix-issue
@@ -85,7 +122,15 @@ Other possible fields:
 
 - `user-invocable: false` so only Claude can invoke the skill
 
-https://code.claude.com/docs/en/skills
+Resources for skills:
+
+- https://agentskills.io/ ← skills open standard by Anthropic 
+
+- https://code.claude.com/docs/en/skills ← skills on Claude Code (Anthropic)
+
+- https://github.com/anthropics/skills ← Anthropic Official public repository for Skills
+
+- https://github.com/travisvn/awesome-claude-skills ← one the many place that list thousands of skills
 
 ---
 
@@ -219,7 +264,24 @@ You run your code base through an embedding model to build a vector, graph, or v
 
 - https://code.claude.com/docs/
 
+- https://status.claude.com/
+
 - https://www.anthropic.com
 
 - https://docs.anthropic.com/en/home
+
+- CLI ref https://code.claude.com/docs/en/cli-reference
+
+
+
+
+---
+
+**TODO**
+
+- "model knowledge" 
+- "working memory"
+- RAG
+- Agent harness
+- deep dive into how these coding models are built. From pre-training, to post-training and RLHF (reinforcement learning from human feedback).
 

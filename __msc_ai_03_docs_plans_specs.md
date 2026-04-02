@@ -35,15 +35,20 @@ Always use format:
 
 ## Frontmatter
 
+status: "draft" | "completed" | "reviewed" | "archived" | "active"
+type: "spec" | "plan" | "analysis" | "guide" | "api" | "design"
+category: "backend" | "frontend" | "architecture" | "planning"
+
 author: ai-generated
 generated_by: adri
 reviewed_by_human: “yes 100%” | “50%” | “20%”
+version,
 
-Doc_granularity: epic | feature | story | task
+doc_granularity: "epic" | "feature" | "story" | "task"
 filesize: i.e. 1k tokens
-Feature_size
-Effort size
-Scope level
+feature_size
+effort_size
+scope_level
 Work item level
 Work granularity
 Granularity level
@@ -54,8 +59,17 @@ Feature: Specific Functionality
 Story: User Need
 Task: Action Item
 
-
 - what is the right level of granularity? depends on what parameters (doc size, complexity, ...) ?
+
+---
+
+# More Metadata
+
+Approx time taken to plan+implement
+
+Prompts? if special ?
+
+Level of steering involved ?
 
 ---
 

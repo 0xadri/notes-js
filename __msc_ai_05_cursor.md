@@ -7,6 +7,22 @@
 
 ---
 
+## Cursor Model In Auto Mode
+
+When using Cursor AI IDE with model set to "Auto", how do I know which model is being used under the hood while my ask is being executed ?
+
+Ask the model to print its system metadata, in the Cursor chat, run a prompt like:
+- "Before answering and/or doing changes, print the model name you are running on. Then answer the question."
+- "State the exact model you are currently running (e.g., GPT-4.1, Claude-3.5-Sonnet) before starting to answer and/or do changes."
+
+If asking afterwards:
+ - "State the exact model you have been using for the last question I asked you (e.g., GPT-4.1, Claude-3.5-Sonnet)"
+
+Issue, it always replies:
+"I don’t have access to the exact model name (e.g. GPT-4.1, Claude-3.5-Sonnet); that’s set by Cursor and not visible in my context."
+ 
+---
+
 ## Cursor: Features
 
 1. Commands aka Slash Commmands --> for anything you copy/paste too often in your prompt window

@@ -1,5 +1,51 @@
 
 
+
+---
+
+# Skills Flow For New Feature
+
+- doc-create-spec
+- doc-review-spec
+  - use skill `.claude/skills/doc-review-spec/SKILL.md` to review `SPEC_DOC`
+- doc-create-plan
+- doc-review-plan
+  - use skill `.claude/skills/doc-review-plan/SKILL.md` to review `PLAN_DOC`
+- exe-implement-plan
+- exe-review-implementation
+  - use skill `.claude/skills/exe-review-implementation/SKILL.md` to review `PLAN_DOC`
+
+---
+
+# orchestrator skill ??
+
+When creating a new feature for my web app, I run these skills sequentially
+
+- doc-create-spec
+- doc-review-spec
+- doc-create-plan
+- doc-review-plan
+- exe-implement-plan
+- exe-review-implementation
+
+Is there a way to make this somehow harmonious? or improve the flow somehow?
+maybe we could package them so that the flow feels more natural
+maybe you have ideas on how to improve this?
+maybe you have ideas on how it could be used by a fully autonomous agent as well?
+maybe you have other ideas on how this could be used?
+
+no changes. just answer
+
+
+TLDR: The best approach might be: create an orchestrator skill that internally uses your templates, with both interactive and autonomous modes. One skill call, flexible behavior, repeatable standard.                                                                                                         
+
+---
+
+
+
+
+
+
 # Common Prompts
 
 ---
@@ -7,6 +53,72 @@
 *This page is ever-evolving, drafty and sometimes messy. But it has some nuggets.* FYI: It's mostly for personal use.
 
 ---
+
+Destructive DB commands need confirmation: this does NOT matter for now, evrything is local.
+Apply 2 to 5
+
+
+
+
+---
+
+# Create/Improve `.claude/CLAUDE.md` 
+
+This is for project-wide rules, conventions, and architecture decisions to follow
+
+- Ask me clarification questions on using `AskUserQuestion` refine this file
+
+- Any other important improvements that can be made (rate importance 1-to-10)?        # ask several times
+
+- What other guardrails do you think are necessary (rate criticality 1-to-10)?        # ask several times
+
+---
+
+# Create/Improve Nested CLAUDE.md per package
+
+Is this is for package-specific rules, conventions, and architecture decisions to follow ?
+
+- Ask me clarification questions on using `AskUserQuestion` refine this file
+
+- Any other important improvements that can be made (rate importance 1-to-10)?        # ask several times
+
+- What other guardrails do you think are necessary (rate criticality 1-to-10)?        # ask several times
+
+---
+
+# Create/Improve A Claude Skill
+
+Given the existing skill: [PATH_TO_SKILL]
+
+Interview me using `AskUserQuestion` tool to ask clarifications to refine this skill.
+
+- Any other important improvements that can be made for this skill (rate importance 1-to-10)?      # ask several times
+
+- What other guardrails do you think are necessary (rate criticality 1-to-10)?          # ask several times
+
+- Regarding the flow of this skill, can you check everything looks fine ?      # ask several times 
+
+- Read the doc https://code.claude.com/docs/en/skills , any other yaml metadata we could/should use for this skill?              # ask one times
+
+---
+
+# Create Claude Project Wide Configuration
+
+I want to have Claude Project Wide Configuration: [DESCRIPTION_WHY_WHAT_WHEN_HOW]
+
+- How do you usually do this in Claude? Is there a built-in feature for project-wide rules and configurations?
+
+- Ask me clarification questions on using `AskUserQuestion` refine these rules and configurations.
+
+- Any other important improvements that can be made (rate importance 1-to-10)?        # ask several times
+
+- What other guardrails do you think are necessary (rate criticality 1-to-10)?        # ask several times
+
+- Any other setting you recommed to add apart from model, permissions , and the others we already have?        # ask several times
+
+---
+
+
 
 
 
@@ -251,6 +363,49 @@ Find and remove "common prompts" that might not be special and/or insightful.
 
 ---
 
+Update location-autocomplete's destination expansion spec + add plan
+
+
+
+
+
+
+# REVIEWING
+
+---
+
+# Review Spec
+
+Using instructions in `.claude/skills/doc-create-spec/SKILL.md`
+
+We just drafted the spec `[PATH_TO_SPEC]` 
+
+Can you review the spec?
+
+---
+
+# Review Plan
+
+Given the spec `[PATH_TO_SPEC]`
+
+And using instructions in `.claude/skills/doc-create-plan/SKILL.md`
+
+We just drafted the plan `[PATH_TO_PLAN]`
+
+Can you review this plan?
+
+---
+
+# Review Implementation
+
+Given the plan `docs/plans/location-autocomplete-destination-expansion_plan.md`
+
+And using instructions in `.claude/skills/exe-implement-plan/SKILL.md`
+
+The implementation has been done but not yet committed. You can easily spot by doing a git diff with the lastest commit.
+
+Can you review these changes against the plan?
+
 
 
 
@@ -259,60 +414,66 @@ Find and remove "common prompts" that might not be special and/or insightful.
 
 ---
 
-# Specs: Create Specs
+# Spec: Create Doc
 
 Goal:
 `[XYZ]`
 
 What:
-Create specs doc `./plans/[FEATURENAME]_SPEC.md` with all the info.
+Create specs doc `./docs/plans/[featurename]_spec.md` with all the info.
 
 You Try:
 Give me the typical specs for `[XYZ]`.
 Preferably in a setting similar to ours: `[DETAILS]`.
 
-- follow best practices, existing ux patterns, and current design trends
-- follow YAGNI (You Aren't Gonna Need It), KISS (Keep It Simple), DRY (Don't Repeat Yourself)
-- if frontend involved: Break out the page/component in sub-components to improve maintainability, code quality and readability.
-- when in doubt, explain several potential solutions along with tradeoffs
+Guidelines:
+- follow best practices and established design patterns
+- follow know principles such as: YAGNI (You Aren't Gonna Need It), KISS (Keep It Simple), DRY (Don't Repeat Yourself)
+- if UX involved: follow UX patterns and current design trends
+- if frontend involved: break out the page/component in sub-components to improve maintainability, code quality and readability.
+- if in doubt, explain several potential solutions along with tradeoffs.
 
-Question and Answers:
-`[XYZ]`
+IMPORTANT: in this very chat ask clarifying questions needed to refine the spec
+- Interview me in detail using the `AskUserQuestion` tool.
+- Questions may include tradeoffs, concerns, inconsistencies in project, risks, common cases, happy paths, unhappy paths, edge cases, technical implementation, UI/UX. 
+- Dig into the hard parts I might not have considered.
 
-IMPORTANT: Ask me any clarifying questions needed to refine the specs here in this very chat.
+[backandforth...]
+
+Any additional clarifying questions to refine the specs further ?
+- Interview me in detail using the `AskUserQuestion` tool.
+- Questions may include tradeoffs, concerns, inconsistencies in project, risks, common cases, happy paths, unhappy paths, edge cases, technical implementation, UI/UX. 
+- Dig into the hard parts I might not have considered.
+
+[backandforth...]
+
+Is this plan fully aligned current implementation (existing code base if any)? 
+Or are there some inconsistencies? if so, which ones?
+Update to spec and/or code base may be needed.
+
+[backandforth...]
+
+When you are done writing the specs, use the relevant skills to:
+- Add/Update YAML frontmatter
+- Add/Update implementation status
+- Add/Update a linked Table of Contents
+- Add/Update reading time
 
 ---
 
 Try With Claude:
 
-I want to build [brief description]. Interview me in detail using the AskUserQuestion tool.
-
+I want to build [brief description]. Interview me in detail using the `AskUserQuestion` tool.
 Ask about technical implementation, UI/UX, edge cases, concerns, and tradeoffs. Don't ask obvious questions, dig into the hard parts I might not have considered.
-
 Keep interviewing until we've covered everything, then write a complete spec to SPEC.md.
 
 https://code.claude.com/docs/en/settings#tools-available-to-claude
 
 ---
 
-[answer]
-
-Any other clarifying questions to refine the specs further ?
-
----
-
-# Specs: Check If Aligns With Current Implementation
-
-Do these specs totally aligned with current implementation or there some inconsistencies? if so, which ones?
-
-Do not do any changes. Just answer the question.
-
----
-
-## Specs: Question Only
+## Spec: Question Only
 
 `[QUESTION]` ? 
-
 Do not do any changes. Just answer the question.
 
 [answer]
@@ -323,16 +484,36 @@ Great. Update the specs accordingly
 
 ## Plan: Create Plan Doc From Specs
 
-Create plan `./plans/[FEATURENAME]_PLAN.md` to implement the specs doc you created in `./plans/[FEATURENAME]_SPEC.md`.
+Create plan `./docs/plans/[featurename]_plan.md` to implement the specs doc you created in `./docs/plans/[featurename]_spec.md`.
 
 Make the plan in a way that the plan order matches the implementation order.
 If it includes backend and/or shared packages changes, include the backend plan first, then shared package, then frontend.
 
-IMPORTANT: Ask me any clarifying questions needed to refine the plan here in this very chat.
+IMPORTANT: in this very chat ask clarifying questions needed to refine the plan
+- Interview me in detail using the `AskUserQuestion` tool.
+- Questions may include tradeoffs, concerns, inconsistencies in project, risks, common cases, happy paths, unhappy paths, edge cases, technical implementation, UI/UX. 
+- Dig into the hard parts I might not have considered.
 
-[answer]
+[backandforth...]
 
-Any other clarifying questions to refine the plan further ?
+Any additional clarifying questions to refine the plan further ?
+- Interview me in detail using the `AskUserQuestion` tool.
+- Questions may include tradeoffs, concerns, inconsistencies in project, risks, common cases, happy paths, unhappy paths, edge cases, technical implementation, UI/UX. 
+- Dig into the hard parts I might not have considered.
+
+[backandforth...]
+
+Is this plan fully aligned with the specs and current implementation (existing code base if any)? 
+Or are there some inconsistencies? if so, which ones?
+Update to specs, and/or plan, and/or code base may be needed.
+
+[backandforth...]
+
+When you are done writing the plan, use the relevant skills to:
+- Add/Update YAML frontmatter
+- Add/Update implementation status
+- Add/Update a linked Table of Contents
+- Add/Update reading time
 
 ---
 
@@ -343,14 +524,6 @@ Any other clarifying questions to refine the plan further ?
 - There is only one developer.
 
 Can that make these sections simpler?
-
----
-
-# Plan: Check If Aligns With Specs
-
-Does this plan totally aligned with the specs or there some inconsistencies? if so, which ones?
-
-You may need to update the specs.
 
 ---
 
@@ -373,9 +546,11 @@ Update the specs and plan to reflect the changes.
 
 ## FE Solution Switcher
 
-I wonder if there a better way to do this:
-- follow existing ux patterns, current design trends and best practices
-- Implement 6 solutions that allow me to manually switch from one to another by changing a hardcoded value from 1,2,3,4,5, or 6
+I wonder if there is a better way to do this:
+- Implement 6 solutions that allow me to manually switch from one to another by changing a hardcoded value from 1,2... or 6
+- Follow existing ux patterns, current design trends and best practices
+- Use creative solutions, this may involve using 3rd party libraries
+- In doubt, do not hesitate to ask me !
 
 ---
 
