@@ -13,6 +13,8 @@ Great gains in both quality and quantity/productivity.
 
 Impacts your entire software product development lifecycle
 
+As a developer, your role becomes much more high level, closer to a software architect and a product owner.
+
 ---
 
 # Use Cases on Real-Life Projects

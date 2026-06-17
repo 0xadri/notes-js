@@ -1,10 +1,12 @@
 
-
+git push gitlab main
 
 ---
 
 # Skills Flow For New Feature
 
+- create shared language https://github.com/mattpocock/skills/blob/main/ubiquitous-language/SKILL.md
+- create shared understanding of the change https://github.com/mattpocock/skills/blob/main/grill-me/SKILL.md
 - doc-create-spec
 - doc-review-spec
   - use skill `.claude/skills/doc-review-spec/SKILL.md` to review `SPEC_DOC`
@@ -14,6 +16,16 @@
 - exe-implement-plan
 - exe-review-implementation
   - use skill `.claude/skills/exe-review-implementation/SKILL.md` to review `PLAN_DOC`
+
+
+---
+
+Skills to try
+
+- TDD Skill https://github.com/mattpocock/skills/blob/main/tdd/SKILL.md
+  - lets use TDD: correct/create tests first. Implement after. Use red-green-refactor loop
+  
+- Deepen Architecture with Improve Code Base Skill https://github.com/mattpocock/skills/blob/main/improve-codebase-architecture/SKILL.md
 
 ---
 

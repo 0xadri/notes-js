@@ -56,6 +56,7 @@ Inside session
 - `/rewind`           # Restore the code and/or conversation to a previous point                                                                             
 - `/context`          # Visualize current context usage
 - `/init`             # generate a starter CLAUDE.md file based on your current project structure, then refine over time.
+- `/usage`
 - "Undo that"         # Have Claude revert its changes.
 
 https://code.claude.com/docs/en/cli-reference

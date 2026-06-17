@@ -3,7 +3,7 @@
 
 ---
 
-# Skills
+# Skills Repos
 
 - https://github.com/anthropics/skills - Anthropic Official public repository for Skills
 - https://agentskills.io/ - skills open standard by Anthropic 
@@ -16,6 +16,12 @@
 
 ---
 
+# Skills
+
+- TDD https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md
+
+---
+
 # MCPs
 
 - https://www.lmsystems.ai/ - MCP marketplace
@@ -24,9 +30,11 @@
 
 ---
 
-# Edgar Recommendations
+# Token Usage
 
-- https://www.jointakeoff.com/ 
+Token Usage by AgentView
+- https://www.agentsview.io/
+- https://github.com/kenn-io/agentsview
 
 ---
 
@@ -45,6 +53,8 @@ Task Master - Taskmaster: A task management system for AI-driven development, AI
 
 Course:
 - https://github.com/DataTalksClub/ai-dev-tools-zoomcamp
+
+- Neo4j: From Vibe Coding to Agentic Engineering https://go.neo4j.com/rs/710-RRC-335/images/Keynote_%20From-Vibe-Coding-to-Agentic-Engineering.pptx.pdf
 
 ---
 

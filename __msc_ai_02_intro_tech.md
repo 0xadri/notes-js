@@ -3,10 +3,19 @@
 
 ---
 
+# What AI Does
+
+AI does “best guesses”, it can do that BECAUSE it is non-deterministic (creative).
+
+AI started with text prediction, for coding that meant "fancy code autocomplete".
+
+---
 
 # AI must be configured
 
-AI must be configured - before being used else it goes off rails.
+By default AI does “best guesses”, it can do that BECAUSE it is non-deterministic (creative), so sometimes it goes off rails.
+
+Hence AI must be "configured", guided.
 
 Different possible config points:
  - in rules (permanent)
@@ -32,6 +41,49 @@ Remember: the AI "has amnesia" between chats. You must "refresh its memory" to m
 
 ---
 
+# Plan Mode vs Agent Mode
+
+Plan Mode is just Agent Mode with "just answer. no changes." appended at the end of every prompt - it's a READ ONLY agent.
+
+---
+
+# Tools
+
+Agents use tools to do specific things. Tools can be permissioned (enabled/disabled).
+
+Ask user questions tool —> great for planning, i.e. when drafting specs and plans
+
+---
+
+# AGENTS.md vs CLAUDE.md vs copilot-instructions.md
+
+`AGENTS.md` as the team handbook - self-sufficient, context-rich onboarding guide specifically optimized for machines rather than humans.
+
+`copilot-instructions.md` is often just the same. You may want to simply reference `AGENTS.md`
+
+Contains:
+- Project overviews
+- build and testing commands
+- code style guidelines
+- security guardrails
+- constraints.
+
+---
+
+# SDD aka Spec Driver Development
+
+AI-driven SWE practice typically involving three steps: create specs document, then a plan document, and finally implement. 
+
+Catch mistakes as early as you can
+- The plan doc depends on the specs doc, so every mistake or omission you make in the specs doc trickles down to the plan doc.
+- Similarly, implementation depends on the plan doc so every mistake or omission you make in the plan doc trickles down to the implementation.
+
+If the change is small enough, you may put specs and plan in a single document.
+
+Recommended maximum total time from drafting specs doc to finished implementation: 6 hours. If longer, your change might be too big.
+
+---
+
 # Does context get full by the number of words, or complexity of words, or a combination of both, or something else?
 
 All modern LLMs track context size using tokens.
@@ -46,10 +98,26 @@ What doesn’t matter
 
 ---
 
+# Mental Model: Prompts vs Scripts
+
+Two ways to automate something either scripting or AI prompting. 
+
+A small prompt is kind of a small script, except it “costs” a lot more.
+
+Prompts are to autonomous agents what scripts are to software: plugging small scripts into one another creates an entire software , plugging small prompts into one another creates autonomous agents
+
+---
+
 # Prompting
 
 TODO: Look further into guardrails
 TODO: Look further into scope
+
+Prevent drift: continuously double check spec/plan is fully aligned, fully in sync with codebase, etc.
+
+Prompt with as many constraints as possible.
+
+Resolve questions before code starts: that’s when decisions are cheap.
 
 Before executing prompt, ask if there are conflicting instructions?
 
@@ -156,6 +224,20 @@ For specs and reqs: AI tends to mix up many topics tho, so I prefer to rewrite t
 For coding: I never do "big asks" as I noticed it easily gets carried away and hallucinates, I never let it "think and code" the goal I ask to reach for more than 2-3min. This makes sure 1/ my prompt, goal(s), context, rules, and guardrails are well-defined and 2/ the scope of the task is well-limited, and 3/ I can catch mistakes/omissions and review the code in a reasonable amount of time.
 
 For Quality: overall, it definitely helps to find potential improvements, find potential critical issues, improve web app performances, and more.
+
+---
+
+# TODO
+
+Add scripts to skills to avoid AI when possible (i.e. bc date issue) and to reduce token usage.
+
+Chars = Tokens -> so write docs as succint as possible, and use readable abbreviations as often as possible.
+
+Does TOC help LLMs to jump straight to the part of the docs that is relevant ? or do they read everything no matter what?
+
+Docs frontmatter: add filesize in tokens ?
+
+Claude has built in tools. Is it possible to create tools ?
 
 
 
