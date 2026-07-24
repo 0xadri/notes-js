@@ -30,9 +30,11 @@
 * [React 12: Testing: Mocha Chai](_reactjs_testing_mocha_chai.md)
 * [React 13: Testing: RTL](_reactjs_testing_rtl.md)
 
-## Node, Next, Bundler, More
+## Platform, Tooling & More
 
 * [HTML+CSS](__msc_html-css.md)
+* [Git](__msc_git.md)
+* [WezTerm](__msc_wezterm.md)
 * [Node.js: Environment Variables](__msc_node_env_variables.md)
 * [Node.js: Express API Microservices](__msc_node__express_api_microservices.md)
 * [Next.js](__msc_nextjs.md)
@@ -51,11 +53,22 @@
 * [AI 01: Intro for Laymen](__msc_ai_01_intro_laymen.md)
 * [AI 02: Intro for Techies](__msc_ai_02_intro_tech.md)
 * [AI 03: Docs, Plans, Specs](__msc_ai_03_docs_plans_specs.md)
-* [AI 04: Claude](__msc_ai_04_claude.md)
-* [AI 05: Cursor](__msc_ai_05_cursor.md)
-* [AI 06: BMAD Method](__msc_ai_06_bmad_method.md)
-* [AI 07: Links](__msc_ai_07_links.md)
-* [AI 99: Common Prompts](__msc_ai_99_common_prompts.md)
+* [AI 04: AGENTS.md & CLAUDE.md](__msc_ai_04_AGENTSdotmd.md)
+* [AI 05: Code Reviews](__msc_ai_05_code_review.md)
+* [AI 06: Agent Skills](__msc_ai_05_skills.md)
+* [AI 20: LLMs Intro](__msc_ai_20_llms.md)
+* [AI 21: OpenCode](__msc_ai_21_opencode.md)
+* [AI 22: Claude Code](__msc_ai_22_claudecode.md)
+* [AI 23: Cursor](__msc_ai_23_cursor.md)
+* [AI 24: Copilot](__msc_ai_24_copilot.md)
+* [AI 70: SDD Frameworks](__msc_ai_70_sdd_framekorks.md)
+* [AI 71: BMAD Intro](__msc_ai_71_sdd_bmad_method.md)
+* [AI 72: SDD Mini](__msc_ai_72_sdd_mini_jazz.md)
+* [AI 75: AXI & No-Mistakes](__msc_ai_75_axi_no-mistakes_treehouse.md)
+* [AI 80: Common Prompts](__msc_ai_80_common_prompts.md)
+* [AI 81: SVG Icons](__msc_ai_81_svg_icons.md)
+* [AI 90: Glossary](__msc_ai_90_glossary.md)
+* [AI 91: Links](__msc_ai_91_links.md)
 
 ## Live Coding Interviews
 
@@ -80,3 +93,4 @@
 * [Qs: Patterns & Architecture](__intrvw_qs_10_patterns_n_archi_js_react.md)
 * [Qs: Project Management](__intrvw_qs_11_project_mgmt.md)
 * [Qs: Memory](__intrvw_qs_12_memory.md)
+* [Qs: AI](__intrvw_qs_13_ai.md)
