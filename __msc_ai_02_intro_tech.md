@@ -7,7 +7,9 @@
 
 AI does “best guesses”, it can do that BECAUSE it is non-deterministic (creative).
 
-AI started with text prediction, for coding that meant "fancy code autocomplete".
+AI started with basic text prediction, for coding that meant "fancy code autocomplete".
+
+Then predictions became more proactive, better at finding out intent.
 
 ---
 
@@ -21,6 +23,25 @@ Different possible config points:
  - in rules (permanent)
  - in commands/skills (occasional)
  - in the prompt itself (one off)
+
+---
+
+# Harness
+
+In AI-assisted development terminology, a **harness** is the software layer that wraps an LLM and turns it into an agent by managing the loop, tools, state, and guardrails. 
+
+It is often described as the **runtime/controller** around the model, not the model itself.
+
+## Meaning
+A harness typically handles plan → act → observe → repeat, and can call tools like files, shell commands, APIs, or repo operations on the model’s behalf. 
+
+It also manages context and enforces limits such as timeouts, budgets, and policy checks.
+
+## In practice
+
+People may also use “harness” more broadly to mean the infrastructure around AI coding tools such as Copilot, Claude Code, or internal agent systems. 
+
+In that sense, the harness is what makes the model usable as a practical coding assistant.
 
 ---
 

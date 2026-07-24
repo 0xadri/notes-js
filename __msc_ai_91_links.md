@@ -3,25 +3,6 @@
 
 ---
 
-# Skills Repos
-
-- https://github.com/anthropics/skills - Anthropic Official public repository for Skills
-- https://agentskills.io/ - skills open standard by Anthropic 
-- https://skillsmp.com/
-- https://smithery.ai/skills
-- https://mcpmarket.com/tools/skills
-- https://www.skillsdirectory.com/
-- https://mcpservers.org/claude-skills
-- https://github.com/travisvn/awesome-claude-skills
-
----
-
-# Skills
-
-- TDD https://github.com/addyosmani/agent-skills/blob/main/skills/test-driven-development/SKILL.md
-
----
-
 # MCPs
 
 - https://www.lmsystems.ai/ - MCP marketplace
