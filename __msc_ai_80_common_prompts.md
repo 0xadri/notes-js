@@ -1,21 +1,19 @@
 
-git push gitlab main
 
----
+Leading words - write prompts and skills with leading words
 
-# Skills Flow For New Feature
+Vertical slice
+Horizontal slice
+Drift
+Align
+Consistency
 
-- create shared language https://github.com/mattpocock/skills/blob/main/ubiquitous-language/SKILL.md
-- create shared understanding of the change https://github.com/mattpocock/skills/blob/main/grill-me/SKILL.md
-- doc-create-spec
-- doc-review-spec
-  - use skill `.claude/skills/doc-review-spec/SKILL.md` to review `SPEC_DOC`
-- doc-create-plan
-- doc-review-plan
-  - use skill `.claude/skills/doc-review-plan/SKILL.md` to review `PLAN_DOC`
-- exe-implement-plan
-- exe-review-implementation
-  - use skill `.claude/skills/exe-review-implementation/SKILL.md` to review `PLAN_DOC`
+
+
+What is the smallest change you can make to achieve the goal (whether fix or feature)?
+
+
+Try understand our intent, do this by looking at all changes <periodOrIdentifier> i.e. made on this branch, made in my last X commits
 
 
 ---
@@ -28,35 +26,6 @@ Skills to try
 - Deepen Architecture with Improve Code Base Skill https://github.com/mattpocock/skills/blob/main/improve-codebase-architecture/SKILL.md
 
 ---
-
-# orchestrator skill ??
-
-When creating a new feature for my web app, I run these skills sequentially
-
-- doc-create-spec
-- doc-review-spec
-- doc-create-plan
-- doc-review-plan
-- exe-implement-plan
-- exe-review-implementation
-
-Is there a way to make this somehow harmonious? or improve the flow somehow?
-maybe we could package them so that the flow feels more natural
-maybe you have ideas on how to improve this?
-maybe you have ideas on how it could be used by a fully autonomous agent as well?
-maybe you have other ideas on how this could be used?
-
-no changes. just answer
-
-
-TLDR: The best approach might be: create an orchestrator skill that internally uses your templates, with both interactive and autonomous modes. One skill call, flexible behavior, repeatable standard.                                                                                                         
-
----
-
-
-
-
-
 
 # Common Prompts
 

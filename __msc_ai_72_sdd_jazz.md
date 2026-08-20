@@ -2,7 +2,7 @@
 
 ---
 
-# SDD Mini
+# SDD Jazz
 
 ---
 

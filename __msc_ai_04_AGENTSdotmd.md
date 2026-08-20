@@ -1,6 +1,11 @@
 
-# AGENTS.md and CLAUDE.md
+# AGENTS.md matters a ton
 
+This file is ULTRA important.
+
+The content of the file is loaded in the context of every single prompt.
+
+Every hour spent on improving this file is worth 10s of hours.
 
 
 # AGENTS.md superior to CLAUDE.md

@@ -1,5 +1,27 @@
 
+
 # Agent Skills
+
+Agent Skills are great to achieve consistency. Humble beginnings: start with very short skills, then iterate.
+
+Situations in which you may want to create an agent skill:
+- a 1-5 lines long prompt you run 3+ times per week, you want a shortcut
+- a 6+ lines long prompt you run 1+ time per week, you want 1/ a shortcut 2/ to iterate on it to make it more efficient 3/ achieve consistency across runs
+
+
+
+## Best Practices When Creating Agent Skills
+
+- Start small - your ego is not your amigo
+- Build many tiny skills
+- Grow slowly - use the skill a lot, build trust and experience, and only when it feels mature and stable, then iterate
+- Keep instructions concise - consider using caveman-like tool
+- Agents are verbose, if an agent helps you create the skill, instruct it to "make the smallest possible change"
+- Provide the least paths possible - this may confuse the agent
+- Provide the least loops possible
+- Guide the user as much as possible - highlight important info in tiny table of 1 cell if needed
+- Only use name and description in the frontmatter -> so it's supported across harnesses
+
 
 
 ## Agent Skills Finders
@@ -30,7 +52,7 @@
 
 - https://github.com/obra/superpowers
 
-- https://www.skills.sh/vercel-labs/agent-skills/
+- https://www.skills.sh/vercel-labs/agent-skills/ --> Vercel
 
 - https://github.com/affaan-m/
 
@@ -42,8 +64,13 @@
 
 - https://github.com/addyosmani/agent-skills/
 
-- https://github.com/anthropics/skills/
+- https://github.com/anthropics/skills/ --> Anthropic
 
+- https://github.com/cursor/plugins --> Cursor
+
+- https://github.com/cursor/plugins/tree/main/pstack
+
+- https://github.com/t3dotgg --> videos on https://youtube.com/@t3dotgg
 
 
 ## Favorites Skills
