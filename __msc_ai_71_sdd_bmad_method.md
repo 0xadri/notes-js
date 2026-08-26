@@ -28,9 +28,17 @@ If you are on a brownfield project, you prob want to run:
 
 ---
 
-# BMAD Favorites
+# Generate Docs With BMAD
 
-**document-project** workflow: scans project w effort of your liking (quick/deep), creates docs -- this workflow is in the BMM module
+Once install is over, if you are on a Brownfield Project, you prob want to do:
+
+- open copilot, run: `/bmad-document-project`
+
+Once you finished using BMAD, you prob want to remove all the files and directories created by BMAD installation:
+  - `_bmad`
+  - `_bmad-output`
+  - `.agents/skills/bmad*`
+  - `.github/agents/bmad*`
 
 ---
 

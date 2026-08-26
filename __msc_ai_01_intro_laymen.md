@@ -116,5 +116,31 @@ Reasoning → text shown by the AI when thinking.
 
 Close The Loop = Close The Feedback Loop = Code Quality Check = Code Quality Gate = Gate
 
+Harness → loose term to mean various things, it often means:
+- the CLI or IDE you use to code with AI, aka your Coding Agent
+- your entire AI assisted coding setup
+
 ---
+
+# Food For Thoughts
+
+**What is most important in an AI company? Is the value mostly on its LLMs, or its harnesses?**
+
+Well, some facts can help:
+- in August 2026 Cursor was acquired for $60 Billion
+- in May 2026 Anthropic was valued at $1 Trillion
+- in March 2026 OpenAI was valued at $900 Billion
+
+Anthropic has its own CLI.
+OpenAI has its own CLI and IDE.
+
+Cursor hit over 1 million DAU and hitting $2.0 billion in annualized recurring revenue (ARR) by early 2026.
+
+OpenAI hit over 130 million DAU, $25 Billion revenue, but still $50 Billion loses.
+
+All the stats are known to be manipulated tho. So to be taken with a pinch of salt.
+
+More or less we could guesstimate that the CLI and/or IDE are a fraction of the valuation.
+
+Even then it makes cursor valuation seem incredibly high
 
