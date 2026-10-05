@@ -2,7 +2,8 @@
 
 # Agent Skills
 
-Agent Skills are great to achieve consistency. Humble beginnings: start with very short skills, then iterate.
+Agent Skills are awesome to try to have answers/results that are more consistent, more deterministic. 
+Humble beginnings: start with very short skills, then iterate.
 
 Situations in which you may want to create an agent skill:
 - a 1-5 lines long prompt you run 3+ times per week, you want a shortcut

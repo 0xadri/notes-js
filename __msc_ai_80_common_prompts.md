@@ -12,13 +12,25 @@ Consistency
 
 What is the smallest change you can make to achieve the goal (whether fix or feature)?
 
-
 Try understand our intent, do this by looking at all changes <periodOrIdentifier> i.e. made on this branch, made in my last X commits
-
 
 ---
 
-Skills to try
+# Matrix Tables
+
+Routes/Endpoints: Make a matrix table of all the routes and indicate which ones require authentication, which ones do not, which ones may have security issues
+
+Emails: Make matrix table of all the emails we send out, with html copy and text copy as some of the included columns 
+
+Notifications: We want to notify the user of any changes in his trips, whether he is a passenger or driver. Make a matrix table of all the changes that can happen in a user's trip whether he is a driver or passenger, add the ref to the notification emitted and the email sent, and add a relevant comment if no notification is emitted
+
+Phone Number Privacy Leak: Go through all the emails we send and make a matrix table where you indicate when you send out the other party's phone number. I believe you can find most (all?) the emails we send out in this dir packages/backend/src/services 
+
+Agent Skills Comparison: make matrix table to get a clarity on key differences between agent skills exe-prototype-ux-basic and exe-prototype-ux
+
+---
+
+# Skills to try
 
 - TDD Skill https://github.com/mattpocock/skills/blob/main/tdd/SKILL.md
   - lets use TDD: correct/create tests first. Implement after. Use red-green-refactor loop

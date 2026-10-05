@@ -32,7 +32,7 @@ If you are on a brownfield project, you prob want to run:
 
 Once install is over, if you are on a Brownfield Project, you prob want to do:
 
-- open copilot, run: `/bmad-document-project`
+- open your harness, run: `/bmad-document-project`
 
 Once you finished using BMAD, you prob want to remove all the files and directories created by BMAD installation:
   - `_bmad`

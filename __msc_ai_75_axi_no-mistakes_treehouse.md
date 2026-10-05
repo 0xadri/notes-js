@@ -273,3 +273,151 @@ Daemon is lab manager staying on duty.
 
 
 
+
+---
+---
+---
+
+
+# Treehouse
+
+> Explain in details a typical workflow if I work with 3 tasks, when to create what branch, when to call treehouse, when to commit, when to push, when/how to merge worktree changes back and with which branch, etc. step by step 
+https://github.com/kunchenguid/treehouse
+
+### Setup: 3 Parallel Tasks (A, B, C)
+
+Scenario has 3 tasks: `feat/task-a`, `feat/task-b`, and `feat/task-c`.
+Base branch is `main`.
+
+---
+
+### Step 1: Prep main repo
+
+Open terminal in main repo root.
+Run `git fetch origin main`.
+Ensure working tree is clean.
+
+---
+
+### Step 2: Acquire worktrees (3 terminal windows or tabs)
+
+Open 3 terminal tabs.
+
+In Tab 1:
+Run `treehouse`.
+Subshell opens in worktree 1 on detached HEAD at latest `main`.
+
+In Tab 2:
+Run `treehouse`.
+Subshell opens in worktree 2 on detached HEAD at latest `main`.
+
+In Tab 3:
+Run `treehouse`.
+Subshell opens in worktree 3 on detached HEAD at latest `main`.
+
+*(Alternative without subshells: run `path=$(treehouse get --lease)` in scripts or background agents).*
+
+---
+
+### Step 3: Create feature branches inside each worktree
+
+Repo policy forbids committing directly on detached HEAD or `main`.
+Create feature branch immediately after entering worktree.
+
+Tab 1:
+Run `git checkout -b feat/task-a`.
+
+Tab 2:
+Run `git checkout -b feat/task-b`.
+
+Tab 3:
+Run `git checkout -b feat/task-c`.
+
+---
+
+### Step 4: Run agents & work concurrently
+
+Start agent or coding in each tab.
+
+Tab 1 works on Task A.
+Tab 2 works on Task B.
+Tab 3 works on Task C.
+
+**Crucial OutKrew project caution:**
+Worktrees share PostgreSQL database and network ports if running live backend servers or integration tests.
+Run frontend tests and backend unit tests independently per worktree.
+Do NOT run backend integration tests simultaneously across worktrees against same test DB.
+
+---
+
+### Step 5: Verify, commit, and push in each worktree
+
+When task finishes in a tab, verify changes first.
+Run typecheck, lint, and relevant unit tests.
+Stage files and commit on the feature branch.
+Run `git push -u origin feat/task-a` (or `task-b`, `task-c`).
+
+---
+
+### Step 6: Merge changes back
+
+Do NOT merge branches directly inside the temporary worktree.
+Merge happens through remote pull request or git merge into `main`.
+
+Open GitHub PR for each pushed branch.
+Review and merge PR into `main` on GitHub.
+
+If merging locally instead of GitHub PR:
+Switch back to main repo terminal.
+Run `git checkout main && git pull origin main`.
+Run `git merge --no-ff feat/task-a`.
+Push updated `main` to remote.
+
+---
+
+### Step 7: Clean up and return worktree to pool
+
+Once branch is pushed to remote, worktree job is done.
+
+In each tab:
+Type `exit`.
+Treehouse terminates lingering background processes automatically.
+Treehouse resets worktree and returns slot back to pool for next tasks.
+Unmerged work alert triggers if uncommitted changes remain.
+
+If leased via `--lease`:
+Run `treehouse return <worktree-path>`.
+
+---
+
+### Step 8: Update main repo for next round
+
+Return to main checkout terminal.
+Run `git checkout main && git pull origin main`.
+Optionally delete local feature branches (`git branch -d feat/task-a`).
+Pool worktrees are now cached, pre-built, and ready for next batch.
+
+
+---
+
+> Just seems like the same as when working with regular branches. Isnt it?
+
+Git branch flow same, file system reality completely different.
+
+With regular branches:
+Only one branch checked out in folder at a time.
+Switching branches rewrites files on disk.
+Three agents in same folder overwrite each other's active files.
+Uncommitted edits block branch switches unless stashed.
+
+With Treehouse worktrees:
+Three separate directories on disk at same time.
+All three share same .git history without extra clones.
+Three agents edit, build, and test simultaneously without collision.
+node_modules and build caches preserved across pool reuse.
+
+Short version:
+Branches organize commits.
+Worktrees give parallel physical folders for concurrent agents.
+
+
