@@ -10,25 +10,35 @@ Tons of LLMs/Models and counting.
 
 # Quick Comparison
 
-Sonnet = GPT-5.4 = GLM-5.2
-Opus = GPT-5.5 = 
-Fable = GPT-5.6 Sol
+As of August 2026:
+- `Sonnet` = `GPT-5.4` = `GLM-5.2`
+- `Opus` = `GPT-5.5`
+- `Fable` = `GPT-5.6 Sol`
 
-## Fable vs GPT-5.6 Sol
+## `Fable` vs `GPT-5.6 Sol`
 
-- for agentic coding, public numbers favor GPT-5.6 Sol over Claude Fable 5 overall.
+As of September 2026:
+- For agentic coding, public numbers favor GPT-5.6 Sol over Claude Fable 5 overall.
 - For some classic code-generation benchmarks, Fable 5 still looks stronger.
 - If you use tools, terminal, subagents, big context, repo navigation: GPT-5.6 Sol
 - If you care most about classic software issue resolution benchmark style: Claude Fable 5 still very serious contender
+
+## `Muse Spark 1.3` vs `Sonnet 5.5` vs `GLM-5.3` vs `GLM-5.3-Flash`
+
+As of October 2026:
+1. `Sonnet 5.5` 🥇
+2. `Muse Spark 1.3` 🥈
+3. `GLM-5.3` 🥉
+4. `GLM-5.3-Flash`
 
 ---
 
 # Z.ai/Zhipu GLMs
 
 As of October 2026:
-- GLM-5.3 — 10x higher token usage - (flagship) long-horizon execution.
-- GLM-5.3-Flash - 1x (Baseline) - regular software engineering
-- GLM-5.3-FlashX - 2x higher token usage -  regular software engineering with ultra-low latency coding loops
+- `GLM-5.3` — 10x higher token usage - (flagship) long-horizon execution.
+- `GLM-5.3-Flash` - 1x (Baseline) - regular software engineering
+- `GLM-5.3-FlashX` - 2x higher token usage -  regular software engineering with ultra-low latency coding loops
 
 Zhipu AI models are roughly 3x to 10x cheaper than their OpenAI API counterparts across similar capability tiers. 
 
@@ -39,9 +49,17 @@ https://docs.z.ai/
 # Google Gemini
 
 As of October 2026:
-- Gemini 3.8 Flash - 2.5x to 3.0x higher token usage - for long-horizon software engineering
-- Gemini 3.5 Flash - 1x (Baseline) - for agentic developer workflows
-- Gemini 3.6 Flash - 0.83x – 0.85x lower - for faster agentic developer workflows
+- `Gemini 3.8 Flash` - 2.5x to 3.0x higher token usage - for long-horizon software engineering
+- `Gemini 3.5 Flash` - 1x (Baseline) - for agentic developer workflows
+- `Gemini 3.6 Flash` - 0.83x – 0.85x lower - for faster agentic developer workflows
+
+---
+
+# Meta Muse and Llama
+
+- `Muse Spark 1.3` - long-horizon execution
+- `Llama 4 Maverick`
+- `Llama 4 Scout`
 
 ---
 
